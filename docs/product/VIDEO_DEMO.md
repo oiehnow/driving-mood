@@ -2,7 +2,7 @@
 
 [실제 Android 앱 화면](APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.2)
 
-새 주행 영상 4개에서 각각 60초를 관측했다. 실제 프레임 240개의 조명·사람·하늘 근거를 공용 점수기로 계산하고, 같은 시간 구간에 들어온 표본은 하나만 사용해 236개 대표 구간을 누적했다.
+실제 차량 주행 영상과 이미지 자료들을 바탕으로 장면 다양성을 보강했다. 주행 영상의 조명·사람·하늘 근거를 공용 점수기로 계산하고, 같은 시간 구간의 중복 표본을 제외해 관측을 누적했다.
 
 ![밤 도심의 관측 영역과 실제 기여 점수](assets/driving-v4/full-03-observation.gif)
 
@@ -48,4 +48,4 @@
 | 밤 도심 | [CSV](assets/driving-v4/full-03-regions.csv) | [JSON](assets/driving-v4/full-03-score-evidence.json) |
 | 흐린 도로 | [CSV](assets/driving-v4/full-04-regions.csv) | [JSON](assets/driving-v4/full-04-score-evidence.json) |
 
-[입력·영상 해시와 구간 기록](assets/driving-v4/video-observation-manifest.json) · [원본 영상 출처](assets/driving-v4/ATTRIBUTION.md) · [기존 6영상 시연](VIDEO_DEMO-v3.md) · [점수 설계](MOOD_SCORING.md)
+[입력·영상 해시와 구간 기록](assets/driving-v4/video-observation-manifest.json) · [원본 영상 출처](assets/driving-v4/ATTRIBUTION.md) · [기존 주행 시연](VIDEO_DEMO-v3.md) · [점수 설계](MOOD_SCORING.md)

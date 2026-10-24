@@ -8,7 +8,7 @@
 
 ## 보존한 비교 기준
 
-- [초기 평가 사진 5장과 출처](../vision/evaluation/ATTRIBUTION.md)
+- [초기 평가 사진과 출처](../vision/evaluation/ATTRIBUTION.md)
 - [초기 객체 검출 결과](../vision/evaluation/model-results.json)
 - [초기 픽셀 측정값](../vision/evaluation/pixel-results.tsv)
 - [실제 주행 영상의 분할·계산 결과](DRIVING_DEMO.md)
