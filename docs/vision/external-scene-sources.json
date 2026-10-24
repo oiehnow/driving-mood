@@ -1,0 +1,1065 @@
+{
+  "schemaVersion": 1,
+  "purpose": "External scene diversity pool; not pixel or mood ground truth",
+  "downloaded": 43,
+  "primaryReview": 38,
+  "auxiliary": 3,
+  "excluded": 2,
+  "creatorGroups": 38,
+  "originalFiles": 6,
+  "officialRenditions": 37,
+  "splitAssigned": false,
+  "newTraining": false,
+  "reviewMethod": "AI-assisted visual review of actual downloaded photographs",
+  "photos": [
+    {
+      "id": "commons-103085841",
+      "condition": "dawn",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dawn_sky_King_George_Square_Brisbane_P1140967.jpg",
+      "author": "John Robert McPherson",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "original",
+      "downloadedWidth": 4000,
+      "downloadedHeight": 3000,
+      "downloadedSha256": "c4406cf4979922afaf3717362199b173efb9f15d3db9ebd2b54b2ebc0167cbae",
+      "commonsSha1": "990c2dc57c33d9feba518da9d37897b4af83ae00",
+      "authorGroup": "author-0bcd4dd0216b8208",
+      "attributionLine": "Dawn sky King George Square Brisbane P1140967.jpg — John Robert McPherson — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Dawn_sky_King_George_Square_Brisbane_P1140967.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "blue_sky",
+          "urban_buildings"
+        ],
+        "note": "시계탑·도심과 푸른 하늘. 여명 시각은 출처 설명이며 사진만으로 확정하지 않음."
+      },
+      "sourceRevisionId": 888979830
+    },
+    {
+      "id": "commons-71459637",
+      "condition": "dawn",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cape_Town_dawn_cityscape_with_Table_Mountain.jpg",
+      "author": "Daniel Case",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "downloadVariant": "original",
+      "downloadedWidth": 5160,
+      "downloadedHeight": 2892,
+      "downloadedSha256": "f133bad8acc1d51b9d91c01375b2651b3b31779e32cb40c7c54cc3cd6d569c1b",
+      "commonsSha1": "3b3e5699e9790efc16ee75d1e3819fa281857389",
+      "authorGroup": "author-225e5fd9b92453d1",
+      "attributionLine": "Cape Town dawn cityscape with Table Mountain.jpg — Daniel Case — CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0 — https://commons.wikimedia.org/wiki/File:Cape_Town_dawn_cityscape_with_Table_Mountain.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "blue_sky",
+          "golden_building_light",
+          "cityscape"
+        ],
+        "note": "산과 도심, 건물에 따뜻한 빛. 여명은 출처 주장. 주행 카메라 시점과 다름."
+      },
+      "sourceRevisionId": 1257849440
+    },
+    {
+      "id": "commons-130914209",
+      "condition": "sunrise",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Giant_tarpaulin_covering_a_road_under_construction_at_sunrise_with_a_colorful_sky_in_Don_Det_Laos.jpg",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "original",
+      "downloadedWidth": 6254,
+      "downloadedHeight": 4169,
+      "downloadedSha256": "bef81f12b594a65dffa00d61f6d9f201058ffd36cf5a3349542fa0da834b933b",
+      "commonsSha1": "37ff1faef6f0871871dcfe05163d6dc18a62f685",
+      "authorGroup": "author-feb641b2afeb35c3",
+      "attributionLine": "Giant tarpaulin covering a road under construction at sunrise with a colorful sky in Don Det Laos.jpg — Basile Morin — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Giant_tarpaulin_covering_a_road_under_construction_at_sunrise_with_a_colorful_sky_in_Don_Det_Laos.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "orange_clouds",
+          "rural_construction_path"
+        ],
+        "note": "따뜻한 구름과 공사 방수포가 보임. 일반 포장도로와 다르고 일출 시각은 출처 주장."
+      },
+      "sourceRevisionId": 1144481980
+    },
+    {
+      "id": "commons-94851551",
+      "condition": "sunrise",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:West_coast_Fire_sky_sunrise_Mequon_WI_Bonniwell_Road_September_18th_2020.jpg",
+      "author": "Reneebrandt",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "original",
+      "downloadedWidth": 1080,
+      "downloadedHeight": 1080,
+      "downloadedSha256": "620fa7700aee98d3a4855d391c182b95e6b91788155ecf34823dfed3310320f4",
+      "commonsSha1": "5eca6a17d559b90deea2fe674e63bd0e85891528",
+      "authorGroup": "author-79c16973900c3728",
+      "attributionLine": "West coast Fire sky sunrise Mequon WI Bonniwell Road September 18th 2020.jpg — Reneebrandt — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:West_coast_Fire_sky_sunrise_Mequon_WI_Bonniwell_Road_September_18th_2020.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "red_orange_clouds",
+          "tree_lined_road"
+        ],
+        "note": "수목 사이 도로와 강한 붉은·주황 구름. 작은 원본과 강한 색 표현; 화재 연무/일출 설명은 출처 주장."
+      },
+      "sourceRevisionId": 1118298220
+    },
+    {
+      "id": "commons-46526067",
+      "condition": "golden_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ordubad_sun_sunset_gunes_gunbatimi_golden_clouds_landscapes_svln4821.jpg",
+      "author": "Svln4821",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "original",
+      "downloadedWidth": 3920,
+      "downloadedHeight": 2204,
+      "downloadedSha256": "8755ceff8c555f138d862f07be1ca84532add913b7e678e0779d65be72519062",
+      "commonsSha1": "821e7659d741d1c1e1fa8583ddaa82fab4030c87",
+      "authorGroup": "author-0d443d0594ce4dfa",
+      "attributionLine": "Ordubad sun sunset gunes gunbatimi golden clouds landscapes svln4821.jpg — Svln4821 — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Ordubad_sun_sunset_gunes_gunbatimi_golden_clouds_landscapes_svln4821.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "orange_pink_sky",
+          "streetlight_silhouette"
+        ],
+        "note": "주황·분홍 구름이 주로 보임. 금빛 노을 가설을 그대로 정답으로 채택하지 않음. 이미지 내 워터마크 보존."
+      },
+      "sourceRevisionId": 1107300858
+    },
+    {
+      "id": "commons-62766446",
+      "condition": "golden_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge,_New_York_City,_New_York,_at_sunset_-_20170625.jpg",
+      "author": "Mclovin1103",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "original",
+      "downloadedWidth": 2048,
+      "downloadedHeight": 1536,
+      "downloadedSha256": "175ba3013558d8500ae95b350f2138fcd35c55c0ecfe8f65c59003836b6932fc",
+      "commonsSha1": "279a5ec3368134b1f0db88e06b697a373f42f814",
+      "authorGroup": "author-e0a757bb510e92ff",
+      "attributionLine": "Brooklyn Bridge, New York City, New York, at sunset - 20170625.jpg — Mclovin1103 — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge,_New_York_City,_New_York,_at_sunset_-_20170625.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "golden_sky",
+          "city_silhouette",
+          "water_reflection"
+        ],
+        "note": "강한 금빛 역광의 도시·교량·수면. 색 보정 가능성과 비주행 시점에 유의."
+      },
+      "sourceRevisionId": 1059905298
+    },
+    {
+      "id": "commons-94248573",
+      "condition": "red_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Smoke_from_the_2020_California_wildfires_tinting_the_sunset_red_on_the_Swedish_west_coast_3.jpg",
+      "author": "W.carter",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 763,
+      "downloadedSha256": "50769433484775dcfec9f5afb2df7cd000b594431a6af705213335686dd8d111",
+      "commonsSha1": "c258b20888d471015172453188849fc41e3bb769",
+      "authorGroup": "author-f59c767bd5ad0ff7",
+      "attributionLine": "Smoke from the 2020 California wildfires tinting the sunset red on the Swedish west coast 3.jpg — W.carter — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Smoke_from_the_2020_California_wildfires_tinting_the_sunset_red_on_the_Swedish_west_coast_3.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "orange_red_horizon",
+          "water_silhouette"
+        ],
+        "note": "수평선의 붉은 띠와 주황 하늘. 산불 연기·촬영 시각 설명은 출처 주장."
+      },
+      "sourceRevisionId": 1199308942
+    },
+    {
+      "id": "commons-116480633",
+      "condition": "red_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Red_sky_at_sunset,_Heald_Green.jpg",
+      "author": "Benjamin Shaw",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 672,
+      "downloadedSha256": "fae380814a420411dec32cd416e33b9f2915fa34ab7ee6dd009838a83c411b9f",
+      "commonsSha1": "246fd375a80d94d8d1451f0b84288e1207e9634a",
+      "authorGroup": "author-6c41dd0c98b75351",
+      "attributionLine": "Red sky at sunset, Heald Green.jpg — Benjamin Shaw — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Red_sky_at_sunset,_Heald_Green.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "red_pink_sky",
+          "road",
+          "vehicle_headlights",
+          "shop_facades"
+        ],
+        "note": "붉은·분홍 하늘과 도로·상점 외벽·차량 전방등이 함께 보이는 혼합 장면."
+      },
+      "sourceRevisionId": 1104486297
+    },
+    {
+      "id": "commons-51302097",
+      "condition": "pink_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Washington_Monument_under_a_pink_sunset.jpg",
+      "author": "Harrison Jones",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 853,
+      "downloadedSha256": "40fd19342711daadfc0aa0babc85f51d21f74588408ac02a39586f5aadb9beb9",
+      "commonsSha1": "e447acbfea0131325c19b52cf35c303289f356c2",
+      "authorGroup": "author-29e473057fcb06cc",
+      "attributionLine": "Washington Monument under a pink sunset.jpg — Harrison Jones — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Washington_Monument_under_a_pink_sunset.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "pink_purple_clouds",
+          "monument"
+        ],
+        "note": "분홍·보라 구름과 기념탑. 주행 시점이 아니며 색 보정 여부를 사진만으로 확정하지 않음."
+      },
+      "sourceRevisionId": 1249015090
+    },
+    {
+      "id": "commons-82423055",
+      "condition": "pink_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pink_sunset_over_the_Duomo.jpg",
+      "author": "Vanessa Namdar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1707,
+      "downloadedSha256": "86cfad6647eef234cf870e79f7964be828b5be85946b7b3d2563e0b53e2c7093",
+      "commonsSha1": "9a1913946b1d57d96a62d623107e462d30ad7851",
+      "authorGroup": "author-90d4fd2c36819419",
+      "attributionLine": "Pink sunset over the Duomo.jpg — Vanessa Namdar — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Pink_sunset_over_the_Duomo.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "pink_orange_clouds",
+          "large_building"
+        ],
+        "note": "성당 상부와 분홍·주황빛 구름. 하늘/건축물 경계 예시."
+      },
+      "sourceRevisionId": 1097822659
+    },
+    {
+      "id": "commons-108901270",
+      "condition": "purple_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sunset_near_ocean_with_pink_and_purple_sky.jpg",
+      "author": "Joshchamas",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 853,
+      "downloadedSha256": "1bb18d6b5ef66d76bb7bad5dd4ef600f279d58cc08506517d17ecf799b4ff537",
+      "commonsSha1": "0cdaa9f66c79d7d9766a974bf46ba7cba0de172c",
+      "authorGroup": "author-55ea8bff13437842",
+      "attributionLine": "Sunset near ocean with pink and purple sky.jpg — Joshchamas — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Sunset_near_ocean_with_pink_and_purple_sky.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "purple_clouds",
+          "orange_horizon",
+          "coast"
+        ],
+        "note": "보라 구름과 따뜻한 수평선이 공존. 노을 색은 혼합 관측이며 단일 감성 라벨 아님."
+      },
+      "sourceRevisionId": 1071434416
+    },
+    {
+      "id": "commons-139631600",
+      "condition": "purple_sunset",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Purple_Sky_Sunset.jpg",
+      "author": "CR Wikiman",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1707,
+      "downloadedSha256": "b72c46e68f1ab7a015d8ac943554ae960aa283e35035a0ae71bbb9f7e101da66",
+      "commonsSha1": "86dd65112c7d6110639c3f60cfa11632ee6a4434",
+      "authorGroup": "author-8f83304cf3740391",
+      "attributionLine": "Purple Sky Sunset.jpg — CR Wikiman — CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 — https://commons.wikimedia.org/wiki/File:Purple_Sky_Sunset.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "purple_pink_sky",
+          "residential_road"
+        ],
+        "note": "주거 도로 위 보라·분홍 하늘. 세로 구도."
+      },
+      "sourceRevisionId": 1022787853
+    },
+    {
+      "id": "commons-91959554",
+      "condition": "blue_twilight",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Law_Courts_during_blue_hour,_Christchurch,_New_Zealand.jpg",
+      "author": "Michal Klajban",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 818,
+      "downloadedSha256": "14665723a7f45722a241382c1397920b1488ca0550d421e07555b4604829cb96",
+      "commonsSha1": "db1f89d45f99612c3611c066b4b07d450b8cc93c",
+      "authorGroup": "author-2e10fa402ad8e5d8",
+      "attributionLine": "Law Courts during blue hour, Christchurch, New Zealand.jpg — Michal Klajban — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Law_Courts_during_blue_hour,_Christchurch,_New_Zealand.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "blue_sky",
+          "illuminated_civic_building"
+        ],
+        "note": "푸른 하늘과 조명 켜진 공공건물. 밝은 창문·외벽을 상점으로 단정하면 안 되는 사례."
+      },
+      "sourceRevisionId": 1019937367
+    },
+    {
+      "id": "commons-83997413",
+      "condition": "blue_twilight",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Buildings_with_colorful_neon_street_signs_at_blue_hour,_Shinjuku,_Tokyo.jpg",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1024,
+      "downloadedSha256": "07994997624bdd9a88fcd96b5a513922d8a3fc9564d83c3c35116b8f8e01d1ef",
+      "commonsSha1": "40bfdb444ede53c2dab7ab03295d6e6600f29861",
+      "authorGroup": "author-feb641b2afeb35c3",
+      "attributionLine": "Buildings with colorful neon street signs at blue hour, Shinjuku, Tokyo.jpg — Basile Morin — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Buildings_with_colorful_neon_street_signs_at_blue_hour,_Shinjuku,_Tokyo.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "dark_blue_sky",
+          "commercial_signs",
+          "pedestrians",
+          "street"
+        ],
+        "note": "짙은 푸른 하늘과 다수의 발광 간판·사람·거리. 푸른 박명 시각은 출처 주장."
+      },
+      "sourceRevisionId": 1290540405
+    },
+    {
+      "id": "commons-184890798",
+      "condition": "overcast_day",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Overcast_morning_24-02-2026._V%C5%A9_Ph%E1%BA%A1m_H%C3%A0m_Street_E1.jpg",
+      "author": "Bohdan Phúc Đan",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1707,
+      "downloadedSha256": "25f7dda806d9a5bb16c3f238b4fb7f6ec04fafa75bd2daf1056bbcc5c957c7aa",
+      "commonsSha1": "319ebda9bc3f0ff831ed350b60aa17f9e2254647",
+      "authorGroup": "author-ceacc1aa5e842feb",
+      "attributionLine": "Overcast morning 24-02-2026. Vũ Phạm Hàm Street E1.jpg — Bohdan Phúc Đan — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Overcast_morning_24-02-2026._V%C5%A9_Ph%E1%BA%A1m_H%C3%A0m_Street_E1.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "gray_sky",
+          "street",
+          "shop_facades"
+        ],
+        "note": "회색 하늘과 도로·상가. 흐린 낮 가설과 시각적 특징이 부합하나 날씨 정답은 아님."
+      },
+      "sourceRevisionId": 1182397179
+    },
+    {
+      "id": "commons-17526269",
+      "condition": "overcast_day",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:HK_Sheung_Wan_Shing_Wong_Street_view_%E5%BF%85%E5%88%97%E8%80%85%E5%A3%AB%E8%A1%97%E5%B8%82%E5%A0%B4_Bridges_Street_Market_overcast_day_01.jpg",
+      "author": "Pedatom",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 960,
+      "downloadedSha256": "0a39953f56ac214da70f7ad69cd1c2cec283c5c4467a676ec11052d02be6ffe8",
+      "commonsSha1": "cd474c248da9ca98916341f9f20a03d87b9ed088",
+      "authorGroup": "author-079b3c235b8e4cec",
+      "attributionLine": "HK Sheung Wan Shing Wong Street view 必列者士街市場 Bridges Street Market overcast day 01.jpg — Pedatom — CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0 — https://commons.wikimedia.org/wiki/File:HK_Sheung_Wan_Shing_Wong_Street_view_%E5%BF%85%E5%88%97%E8%80%85%E5%A3%AB%E8%A1%97%E5%B8%82%E5%A0%B4_Bridges_Street_Market_overcast_day_01.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "diffuse_daylight",
+          "buildings",
+          "road_sign"
+        ],
+        "note": "건물 사이 작은 하늘과 확산광. 하늘 면적이 작아 흐림 정도를 확정하기 어려움."
+      },
+      "sourceRevisionId": 1275859001
+    },
+    {
+      "id": "commons-36928954",
+      "condition": "rain",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rain_wet_nightlife.JPG",
+      "author": "MD.SHAJEDUR RAHAMAN SAJOL",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 958,
+      "downloadedSha256": "6374b9288ef2b51100347b1b1dd2c7c4446e4a83ebf20dd54d3c1ddd8d16288a",
+      "commonsSha1": "cc593e7aec5c6b94b2e8f7b1e5605f6aedf548a7",
+      "authorGroup": "author-81331d0bb1be4832",
+      "attributionLine": "Rain wet nightlife.JPG — MD.SHAJEDUR RAHAMAN SAJOL — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Rain_wet_nightlife.JPG",
+      "review": {
+        "status": "exclude",
+        "visibleLabels": [
+          "illuminated_palm_leaves"
+        ],
+        "note": "야자수 조명 사진. 거리·노면·강수의 판독 가능한 근거가 부족해 rain 목적에서 제외."
+      },
+      "sourceRevisionId": 1006947470
+    },
+    {
+      "id": "commons-144950873",
+      "condition": "rain",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rain_hitting_the_pavement.jpg",
+      "author": "Candeadly",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 960,
+      "downloadedSha256": "36c386e0e576b89847eb7cfa8610ca44b0b306dfa0d427f832ea7c0453a9c3ab",
+      "commonsSha1": "ef36c76b1026339bf822ef44f1e2c2fa669764bc",
+      "authorGroup": "author-93cf49cdc764063e",
+      "attributionLine": "Rain hitting the pavement.jpg — Candeadly — CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 — https://commons.wikimedia.org/wiki/File:Rain_hitting_the_pavement.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "rain_splashes",
+          "wet_pavement"
+        ],
+        "note": "노면에 빗방울 튀는 모습. 가까운 질감 사진으로 전체 주행 시야를 대표하지 않음."
+      },
+      "sourceRevisionId": 1205181854
+    },
+    {
+      "id": "commons-76722228",
+      "condition": "fog",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Morning_fog_in_Upper_Silesia.jpg",
+      "author": "Pudelek",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 853,
+      "downloadedSha256": "a4989625b65943f56b587f7baeb135319b6479c38aa9d176f5827552436cad22",
+      "commonsSha1": "d1a9f7ffa5476cc16e6432e1667c8f7d0edc5aae",
+      "authorGroup": "author-c7e304624c8ad21c",
+      "attributionLine": "Morning fog in Upper Silesia.jpg — Pudelek — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Morning_fog_in_Upper_Silesia.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "fog",
+          "road",
+          "snow_on_ground"
+        ],
+        "note": "도로 끝의 시야 감소와 안개, 주변 적설이 함께 보임."
+      },
+      "sourceRevisionId": 1131552635
+    },
+    {
+      "id": "commons-113155467",
+      "condition": "fog",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rural_dirt_road_and_trees_in_the_fog_in_Texas.jpg",
+      "author": "Matthew T Rader",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 753,
+      "downloadedSha256": "9089da6becb60ecc99b0cdff2c94af069949f8ffe5f13c77f8ab4525f129c459",
+      "commonsSha1": "3b54cbb3d5cc611417af4195c5739cdff8687599",
+      "authorGroup": "author-ae377088d4f120b0",
+      "attributionLine": "Rural dirt road and trees in the fog in Texas.jpg — Matthew T Rader — https://matthewtrader.com — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Rural_dirt_road_and_trees_in_the_fog_in_Texas.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "fog",
+          "rural_road",
+          "trees"
+        ],
+        "note": "나무와 비포장도로가 안개 속으로 약해짐. 시야 감소 예시."
+      },
+      "sourceRevisionId": 901312692
+    },
+    {
+      "id": "commons-76813178",
+      "condition": "snow",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Snowy_road_Drammen_02.19.jpg",
+      "author": "Peulle",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 911,
+      "downloadedSha256": "c05755c23dd8026226ba6403ff3b4e5ef756b0184d3d602cf93cb1c242eb0ecb",
+      "commonsSha1": "ba6eaed9d5de99a2995b77abda5cb8320e255ef3",
+      "authorGroup": "author-b5145ebb29b80385",
+      "attributionLine": "Snowy road Drammen 02.19.jpg — Peulle — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Snowy_road_Drammen_02.19.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "snow_on_road",
+          "residential_street",
+          "blue_sky"
+        ],
+        "note": "눈 덮인 주거 도로와 푸른 하늘. 눈이 내리는 중이라는 의미는 아님."
+      },
+      "sourceRevisionId": 1033024229
+    },
+    {
+      "id": "commons-87118054",
+      "condition": "snow",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Snowy_road_in_Tieringen,_Baden-W%C3%BCrttemberg.jpg",
+      "author": "Olga Ernst",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 848,
+      "downloadedSha256": "cfe7c88fa5b6bcea1fcaafcacd95c4fc5912cd9e5535bd1071744f88f3b3dd19",
+      "commonsSha1": "cf2950de562239855eca049ffca59648245cf106",
+      "authorGroup": "author-f4a3d7c73a32a512",
+      "attributionLine": "Snowy road in Tieringen, Baden-Württemberg.jpg — Olga Ernst — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Snowy_road_in_Tieringen,_Baden-W%C3%BCrttemberg.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "snow_on_road",
+          "vehicle_headlights",
+          "residential_street"
+        ],
+        "note": "적설 도로·건물과 켜진 전방등이 공존. 적설과 차량광 혼합 예시."
+      },
+      "sourceRevisionId": 1117509160
+    },
+    {
+      "id": "commons-11044273",
+      "condition": "shop_neon",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:HK_Kwun_Tong_night_%E8%BC%94%E4%BB%81%E8%A1%97_Fu_Yan_Street_%E8%8F%AF%E7%94%9F%E6%8A%BC_Pawn_shop_Restaurant_neon_signs.JPG",
+      "author": "Nuihongsaem",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 960,
+      "downloadedSha256": "df8e5222a15273145db72002f8ee5f517586dde087e5afbfbbfb343cc77fba76",
+      "commonsSha1": "48c6a2d0d6e23932501b84449efcd961da0865d6",
+      "authorGroup": "author-28869bf4f7343925",
+      "attributionLine": "HK Kwun Tong night 輔仁街 Fu Yan Street 華生押 Pawn shop Restaurant neon signs.JPG — Nuihongsaem — CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0 — https://commons.wikimedia.org/wiki/File:HK_Kwun_Tong_night_%E8%BC%94%E4%BB%81%E8%A1%97_Fu_Yan_Street_%E8%8F%AF%E7%94%9F%E6%8A%BC_Pawn_shop_Restaurant_neon_signs.JPG",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "emissive_shop_signs",
+          "colored_lighting"
+        ],
+        "note": "여러 색의 발광 문자 간판. 가스 네온인지 LED인지는 RGB만으로 보증하지 않음."
+      },
+      "sourceRevisionId": 1289116826
+    },
+    {
+      "id": "commons-59715235",
+      "condition": "shop_neon",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Neon_signs_for_Flower_Shop_at_Mariaplan,_Gothenburg,_Sweden.jpg",
+      "author": "Vogler",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 318,
+      "downloadedSha256": "e3426aa2046ac397e2e117b86b50d12718efaeff77087806ed576aebd388df45",
+      "commonsSha1": "7f07df2fb4dc143a86609f24587eb330ee15c23a",
+      "authorGroup": "author-ea60b029a5163468",
+      "attributionLine": "Neon signs for Flower Shop at Mariaplan, Gothenburg, Sweden.jpg — Vogler — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Neon_signs_for_Flower_Shop_at_Mariaplan,_Gothenburg,_Sweden.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "emissive_shop_sign",
+          "daytime_facade"
+        ],
+        "note": "꽃집 문자와 꽃 모양 발광 간판. 낮 배경·좁은 간판 구도이며 야간 상권 장면 아님."
+      },
+      "sourceRevisionId": 1151931367
+    },
+    {
+      "id": "commons-176811029",
+      "condition": "residential_windows",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Modern_four-storey_brick_apartment_building,_Stanley_Wharf_at_Rochester_Riverside,_Rochester,_Kent,_England,_at_night,_showing_illuminated_residential_windows_and_ground_floor_entrances_-_15_October_2025.jpg",
+      "author": "OathOn",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 720,
+      "downloadedSha256": "ee24e7353e312c82bfae981607a3a37d3e57c99b95ff9d5002d2f28cedb2227a",
+      "commonsSha1": "34c58d930d6eec3913686a4354ebe0c28b642c55",
+      "authorGroup": "author-698a30fd22f60569",
+      "attributionLine": "Modern four-storey brick apartment building, Stanley Wharf at Rochester Riverside, Rochester, Kent, England, at night, showing illuminated residential windows and ground floor entrances - 15 October 2025.jpg — OathOn — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Modern_four-storey_brick_apartment_building,_Stanley_Wharf_at_Rochester_Riverside,_Rochester,_Kent,_England,_at_night,_showing_illuminated_residential_windows_and_ground_floor_entrances_-_15_October_2025.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "lit_windows",
+          "residential_facade"
+        ],
+        "note": "일부 창문이 켜진 아파트 외벽. 주거 용도는 출처 정보이며 창문 RGB 자체의 의미 분류 정답 아님."
+      },
+      "sourceRevisionId": 1114457527
+    },
+    {
+      "id": "commons-186584586",
+      "condition": "residential_windows",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aarhus_%C3%98_and_boat_at_night_with_Christmas_lights_Aarhus_Denmark_02.jpg",
+      "author": "Ciara Ní Riain",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 720,
+      "downloadedSha256": "0a398fb50c48ff5e95359eb5fca855f4c69eddf030e15ab4ad2c78575cf40841",
+      "commonsSha1": "23263ed45ab850a22ffb282a7cd0793cefab8aeb",
+      "authorGroup": "author-e0105bb98ffee9cc",
+      "attributionLine": "Aarhus Ø and boat at night with Christmas lights Aarhus Denmark 02.jpg — Ciara Ní Riain — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Aarhus_%C3%98_and_boat_at_night_with_Christmas_lights_Aarhus_Denmark_02.jpg",
+      "review": {
+        "status": "retain_auxiliary",
+        "visibleLabels": [
+          "boat",
+          "decorative_lighting",
+          "water_reflection"
+        ],
+        "note": "보트와 장식 조명·수면 반사가 주인 장면. 주거 창문 범주에서 빼고 보조 반사/비상점 조명 사례로 재분류."
+      },
+      "sourceRevisionId": 1287222981
+    },
+    {
+      "id": "commons-116656822",
+      "condition": "signboard",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:USSR_shop_sign_-_01.jpg",
+      "author": "Alexander Novikov",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1920,
+      "downloadedSha256": "4dfb65b459d630ade72e185c18526a4d22d7008eafe278d32b2cd5199ceb8726",
+      "commonsSha1": "e25ce49951e155c03b33ad80c65dd21dd24a80dd",
+      "authorGroup": "author-3d186a7958601502",
+      "attributionLine": "USSR shop sign - 01.jpg — Alexander Novikov — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:USSR_shop_sign_-_01.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "unlit_vertical_shop_sign",
+          "building_facade"
+        ],
+        "note": "낮의 수직 상점 간판. 간판 존재와 실제 발광을 구별하는 비발광 사례."
+      },
+      "sourceRevisionId": 1211555145
+    },
+    {
+      "id": "commons-187047161",
+      "condition": "signboard",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:20260325_174108_Vertex_shop_sign,_Grzeg%C3%B3rzecka_Street,_Krak%C3%B3w_02.jpg",
+      "author": "Dwxn",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 960,
+      "downloadedSha256": "93184ddcd1cb9e14b1236d7a53de9eb9ec76863ec9333a6e240c06a6bd8c2b5d",
+      "commonsSha1": "fa887b0676b5758b3aac099d2985e465ac952bbc",
+      "authorGroup": "author-ca7f028890357614",
+      "attributionLine": "20260325 174108 Vertex shop sign, Grzegórzecka Street, Kraków 02.jpg — Dwxn — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:20260325_174108_Vertex_shop_sign,_Grzeg%C3%B3rzecka_Street,_Krak%C3%B3w_02.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "unlit_shop_sign",
+          "closed_shutter"
+        ],
+        "note": "낮의 인쇄 간판과 닫힌 셔터. 상점 표식이 곧 영업/활기 증거가 아님."
+      },
+      "sourceRevisionId": 1218074146
+    },
+    {
+      "id": "commons-141776696",
+      "condition": "headlights",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:07_Driving_in_fog_-_car_in_low_visibility_dangerous_weather_conditions.jpg",
+      "author": "Marek Ślusarczyk ( Tupungato ) Photo portfolio",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 853,
+      "downloadedSha256": "1286cea373faf5bf759e0eddd260649541fa6b1c9a58123e082c62893ebdf6be",
+      "commonsSha1": "53c62ba311ecc3854e355f46c70e77e933d1c380",
+      "authorGroup": "author-2dd9011885092b02",
+      "attributionLine": "07 Driving in fog - car in low visibility dangerous weather conditions.jpg — Marek Ślusarczyk — CC BY 3.0 — https://creativecommons.org/licenses/by/3.0 — https://commons.wikimedia.org/wiki/File:07_Driving_in_fog_-_car_in_low_visibility_dangerous_weather_conditions.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "vehicle_headlamp_glare",
+          "fog"
+        ],
+        "note": "안개 속 자동차 전방등과 번짐. 원광원 주변의 광산란을 포함하는 혼동 사례."
+      },
+      "sourceRevisionId": 1062174804
+    },
+    {
+      "id": "commons-42184726",
+      "condition": "headlights",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Car_in_the_middle_of_the_wilderness_in_the_middle_of_the_night_in_Tulppio.jpg",
+      "author": "JIP",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 960,
+      "downloadedSha256": "f27416c69d5ff2377ca4f6972104a69e91e5dfa4cb4602d2466f5b2ea2859c0e",
+      "commonsSha1": "bb8e6d94b399fec3a65591ddc07c845c6880b920",
+      "authorGroup": "author-ccf09b28fd687ee5",
+      "attributionLine": "Car in the middle of the wilderness in the middle of the night in Tulppio.jpg — JIP — CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0 — https://commons.wikimedia.org/wiki/File:Car_in_the_middle_of_the_wilderness_in_the_middle_of_the_night_in_Tulppio.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "vehicle_rear_lights",
+          "projected_headlamp_beam",
+          "blue_sky"
+        ],
+        "note": "차 뒤쪽과 옆모습, 앞쪽으로 비춘 빛이 보임. 전조등 발광면 자체는 직접 보이지 않음."
+      },
+      "sourceRevisionId": 1222601190
+    },
+    {
+      "id": "commons-180194981",
+      "condition": "taillights",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rearview_of_a_Nissan_Skyline_in_Tokyo.jpg",
+      "author": "David Kernan",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 720,
+      "downloadedSha256": "132f3392795154c0e6dc79a7f9314f86ba5f2ca57197995d9abad921a15aa490",
+      "commonsSha1": "0044771b29b0bc20776b7c3532a632ff4f0fb558",
+      "authorGroup": "author-3dbb6eb722b7dd71",
+      "attributionLine": "Rearview of a Nissan Skyline in Tokyo.jpg — David Kernan — CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 — https://commons.wikimedia.org/wiki/File:Rearview_of_a_Nissan_Skyline_in_Tokyo.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "vehicle_taillights",
+          "commercial_background"
+        ],
+        "note": "자동차의 켜진 원형 후미등과 뒤쪽 상업 배경. 차량광/상점광 분리 검토 사례."
+      },
+      "sourceRevisionId": 1167426797
+    },
+    {
+      "id": "commons-81549526",
+      "condition": "taillights",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:M%C3%BCnster,_Parkhaus_am_Coesfelder_Kreuz,_Ford_Mustang_Bullit_--_2019_--_9556-8.jpg",
+      "author": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 853,
+      "downloadedSha256": "f28be1b91d224815aabf0717fb28c99bc596de518273273b2306fbe645f7d242",
+      "commonsSha1": "84147a027e1ec439e52b5a5b4f53c4ca77c060ee",
+      "authorGroup": "author-f03952ccef545b9a",
+      "attributionLine": "Münster, Parkhaus am Coesfelder Kreuz, Ford Mustang Bullit -- 2019 -- 9556-8.jpg — Dietmar Rabich — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:M%C3%BCnster,_Parkhaus_am_Coesfelder_Kreuz,_Ford_Mustang_Bullit_--_2019_--_9556-8.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "vehicle_taillight_closeup"
+        ],
+        "note": "후미등 발광면 근접 사진. 출처가 tone-mapped HDR로 분류하므로 주행 프레임의 색/면적 분포와 다름."
+      },
+      "sourceRevisionId": 1283353794
+    },
+    {
+      "id": "commons-72779414",
+      "condition": "taillights",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:DSC06307_Arkansas_State_Capitol_Dome,_Night,_taillights_streaming.jpg",
+      "author": "David Daniel",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 645,
+      "downloadedSha256": "ee5bb59b0c768f16d72d30017a9b5c56534ec9b518702975f5cdfdd34d178a0a",
+      "commonsSha1": "90b4a3acd1e7f2dcd5e26a9a55719ca71cbbca39",
+      "authorGroup": "author-68b51d1b47154615",
+      "attributionLine": "DSC06307 Arkansas State Capitol Dome, Night, taillights streaming.jpg — David Daniel — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:DSC06307_Arkansas_State_Capitol_Dome,_Night,_taillights_streaming.jpg",
+      "review": {
+        "status": "retain_auxiliary",
+        "visibleLabels": [
+          "vehicle_light_trails",
+          "illuminated_monument"
+        ],
+        "note": "장노출 차량광 궤적. 순간 차량등 위치·픽셀 정답에 사용하지 않는 보조 사례."
+      },
+      "sourceRevisionId": 874349992
+    },
+    {
+      "id": "commons-196568889",
+      "condition": "reflection",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:City_streets;_Reflections_on_the_street_surface_after_rain.jpg",
+      "author": "Tarasna0922",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 894,
+      "downloadedSha256": "64fc68904b0e7d8ac8e53c8aa1aa619d9d8a99f8c46f54c27872c7c19c5650e3",
+      "commonsSha1": "1fd93f812c45a77cd5d8db29ed749c6be83cf07f",
+      "authorGroup": "author-ecdcde92eccb1dda",
+      "attributionLine": "City streets; Reflections on the street surface after rain.jpg — Tarasna0922 — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:City_streets;_Reflections_on_the_street_surface_after_rain.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "wet_pavement",
+          "colored_reflection"
+        ],
+        "note": "노면 위 주황·백색 반사. 광원 자체와 반사면을 구별하는 근접 사례."
+      },
+      "sourceRevisionId": 1279522196
+    },
+    {
+      "id": "commons-112636258",
+      "condition": "reflection",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:M%C3%BCnster,_Freiherr-vom-Stein-Haus_--_2021_--_9042-6.jpg",
+      "author": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 939,
+      "downloadedSha256": "069d74864eba394c981bfa7ac417b70af262d923cf40e0c6c575fc2b2e508cc9",
+      "commonsSha1": "0dc4a5e4010b47fafb4fa87f9b07c840026400ef",
+      "authorGroup": "author-f03952ccef545b9a",
+      "attributionLine": "Münster, Freiherr-vom-Stein-Haus -- 2021 -- 9042-6.jpg — Dietmar Rabich — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:M%C3%BCnster,_Freiherr-vom-Stein-Haus_--_2021_--_9042-6.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "wet_pavement",
+          "lit_bollards",
+          "building_glazing"
+        ],
+        "note": "건물 앞 노면과 붉은 볼라드 조명의 반사. 출처가 tone-mapped HDR로 분류."
+      },
+      "sourceRevisionId": 1282489507
+    },
+    {
+      "id": "commons-70553851",
+      "condition": "streetlights",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Esztergom_by_night_01_-_Simor_J%C3%A1nos_utca.jpg",
+      "author": "Pudelek",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 867,
+      "downloadedSha256": "e37bdb3acc1e80fae70b5edf543e6ea0b40ddb510326a5775a772d71bf826b13",
+      "commonsSha1": "8402196f4531c9fdfc5aae469dd666ff957ed198",
+      "authorGroup": "author-c7e304624c8ad21c",
+      "attributionLine": "Esztergom by night 01 - Simor János utca.jpg — Pudelek — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Esztergom_by_night_01_-_Simor_J%C3%A1nos_utca.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "streetlights",
+          "road",
+          "building_facades"
+        ],
+        "note": "가로등이 밝히는 길과 건물 외벽. 상점 창문과 다른 광원 맥락."
+      },
+      "sourceRevisionId": 1233854874
+    },
+    {
+      "id": "commons-122762439",
+      "condition": "streetlights",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Street_lights_along_a_road_in_Tuntorp.jpg",
+      "author": "W.carter",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1920,
+      "downloadedSha256": "7ef42a29f549de365e0897be355cb3b6992acb58528d4a2b06d728f3ec99843d",
+      "commonsSha1": "cdb575766b5966b236e8c8925e6a68a2f21c7270",
+      "authorGroup": "author-f59c767bd5ad0ff7",
+      "attributionLine": "Street lights along a road in Tuntorp.jpg — W.carter — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Street_lights_along_a_road_in_Tuntorp.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "streetlights",
+          "road",
+          "trees"
+        ],
+        "note": "가로등과 수목·도로. 넓은 주황빛을 상권 근거로 단정하지 않는 사례."
+      },
+      "sourceRevisionId": 1183128879
+    },
+    {
+      "id": "commons-119820731",
+      "condition": "traffic_signals",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Traffic_lights_at_night.jpg",
+      "author": "ராஜலட்சுமி ராஜேந்திரன்",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1577,
+      "downloadedSha256": "d3443353bb8da791f393af6b30c1971f98b56260833d1f24faf412242dae5cba",
+      "commonsSha1": "92d615bcfa3d3719e97f8b08c6ca3ba8aed47607",
+      "authorGroup": "author-9ab75649093f0aad",
+      "attributionLine": "Traffic lights at night.jpg — ராஜலட்சுமி ராஜேந்திரன் — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Traffic_lights_at_night.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "red_traffic_signal",
+          "street",
+          "commercial_background"
+        ],
+        "note": "켜진 붉은 신호등과 거리 조명. 신호등/상점광 혼합 사례."
+      },
+      "sourceRevisionId": 730408957
+    },
+    {
+      "id": "commons-183227884",
+      "condition": "traffic_signals",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Out-of-focus_dashboard_and_traffic_lights_at_night_01.jpg",
+      "author": "A S M Jobaer",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 853,
+      "downloadedSha256": "a9991422e8a0090dbab76883a513c1a72a406e4f79af40f3bdacd597e5bc834f",
+      "commonsSha1": "49d61ed1049d4fb50aa0e5ee2d3fdf6d78d08574",
+      "authorGroup": "author-75b4d00a20199d58",
+      "attributionLine": "Out-of-focus dashboard and traffic lights at night 01.jpg — A S M Jobaer — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Out-of-focus_dashboard_and_traffic_lights_at_night_01.jpg",
+      "review": {
+        "status": "retain_auxiliary",
+        "visibleLabels": [
+          "defocused_red_lights",
+          "dashboard"
+        ],
+        "note": "크게 흐려진 붉은 빛과 대시보드. 신호등/후미등의 개별 정체는 확인하기 어려워 보조 실패조건으로 분리."
+      },
+      "sourceRevisionId": 1223337377
+    },
+    {
+      "id": "commons-127145301",
+      "condition": "tunnel",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Humber_Road_tunnel_02.jpg",
+      "author": "Harry Mitchell",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1707,
+      "downloadedSha256": "689f8610d3f5de6c1e2f9007503f04056e34439db606b5a3e05d7288bd49f6a5",
+      "commonsSha1": "d8699858db6e95c6e556411c326ebaad48e7b861",
+      "authorGroup": "author-ccad7081d73cf358",
+      "attributionLine": "Humber Road tunnel 02.jpg — Harry Mitchell — CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 — https://commons.wikimedia.org/wiki/File:Humber_Road_tunnel_02.jpg",
+      "review": {
+        "status": "exclude",
+        "visibleLabels": [
+          "narrow_stone_passage"
+        ],
+        "note": "좁은 비포장 석조 통로. 차량 도로 터널 예시로 부적합하여 tunnel 목적에서 제외."
+      },
+      "sourceRevisionId": 1140466859
+    },
+    {
+      "id": "commons-115135382",
+      "condition": "tunnel",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_Ferry_Point_road_tunnel,_March_2021.jpg",
+      "author": "Pi.1415926535",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 960,
+      "downloadedSha256": "8a6239315f0c1a22c02b17a8829f236887e64675096c4e71f397e359b224fcf5",
+      "commonsSha1": "0602f0024e17886a7c162b7153122dd6ae27420c",
+      "authorGroup": "author-81d7b4c942480b72",
+      "attributionLine": "Interior of Ferry Point road tunnel, March 2021.jpg — Pi.1415926535 — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Interior_of_Ferry_Point_road_tunnel,_March_2021.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "road_tunnel",
+          "bright_exit"
+        ],
+        "note": "차선 있는 도로 터널과 밝은 출구. 조명·밝은 출구가 상점인 것으로 오인되지 않도록 검토."
+      },
+      "sourceRevisionId": 1133385735
+    },
+    {
+      "id": "commons-88114953",
+      "condition": "shop_window",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Illuminated_facade_of_a_restaurant_serving_traditional_food_with_fresh_vegetables_in_Chiyoda,_Tokyo.jpg",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 853,
+      "downloadedSha256": "d229b1f7a1d8777bb2bf9edbfcf0d90b4d83b2b7e6a4d6a8ae1990d5929b868e",
+      "commonsSha1": "659e867ae72e6fe856b4d7245f0037898d01f639",
+      "authorGroup": "author-feb641b2afeb35c3",
+      "attributionLine": "Illuminated facade of a restaurant serving traditional food with fresh vegetables in Chiyoda, Tokyo.jpg — Basile Morin — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:Illuminated_facade_of_a_restaurant_serving_traditional_food_with_fresh_vegetables_in_Chiyoda,_Tokyo.jpg",
+      "review": {
+        "status": "retain",
+        "visibleLabels": [
+          "illuminated_shop_window",
+          "shop_entrance",
+          "warm_lighting"
+        ],
+        "note": "상점 창문과 입구의 따뜻한 조명. 실제로 보이는 발광 창과 주변 외벽을 분리할 수 있는 예시."
+      },
+      "sourceRevisionId": 1214638831
+    },
+    {
+      "id": "commons-115475966",
+      "condition": "shop_window",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2021-11-28_K%C3%B6nigheim_bei_Nacht_11.jpg",
+      "author": "Triplec85",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadVariant": "official_1280px_rendition",
+      "downloadedWidth": 1280,
+      "downloadedHeight": 1707,
+      "downloadedSha256": "ab73540108193091f3080fb021220e828bfcc7302955fe13d6b71aebe90c5c61",
+      "commonsSha1": "e213cb67f8458232cbb74bb65be30ccaf627d63b",
+      "authorGroup": "author-53dfeae64e1bb62a",
+      "attributionLine": "2021-11-28 Königheim bei Nacht 11.jpg — Triplec85 — CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0 — https://commons.wikimedia.org/wiki/File:2021-11-28_K%C3%B6nigheim_bei_Nacht_11.jpg",
+      "review": {
+        "status": "retain_with_limits",
+        "visibleLabels": [
+          "illuminated_display_window",
+          "decorations"
+        ],
+        "note": "어두운 배경의 진열창과 장식. 출처상 상점 창이지만 이 이미지 자체로 상점 유형·활기를 추정하지 않음."
+      },
+      "sourceRevisionId": 1049715948
+    }
+  ]
+}
