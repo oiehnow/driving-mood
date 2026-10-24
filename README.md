@@ -62,6 +62,9 @@ Android 프로토타입 **0.3.9** · 아래 화면은 동일 UI의 0.3.8 촬영�
 
 Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 조회, 조명 미리보기.
 
+- [큰 화면 녹화 보기 · YouTube](https://www.youtube.com/watch?v=xvGNWKhK-sA)
+- [3분할 화면 녹화 보기 · YouTube](https://www.youtube.com/watch?v=PEK9LYrkSss)
+
 [차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md) · [Pleos APK](https://github.com/oiehnow/driving-mood/releases/tag/pleos-preview-v0.1.1)
 
 ## 원하는 분위기
