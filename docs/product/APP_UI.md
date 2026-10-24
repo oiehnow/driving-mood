@@ -26,7 +26,7 @@ Driving Mood **0.3.5**.
 
 ## 아이콘
 
-<img src="assets/brand/driving-mood-icon.png" width="180" alt="Driving Mood 대표 아이콘">
+<p align="center"><img src="assets/brand/driving-mood-icon-round.png" width="180" alt="Driving Mood 대표 아이콘"></p>
 
 [Phosphor Icons](https://github.com/phosphor-icons/core) · [출처와 라이선스](assets/brand/phosphor/sources.json)
 

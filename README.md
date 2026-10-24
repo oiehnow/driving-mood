@@ -1,6 +1,8 @@
-<img src="docs/product/assets/brand/driving-mood-icon.png" width="160" alt="Driving Mood 아이콘">
-
 # Driving Mood
+
+<p align="center">
+  <img src="docs/product/assets/brand/driving-mood-icon-round.png" width="160" alt="Driving Mood 아이콘">
+</p>
 
 주변 환경과 운전자 맥락에서 **무드 키워드를 추출해 음악·조명·장소 추천으로 연결하는 앱**입니다. 카메라가 관측한 빛과 사람, 도로·날씨 정보에 사용자의 취향과 원하는 분위기를 결합합니다.
 
