@@ -67,4 +67,4 @@
 
 분석·결과 영상은 초당 10개 실제 추론 프레임을 사용한다. 25.64초 구간의 분석·결과 영상은 마지막 실제 프레임을 포함해 25.7초이며, 원본과의 끝 시각 차이는 0.06초다. GIF는 각 구간의 중간 6초를 초당 5프레임으로 요약했다. 입력 영상의 표시와 워터마크는 유지했고 GIF에는 음원을 넣지 않았다. 원본 영상과 음악의 권리가 이 프로젝트로 이전되거나 공개 소스 라이선스로 재허가된 것은 아니다.
 
-분할 모델: [공식 구현](https://github.com/ultralytics/ultralytics), [공식 가중치](https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n-sem-ade20k.pt). AGPL-3.0 또는 별도 Enterprise 조건이며 현재 APK에 포함하지 않았다. 실행 ONNX의 SHA-256은 `f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7`이다. 정답 마스크가 없으므로 분할 정확도는 평가하지 않았다.
+분할 모델: [공식 구현](https://github.com/ultralytics/ultralytics), [공식 가중치](https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n-sem-ade20k.pt). AGPL-3.0 또는 별도 Enterprise 조건이며 이 초기 시연 당시 APK에는 포함하지 않았다. 이후 앱에 연결한 모델은 [현재 의미분할 모델 문서](../vision/SEMANTIC_MODEL.md)를 따른다. 이 시연에 사용한 ONNX의 SHA-256은 `f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7`이다. 이 시연에는 정답 마스크가 없어 분할 정확도를 평가하지 않았다.

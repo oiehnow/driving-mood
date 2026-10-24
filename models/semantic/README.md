@@ -10,7 +10,7 @@
 
 [원본 가중치](https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n-sem-ade20k.pt), [모델 구현](https://github.com/ultralytics/ultralytics/tree/v8.4.184).
 
-내보내기는 Ultralytics 8.4.184, PyTorch 2.14.1 CPU, ONNX 1.23.2를 사용했다. 설정은 `format=onnx, imgsz=320, dynamic=False, simplify=False, opset=17, nms=False, device=cpu`다. 재학습·양자화는 하지 않았다. ONNX description의 로컬 학습 경로 한 항목만 정리했으며, 저작자·라이선스·텐서 데이터는 유지했다. 원본 PT는 변경하지 않았다.
+내보내기는 Ultralytics 8.4.184, PyTorch 2.14.1 CPU, ONNX 1.23.2를 사용했다. 설정은 `format=onnx, imgsz=320, dynamic=False, simplify=False, opset=17, nms=False, device=cpu`다. 이 배포용 기준 모델은 재학습·양자화 없이 변환했다. 별도로 수행한 [파인튜닝 후보와 전후 평가](../../docs/vision/FINETUNING.md)는 구분해 보존한다. ONNX description의 로컬 학습 경로 한 항목만 정리했으며, 저작자·라이선스·텐서 데이터는 유지했다. 원본 PT는 변경하지 않았다.
 
 다음 명령은 보존한 ONNX에서 ORT 파일을 생성하고 입력·최적화 그래프 해시와 앱 모델의 출력을 대조한다. ORT 재변환 파일의 직렬화 해시는 달라질 수 있어 파일 동일성과 계산 검증을 별도로 기록한다. 출력 폴더가 이미 있으면 `--output`으로 새 폴더를 지정한다.
 

@@ -12,4 +12,6 @@ YOLO26n-sem-ADE20K의 건물·창문·간판 분할과 EfficientDet-Lite0의 사
 
 [공식 구현](https://github.com/ultralytics/ultralytics) · [가중치·변환 소스](../../models/semantic/README.md) · [외부 고지](../../THIRD_PARTY_NOTICES.md)
 
-모델은 AGPL-3.0, ONNX Runtime Android 1.31.0은 MIT다. 앱 자체 소스는 AGPL-3.0-only로 공개한다. ORT 변환은 모델의 라이선스를 바꾸지 않는다. 원본 PT, 경로를 정리한 ONNX, 변환 스크립트와 해시를 함께 제공한다. 별도 파인튜닝은 하지 않았으며, 현재 변경은 추론 연결과 관측 후처리다.
+모델은 AGPL-3.0, ONNX Runtime Android 1.31.0은 MIT다. 앱 자체 소스는 AGPL-3.0-only로 공개한다. ORT 변환은 모델의 라이선스를 바꾸지 않는다. 원본 PT, 경로를 정리한 ONNX, 변환 스크립트와 해시를 함께 제공한다.
+
+실제 차량 주행 영상과 이미지 자료로 YOLO26n-sem-ADE20K를 파인튜닝하고 학습 전후 성능을 비교했다. 일부 클래스의 성능 저하와 간판 오탐 때문에 현재 배포 앱에는 공식 기준 가중치를 유지하며, 자체 관측 후처리와 무드 점수 규칙을 연결한다. [파인튜닝 과정과 실행 증거](FINETUNING.md) · [후속 학습과 채택 판단](finetuning02/README.md)
