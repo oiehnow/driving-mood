@@ -51,7 +51,7 @@ class RecordedFlowDeviceTest {
 
     private fun complete(duration: Long) {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
-            SystemClock.sleep(1_200) // The launch action settles before a user tap.
+            SystemClock.sleep(3_500) // The launch action settles before a user tap.
             var state: SessionState? = null
             lateinit var runningActivity: MainActivity
             scenario.onActivity { activity ->
@@ -165,7 +165,7 @@ class RecordedFlowDeviceTest {
 
     @Test fun backgroundCancellationDeletesVideoAndDoesNotCommit() {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
-            SystemClock.sleep(1_200)
+            SystemClock.sleep(3_500)
             var state: SessionState? = null
             lateinit var runningActivity: MainActivity
             scenario.onActivity { activity ->
@@ -212,7 +212,7 @@ class RecordedFlowDeviceTest {
 
     @Test fun cancelDuringDecodeDeletesVideo() {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
-            SystemClock.sleep(1_200)
+            SystemClock.sleep(3_500)
             var state: SessionState? = null
             lateinit var runningActivity: MainActivity
             scenario.onActivity {

@@ -132,7 +132,7 @@ class MainActivityIntegrationTest {
                 decor.dispatchWindowVisibilityChanged(View.VISIBLE)
             }
             // Allow the finite intro/result transition to settle without draining recurring animations.
-            shadowOf(Looper.getMainLooper()).idleFor(Duration.ofMillis(1_100))
+            shadowOf(Looper.getMainLooper()).idleFor(Duration.ofMillis(3_500))
             val candidates = views(activity.window.decorView)
             return candidates.firstOrNull { it.tag == "mood-analysis-action" && it.isShown }
                 ?: candidates.filterIsInstance<Button>().first { it.text.toString() == "재분석" }

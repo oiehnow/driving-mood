@@ -86,7 +86,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
     private var centerX = 0f
     private var centerY = 0f
     private var logoSize = dp(128).toFloat()
-    private val easing = PathInterpolator(.22f, .8f, .24f, 1f)
+    private val easing = PathInterpolator(.42f, 0f, .58f, 1f)
 
     init {
         clipChildren = false
@@ -123,12 +123,9 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
             place(width / 2f, height / 2f, dp(128).toFloat())
             val fromY = centerY
             val toY = thumbY()
-            animateMove(900, { t ->
-                // The first portion reveals the mark at the centre before it settles near the thumb.
-                val travel = ((t - .18f) / .82f).coerceIn(0f, 1f)
-                logo.alpha = (t / .18f).coerceIn(0f, 1f)
-                place(width / 2f, fromY + (toY - fromY) * travel, dp(128).toFloat())
-            }) {
+            animateMove(1_000, { t ->
+                place(width / 2f, fromY + (toY - fromY) * t, dp(128).toFloat())
+            }, delayMs = 2_000) {
                 stage = Stage.READY; logo.isEnabled = true
             }
         }
@@ -156,7 +153,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
                 backdrop.alpha = 1f
             }
             val x = centerX; val y = centerY; val size = logoSize; val beforeAlpha = backdrop.alpha
-            animateMove(750, { t ->
+            animateMove(1_000, { t ->
                 place(x + (width / 2f - x) * t, y + (height / 2f - y) * t,
                     size + (dp(128) - size) * t)
                 backdrop.alpha = beforeAlpha + (1f - beforeAlpha) * t
@@ -200,7 +197,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
             val x = centerX; val y = centerY; val size = logoSize
             val targetSize = min(target.width(), target.height()).coerceAtLeast(dp(24).toFloat())
             val beforeAlpha = backdrop.alpha
-            animateMove(850, { t ->
+            animateMove(1_000, { t ->
                 place(x + (target.centerX() - x) * t, y + (target.centerY() - y) * t,
                     size + (targetSize - size) * t)
                 backdrop.alpha = beforeAlpha * (1f - t)
@@ -284,7 +281,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
         }
     }
 
-    private fun animateMove(durationMs: Long, update: (Float) -> Unit, done: () -> Unit) {
+    private fun animateMove(durationMs: Long, update: (Float) -> Unit, delayMs: Long = 0, done: () -> Unit) {
         val ticket = generation
         if (!canPresent()) {
             resumePending = true
@@ -294,7 +291,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
             update(1f); done(); return
         }
         movement = ValueAnimator.ofFloat(0f, 1f).apply {
-            duration = durationMs; interpolator = easing
+            duration = durationMs; startDelay = delayMs; interpolator = easing
             addUpdateListener { if (ticket == generation) update(it.animatedValue as Float) }
             addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
@@ -326,14 +323,12 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
         if (!resumePending || !canPresent()) return
         resumePending = false
         when (stage) {
-            Stage.INTRO, Stage.READY -> {
-                val wasIntro = stage == Stage.INTRO
-                stage = Stage.READY
+            Stage.INTRO -> showIntro()
+            Stage.READY -> {
                 backdrop.alpha = 1f; logo.alpha = 1f
                 ring.visibility = GONE; status.visibility = GONE
                 percentage.visibility = GONE
                 place(width / 2f, thumbY(), dp(128).toFloat())
-                if (wasIntro) logo.isEnabled = true
             }
             Stage.STARTING, Stage.RECORDING, Stage.ANALYZING -> {
                 backdrop.alpha = 1f; logo.alpha = 1f; ring.alpha = 1f; status.alpha = 1f; percentage.alpha = 1f

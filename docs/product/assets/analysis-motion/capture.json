@@ -2,11 +2,11 @@
   "capture": "Android 15 native screen recording",
   "version": "0.3.5",
   "framesPerSecond": 15,
-  "durationSeconds": 20.07,
-  "frames": 301,
-  "apkSha256": "8e6e6f58b3e5338c754121b602df984d37a2d2715f5faa334c229d156c720557",
+  "durationSeconds": 24.74,
+  "frames": 371,
+  "apkSha256": "c3dffe2b378cc06a62395997e19f8dff2f25fa667eaf5e576a50cf2aeedd6bce",
   "recordingTimeline": "edited state walkthrough; native animation timing",
   "resultKind": "saved real-driving calculation",
   "resultSource": "androidTest/assets/ui-review/full-01.json",
-  "gifSha256": "fdd9f3d35e82d57cf105727405727e39920c8f02b2afe7d570c93c343ac30db8"
+  "gifSha256": "668150c4609b8e608c2d282575049a0016042ccf994ecf441423b6ead14a36e6"
 }

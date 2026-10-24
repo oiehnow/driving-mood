@@ -57,24 +57,24 @@ class DashboardScreenshotDeviceTest {
             val video = File(output, "logo-journey.mp4")
             val recordingStartedAt = System.currentTimeMillis()
             val recording = instrumentation.uiAutomation.executeShellCommand(
-                "screenrecord --time-limit 25 ${video.absolutePath}")
+                "screenrecord --time-limit 30 ${video.absolutePath}")
             var recordingLog = ""
             android.os.ParcelFileDescriptor.AutoCloseInputStream(recording).use { commandOutput ->
                 try {
                     SystemClock.sleep(500)
                     val timelineStartedAt = SystemClock.elapsedRealtime()
-                    val stillFrames = setOf(0, 20, 50, 90, 130, 160)
-                    for (frame in 0 until 180) {
+                    val stillFrames = setOf(0, 45, 80, 120, 170, 200)
+                    for (frame in 0 until 220) {
                         instrumentation.runOnMainSync {
                             when {
                                 frame == 0 -> journey.showIntro()
-                                frame == 25 -> begin.invoke(previewActivity)
-                                frame in 35..65 -> journey.recording((frame - 35) * 1_000L, 30_000)
-                                frame == 66 -> journey.analyzing()
-                                frame in 70..105 -> journey.analyzing(((frame - 70) * 30L / 35 + 1).coerceAtMost(30), 30)
-                                frame == 110 -> showSavedResult()
-                                frame == 155 -> begin.invoke(previewActivity)
-                                frame in 165..179 -> journey.recording((frame - 165) * 1_000L, 30_000)
+                                frame == 50 -> begin.invoke(previewActivity)
+                                frame in 65..95 -> journey.recording((frame - 65) * 1_000L, 30_000)
+                                frame == 96 -> journey.analyzing()
+                                frame in 100..135 -> journey.analyzing(((frame - 100) * 30L / 35 + 1).coerceAtMost(30), 30)
+                                frame == 140 -> showSavedResult()
+                                frame == 190 -> begin.invoke(previewActivity)
+                                frame in 205..219 -> journey.recording((frame - 205) * 1_000L, 30_000)
                             }
                         }
                         // Screenrecord preserves native motion timing; stills never define video playback speed.
@@ -90,7 +90,7 @@ class DashboardScreenshotDeviceTest {
                         }
                     }
                     instrumentation.runOnMainSync { showSavedResult() }
-                    SystemClock.sleep(1_100)
+                    SystemClock.sleep(2_100)
                     instrumentation.runOnMainSync {
                         val visibleText = views(previewActivity.window.decorView).filterIsInstance<TextView>()
                             .filter { it.isShown }.joinToString("\n") { it.text.toString() }
