@@ -62,8 +62,10 @@ Android 프로토타입 **0.3.9** · 아래 화면은 동일 UI의 0.3.8 촬영�
 
 Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 조회, 조명 미리보기.
 
-- [큰 화면 녹화 보기 · YouTube](https://www.youtube.com/watch?v=xvGNWKhK-sA)
-- [3분할 화면 녹화 보기 · YouTube](https://www.youtube.com/watch?v=PEK9LYrkSss)
+| 큰 화면 | 3분할 화면 |
+|:---:|:---:|
+| [![Pleos 큰 화면 녹화 재생](https://i.ytimg.com/vi/xvGNWKhK-sA/hqdefault.jpg)](https://www.youtube.com/watch?v=xvGNWKhK-sA) | [![Pleos 3분할 화면 녹화 재생](https://i.ytimg.com/vi/PEK9LYrkSss/hqdefault.jpg)](https://www.youtube.com/watch?v=PEK9LYrkSss) |
+| [▶ 영상 재생](https://www.youtube.com/watch?v=xvGNWKhK-sA) | [▶ 영상 재생](https://www.youtube.com/watch?v=PEK9LYrkSss) |
 
 <sub>실제 Pleos 앱 환경 UI 테스트 화면</sub>
 
