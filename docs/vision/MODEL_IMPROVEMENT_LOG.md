@@ -105,3 +105,11 @@ F2의 우선순위는 **기존 보호 영역 → n640 하늘 → C의 건물·�
 - [ORT 1.31 Java 세션 옵션](https://github.com/microsoft/onnxruntime/blob/v1.31.0/java/src/main/java/ai/onnxruntime/OrtSession.java), [공식 Java API](https://onnxruntime.ai/docs/api/java/ai/onnxruntime/OrtSession.SessionOptions.html): CPU arena·memory pattern 설정의 근거. 기존 MIT 의존성의 옵션을 사용했으며 외부 구현을 복사하지 않았다.
 - [OpenCV 정렬 구현](https://github.com/opencv/opencv/blob/5.x/modules/imgproc/src/resize.cpp): 평가 환경의 최근접 정렬 반올림을 Kotlin에 맞췄다. 해당 파일의 BSD 고지를 앱에 보존했다. [OpenCV 형태 연산](https://github.com/opencv/opencv/blob/4.x/modules/imgproc/src/morph.simd.hpp)은 행·열 분리 참고이며 최적화 코드는 독립 구현했다.
 - [Pilot01 기록](FINETUNING.md), [Pilot02 기록](finetuning02/README.md): 이전 성공·실패와 재현 증거.
+
+## 원본을 먼저 확인한 시각 검수 — 2026-10-25
+
+사용자 주행 영상의 정해진 시점에서 원본 관찰을 먼저 기록하고, 기존 모델과 F2의 이름을 가린 출력 지도를 교차 검수했다. 판단을 기록한 후 모델 정체를 확인했다. 같은 개발 영상에 대한 AI 정성 검수이며, 독립 시험이나 사람 정답 기반 정확도 측정으로 제시하지 않는다.
+
+F2는 일부 밤하늘·흐린 하늘·나뭇가지 사이 하늘의 누락을 줄였다. 반면 특정 외벽과 트럭 일부를 간판으로 잘못 분류하는 범위가 늘었다. 요금소 개구부의 노을 하늘 누락, 창문과 간판 혼동, 낮 도심 차도를 보도로 분류하는 문제는 남았다. 따라서 기존 제한적 수치 개선을 전반적인 인식 문제의 해결로 해석할 수 없다.
+
+실제 모델 클래스와 표시 마스크도 대조해 주요 누락이 그림 표시 오류가 아님을 확인했다. 기존 영역 보호 규칙은 기존의 잘못된 분류도 유지할 수 있다. 별도 객체 탐지의 박스 표시와 앱에서 관측으로 채택하는 기준 역시 구분했다. 상세 사례, 검토자 이견과 구체적인 후속 실험은 [직접 검수 추가 기록](VISUAL_REVIEW_20261025.md)에 남겼다. 이번 검수로 학습이나 결합 규칙을 변경하지 않았으며, 배포된 PDF 보고서는 이 추가 기록 이전 버전이다.
