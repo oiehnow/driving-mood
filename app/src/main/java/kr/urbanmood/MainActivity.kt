@@ -285,7 +285,7 @@ class MainActivity : ComponentActivity() {
         val clip = camera.record(duration,
             progress = { elapsed -> if (session.ownsRequest(id)) {
                 cameraStatus.text = "촬영 중"
-                dashboard.working("주변을 담고 있어요", "${elapsed / 1000} / ${duration / 1000}초")
+                dashboard.recording(elapsed, duration)
                 frameStatus.text = "${elapsed / 1000} / ${duration / 1000}초"
             } },
             finalizing = { if (session.ownsRequest(id)) cameraStatus.text = "영상 저장 마무리 중" })
@@ -303,6 +303,7 @@ class MainActivity : ComponentActivity() {
                         samples = listOf(SceneSample(0, value))), env, value.frameTimeEpochMs)
                     withContext(Dispatchers.Main) {
                         if (session.ownsRequest(id)) {
+                            dashboard.analyzing(elapsed / 1000 + 1, (clip.timing.durationMs + 999) / 1000)
                             val owned = bitmap.copy(Bitmap.Config.ARGB_8888, false)
                             decodedPreview.setImageBitmap(owned)
                             displayedBitmap?.recycle()

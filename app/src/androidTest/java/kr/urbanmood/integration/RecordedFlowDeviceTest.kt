@@ -52,7 +52,9 @@ class RecordedFlowDeviceTest {
     private fun complete(duration: Long) {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
             var state: SessionState? = null
+            lateinit var runningActivity: MainActivity
             scenario.onActivity { activity ->
+                runningActivity = activity
                 state = field(activity, "session")
                 if (duration == 60_000L) {
                     field<Button>(activity, "durationButton").performClick()
@@ -74,7 +76,9 @@ class RecordedFlowDeviceTest {
                 var finished = false
                 maxPssKb = maxOf(maxPssKb, android.os.Debug.getPss().toInt())
                 var takeFrame = false
-                scenario.onActivity { activity ->
+                // Continuous decorative animation need not become idle for state polling.
+                instrumentation.runOnMainSync {
+                    val activity = runningActivity
                     latestStatus = field<TextView>(activity, "cameraStatus").text.toString()
                     if (latestStatus == "촬영 중") sawRecording = true
                     if (latestStatus == "분석 중") {

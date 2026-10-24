@@ -1,0 +1,12 @@
+{
+  "capture": "Android 15 native application state walkthrough",
+  "framesPerSecond": 10,
+  "durationSeconds": 13,
+  "apkSha256": "17de7c74632e6b8ecf42b522910386129988e803e5bf8210fcbdc55ae58f26ce",
+  "recordingTimeline": "edited for transition preview",
+  "resultKind": "saved real-driving calculation",
+  "version": "0.3.4",
+  "gifSha256": "dc55d0ca1ba658e450b851f4704534e0f3ec74d5b0fcb15351f3505b4974a0a6",
+  "frames": 130,
+  "resultSource": "androidTest/assets/ui-review/full-01.json"
+}

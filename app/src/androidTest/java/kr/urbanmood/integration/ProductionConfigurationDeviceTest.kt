@@ -23,8 +23,8 @@ class ProductionConfigurationDeviceTest {
         val context=InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("kr.urbanmood",context.packageName)
         assertEquals("Driving Mood",context.applicationInfo.loadLabel(context.packageManager).toString())
-        assertEquals("0.3.3",context.packageManager.getPackageInfo(context.packageName,0).versionName)
-        assertEquals(11L,context.packageManager.getPackageInfo(context.packageName,0).longVersionCode)
+        assertEquals("0.3.4",context.packageManager.getPackageInfo(context.packageName,0).versionName)
+        assertEquals(12L,context.packageManager.getPackageInfo(context.packageName,0).longVersionCode)
         assertEquals("1",android.system.Os.getenv("ORT_DISABLE_TELEMETRY"))
         assertEquals("1",System.getenv("ORT_DISABLE_TELEMETRY"))
         val services=AppServices(context)

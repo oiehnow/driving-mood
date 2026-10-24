@@ -21,6 +21,51 @@ import java.io.File
 @RunWith(AndroidJUnit4::class)
 class DashboardScreenshotDeviceTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
+    /** Edited state walkthrough, not a timed camera benchmark. Uses genuine stored result scores. */
+    @Test fun captureAnalysisMotionPreview() {
+        val raw = JSONObject(instrumentation.context.assets.open("ui-review/full-01.json").bufferedReader().use { it.readText() })
+        val summary = raw.getJSONObject("scoreSummary")
+        val scores = summary.getJSONArray("scores").let { a -> (0 until a.length()).map { index ->
+            val item = a.getJSONObject(index)
+            val contributions = item.getJSONArray("contributions").let { c -> (0 until c.length()).map { n ->
+                val entry = c.getJSONObject(n)
+                MoodScoreContribution(entry.getString("id"), entry.getString("label"),
+                    delta = if (entry.isNull("delta")) null else entry.getDouble("delta").toFloat(),
+                    reason = entry.getString("reason"), basis = ContributionBasis.valueOf(entry.getString("basis")))
+            } }
+            MoodScore(item.getString("keyword"), if (item.isNull("score")) null else item.getDouble("score").toFloat(), contributions)
+        } }
+        val words = raw.getJSONArray("commonMoodKeywords").let { a -> (0 until a.length()).map { a.getString(it) } }
+        val result = RecommendationResult(Availability.AVAILABLE, moodKeywords = words, commonMoodKeywords = words,
+            scoreSummary = MoodScoreSummary(summary.getString("ruleVersion"), summary.getLong("windowDurationMs"),
+                summary.getInt("receivedFrameCount"), summary.getInt("sampledBucketCount"), scores))
+        val output = File(instrumentation.targetContext.getExternalFilesDir(null), "analysis-motion").apply { mkdirs() }
+        ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+            lateinit var dashboard: kr.urbanmood.ui.MoodDashboardView
+            scenario.onActivity { activity ->
+                dashboard = views(activity.window.decorView).filterIsInstance<kr.urbanmood.ui.MoodDashboardView>().single()
+                field<TextView>(activity, "cameraStatus").text = "촬영 · 분석 · 결과 전환 미리보기"
+            }
+            for (frame in 0 until 130) {
+                instrumentation.runOnMainSync {
+                    when {
+                        frame < 10 -> Unit
+                        frame < 45 -> dashboard.recording(((frame - 10) * 30_000L / 34), 30_000)
+                        frame == 45 -> dashboard.working("무드를 찾고 있어요", "빛과 색을 모으고 있어요")
+                        frame == 95 -> dashboard.complete(result)
+                    }
+                }
+                SystemClock.sleep(100)
+                val image = requireNotNull(instrumentation.uiAutomation.takeScreenshot())
+                File(output, "frame-%03d.png".format(frame)).outputStream().use { image.compress(Bitmap.CompressFormat.PNG, 100, it) }
+                image.recycle()
+            }
+            scenario.onActivity { activity ->
+                assertTrue(views(activity.window.decorView).filterIsInstance<TextView>().any { it.text.toString().contains("따뜻한") })
+                dashboard.interrupted()
+            }
+        }
+    }
     @Test fun captureAppAndSavedDrivingResults() {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
             capture("01-home")

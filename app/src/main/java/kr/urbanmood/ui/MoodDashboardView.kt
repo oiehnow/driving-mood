@@ -25,18 +25,13 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
     private val values = mutableListOf<Triple<TextView, TextView, TextView>>()
     private lateinit var metricStrip: LinearLayout
     private val moodBackground = MoodGradientDrawable(dp(30).toFloat())
+    private val motion = AnalysisMotionView(context)
 
     init {
         orientation = VERTICAL
         hero.background = moodBackground
         addView(hero, LayoutParams(-1, dp(274)))
-        val ring = View(context).apply {
-            background = GradientDrawable().apply {
-                shape = GradientDrawable.OVAL; setColor(Color.TRANSPARENT); setStroke(dp(1), 0x99ffffff.toInt())
-            }
-            importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
-        }
-        hero.addView(ring, FrameLayout.LayoutParams(dp(222), dp(222), Gravity.CENTER))
+        hero.addView(motion, FrameLayout.LayoutParams(dp(246), dp(246), Gravity.CENTER))
         val center = LinearLayout(context).apply { orientation = VERTICAL; gravity = Gravity.CENTER; setPadding(dp(12), 0, dp(12), dp(10)) }
         center.addView(eyebrow)
         center.addView(heading, LayoutParams(-1, -2).apply { topMargin = dp(10) })
@@ -59,14 +54,28 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
         showMetrics(null)
     }
 
-    fun working(title: String, detail: String) {
+    fun working(title: String, detail: String, recordingFraction: Float? = null) {
+        resetReveal()
         compact(true)
         eyebrow.text = "주변을 알아가는 중"; heading.text = title; caption.text = detail
-        spinner.visibility = View.VISIBLE
+        spinner.visibility = View.GONE
+        if (recordingFraction == null) motion.show(AnalysisMotionView.Stage.ANALYZING)
+        else motion.show(AnalysisMotionView.Stage.RECORDING, recordingFraction)
         showMetrics(null)
     }
 
+    fun recording(elapsedMs: Long, durationMs: Long) {
+        working("주변을 담고 있어요", "${((durationMs - elapsedMs).coerceAtLeast(0) + 999) / 1000}초 남았어요",
+            elapsedMs.toFloat() / durationMs.coerceAtLeast(1))
+    }
+
+    fun analyzing(processed: Long, total: Long) {
+        working("무드를 찾고 있어요", "장면 ${processed.coerceAtMost(total)} / $total · 빛과 색을 살펴보는 중")
+    }
+
     fun complete(result: RecommendationResult, animate: Boolean = true) {
+        resetReveal()
+        motion.show(AnalysisMotionView.Stage.IDLE)
         compact(false)
         spinner.visibility = View.GONE
         val words = result.commonMoodKeywords.filter { it != "수동 입력" }
@@ -83,13 +92,25 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
             else -> intArrayOf(0xffd7e8f2.toInt(), 0xffe2eee8.toInt(), 0xfff4e4dc.toInt())
         }
         moodBackground.setPalette(colors, animate)
+        if (animate && isShown && android.animation.ValueAnimator.areAnimatorsEnabled()) {
+            heading.alpha = 0f; heading.translationY = dp(8).toFloat()
+            heading.animate().alpha(1f).translationY(0f).setDuration(650).start()
+            metricStrip.alpha = 0f; metricStrip.translationY = dp(10).toFloat()
+            metricStrip.animate().alpha(1f).translationY(0f).setStartDelay(180).setDuration(650).start()
+        }
     }
 
     fun interrupted() {
+        resetReveal()
+        motion.show(AnalysisMotionView.Stage.IDLE)
         compact(false)
         spinner.visibility = View.GONE
         eyebrow.text = "다시 시작할 수 있어요"; heading.text = "잠시 멈췄어요"; caption.text = "무드 분석을 눌러 다시 담아보세요"
         showMetrics(null)
+    }
+
+    private fun resetReveal() {
+        listOf(heading, metricStrip).forEach { it.animate().cancel(); it.alpha = 1f; it.translationY = 0f }
     }
 
     private fun showMetrics(result: RecommendationResult?) {
@@ -102,7 +123,7 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
         if (hero.layoutParams.height != height) {
             hero.layoutParams = hero.layoutParams.apply { this.height = height }
             hero.getChildAt(0).layoutParams = (hero.getChildAt(0).layoutParams as FrameLayout.LayoutParams).apply {
-                width = dp(if (busy) 164 else 222); this.height = width
+                width = dp(if (busy) 198 else 246); this.height = width
             }
             heading.textSize = if (busy) 23f else 27f
         }
