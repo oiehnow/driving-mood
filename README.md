@@ -4,13 +4,15 @@
 
 ## 실제 앱 화면
 
-Android 프로토타입 **0.3.2**의 실행 화면입니다. 촬영·분석부터 분위기 선택, 음악 재생과 조명 미리보기까지 한 화면에서 이어집니다.
+Android 프로토타입 **0.3.3**. 분석 버튼으로 촬영을 시작하고, 완료된 무드와 대표 점수를 한눈에 확인합니다. 배경은 대기 중에도 은은하게 흐르며 결과에 맞는 색으로 바뀝니다.
 
-| 촬영·무드 분석 | 환경·분위기 설정 | 음악·조명 미리보기 |
+| 분석 시작 | 노을의 무드 | 도심의 무드 |
 |:---:|:---:|:---:|
-| [<img src="docs/product/assets/app-ui-0.3.2/analysis-start.png" width="250" alt="Driving Mood 앱의 촬영 시간 선택과 무드 분석 시작 화면">](docs/product/assets/app-ui-0.3.2/analysis-start.png) | [<img src="docs/product/assets/app-ui-0.3.2/mood-preferences.png" width="250" alt="위치·날씨 설정과 원하는 분위기·음악 취향 선택 화면">](docs/product/assets/app-ui-0.3.2/mood-preferences.png) | [<img src="docs/product/assets/app-ui-0.3.2/music-lighting.png" width="250" alt="로컬 음악 재생과 앰버·아이스 블루·소프트 민트·라일락 조명 미리보기 화면">](docs/product/assets/app-ui-0.3.2/music-lighting.png) |
+| <img src="docs/product/assets/app-ui-0.3.3/idle-gradient.gif" width="250" alt="실제 앱의 대기 화면과 흐르는 그라데이션"> | <img src="docs/product/assets/app-ui-0.3.3/02-warm-result.png" width="250" alt="노을 주행 영상의 저장된 계산 결과: 따뜻한 무드"> | <img src="docs/product/assets/app-ui-0.3.3/03-city-result.png" width="250" alt="도심 주행 영상의 저장된 계산 결과: 활기 넘침과 차가운 무드"> |
 
-[앱 화면 크게 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.2)
+결과 예시는 실제 주행 영상의 저장된 계산 결과를 앱에 표시한 화면입니다.
+
+[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.3)
 
 ## 원하는 분위기
 
@@ -26,7 +28,7 @@ Android 프로토타입 **0.3.2**의 실행 화면입니다. 촬영·분석부�
 
 ![분석 요청부터 결과까지](docs/product/assets/request-flow.gif)
 
-현재 0.3.2는 **30초·60초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 촬영한 영상에서 1초마다 대표 프레임을 분석하고, 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
+현재 0.3.3은 **30초·60초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 촬영한 영상에서 1초마다 대표 프레임을 분석하고, 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
 
 ## 무드 키워드를 만드는 과정
 
@@ -54,7 +56,7 @@ Android 프로토타입 **0.3.2**의 실행 화면입니다. 촬영·분석부�
 
 Android 8.0 이상을 지원합니다. [APK 빌드·설치 안내](docs/BUILD.md)
 
-1. 날씨를 사용하려면 **기상청 키 설정**에 초단기실황 API 키를 입력합니다. 키 없이도 영상 분석을 사용할 수 있습니다.
+1. 날씨를 사용하려면 **설정 → 기상청 키 설정**에 초단기실황 API 키를 입력합니다. 키 없이도 영상 분석을 사용할 수 있습니다.
 2. 촬영 길이를 **30초 또는 60초**로 선택하고 **무드 분석**을 누릅니다.
 3. 촬영·분석이 끝나면 완료음과 함께 무드 키워드·주요 근거·조명 미리보기를 확인합니다.
 4. **원하는 분위기**와 **로컬 음원 선택**을 설정하고 곡 태그·선호 장르를 지정해 음악을 재생합니다.
@@ -65,7 +67,7 @@ Android 8.0 이상을 지원합니다. [APK 빌드·설치 안내](docs/BUILD.md
 
 현재 APK는 **YOLO26n-sem-ADE20K 의미분할 + EfficientDet Lite0 사람·차량 검출 + 자체 색·면적 점수 규칙**을 기기 안에서 실행합니다. 내비게이션·실차 조명·장소 추천은 후속 개발 항목입니다. [모델과 재현 자료](docs/vision/SEMANTIC_MODEL.md)
 
-0.3.2는 하늘색 공통 무드 통합의 306개 단위 검사에 근거하며, 최종 APK의 서명·16KB 정렬·업데이트 설치·제품 구성 검사를 통과했습니다. Galaxy S25+ 실기기 검증은 진행할 항목입니다. [검증 기록](docs/VALIDATION.md)
+0.3.3은 단위 검사와 최종 APK의 서명·16KB 정렬·업데이트 설치·촬영 및 취소 검사를 통과했습니다. Galaxy S25+ 실기기 검증은 진행할 항목입니다. [검증 기록](docs/VALIDATION.md)
 
 ## 기술 문서
 

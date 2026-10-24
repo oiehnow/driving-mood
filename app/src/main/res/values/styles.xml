@@ -1,12 +1,12 @@
 <resources>
-    <style name="Theme.UrbanMood" parent="android:style/Theme.Material.NoActionBar">
+    <style name="Theme.UrbanMood" parent="android:style/Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">@font/pretendard_variable</item>
         <item name="android:alertDialogTheme">@style/Theme.UrbanMood.Dialog</item>
-        <item name="android:colorAccent">#9DE4CB</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowBackground">#101B23</item>
+        <item name="android:colorAccent">#002C5F</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">#F7F8FA</item>
     </style>
-    <style name="Theme.UrbanMood.Dialog" parent="android:style/Theme.Material.Dialog.Alert">
+    <style name="Theme.UrbanMood.Dialog" parent="android:style/Theme.Material.Light.Dialog.Alert">
         <item name="android:fontFamily">@font/pretendard_variable</item>
     </style>
 </resources>

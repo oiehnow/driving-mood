@@ -7,6 +7,7 @@ import kr.urbanmood.contracts.RoadType
 /** Configuration-change retention only; no SavedStateHandle, disk writes, logs or backups. */
 class SessionState : ViewModel() {
     var kmaKey: String = ""
+    var selectedPage: Int = 0
     var genres: String = ""
     var preferredMoods: Set<String> = emptySet()
     val tracks = mutableListOf<LocalTrack>()

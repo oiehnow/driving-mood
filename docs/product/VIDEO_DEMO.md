@@ -1,6 +1,6 @@
 # 주행 장면에서 무드 결과까지
 
-[실제 Android 앱 화면](APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.2)
+[실제 Android 앱 화면](APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.3)
 
 실제 차량 주행 영상과 이미지 자료들을 바탕으로 장면 다양성을 보강했다. 주행 영상의 조명·사람·하늘 근거를 공용 점수기로 계산하고, 같은 시간 구간의 중복 표본을 제외해 관측을 누적했다.
 

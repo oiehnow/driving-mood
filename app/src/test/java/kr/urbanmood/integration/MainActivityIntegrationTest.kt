@@ -26,6 +26,26 @@ import java.time.Duration
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [28])
 class MainActivityIntegrationTest {
+    @Test fun navigationRetainsSelectedPageAndDoesNotStartSensors() {
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        try {
+            button(controller.get(), "음악·조명").performClick()
+            assertEquals(1, ViewModelProvider(controller.get())[SessionState::class.java].selectedPage)
+            controller.recreate()
+            val activity = controller.get()
+            assertTrue(button(activity, "음악·조명").isSelected)
+            assertTrue(button(activity, "로컬 음원 선택").isShown)
+            assertFalse(button(activity, "무드 분석").isShown)
+            button(activity, "분석").performClick()
+            assertTrue(button(activity, "무드 분석").isShown)
+            assertFalse(button(activity, "점수와 관측 근거").isShown)
+            button(activity, "상세 보기  ↓").performClick()
+            assertTrue(button(activity, "점수와 관측 근거").isShown)
+            assertNull(shadowOf(activity).lastRequestedPermission)
+            assertNull(ViewModelProvider(activity)[SessionState::class.java].activeRequestId)
+        } finally { controller.pause().stop().destroy() }
+    }
+
     @Test fun commonMoodAndLightingSurviveRotationAndCancelledNextRequestAtBothDurations() {
         for (length in listOf(30_000L, 60_000L)) {
             val controller = Robolectric.buildActivity(MainActivity::class.java).setup()

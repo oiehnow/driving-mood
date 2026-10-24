@@ -1,2 +1,3 @@
-# Host-side APK font metadata inspection only; not bundled in Android.
+# Host-side APK font/image metadata inspection; not bundled in Android.
 fonttools==4.63.0
+Pillow>=11.0,<13

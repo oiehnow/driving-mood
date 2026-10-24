@@ -61,6 +61,21 @@ def font_name_strings(data):
             yield record.toUnicode(errors="strict")
 
 
+def image_metadata_strings(data):
+    """Inspect image text/EXIF, not compressed pixel bytes that resemble paths by chance."""
+    from PIL import Image
+
+    with Image.open(io.BytesIO(data)) as image:
+        for value in image.info.values():
+            if isinstance(value, str):
+                yield value
+        for value in image.getexif().values():
+            if isinstance(value, str):
+                yield value
+            elif isinstance(value, bytes):
+                yield value.decode("utf-8", errors="replace")
+
+
 def audit(path):
     findings = []
     upstream_metadata = []
@@ -102,6 +117,11 @@ def audit(path):
                 # Short drive-letter-like glyph bytes are meaningful only in actual text.
                 for value in re.findall(rb"[\x20-\x7e]{6,}", data):
                     sensitive.update(sensitive_categories(value.decode("ascii")) - {"windows_absolute_path"})
+            elif entry.filename.lower().endswith((".png", ".jpg", ".jpeg", ".webp", ".gif")):
+                hits = set()
+                for value in image_metadata_strings(data):
+                    hits.update(term for term in TERMS if term in value)
+                    sensitive.update(sensitive_categories(value))
             else:
                 # UTF-8 and UTF-16LE cover text assets, XML string pools and resources.arsc.
                 hits = {term for term in TERMS if any(term.encode(enc) in data

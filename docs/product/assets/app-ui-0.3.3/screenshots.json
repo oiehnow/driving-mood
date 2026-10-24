@@ -1,0 +1,46 @@
+{
+  "version": "0.3.3",
+  "screenshots": [
+    {
+      "file": "01-home.png",
+      "sha256": "fe3dfd6c225749ab1282f43cfbe46a3b383595751a0e481465694d355bbd7142",
+      "source": "Android 15 emulator, installed release 0.3.3",
+      "content": "app launch/settings"
+    },
+    {
+      "file": "02-warm-result.png",
+      "sha256": "26bc7b59da5e22eca7021e23fd5e9f3319e94312ce36338436796f753f4c07c0",
+      "source": "Android 15 emulator, installed release 0.3.3",
+      "content": "saved real-driving score replay"
+    },
+    {
+      "file": "03-city-result.png",
+      "sha256": "3391c847220f0b33238b95b54b84609689b70ec51f0b13dd28e4471700473921",
+      "source": "Android 15 emulator, installed release 0.3.3",
+      "content": "saved real-driving score replay"
+    },
+    {
+      "file": "04-music.png",
+      "sha256": "5e6eb2eef5d99929d8d585eae1f37a6b1d4f9111c939d475c1e5c9505ef56191",
+      "source": "Android 15 emulator, installed release 0.3.3",
+      "content": "saved real-driving score replay"
+    },
+    {
+      "file": "05-lighting.png",
+      "sha256": "1885cc79265b6e37d5eb6dd8e5152fe54adb9400ac6b339e427986604cf46e51",
+      "source": "Android 15 emulator, installed release 0.3.3",
+      "content": "saved real-driving score replay"
+    },
+    {
+      "file": "06-settings.png",
+      "sha256": "8d44e7b9169945b5fcb23cbb62746a79601d48815615040df13a946c6d3044ac",
+      "source": "Android 15 emulator, installed release 0.3.3",
+      "content": "app launch/settings"
+    }
+  ],
+  "scoreSources": [
+    "../../../../app/src/androidTest/assets/ui-review/full-01.json",
+    "../../../../app/src/androidTest/assets/ui-review/full-02.json"
+  ],
+  "idleGif": "Recorded from the running app; resized and sampled at 8 fps."
+}

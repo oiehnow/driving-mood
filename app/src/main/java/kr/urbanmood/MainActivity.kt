@@ -100,8 +100,13 @@ class MainActivity : ComponentActivity() {
     private var permissionContinuation: CancellableContinuation<Boolean>? = null
     private var cameraRequestId: Long? = null
     private var foreground = false
-    private val mint = Color.rgb(157, 228, 203)
-    private val muted = Color.rgb(171, 190, 200)
+    private val ink = Color.rgb(0, 44, 95)
+    private val paper = Color.rgb(247, 248, 250)
+    private val muted = Color.rgb(101, 113, 130)
+    private lateinit var dashboard: kr.urbanmood.ui.MoodDashboardView
+    private lateinit var detailPanel: LinearLayout
+    private val pages = mutableListOf<ScrollView>()
+    private val navigationButtons = mutableListOf<Button>()
 
     private val analysisPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
         val continuation = permissionContinuation
@@ -140,6 +145,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightNavigationBars = true
         session = ViewModelProvider(this)[SessionState::class.java]
         services = AppServices(applicationContext) { session.kmaKey }
         buildScreen()
@@ -205,7 +211,9 @@ class MainActivity : ComponentActivity() {
 
     private fun startAnalysis() {
         if (!foreground || permissionInFlight) return
+        selectPage(0)
         val id = session.beginAnalysis() ?: return
+        dashboard.working("주변을 담을 준비", "카메라 연결을 확인하고 있어요")
         recommendationJob?.cancel()
         scoreText.text = "촬영을 마치면 주변 무드를 분석합니다."
         clearDecodedPreview()
@@ -277,6 +285,7 @@ class MainActivity : ComponentActivity() {
         val clip = camera.record(duration,
             progress = { elapsed -> if (session.ownsRequest(id)) {
                 cameraStatus.text = "촬영 중"
+                dashboard.working("주변을 담고 있어요", "${elapsed / 1000} / ${duration / 1000}초")
                 frameStatus.text = "${elapsed / 1000} / ${duration / 1000}초"
             } },
             finalizing = { if (session.ownsRequest(id)) cameraStatus.text = "영상 저장 마무리 중" })
@@ -285,6 +294,7 @@ class MainActivity : ComponentActivity() {
             preview.visibility = View.GONE
             decodedPreview.visibility = View.VISIBLE
             cameraStatus.text = "분석 중"
+            dashboard.working("무드를 찾고 있어요", "촬영한 장면을 차근차근 살펴보는 중")
             frameStatus.text = "촬영한 영상의 장면을 확인하고 있습니다."
             return withTimeout(180_000) {
                 recordedAnalyzer.analyze(clip) { value, bitmap, elapsed, samples ->
@@ -336,6 +346,7 @@ class MainActivity : ComponentActivity() {
     private fun showInterrupted(message: String) {
         val previous = session.completedAnalysis
         if (previous != null) renderCompleted(previous) else {
+            dashboard.interrupted()
             analysisText.text = "관측을 완료하지 못했습니다. 다시 눌러 새로 관측할 수 있습니다."
             frameStatus.text = "미완료 관측을 지웠습니다."
             scoreText.text = kr.urbanmood.integration.scoreSummaryText(null)
@@ -349,6 +360,9 @@ class MainActivity : ComponentActivity() {
         analyzeButton.isEnabled = !busy && !permissionInFlight
         analyzeButton.text = if (busy) "분석 중…" else "무드 분석"
         cancelButton.isEnabled = busy
+        cancelButton.visibility = if (busy) View.VISIBLE else View.GONE
+        frameStatus.visibility = if (busy || session.completedAnalysis != null) View.VISIBLE else View.GONE
+        navigationButtons.forEachIndexed { index, button -> button.isEnabled = !busy || index == 0 }
         configurationButtons.forEach { it.isEnabled = !busy }
     }
 
@@ -381,6 +395,7 @@ class MainActivity : ComponentActivity() {
 
     private fun renderRecommendation(value: RecommendationResult) {
         recommendation = value
+        dashboard.complete(value)
         moodText.text = recommendationText(value)
         scoreText.text = kr.urbanmood.integration.scoreSummaryText(value.scoreSummary)
         searchButton.isEnabled = !value.youtubeQuery.isNullOrBlank()
@@ -412,20 +427,46 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun buildScreen() {
-        val scroll = ScrollView(this).apply { setBackgroundColor(Color.rgb(16, 27, 35)); isFillViewport = true }
-        val root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(20), dp(24), dp(20), dp(28)) }
-        scroll.addView(root)
-        setContentView(scroll)
-        ViewCompat.setOnApplyWindowInsetsListener(scroll) { view, insets ->
+        val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(paper) }
+        val pageHost = FrameLayout(this)
+        shell.addView(pageHost, LinearLayout.LayoutParams(-1, 0, 1f))
+        fun page(): LinearLayout {
+            val body = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(24), dp(22), dp(24), dp(26)) }
+            val scroll = ScrollView(this).apply { isFillViewport = true; isVerticalScrollBarEnabled = false; addView(body) }
+            pageHost.addView(scroll, FrameLayout.LayoutParams(-1, -1))
+            pages += scroll
+            return body
+        }
+        val root = page()
+        val musicPage = page()
+        val settingsPage = page()
+        setContentView(shell)
+        ViewCompat.setOnApplyWindowInsetsListener(shell) { view, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout())
-            view.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+            val keyboard = insets.getInsets(WindowInsetsCompat.Type.ime())
+            view.setPadding(bars.left, bars.top, bars.right, maxOf(bars.bottom, keyboard.bottom))
             insets
         }
-        root.addView(text(getString(R.string.app_name), 11, mint))
-        root.addView(text("도시의 빛을, 음악으로", 27, Color.WHITE, true))
-        root.addView(text("주변의 색감과 날씨, 나의 취향에 어울리는 음악을 만나보세요.", 13, muted))
-
-        val captureCard = card(root, "01   지금의 무드 분석")
+        val brand = row(root).apply { gravity = android.view.Gravity.CENTER_VERTICAL }
+        brand.addView(ImageView(this).apply {
+            setImageResource(R.mipmap.ic_launcher)
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        }, LinearLayout.LayoutParams(dp(38), dp(38)).apply { marginEnd = dp(10) })
+        brand.addView(text(getString(R.string.app_name), 18, ink, true))
+        root.addView(text("지금 이 길의 분위기", 13, muted))
+        val actions = row(root)
+        durationButton = addButton(actions, "촬영 ${session.recordingDurationMs / 1000}초") {
+            AlertDialog.Builder(this).setTitle("촬영 길이")
+                .setSingleChoiceItems(arrayOf("30초", "60초"), if (session.recordingDurationMs == 30_000L) 0 else 1) { dialog, selected ->
+                    session.recordingDurationMs = if (selected == 0) 30_000 else 60_000
+                    durationButton.text = "촬영 ${session.recordingDurationMs / 1000}초"
+                    dialog.dismiss()
+                }.setNegativeButton("취소", null).showWithAppFont()
+        }
+        configurationButtons += durationButton
+        analyzeButton = addButton(actions, "무드 분석") { startAnalysis() }.also { primary(it) }
+        dashboard = kr.urbanmood.ui.MoodDashboardView(this)
+        root.addView(dashboard, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(18); bottomMargin = dp(12) })
         preview = PreviewView(this).apply {
             implementationMode = PreviewView.ImplementationMode.COMPATIBLE
             scaleType = PreviewView.ScaleType.FIT_CENTER
@@ -440,65 +481,57 @@ class MainActivity : ComponentActivity() {
             addView(decodedPreview, FrameLayout.LayoutParams(-1, -1))
             addView(evidenceOverlay, FrameLayout.LayoutParams(-1, -1))
         }
-        captureCard.addView(previewContainer, LinearLayout.LayoutParams(-1, dp(260)))
-        cameraStatus = text("짧게 촬영하고 주변 무드를 확인하세요.", 14, mint)
-        frameStatus = text("촬영 → 분석 → 무드와 음악", 12, muted)
-        captureCard.addView(cameraStatus)
-        captureCard.addView(frameStatus)
-        durationButton = addButton(captureCard, "촬영 ${session.recordingDurationMs / 1000}초") {
-            AlertDialog.Builder(this).setTitle("촬영 길이")
-                .setSingleChoiceItems(arrayOf("30초", "60초"), if (session.recordingDurationMs == 30_000L) 0 else 1) { dialog, selected ->
-                    session.recordingDurationMs = if (selected == 0) 30_000 else 60_000
-                    durationButton.text = "촬영 ${session.recordingDurationMs / 1000}초"
-                    dialog.dismiss()
-                }.setNegativeButton("취소", null).showWithAppFont()
+        root.addView(previewContainer, LinearLayout.LayoutParams(-1, dp(190)))
+        cameraStatus = text("분석을 시작하면 카메라가 켜집니다.", 12, muted)
+        frameStatus = text("촬영 → 분석 → 무드 확인", 12, muted).apply { visibility = View.GONE }
+        root.addView(cameraStatus)
+        root.addView(frameStatus)
+        cancelButton = addButton(root, "취소", false) { cancelAnalysis("분석을 취소했습니다. 이전 결과는 유지됩니다.") }
+        cancelButton.visibility = View.GONE
+        root.removeView(cancelButton)
+        root.addView(cancelButton, root.indexOfChild(previewContainer))
+        lateinit var detailsButton: Button
+        detailsButton = addButton(root, "상세 보기  ↓") {
+            val expanded = detailPanel.visibility != View.VISIBLE
+            detailPanel.visibility = if (expanded) View.VISIBLE else View.GONE
+            detailsButton.text = if (expanded) "상세 접기  ↑" else "상세 보기  ↓"
         }
-        configurationButtons += durationButton
-        val cameraButtons = row(captureCard)
-        analyzeButton = addButton(cameraButtons, "무드 분석") { startAnalysis() }
-        cancelButton = addButton(cameraButtons, "취소", false) { cancelAnalysis("분석을 취소했습니다. 이전 결과는 유지됩니다.") }
-        addButton(captureCard, "권한 · 앱 설정") {
-            openExternal(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName")))
-        }
-        captureCard.addView(text("영상은 기기에 임시 저장 후 삭제합니다. 운전 중에는 조작하지 마세요.", 12, muted))
-
-        val analysisCard = card(root, "02   도시 조명 분석")
-        analysisText = text("무드 분석을 누르면 주변 색감과 빛을 확인합니다.", 15, Color.WHITE)
+        detailsButton.contentDescription = "분석 상세 펼치기 또는 접기"
+        detailPanel = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
+        root.addView(detailPanel)
+        val analysisCard = card(detailPanel, "장면 관측")
+        analysisText = text("분석을 마치면 주변 색감과 빛을 확인할 수 있어요.", 14, ink)
         analysisCard.addView(analysisText)
         addButton(analysisCard, "분석 상세") {
             showDetails("분석 상세", latestVision?.let { value ->
                 "관측 ${time(value.frameTimeEpochMs)}\n" + value.reasons.joinToString("\n")
             } ?: "무드 분석을 마치면 내용을 확인할 수 있습니다.")
         }
+        scoreText = text("관측을 마치면 분위기별 점수와 기여 항목을 확인할 수 있습니다.", 13, muted)
+        analysisCard.addView(scoreText)
+        addButton(analysisCard, "점수와 관측 근거") {
+            showDetails("점수와 관측 근거", kr.urbanmood.integration.scoreDetailsText(recommendation?.scoreSummary))
+        }
+        addButton(root, "음악과 조명으로 이어가기  →") { selectPage(1) }
 
-        val environmentCard = card(root, "03   위치 · 도로 · 날씨")
-        environmentText = text("위치 미연결\n도로 알 수 없음 · 날씨 미연결", 14, Color.WHITE)
-        environmentCard.addView(environmentText)
-        environmentCard.addView(text(AndroidEnvironmentProvider.PRIVACY + "\n날씨를 연결하려면 인증키가 필요합니다. 도로는 자동으로 확인하지 않으며 직접 설정할 수 있습니다.", 12, muted))
-        configurationButtons += addButton(environmentCard, "기상청 키 설정") { showKeySettings() }
-        configurationButtons += addButton(environmentCard, "수동 설정") { showManualSettings() }
-
-        val moodCard = card(root, "04   나에게 맞는 분위기")
+        musicPage.addView(text("나의 드라이브", 28, ink, true))
+        musicPage.addView(text("주변의 무드를 나만의 분위기로", 13, muted))
+        val moodCard = card(musicPage, "분위기와 취향")
+        moodText = text("주변 무드를 분석하고 어울리는 음악을 만나보세요.", 15, ink)
+        moodCard.addView(moodText)
+        desiredMoodText = text("", 13, muted)
+        moodCard.addView(desiredMoodText)
+        renderDesiredMoods()
+        configurationButtons += addButton(moodCard, "원하는 분위기 선택") { showDesiredMoods() }
         preferenceInput = EditText(this).apply {
-            hint = "선호 장르 (예: jazz, ambient)"
-            setTextColor(Color.WHITE); setHintTextColor(muted); textSize = 14f
+            hint = "좋아하는 장르 · jazz, ambient"
+            setTextColor(ink); setHintTextColor(muted); textSize = 14f
             maxLines = 1; inputType = android.text.InputType.TYPE_CLASS_TEXT
             contentDescription = "쉼표로 구분한 선호 장르"
             setText(session.genres)
         }
         moodCard.addView(preferenceInput)
         addButton(moodCard, "취향 적용") { requestRecommendation() }
-        desiredMoodText = text("", 13, muted)
-        moodCard.addView(desiredMoodText)
-        renderDesiredMoods()
-        configurationButtons += addButton(moodCard, "원하는 분위기 선택") { showDesiredMoods() }
-        moodText = text("무드 분석을 마치면 주변 무드와 음악·조명 활용을 확인할 수 있습니다.", 14, Color.WHITE)
-        moodCard.addView(moodText)
-        scoreText = text("관측을 마치면 분위기별 점수와 기여 항목을 확인할 수 있습니다.", 13, muted)
-        moodCard.addView(scoreText)
-        addButton(moodCard, "점수와 관측 근거") {
-            showDetails("점수와 관측 근거", kr.urbanmood.integration.scoreDetailsText(recommendation?.scoreSummary))
-        }
         addButton(moodCard, "추천 이유") {
             showDetails("추천 이유", recommendation?.reasons?.filterNot { it.startsWith("영상 근거:") }
                 ?.joinToString("\n") ?: "사용 가능한 환경과 취향을 바탕으로 추천을 준비하고 있습니다.")
@@ -509,10 +542,9 @@ class MainActivity : ComponentActivity() {
                     .appendQueryParameter("search_query", query).build()))
             }
         }
-
-        val audioCard = card(root, "05   내 음악")
+        val audioCard = card(musicPage, "내 음악")
         catalogText = text("선택한 음원 ${tracks.size}곡", 13, muted)
-        playerText = text("재생 대기 · 기기 내 음원을 선택하세요.", 15, Color.WHITE)
+        playerText = text("재생 대기 · 기기 내 음원을 선택하세요.", 15, ink)
         audioCard.addView(catalogText); audioCard.addView(playerText)
         addButton(audioCard, "로컬 음원 선택", services.audioAvailable) { musicPicker.launch(arrayOf("audio/*")) }
         addButton(audioCard, "곡별 장르·분위기 태그") { showTrackTags() }
@@ -523,13 +555,15 @@ class MainActivity : ComponentActivity() {
         }
         addButton(audioButtons, "일시정지", services.audioAvailable) { services.audio.pause() }
         addButton(audioButtons, "다음", services.audioAvailable) { services.audio.next() }
-        val lightingCard = card(root, "06   조명 미리보기")
+        val lightingCard = card(musicPage, "조명 미리보기")
         lightingSwatch = View(this).apply { setBackgroundColor(Color.DKGRAY) }
         lightingCard.addView(lightingSwatch, LinearLayout.LayoutParams(-1, dp(58)))
-        lightingText = text("프리셋을 선택하세요.", 14, Color.WHITE)
+        lightingText = text("프리셋을 선택하세요.", 14, ink)
         lightingCard.addView(lightingText)
-        val lightingButtons = row(lightingCard)
-        LightingPreview.presets.forEach { preset -> configurationButtons += addButton(lightingButtons, preset.name) {
+        var lightingButtons = row(lightingCard)
+        LightingPreview.presets.forEachIndexed { index, preset ->
+            if (index == 2) lightingButtons = row(lightingCard)
+            configurationButtons += addButton(lightingButtons, preset.name) {
             session.lightingPreview = preset.copy(requestId = session.completedAnalysis?.snapshot?.requestId,
                 moodKeywords = session.completedAnalysis?.recommendation?.commonMoodKeywords.orEmpty().toList())
             renderLighting()
@@ -543,19 +577,62 @@ class MainActivity : ComponentActivity() {
             }.showWithAppFont()
         }
         renderLighting()
-        addButton(root, "오픈소스 라이선스") {
+
+        settingsPage.addView(text("설정", 28, ink, true))
+        settingsPage.addView(text("분석에 사용할 연결과 권한", 13, muted))
+        val environmentCard = card(settingsPage, "위치 · 도로 · 날씨")
+        environmentText = text("위치 미연결\n도로 알 수 없음 · 날씨 미연결", 14, ink)
+        environmentCard.addView(environmentText)
+        configurationButtons += addButton(environmentCard, "기상청 키 설정") { showKeySettings() }
+        configurationButtons += addButton(environmentCard, "수동 설정") { showManualSettings() }
+        addButton(settingsPage, "권한 · 앱 설정") {
+            openExternal(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName")))
+        }
+        addButton(settingsPage, "데이터 사용 안내") {
+            showDetails("데이터 사용 안내", AndroidEnvironmentProvider.PRIVACY + "\n영상은 기기에 임시 저장 후 삭제합니다.\n날씨를 연결하려면 인증키가 필요합니다. 도로는 직접 설정할 수 있습니다.")
+        }
+        settingsPage.addView(text("영상은 기기에 임시 저장 후 삭제합니다.", 12, muted))
+        val about = card(settingsPage, "Driving Mood")
+        about.addView(text("제작자 oieh", 15, ink, true))
+        about.addView(text("버전 ${packageManager.getPackageInfo(packageName, 0).versionName}", 12, muted))
+        addButton(settingsPage, "오픈소스 라이선스") {
             val names = (assets.list("licenses")?.map { "licenses/$it" }.orEmpty() +
                 listOf("vision/Apache-2.0.txt", "vision/THIRD-PARTY-NOTICES.md")).sorted()
             AlertDialog.Builder(this).setTitle("외부 라이브러리 고지")
                 .setItems(names.toTypedArray()) { _, index ->
                     val notice = assets.open(names[index]).bufferedReader().use { it.readText() }
-                    val body = text(notice, 12, Color.WHITE).apply { setPadding(dp(16), dp(16), dp(16), dp(16)) }
+                    val body = text(notice, 12, ink).apply { setPadding(dp(16), dp(16), dp(16), dp(16)) }
                     AlertDialog.Builder(this).setTitle(names[index])
                         .setView(ScrollView(this).apply { addView(body) })
                         .setPositiveButton("닫기", null).showWithAppFont()
                 }.setNegativeButton("닫기", null).showWithAppFont()
         }
-        typography.watch(root)
+
+        val navigation = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL; setPadding(dp(12), dp(8), dp(12), dp(8)); setBackgroundColor(Color.WHITE)
+        }
+        shell.addView(navigation, LinearLayout.LayoutParams(-1, -2))
+        listOf("분석", "음악·조명", "설정").forEachIndexed { index, label ->
+            val item = addButton(navigation, label) { selectPage(index) }
+            item.setCompoundDrawablesWithIntrinsicBounds(0, listOf(R.drawable.ic_mood, R.drawable.ic_music, R.drawable.ic_settings)[index], 0, 0)
+            item.compoundDrawablePadding = dp(4); item.textSize = 11f
+            navigationButtons += item
+        }
+        selectPage(session.selectedPage)
+        typography.watch(shell)
+    }
+
+    private fun selectPage(index: Int) {
+        if (session.activeRequestId != null && index != 0) return
+        val selected = index.coerceIn(0, pages.lastIndex)
+        session.selectedPage = selected
+        pages.forEachIndexed { position, view -> view.visibility = if (position == selected) View.VISIBLE else View.GONE }
+        navigationButtons.forEachIndexed { position, button ->
+            button.isSelected = position == selected
+            button.setTextColor(if (button.isSelected) ink else muted)
+            button.backgroundTintList = ColorStateList.valueOf(if (button.isSelected) Color.rgb(234, 240, 247) else Color.WHITE)
+            button.compoundDrawableTintList = ColorStateList.valueOf(if (button.isSelected) ink else muted)
+        }
     }
 
     private fun showKeySettings() {
@@ -669,7 +746,7 @@ class MainActivity : ComponentActivity() {
         try { startActivity(intent) } catch (_: Exception) { Toast.makeText(this, "열 수 있는 앱이 없습니다.", Toast.LENGTH_LONG).show() }
     }
     private fun showDetails(title: String, value: String) {
-        val body = text(value, 14, Color.WHITE).apply { setPadding(dp(16), dp(16), dp(16), dp(16)) }
+        val body = text(value, 14, ink).apply { setPadding(dp(16), dp(16), dp(16), dp(16)) }
         AlertDialog.Builder(this).setTitle(title).setView(ScrollView(this).apply { addView(body) })
             .setPositiveButton("닫기", null).showWithAppFont()
     }
@@ -694,24 +771,47 @@ class MainActivity : ComponentActivity() {
     private fun card(parent: LinearLayout, title: String): LinearLayout {
         val result = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(12), dp(16), dp(16))
-            background = GradientDrawable().apply { setColor(Color.rgb(27, 42, 52)); cornerRadius = dp(18).toFloat() }
+            background = GradientDrawable().apply { setColor(Color.WHITE); cornerRadius = dp(20).toFloat() }
         }
         parent.addView(result, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(16) })
-        result.addView(text(title, 14, mint, true))
+        result.addView(text(title, 16, ink, true))
         return result
     }
     private fun row(parent: LinearLayout) = LinearLayout(this).apply {
         orientation = LinearLayout.HORIZONTAL; parent.addView(this)
     }
+    private fun primary(button: Button) {
+        button.setTextColor(Color.WHITE)
+        button.compoundDrawableTintList = ColorStateList.valueOf(Color.WHITE)
+        button.backgroundTintList = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled), intArrayOf()), intArrayOf(ink, Color.rgb(122, 140, 160)))
+    }
     private fun addButton(parent: LinearLayout, label: String, enabled: Boolean = true, action: () -> Unit): Button {
         val button = Button(this).apply {
             text = label; isAllCaps = false; textSize = 13f; isEnabled = enabled
-            minHeight = dp(48); setTextColor(Color.rgb(16, 27, 35))
-            backgroundTintList = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled), intArrayOf()), intArrayOf(mint, Color.rgb(102, 117, 124)))
+            minHeight = dp(48); minimumHeight = dp(48); setPadding(dp(12), dp(10), dp(12), dp(10))
+            setTextColor(ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled), intArrayOf()), intArrayOf(ink, muted)))
+            background = GradientDrawable().apply { setColor(Color.rgb(237, 241, 246)); cornerRadius = dp(14).toFloat() }
+            stateListAnimator = null
+            val icon = when (label) {
+                "무드 분석" -> R.drawable.ic_camera
+                "재생" -> R.drawable.ic_play
+                "일시정지" -> R.drawable.ic_pause
+                "다음" -> R.drawable.ic_next
+                "밝기 조절" -> R.drawable.ic_light
+                "데이터 사용 안내" -> R.drawable.ic_info
+                else -> null
+            }
+            icon?.let {
+                setCompoundDrawablesWithIntrinsicBounds(it, 0, 0, 0)
+                compoundDrawablePadding = dp(6)
+                compoundDrawableTintList = ColorStateList.valueOf(ink)
+            }
             setOnClickListener { action() }
         }
         val params = if (parent.orientation == LinearLayout.HORIZONTAL) LinearLayout.LayoutParams(0, -2, 1f)
         else LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        params.topMargin = dp(6); params.bottomMargin = dp(6)
+        if (parent.orientation == LinearLayout.HORIZONTAL) { params.marginStart = dp(3); params.marginEnd = dp(3) }
         parent.addView(button, params)
         return button
     }

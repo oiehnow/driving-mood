@@ -1,0 +1,53 @@
+{
+  "repository": "https://github.com/phosphor-icons/core",
+  "commit": "2b75f3ad12b420c9504ef05df8d2564a28f8500e",
+  "license": "MIT",
+  "conversion": "SVG paths and opacity retained in Android VectorDrawable; color uses app theme.",
+  "icons": [
+    {
+      "name": "mood",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/scan-duotone.svg",
+      "sha256": "69c2bdfe6d6fa604ec6172e7e7d7495a45f7375b8f18d3ada0834da72ce61d0a"
+    },
+    {
+      "name": "music",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/music-notes-duotone.svg",
+      "sha256": "3bef98ba3b52c89aa02fa9e77d76aae93cebe71f116afa1eb5df57ff21d17d02"
+    },
+    {
+      "name": "settings",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/sliders-horizontal-duotone.svg",
+      "sha256": "76260b62780cba20278d8c45eb9107801090414b0fbb8a6b67c97860664d7237"
+    },
+    {
+      "name": "play",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/play-duotone.svg",
+      "sha256": "8485ad1efd20878370885ccf7b825aae21a3b2fede35734484475672ac707c48"
+    },
+    {
+      "name": "pause",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/pause-duotone.svg",
+      "sha256": "d8cd1f4b61cc90a6f70bb87db2dc4bda686f8ef9f3c69722c3528860b5c43c1c"
+    },
+    {
+      "name": "next",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/skip-forward-duotone.svg",
+      "sha256": "a76c0760fa058cbfbf9a1b7da7fb7fb43145dee3bfc24c4c381d1497bdf86e2c"
+    },
+    {
+      "name": "light",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/lightbulb-duotone.svg",
+      "sha256": "498e42a870d662fd36e7dba9b53fc82c3cdbe05452ad0534f3de8033dd07a2a6"
+    },
+    {
+      "name": "camera",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/camera-duotone.svg",
+      "sha256": "16aab74ac3605daf0b2b55f2eb5cea741f42a0a49894e4fd1c1211bfeb7e1f16"
+    },
+    {
+      "name": "info",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/info-duotone.svg",
+      "sha256": "dec9ea1394c618d6d576ba43e0f08eea265eaf20046e98bc3da19eb4b8da73e8"
+    }
+  ]
+}

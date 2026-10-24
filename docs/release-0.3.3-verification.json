@@ -1,0 +1,27 @@
+{
+  "version": "0.3.3",
+  "versionCode": 11,
+  "apkSha256": "4485a1e69f4513f998d9f3936a8ca1aacbc66239566590f4c79cfce7f4ca91ba",
+  "unitTests": {
+    "passed": 311,
+    "failed": 0
+  },
+  "nativeTests": {
+    "passed": 5,
+    "failed": 0,
+    "environment": "Android 15 x86_64 emulator",
+    "checks": [
+      "production configuration",
+      "actual UI screenshots and saved-driving score display",
+      "30-second recording and completion",
+      "background cancellation",
+      "decoder cancellation"
+    ]
+  },
+  "signatureVerified": true,
+  "zipAndElf16KBVerified": true,
+  "apkTextAuditPassed": true,
+  "installedApkHashMatches": true,
+  "screenshots": "product/assets/app-ui-0.3.3/screenshots.json",
+  "physicalGalaxyS25PlusVerified": false
+}

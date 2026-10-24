@@ -1,23 +1,39 @@
 # Driving Mood 앱 화면
 
-0.3.2 APK를 Android 15 에뮬레이터에서 실행한 화면이다. 메인 화면을 위에서 아래로 스크롤하며 촬영·환경 설정·음악·조명 기능을 사용할 수 있다.
+0.3.3 APK를 Android 15 에뮬레이터에서 실행했다. **분석 / 음악·조명 / 설정**으로 화면을 나누고, 홈은 분석 시작과 무드 결과에 집중한다.
 
-## 촬영과 무드 분석
+## 분석과 무드 결과
 
-30초 또는 60초를 선택해 촬영을 시작한다. 촬영 후 저장 영상을 분석하고 완료음과 함께 주변 무드와 관측 근거를 표시한다.
+상단에서 30초·60초 촬영을 선택하고 무드 분석을 시작한다. 촬영 중 경과 시간과 취소 버튼, 분석 중 로딩을 표시한다. 완료 후 대표 키워드와 실제 기여 점수를 보여주며 **상세 보기**에서 근거를 펼친다.
 
-![촬영 시간 선택과 무드 분석 시작](assets/app-ui-0.3.2/analysis-start.png)
+| 분석 전 | 따뜻한 무드 | 도심의 무드 |
+|---|---|---|
+| <img src="assets/app-ui-0.3.3/01-home.png" width="260" alt="분석 시작"> | <img src="assets/app-ui-0.3.3/02-warm-result.png" width="260" alt="노을 무드 결과"> | <img src="assets/app-ui-0.3.3/03-city-result.png" width="260" alt="도심 무드 결과"> |
 
-## 환경과 원하는 분위기
+결과 화면에는 실제 주행 영상의 저장된 점수와 키워드를 사용했다. 색감의 하늘색 점수와 시각적 활력의 관측 강도를 구분하며 측정하지 않은 값은 ‘—’로 표시한다.
 
-위치·날씨 연결 상태를 확인하고 선호 장르와 원하는 분위기를 설정한다. 분석을 마치면 점수·관측 근거·추천 이유를 확인할 수 있다.
+## 은은하게 흐르는 배경
 
-![위치·날씨와 분위기·취향 설정](assets/app-ui-0.3.2/mood-preferences.png)
+분석 전에는 블루·민트·살구색이 천천히 흐른다. 완료되면 같은 움직임을 유지하면서 무드에 맞는 색으로 전환한다. 다른 탭이나 앱으로 이동하면 멈추며 기기의 애니메이션 설정을 따른다.
 
-## 음악과 조명 미리보기
+<img src="assets/app-ui-0.3.3/idle-gradient.gif" width="360" alt="실제 앱의 계속 움직이는 그라데이션">
 
-로컬 음원을 등록해 곡별 장르·분위기 태그를 지정하고 재생한다. 조명은 앰버·아이스 블루·소프트 민트·라일락 프리셋과 밝기를 미리 볼 수 있다.
+## 음악·조명과 설정
 
-![로컬 음악 재생과 조명 프리셋](assets/app-ui-0.3.2/music-lighting.png)
+원하는 분위기와 선호 장르, 로컬 음원을 설정한다. 조명 프리셋과 밝기를 미리 볼 수 있고 위치·날씨 연결과 앱 권한은 설정에 모았다.
 
-[APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.2) · [실제 주행 영상 분석](VIDEO_DEMO.md) · [앱 검증 기록](../VALIDATION.md)
+| 음악과 취향 | 조명 미리보기 | 설정·제작자 |
+|---|---|---|
+| <img src="assets/app-ui-0.3.3/04-music.png" width="260" alt="음악 취향"> | <img src="assets/app-ui-0.3.3/05-lighting.png" width="260" alt="음악 재생과 조명"> | <img src="assets/app-ui-0.3.3/06-settings.png" width="260" alt="설정과 제작자 oieh"> |
+
+## 아이콘
+
+<img src="assets/brand/driving-mood-icon.png" width="180" alt="Driving Mood 대표 아이콘">
+
+네이비 바탕의 노을과 굽이치는 길을 대표 이미지로 사용한다. 화면 안에는 [Phosphor Icons](https://github.com/phosphor-icons/core)의 듀오톤 아이콘을 적용했다. [출처와 라이선스](assets/brand/phosphor/sources.json)
+
+![앱 조작 아이콘](assets/brand/interface-icons.svg)
+
+제작자 **oieh**.
+
+[APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.3) · [실제 주행 영상 분석](VIDEO_DEMO.md) · [검증 기록](../VALIDATION.md)
