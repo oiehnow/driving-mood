@@ -40,7 +40,7 @@ flowchart LR
 | 연결 | 현재 기반 | 차량에서 확장할 기능 |
 |---|---|---|
 | 음악 | 무드·선호에 따른 로컬 음원 추천·재생 | Media3 미디어 세션과 오디오 포커스로 내비 안내와 재생을 조율 |
-| 실내조명 | 같은 키워드로 만든 색상·밝기 미리보기 | 권한·지원 범위를 확인한 뒤 프리셋 적용과 점진적 색상 전환 |
+| 실내조명 | 같은 키워드로 만든 색상·밝기 미리보기 | 순정 음악 동기화 재사용을 우선 확인하고 지원되는 프리셋 제어 연결 |
 | 내비게이션 | 위치·날씨를 사용하는 입력 구조 | 위치·경로 맥락을 분석에 보태고 선택한 장소를 목적지로 전달 |
 | 영상 | 휴대폰 후면 카메라와 저장 영상 분석 | 주행 영상 파일로 차량 환경을 검증한 뒤 승인된 차량 영상 입력을 연결 |
 
@@ -48,7 +48,9 @@ flowchart LR
 
 음악은 [Pleos Music/Audio 가이드](https://document.pleos.ai/docs/pleos-only/vehicle-app-developer-guide/music-audio-app-developement-guide)의 미디어 세션 구조에 맞춰 연결한다. 외부 음악 서비스는 각 서비스가 제공하는 재생 인터페이스를 사용한다.
 
-실내조명은 [Light API](https://document.pleos.ai/en/api-reference/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/light/entry)를 연결 후보로 삼고, [차종별 API 가용성](https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/api-compatibility-availability)을 먼저 확인한다. 색상 전환은 지원 값과 호출 제약 안에서 설계하며 사용자의 수동 변경을 우선한다. 차량 원본 카메라 접근과 실제 조명 제어는 별도 연결·검증 단계다.
+음악 반응 조명은 순정 기능 재사용을 먼저 확인한다. [기아 Sound Mood Lamp 설명서](https://ownersmanual.kia.com/ivi/DA_GEN2_V/AV/KOR/English/002_Features_soundmoodlamp.html)에는 음악 동기화 설정이 있다. 대상 차량에서 이를 켠 뒤 순정 재생과 Driving Mood의 동일 음원을 비교해 재생·일시정지·음소거·곡 변경에 반응하는지 확인한다. 해당 설명서는 DA_GEN2_V 기준이며 Pleos와 제3자 앱 출력의 호환, 전용 설정 진입·활성화 API는 아직 확인되지 않았다.
+
+색상·밝기 프리셋은 [Light API](https://document.pleos.ai/en/api-reference/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/light/entry)와 [차종별 API 가용성](https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/api-compatibility-availability)을 확인해 연결한다. 음악 동기화 지원 여부와 일반 색상 제어 capability는 따로 검증한다. 순정 기능의 활용 가능성을 확인하기 전에는 자체 음악 분석·조명 엔진으로 대체하지 않는다.
 
 ## 앱 창 프로토타입
 

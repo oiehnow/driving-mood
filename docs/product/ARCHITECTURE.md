@@ -364,7 +364,7 @@ Light API의 `setAmbientLightBrightnessColor`, `setAmbientLightBrightness`와 ca
 | 음악 | 실제 음원과 Media3 세션·브라우징 서비스를 연결. 앱과 차량 버튼이 같은 재생 상태 사용 | 곡·재생·일시정지·다음 일치. 내비 안내·통화·포커스 복귀 후 의도치 않은 재생 없음 |
 | 조명 | 지원 영역·색·밝기 capability 조회→현재 상태 읽기→단일 프리셋 쓰기→응답·상태 재조회 | 실제 상태와 요청값 일치. 미지원·오류는 성공 처리하지 않고 사용자 수동 변경 시 자동 전환 중단 |
 
-**연속 조명 연출.** 단일 프리셋 적용이 확인된 차종에서만 완만한 색 전환을 시험한다. 화면 애니메이션 프레임을 그대로 차량 명령으로 보내지 않고 요청 빈도·변화 속도·중단 조건을 정한다. 공간별 그라데이션과 연속 제어는 차량별 지원 범위 안에서 확인한다.
+**음악 연동은 순정 기능부터.** 기아 DA_GEN2_V의 Sound Mood Lamp에는 음악 동기화가 있다. 대상 차량의 기능 탑재를 확인하고 설정에서 활성화한 뒤 순정 재생과 Driving Mood의 같은 음원을 비교한다. 재생·일시정지·음소거·곡 변경에 순정 조명이 반응하면 이를 활용한다. Pleos 호환·제3자 출력 지원·전용 설정 진입과 활성화 API는 별도 확인 대상이다. 공개 Light API에서 음악 모드가 확인되지 않았다는 이유만으로 자체 비트 분석·조명 엔진을 만들지 않는다.
 
 **호환성과 실패 복구.** 도로 종류는 실제 제공 필드가 있을 때 사용하며 경로 옵션 HIGHWAY를 현재 도로로 대체하지 않는다. 카메라·서비스가 없거나 파일이 손상됐을 때 예시 성공값을 반환하지 않는다. 음악 포커스를 얻지 못하면 재생 상태를 확정하지 않고, 조명 응답이 실패하면 화면 미리보기로 남긴다. 에뮬레이터 기능 검증과 대상 차량의 지연·메모리·발열·권한 검증을 별도 기록한다.
 
@@ -411,3 +411,4 @@ Light API의 `setAmbientLightBrightnessColor`, `setAmbientLightBrightness`와 ca
 13. [Pleos Music/Audio 개발 가이드](https://document.pleos.ai/docs/pleos-only/vehicle-app-developer-guide/music-audio-app-developement-guide) — 미디어 탐색·세션과 차량 재생 연결.
 14. [ONNX Runtime 양자화](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html) — 정적 양자화·보정 자료와 정확도 비교 절차.
 15. [Android 앱 벤치마크](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview) — 앱 시작·상호작용·애니메이션의 반복 성능 측정.
+16. [기아 Sound Mood Lamp](https://ownersmanual.kia.com/ivi/DA_GEN2_V/AV/KOR/English/002_Features_soundmoodlamp.html) — DA_GEN2_V의 순정 음악 동기화 사례. Pleos 호환은 별도 확인 대상.
