@@ -1,0 +1,48 @@
+{
+  "artifact": "sky-color-calculation-check.png",
+  "artifactSha256": "31c072704332fdd7f022eb8ed313445c62672ab31c70d90b23426e05c4451480",
+  "statisticsSourceSha256": "054aa6d38a7cc4dcc1c60982c9094d50dd56f83947c705145fd1183c46bd4c43",
+  "inputManifestSha256": "46d58488c348345203ded1b7dfb16f0e3236498cb2b0cae7c9d664b45382af14",
+  "frames": [
+    {
+      "frameId": "clip-04-000250",
+      "clipGroup": "clip-04",
+      "sourcePtsMs": 25025.000000000004,
+      "decodedClipPtsMs": 25025.000000000004,
+      "sourceVideoSha256": "af3048d2725c6b07b84b8278dba9dd281fde4b09167349e2e1e15704723665f5",
+      "rgbPngSha256": "578e420dabc87ab04a557b499637f8dbbaa8870c30e301ff405857676cb101f5",
+      "maskPngSha256": "5d46446c3bb17bfaa541d84efe55997e3dd9aef667e5c49f5da7eb6f1d17ff02",
+      "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7"
+    },
+    {
+      "frameId": "clip-02-000000",
+      "clipGroup": "clip-02",
+      "sourcePtsMs": 48000.0,
+      "decodedClipPtsMs": 0.0,
+      "sourceVideoSha256": "5218261065b0f15c6f71cad1aea7632bfc7918499c7f7d7b2e68bb40fe71b0f7",
+      "rgbPngSha256": "16a7595eda9d98249e8ba19ec8a9341a94e8ba6488a48a2db5c98dc7d1233780",
+      "maskPngSha256": "79f47e998addb47b957aaad5f734a79bd71ea332f2a5593c85a8dacf24f834bd",
+      "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7"
+    },
+    {
+      "frameId": "clip-03-000723",
+      "clipGroup": "clip-03",
+      "sourcePtsMs": 162328.83333333334,
+      "decodedClipPtsMs": 32328.833333333336,
+      "sourceVideoSha256": "244a5b66974914fca1ffb2f57f60998eafde56f7e487ea976db4f0994bea6d82",
+      "rgbPngSha256": "06ef56a8d29d402a6493c927750f3e53e31bbeb7bf39bb7e68fcacc13c746a76",
+      "maskPngSha256": "3ca7dd9ceca17e6011aa3ab6eb050a693540eb87ea74869b2c7a48951d21f381",
+      "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7"
+    },
+    {
+      "frameId": "clip-05-000000",
+      "clipGroup": "clip-05",
+      "sourcePtsMs": 0.0,
+      "decodedClipPtsMs": 0.0,
+      "sourceVideoSha256": "24b5b7bd01a51b20ba1fd951c45a632d90c762f92829bf692c0e399b49a1fd27",
+      "rgbPngSha256": "7619b6e24d5fc51ce7849788a7aab55122b4b7bd4a707b01763b1e08168ec86c",
+      "maskPngSha256": "f2aac47ff1cc70da525cf53a483b6ee77a7afae5a2db982495685ce0ff60f072",
+      "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7"
+    }
+  ]
+}

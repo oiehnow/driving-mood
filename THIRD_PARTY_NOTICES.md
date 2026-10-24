@@ -36,5 +36,6 @@ AndroidX 저작권자는 Android Open Source Project, Kotlin 계열은 JetBrains
 |---|---|---|
 | YOLO26n-sem-ADE20K | https://github.com/ultralytics/ultralytics — 건물·창문·간판 의미분할. 320 ONNX/ORT 변환, 비실행 설명 경로만 정리 | AGPL-3.0 |
 | ONNX Runtime Android 1.31.0 | https://github.com/microsoft/onnxruntime — 기기 내 의미분할 추론 | MIT 및 포함 ThirdPartyNotices |
+| Skia SkRGBToHSV | https://github.com/google/skia/blob/main/src/core/SkColor.cpp — 하늘 RGB의 HSV 변환을 Kotlin으로 옮겨 활용. Skia 런타임 의존성은 추가하지 않음 | BSD-3-Clause; Copyright 2006 The Android Open Source Project / Copyright (c) 2011 Google Inc.; 원문 `app/src/main/assets/licenses/Skia-LICENSE.txt` |
 
 [모델 소스와 변환](models/semantic/README.md), [앱 내 고지](app/src/main/assets/licenses/SEMANTIC-SOURCES.txt), [전체 AGPL 원문](app/src/main/assets/licenses/ultralytics-LICENSE.txt)을 보존한다.

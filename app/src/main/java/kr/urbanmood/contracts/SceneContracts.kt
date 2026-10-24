@@ -128,6 +128,62 @@ data class SemanticSceneObservation(
     // Legacy signboardBrightAreaRatio keeps its original meaning; do not assume equality
     // with this list's sum or add both measurements as independent score contributions.
     val signLightRegions: List<SignLightEvidence>? = null,
+    // Same-frame raw RGB sky-mask observations; unused by existing mood rules.
+    val skyColor: SkyColorObservation? = null,
+)
+
+/** The two clocks have different origins; never compare monotonic time to epoch time.
+ * Recorded PTS is actual decoder PTS, while cameraTimestampNs is normalized media time.
+ */
+data class SkyFrameIdentity(
+    val sequence: Long,
+    val capturedAtEpochMs: Long,
+    val cameraTimestampNs: Long,
+    val inputSource: FrameInputSource,
+    val mediaPresentationTimeUs: Long? = null,
+)
+
+/** Raw sufficient statistics. Exact max(R,G,B)==min(R,G,B) alone is achromatic.
+ * Hue sectors are [0,30),...,[330,360); no hue mean and no S/V rejection threshold.
+ * Luma bins are [0,.25),[.25,.5),[.5,.75),[.75,1], on encoded RGB weighted sum.
+ * Neither luma nor these histogram boundaries measure physical luminance or mood.
+ */
+data class SkyColorStatistics(
+    val skyPixCount: Int,
+    val hueSectorCounts: List<Int>,
+    val hueSectorSaturationSums: List<Double>,
+    val achromaticPixCount: Int,
+    val saturationSum: Double,
+    val encodedLumaSum: Double,
+    val encodedLumaBinCounts: List<Int>,
+)
+
+/** Nullable observation means unavailable/invalid/unbound, never fabricated zero.
+ * Valid no-sky has zero counts/sums and null means. Means divide by skyPixCount,
+ * including achromatic pixels with S=0. Area denominator is framePixelCount.
+ * Row bands use min(2,3*y/height) in the upright ORIGINAL RGB raster, not a horizon.
+ * SHA256 input: ASCII version tag + little-endian width,height + row-major bytes:
+ * sky-mask-v1\0 + 0/1 mask; sky-rgb-v1\0 + R,G,B (alpha ignored).
+ * No arrays/masks/Bitmap retained; detach nested lists at snapshot boundaries.
+ */
+data class SkyColorObservation(
+    val measurementVersion: String,
+    val rasterWidth: Int,
+    val rasterHeight: Int,
+    val framePixelCount: Int,
+    val statistics: SkyColorStatistics,
+    val meanSaturation: Double?,
+    val meanEncodedLuma: Double?,
+    val rowBandSkyPixCounts: List<Int>,
+    val skyMaskSha256: String,
+    val sourceRgbSha256: String,
+    val frame: SkyFrameIdentity,
+    val semanticModelSha256: String,
+    // RGB comes from CameraFrame after the camera/decoder's <=640 upright resize,
+    // before semantic letterboxing. It is NOT the sensor/full-resolution video raster.
+    val rgbRasterSource: String = "ANALYZER_INPUT_UPRIGHT_MAX640",
+    val semanticRasterWidth: Int? = null,
+    val semanticRasterHeight: Int? = null,
 )
 
 data class SceneObservations(

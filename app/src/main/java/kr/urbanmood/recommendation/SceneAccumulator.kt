@@ -37,8 +37,13 @@ class SceneAccumulator(private val windowDurationMs: Long = 50_000, private val 
     fun clear() { buckets.clear(); received=0; lastElapsed=-1; lastFrameTime=null; epochOrigin=null }
 
     private fun LightPixelStats.detached() = copy(categoryCounts=categoryCounts.toList(),upperChannelCounts=upperChannelCounts.toList())
+    private fun SkyColorObservation.detached() = copy(
+        statistics=statistics.copy(hueSectorCounts=statistics.hueSectorCounts.toList(),
+            hueSectorSaturationSums=statistics.hueSectorSaturationSums.toList(),
+            encodedLumaBinCounts=statistics.encodedLumaBinCounts.toList()),
+        rowBandSkyPixCounts=rowBandSkyPixCounts.toList())
     private fun SceneObservations.detached() = copy(notes=notes.toList(),regions=regions.toList(),
-        semantic=semantic?.let { it.copy(signLightRegions=it.signLightRegions?.toList()) },
+        semantic=semantic?.let { it.copy(signLightRegions=it.signLightRegions?.toList(),skyColor=it.skyColor?.detached()) },
         lightFeatures=lightFeatures?.let { f -> f.copy(summary=f.summary.detached(),
             groups=f.groups?.map { it.copy(pixels=it.pixels.detached()) },
             quality=f.quality.copy(flags=f.quality.flags.toList(),reasons=f.quality.reasons.toList())) })

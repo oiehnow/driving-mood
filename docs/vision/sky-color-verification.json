@@ -1,0 +1,2778 @@
+{
+  "schemaVersion": 1,
+  "measurementVersion": "sky-rgb-v1",
+  "scope": "Color calculation and Android integration; not segmentation accuracy or mood validation",
+  "releaseApk": "0.3.1 unchanged; observation code added to development source",
+  "researchAndroid": {
+    "environment": "Android 15 API 35 x86_64 emulator",
+    "apkSha256": "562c10da3a2ff6cd298704c0ffb9c58ae5d1579a2f560251d06c35f4729addfc",
+    "unitTests": 289,
+    "unitFailures": 0,
+    "nativeTests": 4,
+    "lintErrors": 0,
+    "lintWarnings": 38,
+    "frames": [
+      {
+        "sampleId": "clip-01-000000",
+        "clipId": "clip-01",
+        "sourcePtsMs": 0,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "2475d2d2abbf7b1c42e2627849ab8ecdac3bfeba59a70f739785407273a4ac79",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 0,
+        "achromaticPixCount": 0,
+        "hueSectorCounts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 0,
+        "meanSaturation": null,
+        "encodedLumaSum": 0,
+        "meanEncodedLuma": null,
+        "encodedLumaBinCounts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          0,
+          0,
+          0
+        ],
+        "skyMaskSha256": "2d5cfb0ae23f5464c9f018467b5936b2a6e50d37770266ce300361b5951d3bfc",
+        "sourceRgbSha256": "4f394d97cbcdb649951c304b6215b1b572d71caf2e25b007b50d4944a068dcb0",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-01-000080",
+        "clipId": "clip-01",
+        "sourcePtsMs": 8000,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "162bcd8a026e5f3fad1c9abd0725c0a218150cf5923f6c0b369099d666ec03cc",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 0,
+        "achromaticPixCount": 0,
+        "hueSectorCounts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 0,
+        "meanSaturation": null,
+        "encodedLumaSum": 0,
+        "meanEncodedLuma": null,
+        "encodedLumaBinCounts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          0,
+          0,
+          0
+        ],
+        "skyMaskSha256": "2d5cfb0ae23f5464c9f018467b5936b2a6e50d37770266ce300361b5951d3bfc",
+        "sourceRgbSha256": "e7dfba54af16a5e03c9137bffa56d82cc56545286d20c3b2219ce9c401350674",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-01-000160",
+        "clipId": "clip-01",
+        "sourcePtsMs": 16000,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "b8323732b43a0945c903e15521e3afcd3cf0851e8eeb8a860e41334a7e5d66aa",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 0,
+        "achromaticPixCount": 0,
+        "hueSectorCounts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 0,
+        "meanSaturation": null,
+        "encodedLumaSum": 0,
+        "meanEncodedLuma": null,
+        "encodedLumaBinCounts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          0,
+          0,
+          0
+        ],
+        "skyMaskSha256": "2d5cfb0ae23f5464c9f018467b5936b2a6e50d37770266ce300361b5951d3bfc",
+        "sourceRgbSha256": "15aca08bb525a925b3061b56c67d93e0fa6954f56d8e738b8b2f503ddd752c4d",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-01-000240",
+        "clipId": "clip-01",
+        "sourcePtsMs": 24000,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "24f2a57cc55645f1049130c41d1d81367b7ffee14636c587bc02271af91a29fa",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 0,
+        "achromaticPixCount": 0,
+        "hueSectorCounts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 0,
+        "meanSaturation": null,
+        "encodedLumaSum": 0,
+        "meanEncodedLuma": null,
+        "encodedLumaBinCounts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          0,
+          0,
+          0
+        ],
+        "skyMaskSha256": "2d5cfb0ae23f5464c9f018467b5936b2a6e50d37770266ce300361b5951d3bfc",
+        "sourceRgbSha256": "2aa361b128ea3652df11601b221d98b63237a2c0f62c491b884c8c063e3f6470",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-02-000000",
+        "clipId": "clip-02",
+        "sourcePtsMs": 48000,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "bc7e2e6d019ec32bae433bfae1b98bbfdd198fc82ceebc1dfdbbeba611c73d60",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 180052,
+        "achromaticPixCount": 84319,
+        "hueSectorCounts": [
+          1815,
+          8154,
+          61297,
+          21479,
+          529,
+          25,
+          447,
+          360,
+          6,
+          3,
+          4,
+          1614
+        ],
+        "hueSectorSaturationSums": [
+          710.5438395277541,
+          2201.926809180491,
+          11426.310088938884,
+          3715.2972688161663,
+          131.3109723503947,
+          11.85624606490303,
+          55.2737518724622,
+          247.33508754874586,
+          0.36740357744990565,
+          0.26369246885746167,
+          0.5286945208644133,
+          597.4699502205928
+        ],
+        "saturationSum": 19098.483805089338,
+        "meanSaturation": 0.10607204477089584,
+        "encodedLumaSum": 12421.964121594203,
+        "meanEncodedLuma": 0.06899098105877303,
+        "encodedLumaBinCounts": [
+          178203,
+          1260,
+          351,
+          238
+        ],
+        "rowBandSkyPixCounts": [
+          76800,
+          69832,
+          33420
+        ],
+        "skyMaskSha256": "a93b001abec610ac3fc82f50572d9bcbb964a96d3c9a3e2b68b0d5d62d5243c1",
+        "sourceRgbSha256": "01777434c548df146686b1ffe4e5e480041b01f34e8e27baa14ab9ba14685fe4",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-02-000150",
+        "clipId": "clip-02",
+        "sourcePtsMs": 63000,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "9411f51ab75e1d118909882a0818941bcf5ed68d2ad084af21f5d1bab2803be6",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 117532,
+        "achromaticPixCount": 33570,
+        "hueSectorCounts": [
+          5867,
+          15183,
+          55334,
+          6344,
+          464,
+          96,
+          62,
+          0,
+          2,
+          1,
+          0,
+          609
+        ],
+        "hueSectorSaturationSums": [
+          2918.6350420023114,
+          5225.469122159499,
+          11431.493496756482,
+          1448.3574740079248,
+          191.7994293214061,
+          42.00467302675013,
+          8.084313725490206,
+          0,
+          0.04401825894801362,
+          0.024390243902439025,
+          0,
+          412.66890064657576
+        ],
+        "saturationSum": 21678.580860148646,
+        "meanSaturation": 0.18444832777582826,
+        "encodedLumaSum": 8683.85965490066,
+        "meanEncodedLuma": 0.07388506666185089,
+        "encodedLumaBinCounts": [
+          116525,
+          580,
+          226,
+          201
+        ],
+        "rowBandSkyPixCounts": [
+          75040,
+          42316,
+          176
+        ],
+        "skyMaskSha256": "9412ef5a8b2b793af272e0db565bf21a577694029d5ab406f2d80e0117de1cb4",
+        "sourceRgbSha256": "c3510a5d3bec0dc17dfc0f75e0512b4000594a7d30a2f423ea733e63605df20a",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-02-000300",
+        "clipId": "clip-02",
+        "sourcePtsMs": 78000,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "ee1e1fd8c5928793d9356912c8423dd87915bcdf9002ba3c1d7bf1f7a561678b",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 85892,
+        "achromaticPixCount": 147,
+        "hueSectorCounts": [
+          377,
+          2157,
+          48706,
+          33104,
+          1034,
+          258,
+          30,
+          8,
+          12,
+          1,
+          0,
+          58
+        ],
+        "hueSectorSaturationSums": [
+          201.85965129872267,
+          883.0749468975471,
+          11630.597969873263,
+          7586.807307118834,
+          397.9920009858758,
+          142.21724695292943,
+          1.4281168792277639,
+          0.1479572154360934,
+          0.1644762915673489,
+          0.01639344262295082,
+          0,
+          34.57068022072034
+        ],
+        "saturationSum": 20878.876747176764,
+        "meanSaturation": 0.24308290349714484,
+        "encodedLumaSum": 8314.249276080971,
+        "meanEncodedLuma": 0.09679887854609243,
+        "encodedLumaBinCounts": [
+          83783,
+          929,
+          546,
+          634
+        ],
+        "rowBandSkyPixCounts": [
+          65232,
+          20660,
+          0
+        ],
+        "skyMaskSha256": "143ca3557e05c810e0fe4b7d1303727923f3d4f3e7bdd302315fd48be0c9684e",
+        "sourceRgbSha256": "69a442bd724363f5780ca60d822d0d9a02e33612bcee904f74ec0761d99b660f",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-02-000450",
+        "clipId": "clip-02",
+        "sourcePtsMs": 93000,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "bf67920b8eff60b0c8f29ca57cc54789eddc1383823f4a070b1d64b7b2947bb3",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 73024,
+        "achromaticPixCount": 9520,
+        "hueSectorCounts": [
+          101,
+          279,
+          2522,
+          21397,
+          24819,
+          6249,
+          8137,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          32.60428930504455,
+          73.74445499556825,
+          497.8348125198724,
+          3778.970190912487,
+          7387.993996028565,
+          2668.742993161963,
+          976.6835715708356,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 15416.574308494653,
+        "meanSaturation": 0.21111654125348725,
+        "encodedLumaSum": 6216.426784317829,
+        "meanEncodedLuma": 0.08512854382556186,
+        "encodedLumaBinCounts": [
+          72398,
+          291,
+          69,
+          266
+        ],
+        "rowBandSkyPixCounts": [
+          60176,
+          12472,
+          376
+        ],
+        "skyMaskSha256": "1b3f3a085411ad7f35de618b38af80cf59992f93d55aad4f00270458c215b38a",
+        "sourceRgbSha256": "19b2f0f35a170982ebfdfec08a7088b2bb192bea97c8149369d4623d28105698",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-03-000400",
+        "clipId": "clip-03",
+        "sourcePtsMs": 130029.9,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "35f585ee2bb2cc2a7ee38d12be281a5858433eb012eb3c83aad5bee48f881eb9",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 12208,
+        "achromaticPixCount": 1383,
+        "hueSectorCounts": [
+          0,
+          169,
+          8209,
+          1808,
+          31,
+          18,
+          405,
+          134,
+          18,
+          0,
+          0,
+          33
+        ],
+        "hueSectorSaturationSums": [
+          0,
+          47.80782159017444,
+          2327.855975718137,
+          533.4522281639994,
+          14.090909090909093,
+          4.010804865424431,
+          74.28385289450061,
+          29.341776372589116,
+          3.5759683389714354,
+          0,
+          0,
+          4.906593406593407
+        ],
+        "saturationSum": 3039.325930441701,
+        "meanSaturation": 0.2489618226115417,
+        "encodedLumaSum": 513.9669568628244,
+        "meanEncodedLuma": 0.042100831984176315,
+        "encodedLumaBinCounts": [
+          12208,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          11464,
+          744,
+          0
+        ],
+        "skyMaskSha256": "82fb11787541433832a485d48911112d9020f7f905874e78bdca787024e947d8",
+        "sourceRgbSha256": "1e773289b3ee3f2ab6dc466ea7e58ddb00b69fd905cb789a447e686e50938285",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-03-000550",
+        "clipId": "clip-03",
+        "sourcePtsMs": 145011.53333333335,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "527902d31c8eae55ac5dcdfee09f3b8f7e4d82b59e0cd419c5e1e7869d1231ce",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 14168,
+        "achromaticPixCount": 89,
+        "hueSectorCounts": [
+          24,
+          96,
+          7644,
+          5960,
+          74,
+          34,
+          152,
+          43,
+          15,
+          1,
+          2,
+          34
+        ],
+        "hueSectorSaturationSums": [
+          17.100089491371694,
+          33.54120626242678,
+          2184.500849925881,
+          1678.251459735044,
+          31.705768947255024,
+          14.901879333957346,
+          34.00091614227914,
+          13.16933376742823,
+          2.401707260476184,
+          0.09090909090909091,
+          0.35964912280701755,
+          21.078775761111878
+        ],
+        "saturationSum": 4031.1025448423015,
+        "meanSaturation": 0.28452163642308737,
+        "encodedLumaSum": 645.9029764706327,
+        "meanEncodedLuma": 0.04558886056399158,
+        "encodedLumaBinCounts": [
+          14083,
+          26,
+          17,
+          42
+        ],
+        "rowBandSkyPixCounts": [
+          13708,
+          460,
+          0
+        ],
+        "skyMaskSha256": "c1ecd133f5751bedab45588541e250e5788dc62927ba0d2e6bbe8a1d270154f4",
+        "sourceRgbSha256": "79284c4bc17f6eedaceec8de88e19d68f96b33a1763d07e56d69eecae6b37b34",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-03-000700",
+        "clipId": "clip-03",
+        "sourcePtsMs": 160026.53333333333,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "40d1e1c61274356ae52a8de5eef7287a7d8fa5603d21a5c65440e5e72334f78e",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 1220,
+        "achromaticPixCount": 0,
+        "hueSectorCounts": [
+          6,
+          133,
+          612,
+          428,
+          41,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          2.6285714285714286,
+          29.460134078388922,
+          183.58830697596542,
+          103.4625262246834,
+          24.66816320933967,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 343.80770191694785,
+        "meanSaturation": 0.28180959173520315,
+        "encodedLumaSum": 87.27218274509825,
+        "meanEncodedLuma": 0.07153457602057234,
+        "encodedLumaBinCounts": [
+          1220,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          1220,
+          0,
+          0
+        ],
+        "skyMaskSha256": "885e2a1cfac6a11d32cd700a78f4d5e325cfb3e6493b4eecc7bd9de070457465",
+        "sourceRgbSha256": "42b7b38097301ceb984dcf8fcd2fdb8ca1800f735ea21d32bb7ad28e0e179e58",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-03-000850",
+        "clipId": "clip-03",
+        "sourcePtsMs": 175008.1666666667,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "edfd8260235e1e67ecb92c5d66d89457fcd14ed6507b8041f4bec986d0940ea1",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 14804,
+        "achromaticPixCount": 281,
+        "hueSectorCounts": [
+          15,
+          572,
+          7474,
+          5684,
+          394,
+          32,
+          240,
+          62,
+          25,
+          8,
+          0,
+          17
+        ],
+        "hueSectorSaturationSums": [
+          4.363869342158816,
+          190.48836937756965,
+          1827.3805048650695,
+          1097.1970987580914,
+          121.97829738156108,
+          9.286608190284662,
+          25.999260119410515,
+          10.588968976888166,
+          2.293023616411444,
+          1.8408393030818657,
+          0,
+          4.793438409348459
+        ],
+        "saturationSum": 3296.210278339604,
+        "meanSaturation": 0.22265673320316157,
+        "encodedLumaSum": 1026.5049576469917,
+        "meanEncodedLuma": 0.06933970262408752,
+        "encodedLumaBinCounts": [
+          14766,
+          31,
+          4,
+          3
+        ],
+        "rowBandSkyPixCounts": [
+          13108,
+          1696,
+          0
+        ],
+        "skyMaskSha256": "0553c69e24595d9fd4da5a4c7ef3f5dc4843e2986a17b5ba4b369756c6cf212d",
+        "sourceRgbSha256": "4ef358610d68fc0cb0d1d8b01128a1228305e92c00b8e7cd7306020d5370cef8",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-04-000000",
+        "clipId": "clip-04",
+        "sourcePtsMs": 0,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "fd8e033a8ec553766fd87eae2e18bd3b7695f7919dc87d3bb0ccaeeca35d2e88",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 29260,
+        "achromaticPixCount": 9,
+        "hueSectorCounts": [
+          10,
+          71,
+          56,
+          5,
+          12,
+          54,
+          28777,
+          245,
+          16,
+          3,
+          2,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          1.142345829952072,
+          9.16348148632425,
+          1.4642348468983073,
+          0.05756285941425994,
+          0.31555288382617885,
+          3.336368484757841,
+          9709.145107658322,
+          46.13271777679907,
+          0.6507754353662807,
+          0.11547569382362874,
+          0.060703733548213804,
+          0
+        ],
+        "saturationSum": 9771.584326689073,
+        "meanSaturation": 0.333957085669483,
+        "encodedLumaSum": 25190.379858039014,
+        "meanEncodedLuma": 0.8609152378003764,
+        "encodedLumaBinCounts": [
+          57,
+          140,
+          1668,
+          27395
+        ],
+        "rowBandSkyPixCounts": [
+          26544,
+          2716,
+          0
+        ],
+        "skyMaskSha256": "002b9cec13c370be7d4028e6fb3a66880a555a7b7dc5a8cc9aa00f4e62fc2b42",
+        "sourceRgbSha256": "4a7897b68ebbb8e19eccb778f3e1a39816d242cc0455c6ffd551b142b26c7f80",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-04-000150",
+        "clipId": "clip-04",
+        "sourcePtsMs": 15015,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "820cd9e1e79abd14fbe0b08c28c8dbf0243ef33cfd59a0ca0e33134ed20515a8",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 29180,
+        "achromaticPixCount": 1,
+        "hueSectorCounts": [
+          20,
+          197,
+          61,
+          11,
+          17,
+          9,
+          28826,
+          36,
+          0,
+          0,
+          0,
+          2
+        ],
+        "hueSectorSaturationSums": [
+          1.7629687504800933,
+          35.69347947848254,
+          1.471937923395819,
+          0.4908642027383682,
+          0.9239132572775736,
+          0.4784585731036255,
+          14596.48514804755,
+          5.037835421966498,
+          0,
+          0,
+          0,
+          0.22631402745229326
+        ],
+        "saturationSum": 14642.570919682421,
+        "meanSaturation": 0.5018016079397677,
+        "encodedLumaSum": 22274.27877725497,
+        "meanEncodedLuma": 0.7633406023733712,
+        "encodedLumaBinCounts": [
+          3,
+          41,
+          13405,
+          15731
+        ],
+        "rowBandSkyPixCounts": [
+          24612,
+          4568,
+          0
+        ],
+        "skyMaskSha256": "55b2be717fb5bff6c149b8f28134405662fcd0f2cabeb0aee6d482460c46687a",
+        "sourceRgbSha256": "cc1708ec7bb4b6362f592d5f190aa8495231128e8eb66390127112486d3095c8",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-04-000300",
+        "clipId": "clip-04",
+        "sourcePtsMs": 30030,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "f456f59f861481e93ab78e285f18292bcf2dcb698253bb8f0466334371646fca",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 25116,
+        "achromaticPixCount": 73,
+        "hueSectorCounts": [
+          133,
+          262,
+          99,
+          12,
+          80,
+          523,
+          22487,
+          1297,
+          61,
+          14,
+          7,
+          68
+        ],
+        "hueSectorSaturationSums": [
+          16.24567901826954,
+          23.801898842235072,
+          5.742546805643675,
+          0.44975797343518953,
+          37.3315472723358,
+          59.9337855852704,
+          7218.919440811183,
+          527.1192839513216,
+          4.601833518104431,
+          0.9571980632625479,
+          0.26438324064879076,
+          2.18680154244381
+        ],
+        "saturationSum": 7897.554156623844,
+        "meanSaturation": 0.3144431500487277,
+        "encodedLumaSum": 19556.353839215368,
+        "meanEncodedLuma": 0.7786412581308874,
+        "encodedLumaBinCounts": [
+          1140,
+          2626,
+          3265,
+          18085
+        ],
+        "rowBandSkyPixCounts": [
+          21528,
+          3588,
+          0
+        ],
+        "skyMaskSha256": "865db1c80dd5d44f9211613585b708b258bcd8d3c9b1f3ea0a98036545b92946",
+        "sourceRgbSha256": "5043d88014bf559d481ba1c9fba8b1278ef49a8a6a5151a0a43e8a3bceae9308",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-04-000450",
+        "clipId": "clip-04",
+        "sourcePtsMs": 45011.63333333334,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "7433959636df5e0f6b34af5997fae91e5f141902fff909791b4c3544b2991e6e",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 35396,
+        "achromaticPixCount": 4,
+        "hueSectorCounts": [
+          19,
+          80,
+          59,
+          16,
+          32,
+          192,
+          34883,
+          94,
+          14,
+          0,
+          1,
+          2
+        ],
+        "hueSectorSaturationSums": [
+          1.0883994683836113,
+          3.719798808338058,
+          2.1644316427407895,
+          0.8991571676873008,
+          3.3842139948935412,
+          40.08869613696198,
+          14063.353031620067,
+          29.97362853608929,
+          0.6226275732617702,
+          0,
+          0.00784313725490196,
+          0.028191534124379365
+        ],
+        "saturationSum": 14145.330019619887,
+        "meanSaturation": 0.39963074979149865,
+        "encodedLumaSum": 29572.609289410095,
+        "meanEncodedLuma": 0.8354788475932335,
+        "encodedLumaBinCounts": [
+          114,
+          459,
+          950,
+          33873
+        ],
+        "rowBandSkyPixCounts": [
+          30596,
+          4800,
+          0
+        ],
+        "skyMaskSha256": "bccc9103121c47bba79eb8639a8e000cb5c4a48ba1d8bdf770a2a9dac012ed71",
+        "sourceRgbSha256": "27170517dc5baf084f736925a7b84c2f33592605d58b392cfed7a8c726c93318",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-05-000000",
+        "clipId": "clip-05",
+        "sourcePtsMs": 0,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "642194722094275b055372d70755dadff326908bc30eac23e7d4aa735f56d85b",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 0,
+        "achromaticPixCount": 0,
+        "hueSectorCounts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 0,
+        "meanSaturation": null,
+        "encodedLumaSum": 0,
+        "meanEncodedLuma": null,
+        "encodedLumaBinCounts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          0,
+          0,
+          0
+        ],
+        "skyMaskSha256": "2d5cfb0ae23f5464c9f018467b5936b2a6e50d37770266ce300361b5951d3bfc",
+        "sourceRgbSha256": "0f37d75c06f28c0e4fe0f314c88327be6f667ea5c39e6e55a4e1e4135a074d6c",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-05-000150",
+        "clipId": "clip-05",
+        "sourcePtsMs": 15015,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "a2e24de94c4238b00dde3dca7b302b996c29579fdcac66f4184be73de79b4586",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 97500,
+        "achromaticPixCount": 11,
+        "hueSectorCounts": [
+          42,
+          122,
+          32,
+          9,
+          5,
+          22,
+          96733,
+          461,
+          42,
+          9,
+          4,
+          8
+        ],
+        "hueSectorSaturationSums": [
+          6.933112549443727,
+          10.226472297049796,
+          1.1746384438144748,
+          0.2137733784114876,
+          0.13283414841292973,
+          0.8879411219046223,
+          46248.86306112391,
+          198.91893073608276,
+          4.372375760824058,
+          0.49168679307932966,
+          0.3177353339063585,
+          0.23159819601223022
+        ],
+        "saturationSum": 46472.76415988263,
+        "meanSaturation": 0.4766437349731552,
+        "encodedLumaSum": 67880.4647121569,
+        "meanEncodedLuma": 0.6962098944836606,
+        "encodedLumaBinCounts": [
+          678,
+          702,
+          59246,
+          36874
+        ],
+        "rowBandSkyPixCounts": [
+          75600,
+          21900,
+          0
+        ],
+        "skyMaskSha256": "ae66d48d9986e32901a5e93bb75c9850640433d41e4ba41351fe147ecbfc0065",
+        "sourceRgbSha256": "c1025c91e6d209112fc2d5839105b003fb68cbd9d99d0d0c5cbd25453419fe7f",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-05-000300",
+        "clipId": "clip-05",
+        "sourcePtsMs": 30030,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "e1f98bafdc45077c81b06db6ca455a3079e3c37169048be8596b1ab6e1b8525a",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 90944,
+        "achromaticPixCount": 9,
+        "hueSectorCounts": [
+          38,
+          115,
+          6,
+          69,
+          828,
+          1922,
+          87228,
+          679,
+          45,
+          2,
+          0,
+          3
+        ],
+        "hueSectorSaturationSums": [
+          3.4615846000781465,
+          13.110959669377266,
+          0.16079300649503894,
+          2.51168862110816,
+          27.158126075940494,
+          90.53501114443606,
+          25664.8589851954,
+          137.656533662472,
+          3.9145507289341435,
+          0.06284348864994026,
+          0,
+          0.05827877098595331
+        ],
+        "saturationSum": 25943.489354963796,
+        "meanSaturation": 0.2852688396701684,
+        "encodedLumaSum": 74677.15082039434,
+        "meanEncodedLuma": 0.8211333438203107,
+        "encodedLumaBinCounts": [
+          514,
+          707,
+          25207,
+          64516
+        ],
+        "rowBandSkyPixCounts": [
+          70632,
+          20312,
+          0
+        ],
+        "skyMaskSha256": "de8d20d0205f0c09c567708fe69c1f94cf33ea84a2fc3385222982c883a2a4fd",
+        "sourceRgbSha256": "f149ad1fe2b03c195a85e85684175a83af98d725d6fe591f25b4fafca3693265",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-05-000450",
+        "clipId": "clip-05",
+        "sourcePtsMs": 45011.63333333334,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "42006f219f4f0dce9e4b4203c4f46b7cd8a1cfa546c22eee18fd8fe0ceeb6051",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 44884,
+        "achromaticPixCount": 72,
+        "hueSectorCounts": [
+          1161,
+          1394,
+          1764,
+          1084,
+          4750,
+          6027,
+          26364,
+          1341,
+          252,
+          127,
+          40,
+          508
+        ],
+        "hueSectorSaturationSums": [
+          182.58102436481036,
+          174.0865613772977,
+          53.40178947320929,
+          21.607641661026978,
+          107.78921051988375,
+          286.9572188923368,
+          5942.332349392837,
+          327.8691607765606,
+          28.117853650413164,
+          12.95737659172016,
+          4.539088966173205,
+          38.83409444005432
+        ],
+        "saturationSum": 7181.073370105981,
+        "meanSaturation": 0.15999183161273461,
+        "encodedLumaSum": 37039.556646272606,
+        "meanEncodedLuma": 0.8252285145324081,
+        "encodedLumaBinCounts": [
+          3686,
+          2250,
+          2256,
+          36692
+        ],
+        "rowBandSkyPixCounts": [
+          30416,
+          14468,
+          0
+        ],
+        "skyMaskSha256": "47a5a88954504361f792e26b35aa5f11f4bb8e6d6f6420d8fc3023e71e76f8bf",
+        "sourceRgbSha256": "51a2493a7fdf9b2eab4786ae7de25191154b96b32ee0a27fea0c9513a1a97984",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-06-000000",
+        "clipId": "clip-06",
+        "sourcePtsMs": 70003.26666666668,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "e5845d204b73e9cd3a2e7ff72b5e7c896b06f2322fe8026fd023047abf6a1595",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 180,
+        "achromaticPixCount": 0,
+        "hueSectorCounts": [
+          0,
+          22,
+          158,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          0,
+          19.600000000000005,
+          135.2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 154.80000000000004,
+        "meanSaturation": 0.8600000000000002,
+        "encodedLumaSum": 2.325355294117648,
+        "meanEncodedLuma": 0.012918640522875823,
+        "encodedLumaBinCounts": [
+          180,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          0,
+          0,
+          180
+        ],
+        "skyMaskSha256": "1be3dd975519d7fc468b5b7afffe76a6df71f751f0ad78ba0649d9bec871209d",
+        "sourceRgbSha256": "c354cf72dd3dadd2c709d2383b8fdd7346b58f29a956872c8f48b50501a6dd1e",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-06-000150",
+        "clipId": "clip-06",
+        "sourcePtsMs": 85018.26666666668,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "f4379c392fb0e9a29034af3143396e59abebe9be13957d315d2a69b9ea42eaaf",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 484,
+        "achromaticPixCount": 454,
+        "hueSectorCounts": [
+          10,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "hueSectorSaturationSums": [
+          7.376408053099782,
+          10.910919582773207,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2.333333333333333
+        ],
+        "saturationSum": 20.620660969206327,
+        "meanSaturation": 0.042604671423980014,
+        "encodedLumaSum": 2.3637945098039213,
+        "meanEncodedLuma": 0.004883872954140333,
+        "encodedLumaBinCounts": [
+          482,
+          2,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          0,
+          0,
+          484
+        ],
+        "skyMaskSha256": "b04996914f5ae13f8466336f375e3a1c8221cc59777520acf3559492a880a5e7",
+        "sourceRgbSha256": "2b2936e081d8e63cfeccb792682ef76a609cdf7ef00044408f62ec1280432d21",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-06-000300",
+        "clipId": "clip-06",
+        "sourcePtsMs": 100033.26666666668,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "aad915d553f94c68fde3c6c9fb814503e70760c6d292eb96d4f9edf9aba1dd2e",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 904,
+        "achromaticPixCount": 652,
+        "hueSectorCounts": [
+          3,
+          39,
+          190,
+          0,
+          20,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSectorSaturationSums": [
+          2.2286542443064183,
+          30.04436260522135,
+          177.9553418803418,
+          0,
+          20,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 230.22835872986957,
+        "meanSaturation": 0.2546773879755194,
+        "encodedLumaSum": 7.076787450980373,
+        "meanEncodedLuma": 0.007828304702411918,
+        "encodedLumaBinCounts": [
+          904,
+          0,
+          0,
+          0
+        ],
+        "rowBandSkyPixCounts": [
+          904,
+          0,
+          0
+        ],
+        "skyMaskSha256": "cb5833a0706cbdf59ddd08381ed76b222498efb0565fbccd4e5a15ab8b0b9daf",
+        "sourceRgbSha256": "9afe68eabda32c71b80e9165468b77a8dae5387e4fd62e63fcefc33b2659da3d",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      },
+      {
+        "sampleId": "clip-06-000450",
+        "clipId": "clip-06",
+        "sourcePtsMs": 115014.90000000001,
+        "frameTimeKind": "synthetic fixture transport identity; not original capture epoch",
+        "rawRgbSha256": "4932667f51848896a52bbdab62661caa15adaf5f97e56bb159198dd35bd88f38",
+        "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "raster": [
+          640,
+          360
+        ],
+        "semanticRaster": [
+          320,
+          180
+        ],
+        "skyPixCount": 16952,
+        "achromaticPixCount": 4703,
+        "hueSectorCounts": [
+          1594,
+          6730,
+          3631,
+          8,
+          6,
+          26,
+          208,
+          0,
+          8,
+          3,
+          0,
+          35
+        ],
+        "hueSectorSaturationSums": [
+          1191.1578256452422,
+          5155.616182522093,
+          3505.6840537685334,
+          6.380769230769231,
+          1.570186981477304,
+          13.407763458263965,
+          125.93001397512376,
+          0,
+          6.024096774193548,
+          0.04793625498007968,
+          0,
+          26.242556917347933
+        ],
+        "saturationSum": 10032.061385528004,
+        "meanSaturation": 0.591792200656442,
+        "encodedLumaSum": 749.34737411764,
+        "meanEncodedLuma": 0.04420406878938415,
+        "encodedLumaBinCounts": [
+          16501,
+          335,
+          63,
+          53
+        ],
+        "rowBandSkyPixCounts": [
+          16800,
+          136,
+          16
+        ],
+        "skyMaskSha256": "ca256c3a940a245ebcad28de5c6d025a708253e5ce67e1b6907c3a54f7a6a16b",
+        "sourceRgbSha256": "4cfafe7a788c525233836fff6237107dbdd16c2d0ad4d80b398cb329bb51d10f",
+        "scoreUnchanged": true,
+        "androidHsvCountParity": true
+      }
+    ]
+  },
+  "calculatorReference": {
+    "reference": "Exact rational RGB hue boundaries; independent reference sums",
+    "inputKind": "Previously preserved RGB and predicted sky masks; not ground truth",
+    "unitTests": 12,
+    "inputs": [
+      {
+        "id": "clip-01-000000",
+        "sourcePtsMs": 0.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 0,
+        "rgbPngSha256": "adddd87cd63ecd4a818913a9e6576f44e702a20b734b75ae964bba5708425768",
+        "maskPngSha256": "b72c1cb5f0e0f292cdec0760f44417d27e8189215549047134f02b9735d55ce9",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "90fa604ebc8a67b1def3ef67f991174802693f621c2ebb985311d3ad60ab90fe"
+      },
+      {
+        "id": "clip-01-000128",
+        "sourcePtsMs": 12800.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 31599,
+        "rgbPngSha256": "12bf06954327d89afaf6e925321a54ad2388e0416daf53f759d60a3e22587e51",
+        "maskPngSha256": "bcf7dc2a81635ac9a33e1119db2c66f84ebe021e1aaa2e59f5ad5ab1810612c7",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "44bddae8ce6b877bb123b032af1bf6b3254dd3f147936e5c122b731128756cb3"
+      },
+      {
+        "id": "clip-01-000256",
+        "sourcePtsMs": 25600.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 45917,
+        "rgbPngSha256": "32ccf9d7a0cb1942aa2c0cea53782d270be4c17c7d5ea12711a8ccd0b3b80727",
+        "maskPngSha256": "385971ee721538a4f2e7759622a0aa911bc203161286fb0dc62f6d54341c55ed",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "9e32fdccc9291fedaa7f2c8f793e002fa1492179b035dfa58eaaa799c0cb5aac"
+      },
+      {
+        "id": "clip-02-000000",
+        "sourcePtsMs": 48000.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 139150,
+        "rgbPngSha256": "16a7595eda9d98249e8ba19ec8a9341a94e8ba6488a48a2db5c98dc7d1233780",
+        "maskPngSha256": "79f47e998addb47b957aaad5f734a79bd71ea332f2a5593c85a8dacf24f834bd",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "5319fe0dfad8030ead24493e5330b0930178219771d3aa98a4d009b9566d3f83"
+      },
+      {
+        "id": "clip-02-000250",
+        "sourcePtsMs": 73000.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 112998,
+        "rgbPngSha256": "be3ff9bc2e329eb61403a2ff0e3879f3b6727c94c1048f4c09f176ba8742dc18",
+        "maskPngSha256": "26bd034708cb70d0eabe52a66bab745b32500eec58ea286ad9e5a86b45ceb440",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "91a012dbe434759d43f469652825efe2358ee7b1e9039c8dfa31c8262b584ba5"
+      },
+      {
+        "id": "clip-02-000499",
+        "sourcePtsMs": 97917.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 46319,
+        "rgbPngSha256": "499a306c02820f48ba0bd558a609b9cb4a315180f9bb8701a78186af6c065262",
+        "maskPngSha256": "bed5e1a6c0db39b3aa347b2980253b9e0e992909e4a4a219cc7ea0a410e741f2",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "20c8c6248b1e05c16923749ab3f9b91deb176a1b37702d851bd3733e8e97b0b4"
+      },
+      {
+        "id": "clip-03-000400",
+        "sourcePtsMs": 130029.9,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 16329,
+        "rgbPngSha256": "c7504165ecbf6a18c13eaba2367837261a71dce80e5737bf495323f9a2ca683e",
+        "maskPngSha256": "39b5be9a77b3a99eaf8aaa05fcca4d942bdf327cd3095623743767986702eb8b",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "0583ef8b780871051ef21dd6e62032f0086a6a378b2a100723e6d1a63ca8ec5e"
+      },
+      {
+        "id": "clip-03-000650",
+        "sourcePtsMs": 155021.53333333333,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 2020,
+        "rgbPngSha256": "78fa8fac87b93a849b93e1b6cf802120226409900bef70cbe75473d18acd537b",
+        "maskPngSha256": "0d6887f6287f7b4b20ad75b3410cc6ba9ac4547771c717aef485afce1e9bb842",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "30d4a5645558042648523cc9780cc9aecc7c05116efbff9e40e82f85606938d5"
+      },
+      {
+        "id": "clip-03-000719",
+        "sourcePtsMs": 161928.43333333335,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 5067,
+        "rgbPngSha256": "3ae3a5564f3cf7b9ca24912e28152b6acedda51f0a47efbb964cb4a5244df78d",
+        "maskPngSha256": "7bdaf9b04d839638a331ef19ebcecb4bfde29481f3ffe624aa6c76a3f675509b",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "a214e70481265b1366cc268786ce78ff22829e633d58c39cb4508b7d9dd58c57"
+      },
+      {
+        "id": "clip-03-000723",
+        "sourcePtsMs": 162328.83333333334,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 55,
+        "rgbPngSha256": "06ef56a8d29d402a6493c927750f3e53e31bbeb7bf39bb7e68fcacc13c746a76",
+        "maskPngSha256": "3ca7dd9ceca17e6011aa3ab6eb050a693540eb87ea74869b2c7a48951d21f381",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "117efd11012444e27cd2df024a1e86606d2e198a9a63154a5c56553fea0a404d"
+      },
+      {
+        "id": "clip-03-000899",
+        "sourcePtsMs": 179913.06666666668,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 42125,
+        "rgbPngSha256": "579d2fec8edc73949fab6204978b37573d80f7f7ff0c7715a1d14f446e4f43b0",
+        "maskPngSha256": "7f074536e72224fd74a8242260b1cde5d407d9af6956ddde7371de1fc8f9feac",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "d8c28df806447ef4e1d791a4ec20245aca2c9f5aa126a71594e089e981389652"
+      },
+      {
+        "id": "clip-04-000000",
+        "sourcePtsMs": 0.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 30888,
+        "rgbPngSha256": "65f05cafba1224d8c3d5e532394e177f17fe581ca452ec757825ee400210abe7",
+        "maskPngSha256": "b6f93946671d930419fa41aae396d0ad059cf602ea84a7e75f0ee92fbee29f55",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "5ae1d2dee6f31b9d170cd45281516d8c73708d73eab821cedceb4328300d251a"
+      },
+      {
+        "id": "clip-04-000250",
+        "sourcePtsMs": 25025.000000000004,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 31475,
+        "rgbPngSha256": "578e420dabc87ab04a557b499637f8dbbaa8870c30e301ff405857676cb101f5",
+        "maskPngSha256": "5d46446c3bb17bfaa541d84efe55997e3dd9aef667e5c49f5da7eb6f1d17ff02",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "99303f61657e03121b02f36a88e272aaf35bfda7b61a0800641fe44bd767d128"
+      },
+      {
+        "id": "clip-04-000499",
+        "sourcePtsMs": 49916.53333333333,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 29888,
+        "rgbPngSha256": "15675c8a3a157edce705a3ce1e3c2912bed648b5d19119e7fc93d82d0814b19e",
+        "maskPngSha256": "607735746f2a92a01401d34a8ecd7e67220b5a00c6a69c94b477be538b16216e",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "67b3818beaa69245aa63e62142888ef63eb258203780ac1805c3234097e21627"
+      },
+      {
+        "id": "clip-05-000000",
+        "sourcePtsMs": 0.0,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 0,
+        "rgbPngSha256": "7619b6e24d5fc51ce7849788a7aab55122b4b7bd4a707b01763b1e08168ec86c",
+        "maskPngSha256": "f2aac47ff1cc70da525cf53a483b6ee77a7afae5a2db982495685ce0ff60f072",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "c4feed5a9cc6ad50c049ad49728238bea3db9d66a6353419ea200f1572c09edb"
+      },
+      {
+        "id": "clip-05-000250",
+        "sourcePtsMs": 25025.000000000004,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 93731,
+        "rgbPngSha256": "f614a8cd8b89a5872f2ff74503877a160a547968cd9e89b19ef8aa31d1bf8565",
+        "maskPngSha256": "7e72f47697356447a2d526aaff5463069f8f0f9f9950881861acf9ed21d21da5",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "4113afb27e50212e48cf70da4151081404c7ffb7228e05a1221ef69a49736b2c"
+      },
+      {
+        "id": "clip-05-000499",
+        "sourcePtsMs": 49916.53333333333,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 77866,
+        "rgbPngSha256": "145798aef8335f82db3c35d8df6e9dd85cc01dd5570eda9e7f3af1a8bc6cec04",
+        "maskPngSha256": "36de7d632c0e359c8f6773f764190c59ab2191875ce40b3e5e9b67a8455dd38d",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "0de5481cc5d1fb8ef3b1edb6bb70a8e0943f0168c8e49ff133afd7d299a47383"
+      },
+      {
+        "id": "clip-06-000000",
+        "sourcePtsMs": 70003.26666666668,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 50281,
+        "rgbPngSha256": "390b115d8e68a51169a55a53800aebef30b14f7e9ffb05c5f5075a74c92e7cbe",
+        "maskPngSha256": "75f569686db005eaa9faf7e34784682371a50bdd216c663f1bb9c773d6932bf4",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "ea661547bc4efab7fae48ee4e74f5dccef1e6e80e192147d2be1eafd70ac7dee"
+      },
+      {
+        "id": "clip-06-000026",
+        "sourcePtsMs": 72605.86666666667,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 8158,
+        "rgbPngSha256": "03baf7905c9211ebf16ea4b1b8f3d6a178a8d7ccce9703aa47412b1dd9b9c305",
+        "maskPngSha256": "a84bf342330608995be50df106d829a4c21703a92c83fbf72d8c304d6e281848",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "ad8c430efcfe50885439ff0ce4658e36c0ca3a5ff88b2b1d9e17fc6289c7ae7a"
+      },
+      {
+        "id": "clip-06-000250",
+        "sourcePtsMs": 95028.26666666666,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 9078,
+        "rgbPngSha256": "fd7e046076505850e7f02623742c18e08b4e8610713387f464940aa7363261fb",
+        "maskPngSha256": "baf73690ed0e77676117800c186a1403a19a3abddb4d828622c7430fb8ffc6e3",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "c611bc23f3b1d779bb9e493a0be1f6a6372ab1eb3a69ca7be67fd4baa7b30537"
+      },
+      {
+        "id": "clip-06-000499",
+        "sourcePtsMs": 119919.8,
+        "width": 640,
+        "height": 360,
+        "skyPixels": 30542,
+        "rgbPngSha256": "f2bd26f2831f1b7cba010a2e758f5370de88db60c808c01362048e9b6f15a02d",
+        "maskPngSha256": "c0a25dab84e74e9af820ac0872b22b60481fe9629d636955702a746464393f75",
+        "semanticModelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+        "inputSha256": "4b8745de070b7cebfaf19a281768a026be96ec8dc8d385a2053ad07c28acb5b1"
+      }
+    ],
+    "results": [
+      {
+        "id": "clip-01-000000",
+        "skyPixels": 0,
+        "achromaticPixels": 0,
+        "hueCounts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSaturationSums": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumaCounts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 0.0,
+        "encodedLumaSum": 0.0,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-01-000128",
+        "skyPixels": 31599,
+        "achromaticPixels": 39,
+        "hueCounts": [
+          8270,
+          178,
+          21,
+          20,
+          1,
+          1,
+          1,
+          1,
+          338,
+          5689,
+          8869,
+          8171
+        ],
+        "hueSaturationSums": [
+          4742.952590618761,
+          77.38920957895877,
+          8.181773569762296,
+          15.531583337371952,
+          0.6206896551724138,
+          0.4166666666666667,
+          0.9473684210526315,
+          0.7037037037037037,
+          149.97286683771767,
+          3160.076745451152,
+          4893.145694606713,
+          3647.4732164404872
+        ],
+        "lumaCounts": [
+          31343,
+          207,
+          44,
+          5
+        ],
+        "saturationSum": 16697.412108888468,
+        "encodedLumaSum": 1408.283206274591,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-01-000256",
+        "skyPixels": 45917,
+        "achromaticPixels": 72,
+        "hueCounts": [
+          11336,
+          106,
+          10,
+          18,
+          0,
+          0,
+          0,
+          53,
+          4305,
+          20524,
+          2201,
+          7292
+        ],
+        "hueSaturationSums": [
+          5689.773502759707,
+          38.081678727189534,
+          5.302605516033557,
+          14.997025974457468,
+          0.0,
+          0.0,
+          0.0,
+          25.27500000000002,
+          1855.538202049954,
+          9981.218615229425,
+          1312.1070504572729,
+          2546.3322069735277
+        ],
+        "lumaCounts": [
+          45905,
+          5,
+          7,
+          0
+        ],
+        "saturationSum": 21468.62588769027,
+        "encodedLumaSum": 1628.627494117946,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-02-000000",
+        "skyPixels": 139150,
+        "achromaticPixels": 52563,
+        "hueCounts": [
+          747,
+          3444,
+          58437,
+          21475,
+          531,
+          31,
+          396,
+          6,
+          4,
+          4,
+          4,
+          1508
+        ],
+        "hueSaturationSums": [
+          299.5610587681167,
+          1054.1016627712186,
+          10852.9868857119,
+          3714.6167876694058,
+          131.6793934030263,
+          13.467791810823773,
+          48.36691067444453,
+          0.4711082818610717,
+          0.2828669443153913,
+          0.7404431691375737,
+          0.5286945208644133,
+          651.9033718788523
+        ],
+        "lumaCounts": [
+          137659,
+          979,
+          303,
+          209
+        ],
+        "saturationSum": 16768.706975605503,
+        "encodedLumaSum": 10067.942771771463,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-02-000250",
+        "skyPixels": 112998,
+        "achromaticPixels": 6606,
+        "hueCounts": [
+          198,
+          339,
+          59604,
+          37474,
+          7812,
+          556,
+          358,
+          2,
+          2,
+          0,
+          0,
+          47
+        ],
+        "hueSaturationSums": [
+          92.72920014840281,
+          117.59548507763736,
+          11827.228402747436,
+          7156.901180875014,
+          2783.0303990408815,
+          214.81171810108307,
+          47.07436720494831,
+          0.033473389355742296,
+          0.02494813278008299,
+          0.0,
+          0.0,
+          35.619672917085154
+        ],
+        "lumaCounts": [
+          112229,
+          335,
+          89,
+          345
+        ],
+        "saturationSum": 22275.048847633392,
+        "encodedLumaSum": 8191.237870589143,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-02-000499",
+        "skyPixels": 46319,
+        "achromaticPixels": 497,
+        "hueCounts": [
+          11043,
+          3943,
+          844,
+          216,
+          320,
+          256,
+          775,
+          342,
+          429,
+          1186,
+          1208,
+          25260
+        ],
+        "hueSaturationSums": [
+          4731.610700985482,
+          865.6482054590474,
+          97.9036000543705,
+          23.581885016866742,
+          117.99586758867011,
+          75.59540380825665,
+          340.0475436587831,
+          71.14284355214072,
+          60.70917811362255,
+          220.24579055132918,
+          358.5169871373747,
+          12975.84215891547
+        ],
+        "lumaCounts": [
+          43500,
+          1121,
+          518,
+          1180
+        ],
+        "saturationSum": 19938.840164842262,
+        "encodedLumaSum": 5516.545926274681,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-03-000400",
+        "skyPixels": 16329,
+        "achromaticPixels": 1629,
+        "hueCounts": [
+          0,
+          86,
+          9696,
+          4260,
+          65,
+          6,
+          566,
+          2,
+          9,
+          0,
+          0,
+          10
+        ],
+        "hueSaturationSums": [
+          0.0,
+          26.39982794982794,
+          2772.5817705517084,
+          1269.7803030302086,
+          29.54545454545451,
+          2.5,
+          106.0909090909101,
+          0.5934065934065934,
+          2.3210526315789473,
+          0.0,
+          0.0,
+          1.173913043478261
+        ],
+        "lumaCounts": [
+          16329,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 4210.986637437423,
+        "encodedLumaSum": 652.6739913726223,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-03-000650",
+        "skyPixels": 2020,
+        "achromaticPixels": 0,
+        "hueCounts": [
+          0,
+          0,
+          815,
+          1191,
+          12,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSaturationSums": [
+          0.0,
+          0.0,
+          199.76023755656018,
+          282.20480769230517,
+          4.285714285714286,
+          0.0,
+          1.6402462485571374,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumaCounts": [
+          2018,
+          0,
+          2,
+          0
+        ],
+        "saturationSum": 487.8910057831366,
+        "encodedLumaSum": 96.8003858823523,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-03-000719",
+        "skyPixels": 5067,
+        "achromaticPixels": 2,
+        "hueCounts": [
+          5,
+          63,
+          136,
+          2743,
+          1851,
+          164,
+          103,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSaturationSums": [
+          1.8850580862775985,
+          16.597184934900884,
+          40.97829753844855,
+          742.3454517528761,
+          724.439271895169,
+          62.054324253940464,
+          45.48142308526545,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumaCounts": [
+          5009,
+          19,
+          39,
+          0
+        ],
+        "saturationSum": 1633.7810115468706,
+        "encodedLumaSum": 267.45514588234914,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-03-000723",
+        "skyPixels": 55,
+        "achromaticPixels": 0,
+        "hueCounts": [
+          0,
+          0,
+          0,
+          39,
+          16,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSaturationSums": [
+          0.0,
+          0.0,
+          0.0,
+          9.75,
+          6.384615384615387,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumaCounts": [
+          55,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 16.134615384615387,
+        "encodedLumaSum": 2.471379607843138,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-03-000899",
+        "skyPixels": 42125,
+        "achromaticPixels": 1627,
+        "hueCounts": [
+          65,
+          641,
+          4937,
+          7785,
+          788,
+          2218,
+          10189,
+          9021,
+          4672,
+          90,
+          38,
+          54
+        ],
+        "hueSaturationSums": [
+          28.20366818069246,
+          280.8560420523065,
+          1279.4457422777234,
+          1864.2491428572662,
+          268.10976172307556,
+          706.2039589072472,
+          2231.158108900189,
+          4159.4758563211,
+          1774.679289948678,
+          33.74858985103645,
+          17.608128317087452,
+          16.74532603768791
+        ],
+        "lumaCounts": [
+          39126,
+          324,
+          240,
+          2435
+        ],
+        "saturationSum": 12660.483615374782,
+        "encodedLumaSum": 5082.603087058164,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-04-000000",
+        "skyPixels": 30888,
+        "achromaticPixels": 17,
+        "hueCounts": [
+          7,
+          64,
+          121,
+          28,
+          31,
+          134,
+          30271,
+          196,
+          13,
+          1,
+          4,
+          1
+        ],
+        "hueSaturationSums": [
+          0.22179160175741663,
+          5.933910454303597,
+          2.9034218425410105,
+          0.3846641252853212,
+          0.8761043442592553,
+          8.707896258370502,
+          9966.192342152952,
+          35.498872805801774,
+          0.7601159050163194,
+          0.041176470588235294,
+          0.0392156862745098,
+          0.01568627450980392
+        ],
+        "lumaCounts": [
+          108,
+          105,
+          1271,
+          29404
+        ],
+        "saturationSum": 10021.575197921728,
+        "encodedLumaSum": 26827.572872156772,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-04-000250",
+        "skyPixels": 31475,
+        "achromaticPixels": 8,
+        "hueCounts": [
+          11,
+          39,
+          51,
+          14,
+          42,
+          145,
+          31092,
+          48,
+          11,
+          4,
+          4,
+          6
+        ],
+        "hueSaturationSums": [
+          0.47068448719222095,
+          4.702830152013498,
+          3.1091342475761263,
+          1.1137501815029212,
+          2.7362736620125188,
+          19.314575767255782,
+          11472.82975394868,
+          23.953046286140495,
+          0.26974577257282584,
+          0.170349776113925,
+          0.12240437787493769,
+          0.10911319483167968
+        ],
+        "lumaCounts": [
+          182,
+          604,
+          1129,
+          29560
+        ],
+        "saturationSum": 11528.901661853812,
+        "encodedLumaSum": 26893.41744470588,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-04-000499",
+        "skyPixels": 29888,
+        "achromaticPixels": 6,
+        "hueCounts": [
+          30,
+          38,
+          12,
+          7,
+          1,
+          30,
+          29215,
+          490,
+          28,
+          9,
+          9,
+          13
+        ],
+        "hueSaturationSums": [
+          5.593068861878505,
+          5.993840304909259,
+          0.9624375257180657,
+          0.2933545522891677,
+          0.05333333333333334,
+          6.402088582474718,
+          11466.865962450614,
+          233.63835123810813,
+          3.636234367015235,
+          0.9550450672757712,
+          1.5205440355720323,
+          1.4648523141012628
+        ],
+        "lumaCounts": [
+          357,
+          897,
+          1341,
+          27293
+        ],
+        "saturationSum": 11727.37911263335,
+        "encodedLumaSum": 24371.770385880744,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-05-000000",
+        "skyPixels": 0,
+        "achromaticPixels": 0,
+        "hueCounts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "hueSaturationSums": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumaCounts": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 0.0,
+        "encodedLumaSum": 0.0,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-05-000250",
+        "skyPixels": 93731,
+        "achromaticPixels": 12,
+        "hueCounts": [
+          0,
+          4,
+          772,
+          626,
+          1105,
+          4551,
+          86257,
+          391,
+          11,
+          2,
+          0,
+          0
+        ],
+        "hueSaturationSums": [
+          0.0,
+          0.37763569195794255,
+          16.429623480868877,
+          9.904010141501397,
+          25.799033032579718,
+          189.58436353802952,
+          33069.341469658924,
+          99.99140593474128,
+          0.4567026503785383,
+          0.055196041111534075,
+          0.0,
+          0.0
+        ],
+        "lumaCounts": [
+          351,
+          229,
+          39191,
+          53960
+        ],
+        "saturationSum": 33411.939440168666,
+        "encodedLumaSum": 73239.66174823501,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-05-000499",
+        "skyPixels": 77866,
+        "achromaticPixels": 1,
+        "hueCounts": [
+          1,
+          6,
+          6,
+          19,
+          320,
+          822,
+          76617,
+          73,
+          1,
+          0,
+          0,
+          0
+        ],
+        "hueSaturationSums": [
+          0.03508771929824561,
+          0.42275185028486195,
+          0.2258679838912271,
+          0.718477350623334,
+          14.168732399790734,
+          53.00108607150134,
+          24096.112835009575,
+          24.223690614986285,
+          0.07407407407407407,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumaCounts": [
+          206,
+          437,
+          21094,
+          56129
+        ],
+        "saturationSum": 24188.98260307371,
+        "encodedLumaSum": 64318.1194682298,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-06-000000",
+        "skyPixels": 50281,
+        "achromaticPixels": 23926,
+        "hueCounts": [
+          517,
+          2768,
+          8337,
+          2314,
+          11124,
+          537,
+          525,
+          20,
+          63,
+          18,
+          0,
+          132
+        ],
+        "hueSaturationSums": [
+          398.3403885329984,
+          1941.898015008267,
+          7637.473458569432,
+          2154.4053266861883,
+          11011.674655373645,
+          456.74229886020726,
+          435.23586951425784,
+          9.229912019584374,
+          60.94057142857143,
+          18.0,
+          0.0,
+          93.91205807294631
+        ],
+        "lumaCounts": [
+          49790,
+          347,
+          87,
+          57
+        ],
+        "saturationSum": 24217.85255406569,
+        "encodedLumaSum": 773.6867992156593,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-06-000026",
+        "skyPixels": 8158,
+        "achromaticPixels": 5849,
+        "hueCounts": [
+          313,
+          311,
+          596,
+          128,
+          133,
+          30,
+          683,
+          0,
+          0,
+          2,
+          0,
+          113
+        ],
+        "hueSaturationSums": [
+          261.57098977176514,
+          231.83798419643048,
+          573.1252107369756,
+          115.85529924678903,
+          122.44912667043101,
+          25.191571007697227,
+          439.7659025883452,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          98.11123125240775
+        ],
+        "lumaCounts": [
+          8146,
+          9,
+          2,
+          1
+        ],
+        "saturationSum": 1869.907315470847,
+        "encodedLumaSum": 166.70252156863032,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-06-000250",
+        "skyPixels": 9078,
+        "achromaticPixels": 30,
+        "hueCounts": [
+          166,
+          5490,
+          2874,
+          513,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "hueSaturationSums": [
+          116.70847869188266,
+          4127.412234486922,
+          2703.326768763546,
+          490.9602718360071,
+          4.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.4
+        ],
+        "lumaCounts": [
+          9028,
+          37,
+          12,
+          1
+        ],
+        "saturationSum": 7442.807753778756,
+        "encodedLumaSum": 437.18859529411014,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      },
+      {
+        "id": "clip-06-000499",
+        "skyPixels": 30542,
+        "achromaticPixels": 18909,
+        "hueCounts": [
+          1330,
+          4193,
+          6043,
+          18,
+          0,
+          0,
+          6,
+          0,
+          14,
+          6,
+          0,
+          23
+        ],
+        "hueSaturationSums": [
+          1001.8357725051014,
+          3294.0285225495877,
+          5692.272222222232,
+          15.25,
+          0.0,
+          0.0,
+          5.0,
+          0.0,
+          14.0,
+          6.0,
+          0.0,
+          12.43333333333333
+        ],
+        "lumaCounts": [
+          30542,
+          0,
+          0,
+          0
+        ],
+        "saturationSum": 10040.819850610424,
+        "encodedLumaSum": 288.5385396078194,
+        "saturationDelta": 0.0,
+        "lumaDelta": 0.0,
+        "sectorSumDelta": 0.0,
+        "countParity": true
+      }
+    ]
+  },
+  "separateChecksNotAddedToUnitTotal": {
+    "snapshotAndIndependentGeometry": 100,
+    "includesExistingRegressionCases": true
+  },
+  "mainIntegration": {
+    "unitTests": 289,
+    "unitFailures": 0,
+    "nativeTests": 1,
+    "lintErrors": 0,
+    "lintWarnings": 39,
+    "validationApkSha256": "b66672ffb597a4d67b9b022dd7794d63e79557752af384447d9004f842165319",
+    "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+    "originalDeliverableSha256": "e1e887a63771b1fad081de634db6ce38c33288e343abd1ea62a02336389355fa",
+    "test": "ProductionConfigurationDeviceTest: actual AppServices sky observation and license UI",
+    "distributionApkUnchanged": true
+  }
+}

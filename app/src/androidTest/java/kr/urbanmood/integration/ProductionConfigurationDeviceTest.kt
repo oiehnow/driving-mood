@@ -27,9 +27,20 @@ class ProductionConfigurationDeviceTest {
         assertEquals("1",android.system.Os.getenv("ORT_DISABLE_TELEMETRY"))
         assertEquals("1",System.getenv("ORT_DISABLE_TELEMETRY"))
         val services=AppServices(context)
-        try { assertTrue(services.vision is SemanticLightAnalyzer) }
+        try {
+            assertTrue(services.vision is SemanticLightAnalyzer)
+            val bitmap=android.graphics.Bitmap.createBitmap(32,32,android.graphics.Bitmap.Config.ARGB_8888)
+            try {
+                bitmap.eraseColor(android.graphics.Color.CYAN)
+                val result=services.vision.analyze(kr.urbanmood.contracts.CameraFrame(bitmap,1000L,System.nanoTime(),0L))
+                val sky=result.sceneObservations?.semantic?.skyColor
+                assertNotNull("Actual AppServices must connect the sky calculator",sky)
+                assertEquals("sky-rgb-v1",sky!!.measurementVersion)
+                assertEquals(32,sky.rasterWidth)
+            } finally { bitmap.recycle() }
+        }
         finally { services.vision.close(); services.environment.close(); services.audio.close() }
-        val required=listOf("DrivingMood-AGPL-3.0.txt","SEMANTIC-SOURCES.txt",
+        val required=listOf("Skia-LICENSE.txt","SKY-OBSERVATION-SOURCES.txt","DrivingMood-AGPL-3.0.txt","SEMANTIC-SOURCES.txt",
             "onnxruntime-LICENSE.txt","onnxruntime-ThirdPartyNotices.txt","ultralytics-LICENSE.txt")
         required.forEach { name -> context.assets.open("licenses/$name").use { assertTrue(it.available()>0) } }
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
