@@ -106,6 +106,7 @@ class MainActivity : ComponentActivity() {
     private val muted = Color.rgb(101, 113, 130)
     private lateinit var dashboard: kr.urbanmood.ui.MoodDashboardView
     private lateinit var detailPanel: LinearLayout
+    private lateinit var evidenceDetails: kr.urbanmood.ui.EvidenceDetailView
     private val pages = mutableListOf<ScrollView>()
     private val navigationButtons = mutableListOf<Button>()
     private lateinit var homeBody: LinearLayout
@@ -234,6 +235,7 @@ class MainActivity : ComponentActivity() {
         val id = session.beginAnalysis() ?: return
         beginLogoAnalysis()
         recommendationJob?.cancel()
+        val recommendationPreferences = selectedRecommendationPreferences()
         scoreText.text = "촬영을 마치면 주변 무드를 분석합니다."
         clearDecodedPreview()
         window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -246,8 +248,9 @@ class MainActivity : ComponentActivity() {
                 val result = RecordedRequestRunner(services.environment).run(id,
                     permissions = { requestPermissionsForAnalysis(id) },
                     capture = { captureScene(id) },
-                    recommend = { recommendSnapshot(it) },
-                    recommending = { if (session.ownsRequest(id)) cameraStatus.text = "주변 무드와 음악 정리 중" })
+                    recommend = { recommendSnapshot(it, recommendationPreferences) },
+                    recommending = { if (session.ownsRequest(id)) cameraStatus.text = "어울리는 음악을 고르고 있어요" })
+                    .copy(recommendationPreferences = recommendationPreferences)
                 if (session.ownsRequest(id)) {
                     session.completedAnalysis = result
                     session.lightingPreview = LightingPreview.suggestion(result)
@@ -256,18 +259,18 @@ class MainActivity : ComponentActivity() {
                     if (foreground && session.claimCompletionSound(id)) completionCue.play()
                 }
             } catch (_: TimeoutCancellationException) {
-                if (session.ownsRequest(id)) showInterrupted("시간이 초과되어 분석을 취소했습니다. 이전 결과는 유지됩니다.")
+                if (session.ownsRequest(id)) showInterrupted("분석 시간이 초과됐어요. 다시 시도해 주세요.")
             } catch (_: CancellationException) {
-                if (session.ownsRequest(id)) showInterrupted("분석을 취소했습니다. 이전 결과는 유지됩니다.")
+                if (session.ownsRequest(id)) showInterrupted("분석을 취소했어요.")
             } catch (_: Exception) {
-                if (session.ownsRequest(id)) showInterrupted("분석을 마치지 못했습니다. 이전 결과는 유지됩니다. 다시 시도해 주세요.")
+                if (session.ownsRequest(id)) showInterrupted("분석을 마치지 못했어요. 다시 시도해 주세요.")
             } finally {
                 releaseCamera(id)
                 services.environment.cancelRequest(id)
                 session.endAnalysis(id)
                 window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                 session.completedAnalysis?.let {
-                    if (session.activeRequestId == null) scoreText.text = kr.urbanmood.integration.scoreSummaryText(it.recommendation.scoreSummary)
+                    if (session.activeRequestId == null) scoreText.text = kr.urbanmood.integration.scoreDetailsText(it.recommendation.scoreSummary)
                 }
                 updateControls()
             }
@@ -300,7 +303,7 @@ class MainActivity : ComponentActivity() {
         previewContainer.visibility = View.VISIBLE
         preview.visibility = View.VISIBLE
         decodedPreview.visibility = View.GONE
-        cameraStatus.text = "카메라 연결 중"
+        cameraStatus.text = "카메라를 준비하고 있어요"
         val clip = camera.record(duration,
             progress = { elapsed -> if (session.ownsRequest(id)) {
                 cameraStatus.text = "촬영 중"
@@ -368,11 +371,11 @@ class MainActivity : ComponentActivity() {
         if (previous != null) renderCompleted(previous) else {
             logoJourney.resetAfterFailure()
             if (foreground) Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-            analysisText.text = "관측을 완료하지 못했습니다. 다시 눌러 새로 관측할 수 있습니다."
-            frameStatus.text = "미완료 관측을 지웠습니다."
+            analysisText.text = "분석을 완료하지 못했어요. 다시 촬영해 주세요."
+            frameStatus.text = "완료되지 않은 분석은 저장하지 않았어요."
             scoreText.text = kr.urbanmood.integration.scoreSummaryText(null)
         }
-        cameraStatus.text = message
+        cameraStatus.text = message + if (previous != null) " 이전 결과는 유지했어요." else ""
     }
 
     private fun updateControls() {
@@ -388,28 +391,30 @@ class MainActivity : ComponentActivity() {
         configurationButtons.forEach { it.isEnabled = !busy }
     }
 
-    private suspend fun recommendSnapshot(snapshot: AnalysisSnapshot): RecommendationResult {
+    private fun selectedRecommendationPreferences() = UserPreferences(
+        (if (::preferenceInput.isInitialized) preferenceInput.text.toString() else session.genres)
+            .split(',').map { it.trim() }.filter { it.isNotEmpty() }.toSet(),
+        preferredMoods = session.preferredMoods.toSet())
+
+    private suspend fun recommendSnapshot(snapshot: AnalysisSnapshot, preferences: UserPreferences): RecommendationResult {
         val request = RecommendationRequest(snapshot.vision, snapshot.environment,
-            UserPreferences(preferenceInput.text.toString().split(',').map { it.trim() }.filter { it.isNotEmpty() }.toSet(),
-                preferredMoods = session.preferredMoods.toSet()),
+            preferences,
             tracks.toList(), recentTracks.toList(), nowEpochMs = snapshot.analyzedAtEpochMs,
             sceneWindow = snapshot.sceneWindow, observationEndEpochMs = snapshot.observationEndEpochMs)
         return withContext(Dispatchers.Default) { services.recommendation.recommend(request) }
     }
 
     private fun requestRecommendation() {
-        val completed = session.completedAnalysis ?: return
+        if (session.completedAnalysis == null) return
         if (session.activeRequestId != null) return
         recommendationJob?.cancel()
+        val preferences = selectedRecommendationPreferences()
+        renderEvidence()
         recommendationJob = lifecycleScope.launch {
             try {
-                val result = recommendSnapshot(completed.snapshot)
-                if (session.completedAnalysis?.snapshot === completed.snapshot && session.activeRequestId == null) {
-                    val updated = completed.copy(recommendation = result)
-                    session.completedAnalysis = updated
-                    renderRecommendation(result)
-                    services.audio.setQueue(result.candidates)
-                }
+                val updated = session.refreshRecommendation(preferences, ::recommendSnapshot) ?: return@launch
+                renderRecommendation(updated.recommendation)
+                services.audio.setQueue(updated.recommendation.candidates)
             } catch (e: CancellationException) { throw e }
             catch (_: Exception) { Toast.makeText(this@MainActivity, "음악 추천을 갱신하지 못했습니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show() }
         }
@@ -419,7 +424,8 @@ class MainActivity : ComponentActivity() {
         recommendation = value
         dashboard.complete(value)
         moodText.text = recommendationText(value)
-        scoreText.text = kr.urbanmood.integration.scoreSummaryText(value.scoreSummary)
+        scoreText.text = kr.urbanmood.integration.scoreDetailsText(value.scoreSummary)
+        renderEvidence()
         searchButton.isEnabled = !value.youtubeQuery.isNullOrBlank()
         revealAnalysisScreen()
     }
@@ -491,7 +497,7 @@ class MainActivity : ComponentActivity() {
         }
         val brand = row(root).apply { gravity = android.view.Gravity.CENTER_VERTICAL }
         headerLogo = ImageView(this).apply {
-            setImageResource(R.mipmap.ic_launcher)
+            setImageDrawable(kr.urbanmood.ui.LogoJourneyView.createLogoDrawable(this@MainActivity))
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         brand.addView(headerLogo, LinearLayout.LayoutParams(dp(38), dp(38)).apply { marginEnd = dp(10) })
@@ -519,7 +525,7 @@ class MainActivity : ComponentActivity() {
         frameStatus = text("촬영 → 분석 → 무드 확인", 12, muted).apply { visibility = View.GONE }
         root.addView(cameraStatus)
         root.addView(frameStatus)
-        cancelButton = addButton(root, "취소", false) { cancelAnalysis("분석을 취소했습니다. 이전 결과는 유지됩니다.") }
+        cancelButton = addButton(root, "취소", false) { cancelAnalysis("분석을 취소했어요.") }
         cancelButton.visibility = View.GONE
         root.removeView(cancelButton)
         root.addView(cancelButton, root.indexOfChild(previewContainer))
@@ -532,33 +538,40 @@ class MainActivity : ComponentActivity() {
         detailsButton.contentDescription = "분석 상세 펼치기 또는 접기"
         detailPanel = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = View.GONE }
         root.addView(detailPanel)
-        val analysisCard = card(detailPanel, "장면 관측")
+        evidenceDetails = kr.urbanmood.ui.EvidenceDetailView(this)
+        detailPanel.addView(evidenceDetails)
+        renderEvidence()
+        val technical = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL; visibility = View.GONE; tag = "evidence_technical_body"
+        }
+        lateinit var technicalToggle: Button
+        technicalToggle = addButton(detailPanel, "기술 정보 펼치기  ↓") {
+            val expanded = technical.visibility != View.VISIBLE
+            technical.visibility = if (expanded) View.VISIBLE else View.GONE
+            technicalToggle.text = if (expanded) "기술 정보 접기  ↑" else "기술 정보 펼치기  ↓"
+            technicalToggle.contentDescription = if (expanded) "기술 정보 접기" else "기술 정보 펼치기"
+        }
+        technicalToggle.tag = "evidence_technical_toggle"
+        technicalToggle.contentDescription = "기술 정보 펼치기"
+        detailPanel.addView(technical)
+        val analysisCard = card(technical, "분석 기록")
         analysisText = text("분석을 마치면 주변 색감과 빛을 확인할 수 있어요.", 14, ink)
         analysisCard.addView(analysisText)
-        addButton(analysisCard, "분석 상세") {
-            showDetails("분석 상세", latestVision?.let { value ->
-                "관측 ${time(value.frameTimeEpochMs)}\n" + value.reasons.joinToString("\n")
-            } ?: "무드 분석을 마치면 내용을 확인할 수 있습니다.")
-        }
         scoreText = text("관측을 마치면 분위기별 점수와 기여 항목을 확인할 수 있습니다.", 13, muted)
         analysisCard.addView(scoreText)
-        addButton(analysisCard, "점수와 관측 근거") {
-            showDetails("점수와 관측 근거", kr.urbanmood.integration.scoreDetailsText(recommendation?.scoreSummary))
-        }
-        addButton(root, "음악과 조명으로 이어가기  →") { selectPage(1) }
+        addButton(root, "음악·조명 보기") { selectPage(1) }.tag = "open_music"
         reanalyzeButton = addButton(root, "재분석") { startAnalysis() }
 
-        musicPage.addView(text("나의 드라이브", 28, ink, true))
-        musicPage.addView(text("주변의 무드를 나만의 분위기로", 13, muted))
-        val moodCard = card(musicPage, "분위기와 취향")
-        moodText = text("주변 무드를 분석하고 어울리는 음악을 만나보세요.", 15, ink)
+        musicPage.addView(text("음악·조명", 28, ink, true))
+        val moodCard = card(musicPage, "음악 추천")
+        moodText = text("무드를 분석하면 어울리는 음악을 추천해 드려요.", 15, ink)
         moodCard.addView(moodText)
         desiredMoodText = text("", 13, muted)
         moodCard.addView(desiredMoodText)
         renderDesiredMoods()
         configurationButtons += addButton(moodCard, "원하는 분위기 선택") { showDesiredMoods() }
         preferenceInput = EditText(this).apply {
-            hint = "좋아하는 장르 · jazz, ambient"
+            hint = "좋아하는 장르 (예: jazz, ambient)"
             setTextColor(ink); setHintTextColor(muted); textSize = 14f
             maxLines = 1; inputType = android.text.InputType.TYPE_CLASS_TEXT
             contentDescription = "쉼표로 구분한 선호 장르"
@@ -567,10 +580,9 @@ class MainActivity : ComponentActivity() {
         moodCard.addView(preferenceInput)
         addButton(moodCard, "취향 적용") { requestRecommendation() }
         addButton(moodCard, "추천 이유") {
-            showDetails("추천 이유", recommendation?.reasons?.filterNot { it.startsWith("영상 근거:") }
-                ?.joinToString("\n") ?: "사용 가능한 환경과 취향을 바탕으로 추천을 준비하고 있습니다.")
+            showRecommendationEvidence()
         }
-        searchButton = addButton(moodCard, "YouTube에서 검색 열기", false) {
+        searchButton = addButton(moodCard, "YouTube에서 찾기", false) {
             recommendation?.youtubeQuery?.takeIf { it.isNotBlank() }?.let { query ->
                 openExternal(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/results").buildUpon()
                     .appendQueryParameter("search_query", query).build()))
@@ -578,10 +590,10 @@ class MainActivity : ComponentActivity() {
         }
         val audioCard = card(musicPage, "내 음악")
         catalogText = text("선택한 음원 ${tracks.size}곡", 13, muted)
-        playerText = text("재생 대기 · 기기 내 음원을 선택하세요.", 15, ink)
+        playerText = text("재생할 음악을 추가해 주세요.", 15, ink)
         audioCard.addView(catalogText); audioCard.addView(playerText)
-        addButton(audioCard, "로컬 음원 선택", services.audioAvailable) { musicPicker.launch(arrayOf("audio/*")) }
-        addButton(audioCard, "곡별 장르·분위기 태그") { showTrackTags() }
+        addButton(audioCard, "기기에서 음악 추가", services.audioAvailable) { musicPicker.launch(arrayOf("audio/*")) }
+        addButton(audioCard, "곡별 장르·분위기 설정") { showTrackTags() }
         val audioButtons = row(audioCard)
         addAudioButton(audioButtons, "재생", R.drawable.ic_play, services.audioAvailable) {
             if (session.completedAnalysis == null) Toast.makeText(this, "무드 분석 후 음악을 재생할 수 있습니다.", Toast.LENGTH_SHORT).show()
@@ -592,7 +604,7 @@ class MainActivity : ComponentActivity() {
         val lightingCard = card(musicPage, "조명 미리보기")
         lightingSwatch = View(this).apply { setBackgroundColor(Color.DKGRAY) }
         lightingCard.addView(lightingSwatch, LinearLayout.LayoutParams(-1, dp(58)))
-        lightingText = text("프리셋을 선택하세요.", 14, ink)
+        lightingText = text("조명 색상을 선택하세요.", 14, ink)
         lightingCard.addView(lightingText)
         var lightingButtons = row(lightingCard)
         LightingPreview.presets.forEachIndexed { index, preset ->
@@ -613,13 +625,12 @@ class MainActivity : ComponentActivity() {
         renderLighting()
 
         settingsPage.addView(text("설정", 28, ink, true))
-        settingsPage.addView(text("분석에 사용할 연결과 권한", 13, muted))
         val environmentCard = card(settingsPage, "위치 · 도로 · 날씨")
         environmentText = text("위치 미연결\n도로 알 수 없음 · 날씨 미연결", 14, ink)
         environmentCard.addView(environmentText)
-        configurationButtons += addButton(environmentCard, "기상청 키 설정") { showKeySettings() }
+        configurationButtons += addButton(environmentCard, "기상청 인증키") { showKeySettings() }
         configurationButtons += addButton(environmentCard, "수동 설정") { showManualSettings() }
-        addButton(settingsPage, "권한 · 앱 설정") {
+        addButton(settingsPage, "앱 권한 설정") {
             openExternal(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName")))
         }
         addButton(settingsPage, "데이터 사용 안내") {
@@ -733,17 +744,17 @@ class MainActivity : ComponentActivity() {
 
     private fun showKeySettings() {
         val input = EditText(this).apply {
-            hint = if (session.kmaKey.isEmpty()) "일반/디코딩 인증키" else "키 설정됨 · 바꾸려면 새 키 입력"
+            hint = if (session.kmaKey.isEmpty()) "일반 인증키 (Decoding)" else "변경할 인증키 입력"
             inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
             isSaveEnabled = false
             importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO
         }
-        AlertDialog.Builder(this).setTitle("기상청 인증키 · 메모리에만 보관")
-            .setMessage("공공데이터포털 초단기실황의 일반/디코딩 키를 입력하세요. 키는 파일에 저장하지 않으며 앱이 완전히 종료되면 사라집니다. 빈 입력은 기존 키를 유지합니다.\n" + AndroidEnvironmentProvider.PRIVACY)
+        AlertDialog.Builder(this).setTitle("기상청 인증키")
+            .setMessage("공공데이터포털의 초단기실황 인증키(일반/디코딩)를 입력하세요. 앱이 완전히 종료되면 다시 입력해야 합니다. 비워 두면 기존 키를 유지합니다.\n" + AndroidEnvironmentProvider.PRIVACY)
             .setView(input).setPositiveButton("적용") { _, _ ->
                 input.text.toString().trim().takeIf { it.isNotEmpty() }?.let { session.kmaKey = it }
                 input.text.clear()
-                Toast.makeText(this, "키 설정은 다음 무드 분석부터 사용합니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "다음 분석부터 새 인증키를 사용합니다.", Toast.LENGTH_SHORT).show()
             }.setNeutralButton("키 삭제") { _, _ ->
                 session.kmaKey = ""; input.text.clear()
                 Toast.makeText(this, "키를 삭제했습니다. 다음 분석에는 날씨를 조회하지 않습니다.", Toast.LENGTH_SHORT).show()
@@ -752,14 +763,14 @@ class MainActivity : ComponentActivity() {
 
     private fun showManualSettings() {
         val choices = arrayOf("수동 날씨: 비", "수동 날씨: 눈", "수동 날씨: 강수 없음", "수동 도로: 고속도로", "수동 도로: 도심", "수동 입력 모두 해제")
-        AlertDialog.Builder(this).setTitle("수동 설정 · 실제 관측과 구분됩니다")
+        AlertDialog.Builder(this).setTitle("날씨·도로 직접 설정")
             .setItems(choices) { _, index ->
                 when (index) {
                     0, 1, 2 -> { session.manualWeather = listOf("비", "눈", "강수 없음")[index] }
                     3, 4 -> { session.manualRoad = if (index == 3) RoadType.HIGHWAY else RoadType.URBAN }
                     5 -> { session.manualWeather = null; session.manualRoad = null }
                 }
-                Toast.makeText(this, "수동 설정은 다음 무드 분석부터 반영합니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "직접 설정한 값은 다음 분석부터 반영돼요.", Toast.LENGTH_SHORT).show()
             }.setNegativeButton("취소", null).showWithAppFont()
     }
 
@@ -786,13 +797,13 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun showTrackTags() {
-        if (tracks.isEmpty()) { Toast.makeText(this, "로컬 음원을 먼저 선택하세요.", Toast.LENGTH_SHORT).show(); return }
+        if (tracks.isEmpty()) { Toast.makeText(this, "기기에서 음악을 먼저 추가해 주세요.", Toast.LENGTH_SHORT).show(); return }
         val snapshot = tracks.toList()
-        AlertDialog.Builder(this).setTitle("곡 선택 · 태그는 사용자 입력")
+        AlertDialog.Builder(this).setTitle("설정할 곡 선택")
             .setItems(snapshot.map { it.title }.toTypedArray()) { _, selected ->
                 val track = snapshot[selected]
                 val tags = EditText(this).apply { hint = "예: jazz, 차분한, 야간"; setText(track.tags.joinToString(", ")) }
-                AlertDialog.Builder(this).setTitle(track.title).setMessage("곡의 분위기 태그를 쉼표로 구분해 입력하세요.")
+                AlertDialog.Builder(this).setTitle(track.title).setMessage("장르나 분위기를 쉼표로 나눠 입력하세요. 예: jazz, 차분한")
                     .setView(tags).setPositiveButton("적용") { _, _ ->
                         val index = tracks.indexOfFirst { it.id == track.id }
                         if (index >= 0) tracks[index] = track.copy(tags = tags.text.toString().split(',').map { it.trim() }.filter { it.isNotEmpty() }.toSet())
@@ -812,6 +823,37 @@ class MainActivity : ComponentActivity() {
             "\n밝기 ${percent(value.colors?.brightness)} · 채도 ${percent(value.colors?.saturation)} · 빛 영역 ${percent(value.colors?.luminousAreaRatio)}" +
             (value.sceneObservations?.let { "\n현재 프레임 · 사람 검출 ${it.persons?.detectionCount?.let { count -> "${count}개" } ?: "미확인"}" +
                 " · 주변 빛 후보 ${it.ambientLights?.candidateCount?.let { count -> "${count}개" } ?: "미확인"}" } ?: "")
+        renderEvidence()
+    }
+
+    private fun renderEvidence() {
+        if (!::evidenceDetails.isInitialized) return
+        evidenceDetails.render(kr.urbanmood.ui.EvidencePresenter.presentCompleted(
+            session.completedAnalysis, selectedRecommendationPreferences()))
+    }
+
+    private fun showRecommendationEvidence() {
+        val content = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL; setPadding(dp(20), dp(8), dp(20), dp(16))
+        }
+        content.addView(kr.urbanmood.ui.EvidenceDetailView(this).apply {
+            render(kr.urbanmood.ui.EvidencePresenter.presentCompleted(
+                session.completedAnalysis, selectedRecommendationPreferences()), recommendationOnly = true)
+            tag = "evidence_recommendation_detail"
+        })
+        val raw = text(recommendation?.reasons?.joinToString("\n") ?: "추천 기록 없음", 12, muted).apply {
+            visibility = View.GONE; tag = "evidence_recommendation_technical_body"
+        }
+        lateinit var toggle: Button
+        toggle = addButton(content, "추천 계산 기록  ↓") {
+            val show = raw.visibility != View.VISIBLE
+            raw.visibility = if (show) View.VISIBLE else View.GONE
+            toggle.text = if (show) "추천 계산 기록  ↑" else "추천 계산 기록  ↓"
+        }
+        toggle.tag = "evidence_recommendation_technical_toggle"
+        content.addView(raw)
+        AlertDialog.Builder(this).setTitle("추천 이유").setView(ScrollView(this).apply { addView(content) })
+            .setPositiveButton("닫기", null).showWithAppFont()
     }
 
     private fun renderEnvironment(value: EnvironmentSnapshot) {

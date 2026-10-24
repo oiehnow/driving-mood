@@ -20,6 +20,6 @@ object LightingPreview {
             "차가운" in keywords || "청량한" in keywords -> presets[1]
             else -> return null
         }
-        return preset.copy(requestId = requestId, reason = "공통 주변 무드 기반 · 고정 프리셋 미리보기", moodKeywords = keywords)
+        return preset.copy(requestId = requestId, reason = "주변 무드에 맞춘 조명 색상이에요.", moodKeywords = keywords)
     }
 }

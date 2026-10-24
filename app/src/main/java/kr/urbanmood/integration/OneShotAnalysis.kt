@@ -19,7 +19,12 @@ data class AnalysisSnapshot(
     val observationEndEpochMs: Long? = null,
     val captureStartedAtEpochMs: Long? = null,
 )
-data class CompletedAnalysis(val snapshot: AnalysisSnapshot, val recommendation: RecommendationResult)
+data class CompletedAnalysis(
+    val snapshot: AnalysisSnapshot,
+    val recommendation: RecommendationResult,
+    /** Inputs of this completed calculation, not the user's newer, unapplied selection. */
+    val recommendationPreferences: UserPreferences? = null,
+)
 
 /** One explicit request. No background refresh or subscription after completion. */
 class OneShotAnalysisRunner(

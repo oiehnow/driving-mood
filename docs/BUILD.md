@@ -22,7 +22,7 @@ python scripts/audit-apk-text.py app/build/outputs/apk/release/app-release.apk
 
 결과 APK는 `app/build/outputs/apk/release/app-release.apk`입니다. 앱 ID는 `kr.urbanmood`, 최소 API는 26, target/compile API는 36입니다. 빌드·라이브러리 버전은 Gradle 설정과 [런타임 의존성 목록](runtime-dependencies.txt)에서 확인할 수 있습니다.
 
-표시 이름은 Driving Mood입니다. 기존 설치의 업데이트를 위해 앱 ID·패키지·서명키를 유지합니다. 현재 소스 버전은 0.3.5 / versionCode 13이며 배포 APK의 검증 버전은 [검증 기록](VALIDATION.md)을 확인합니다.
+표시 이름은 Driving Mood입니다. 기존 설치의 업데이트를 위해 앱 ID·패키지·서명키를 유지합니다. 현재 소스 버전은 0.3.7 / versionCode 15이며 배포 APK의 검증 버전은 [검증 기록](VALIDATION.md)을 확인합니다.
 
 APK 문구 검사는 Python 3.11 이상에서 실행합니다. DEX 문자열·자산·리소스와 네이티브 바이너리의 인쇄 가능한 문자열을 검사하며, 글꼴은 fontTools로 이름·저작권 문자열을 정식 인코딩으로 읽습니다. 글자 윤곽 좌표는 UI 문장으로 취급하지 않습니다. 일치한 인증정보나 개인 경로 자체는 출력하지 않습니다. 제작사 원본과 동일한 네이티브 파일의 빌드 경로는 [원본 대조 기록](upstream-native-metadata.json)에 따라 별도 표시합니다. 현재 사용자의 홈/작업 경로와 토큰 패턴은 여전히 오류로 처리합니다.
 
@@ -55,7 +55,7 @@ $adbPath = Join-Path $env:ANDROID_HOME 'platform-tools/adb.exe'
 
 결과 아래의 **재분석**으로 새로 촬영합니다. **점수와 관측 근거**에서 누적 관측, 반영 여부, 규칙 버전을 확인합니다. 빛의 색별 채도·면적에서 계산한 관측 강도와 측정 품질을 따로 보여 줍니다. 조명 프리셋과 밝기는 **조명 미리보기**에서 선택할 수 있습니다.
 
-Android 관측은 `accepted-light-rgb-v1`의 채택 픽셀을 사용합니다. 작은 간판·넓은 건물 조명 누락은 남아 있으며 데스크톱 의미 분할 실험은 앱에 탑재되지 않았습니다.
+Android 관측은 공식 YOLO26n-sem-ADE20K 의미분할과 EfficientDet Lite0 검출을 결합하고 채택한 RGB 픽셀의 빛·색을 계산합니다. 작은 간판·차량광·반사광의 오인과 누락은 개선 과제이며, 추가 학습 후보는 회귀 평가에 따라 배포 모델로 채택하지 않았습니다.
 
 날씨는 같은 격자·발표 시각·10분 갱신 구간의 유효 캐시를 재사용합니다. 명시 분석 한 번당 날씨 통신은 최대 한 번이며 실패 시 자동 재시도하지 않습니다. 캐시·재요청 제한은 환경 제공자 인스턴스 메모리 기준이므로 앱 재생성까지 유지되는 영구 쿼터 관리 기능은 아닙니다.
 

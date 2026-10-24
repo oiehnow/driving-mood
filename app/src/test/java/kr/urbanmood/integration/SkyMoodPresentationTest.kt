@@ -33,7 +33,7 @@ class SkyMoodPresentationTest {
     @Test fun personalMusicChoiceCannotRewriteCommonMoodOrLighting() {
         val result = RecommendationResult(Availability.AVAILABLE, moodKeywords=listOf("차가운"), commonMoodKeywords=listOf("따뜻한"))
         val text = recommendationText(result)
-        assertTrue(text.contains("주변 무드: 따뜻한\n음악 활용: 차가운"))
+        assertTrue(text.contains("주변 무드: 따뜻한\n추천 분위기: 차가운"))
         val light = LightingPreview.suggestion(completed(result))!!
         assertEquals("warm", light.presetId)
         assertEquals(result.commonMoodKeywords, light.moodKeywords)
@@ -52,7 +52,7 @@ class SkyMoodPresentationTest {
     @Test fun missingCommonEvidenceDoesNotBecomeAQuietMoodOrMusicDerivedLight() {
         val result = RecommendationResult(Availability.AVAILABLE, moodKeywords=listOf("따뜻한"))
         assertNull(LightingPreview.suggestion(completed(result)))
-        assertTrue(recommendationText(result).startsWith("주변 무드: 근거 부족"))
+        assertTrue(recommendationText(result).startsWith("주변 무드: 판단 어려움"))
         assertFalse(recommendationText(result).contains("몽환"))
         assertFalse(recommendationText(result).contains("잔잔"))
     }

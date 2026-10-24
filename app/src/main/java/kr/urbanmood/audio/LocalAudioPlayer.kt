@@ -43,10 +43,10 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
                 val p = player ?: return
                 mutableState.value = state.value.copy(positionMs = p.currentPosition.toLong())
                 if (state.value.status == PlaybackStatus.PLAYING) handler.postDelayed(this, 1000)
-            } catch (_: RuntimeException) { fail("재생 위치 확인 실패") }
+            } catch (_: RuntimeException) { fail("재생 위치를 확인하지 못했습니다. 다시 재생해 주세요.") }
         }
     }
-    private val prepareTimeout = Runnable { if (!prepared && player != null) fail("음원 준비 시간 초과") }
+    private val prepareTimeout = Runnable { if (!prepared && player != null) fail("음악을 불러오는 데 시간이 오래 걸립니다. 음악 파일을 다시 선택해 주세요.") }
 
     private fun dispatch(action: () -> Unit) {
         if (!closed) handler.post { if (!closed) action() }
@@ -58,7 +58,7 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
             queue = snapshot.filter { it.uri.scheme in setOf("content", "file", "android.resource") }.distinctBy { it.id }
             if (player == null && state.value.currentTrack == null) mutableState.value = PlaybackState(
                 if (queue.isEmpty()) PlaybackStatus.UNAVAILABLE else PlaybackStatus.IDLE,
-                error = if (queue.isEmpty()) "선택한 음악이 없습니다. 음악 파일을 선택하세요." else null)
+                error = if (queue.isEmpty()) "재생할 음악이 없습니다. 음악 파일을 선택해 주세요." else null)
         }
     }
 
@@ -107,11 +107,11 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
                     if (next != null) load(next) else { releasePlayer(); intent.pause(); abandonFocus() }
                 }
             }
-            p.setOnErrorListener { _, _, _ -> if (player === p) fail("음원을 읽거나 재생할 수 없습니다. 파일 접근 권한·형식을 확인하세요."); true }
+            p.setOnErrorListener { _, _, _ -> if (player === p) fail("음악을 재생할 수 없습니다. 음악 파일을 다시 선택하거나 다른 파일을 선택해 주세요."); true }
             p.setDataSource(app, track.uri)
             p.prepareAsync()
             handler.postDelayed(prepareTimeout, 15_000)
-        } catch (_: Exception) { fail("음악 파일을 열 수 없습니다. 파일과 접근 권한, 지원되는 형식인지 확인하세요.") }
+        } catch (_: Exception) { fail("음악 파일을 열 수 없습니다. 파일이 있는지 확인한 뒤 다시 선택해 주세요.") }
     }
 
     private fun beginPlayback() {
@@ -121,7 +121,7 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
             if (!hasFocus) hasFocus = audioManager?.requestAudioFocus(focusRequest) == AudioManager.AUDIOFOCUS_REQUEST_GRANTED
             if (!hasFocus) {
                 intent.pause()
-                mutableState.value = state.value.copy(status = PlaybackStatus.PAUSED, error = "지금은 소리를 재생할 수 없습니다. 이 앱을 화면에 열고 다시 재생하세요.")
+                mutableState.value = state.value.copy(status = PlaybackStatus.PAUSED, error = "지금은 음악을 재생할 수 없습니다. 이 앱을 화면에 열고 다시 재생해 주세요.")
                 return
             }
             if (!receiverRegistered) {
@@ -132,7 +132,7 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
             policy.played(state.value.currentTrack!!.id)
             mutableState.value = state.value.copy(status = PlaybackStatus.PLAYING, error = null)
             handler.removeCallbacks(positionTick); handler.post(positionTick)
-        } catch (_: Exception) { fail("재생 시작 실패") }
+        } catch (_: Exception) { fail("음악 재생을 시작하지 못했습니다. 다시 재생해 주세요.") }
     }
 
     private fun pauseActual() {
@@ -141,7 +141,7 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
             try {
                 if (player!!.isPlaying) player!!.pause()
                 mutableState.value = state.value.copy(status = PlaybackStatus.PAUSED, positionMs = player!!.currentPosition.toLong())
-            } catch (_: RuntimeException) { fail("재생 일시정지 실패") }
+            } catch (_: RuntimeException) { fail("음악을 일시정지하지 못했습니다. 다시 재생해 주세요.") }
         }
     }
 
@@ -164,7 +164,7 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
         val old = player; player = null; prepared = false
         runCatching { old?.release() }
     }
-    private fun empty() { intent.pause(); abandonFocus(); mutableState.value = PlaybackState(error = "선택한 음악이 없습니다. 음악 파일을 선택하세요.") }
+    private fun empty() { intent.pause(); abandonFocus(); mutableState.value = PlaybackState(error = "재생할 음악이 없습니다. 음악 파일을 선택해 주세요.") }
     private fun fail(message: String) {
         releasePlayer(); intent.pause(); abandonFocus()
         mutableState.value = state.value.copy(status = PlaybackStatus.ERROR, error = message)
@@ -176,7 +176,7 @@ class LocalAudioPlayer(context: Context) : AudioPlayer {
             releasePlayer(); intent.pause(); abandonFocus()
             if (receiverRegistered) runCatching { app.unregisterReceiver(noisyReceiver) }
             receiverRegistered = false
-            mutableState.value = PlaybackState(error = "플레이어 종료")
+            mutableState.value = PlaybackState(error = "음악 재생을 종료했습니다.")
             thread.quitSafely()
         }
     }

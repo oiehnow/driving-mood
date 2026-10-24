@@ -36,8 +36,8 @@ class ProductTextTest {
             reasons = listOf("HSV fixture", "모델 ABI fixture"))
         val text = recommendationText(result)
         assertTrue(text.contains("야간 · 따뜻한"))
-        assertTrue(text.contains("수동 입력한 환경"))
-        assertTrue(text.contains("음원을 선택"))
+        assertTrue(text.contains("직접 입력한 환경"))
+        assertTrue(text.contains("추천할 곡이 없어요."))
         assertFalse(text.contains("시연"))
         assertFalse(text.contains("HSV"))
         assertFalse(text.contains("ABI"))
@@ -45,7 +45,7 @@ class ProductTextTest {
 
     @Test fun recommendationFailureIsShownAsFailure() {
         val text = recommendationText(RecommendationResult(Availability.ERROR))
-        assertTrue(text.contains("준비하지 못했습니다"))
+        assertTrue(text.contains("음악을 추천하지 못했어요."))
         assertFalse(text.contains("추천할 분위기"))
     }
 

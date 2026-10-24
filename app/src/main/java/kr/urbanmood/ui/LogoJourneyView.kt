@@ -7,8 +7,17 @@ import android.animation.StateListAnimator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Bitmap
+import android.graphics.BitmapShader
+import android.graphics.ColorFilter
+import android.graphics.Matrix
 import android.graphics.Paint
+import android.graphics.PixelFormat
+import android.graphics.Rect
 import android.graphics.RectF
+import android.graphics.Shader
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.RippleDrawable
 import android.content.res.ColorStateList
@@ -30,19 +39,28 @@ import kotlin.math.sin
  * Header rectangles use this overlay's coordinate system. No capture or inference is simulated here.
  */
 class LogoJourneyView(context: Context) : FrameLayout(context) {
+    companion object {
+        /** In-app artwork has one circular mask; launcher masks are device-dependent. */
+        fun createLogoDrawable(context: Context): Drawable {
+            val artwork = requireNotNull(context.getDrawable(R.drawable.driving_mood_icon_art)) as BitmapDrawable
+            return InAppLogoDrawable(artwork.bitmap)
+        }
+    }
     var onStart: (() -> Unit)? = null
     private enum class Stage { INTRO, READY, STARTING, RECORDING, ANALYZING, FINISHING, HIDDEN }
     private var stage = Stage.HIDDEN
     private val backdrop = View(context).apply { setBackgroundColor(0xfff7f8fa.toInt()) }
     private val ring = JourneyRing(context)
     private val logo = ImageView(context).apply {
-        setImageResource(R.mipmap.ic_launcher)
+        setImageDrawable(createLogoDrawable(context))
         scaleType = ImageView.ScaleType.FIT_CENTER
         background = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
             setColor(0xfff7f8fa.toInt())
         }
-        clipToOutline = true
+        // The drawable supplies its own antialiased circle. Do not intersect it with a
+        // launcher/squircle mask or another clipping outline; the oval is for the shadow.
+        clipToOutline = false
         elevation = dp(7).toFloat()
         foreground = RippleDrawable(ColorStateList.valueOf(0x38ffffff), null,
             GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(-1) })
@@ -90,6 +108,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
 
     init {
         clipChildren = false
+        clipToPadding = false
         importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
         isClickable = true // While present, the overlay owns the underlying screen's touch area.
         addView(backdrop, LayoutParams(-1, -1))
@@ -142,7 +161,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
         status.visibility = VISIBLE
         status.alpha = 0f
         percentage.alpha = 0f; percentage.visibility = GONE
-        setStatus("카메라 연결 중")
+        setStatus("카메라를 준비하고 있어요")
         val header = fromHeader?.let(::RectF)
         sized {
             if (header != null && !header.isEmpty) {
@@ -372,6 +391,38 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
     }
 
     private fun dp(value: Int) = (value * resources.displayMetrics.density).toInt()
+}
+
+/** Preserve the original adaptive background's 1.5× center framing, but not its OS mask.
+ * A one-pixel transparent gutter keeps the antialiased edge inside drawable bounds at
+ * every button/header size. Shader sampling never edits the original artwork bitmap.
+ */
+private class InAppLogoDrawable(private val artwork: Bitmap) : Drawable() {
+    private val shader = BitmapShader(artwork, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG).apply { this.shader = this@InAppLogoDrawable.shader }
+    private val matrix = Matrix()
+    private var radius = 0f
+
+    override fun onBoundsChange(bounds: Rect) {
+        super.onBoundsChange(bounds)
+        val diameter = min(bounds.width(), bounds.height()).toFloat()
+        radius = (diameter / 2f - 1f).coerceAtLeast(0f)
+        val scale = diameter / min(artwork.width, artwork.height) * 1.5f
+        matrix.setScale(scale, scale)
+        matrix.postTranslate(bounds.exactCenterX() - artwork.width * scale / 2f,
+            bounds.exactCenterY() - artwork.height * scale / 2f)
+        shader.setLocalMatrix(matrix)
+    }
+
+    override fun draw(canvas: Canvas) {
+        canvas.drawCircle(bounds.exactCenterX(), bounds.exactCenterY(), radius, paint)
+    }
+    override fun setAlpha(alpha: Int) { paint.alpha = alpha; invalidateSelf() }
+    override fun setColorFilter(colorFilter: ColorFilter?) { paint.colorFilter = colorFilter; invalidateSelf() }
+    @Suppress("DEPRECATION")
+    override fun getOpacity() = PixelFormat.TRANSLUCENT
+    override fun getIntrinsicWidth() = min(artwork.width, artwork.height)
+    override fun getIntrinsicHeight() = min(artwork.width, artwork.height)
 }
 
 /** Border motion is decorative; the determinate sweep comes only from camera elapsed time. */

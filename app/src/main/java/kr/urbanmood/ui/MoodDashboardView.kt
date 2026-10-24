@@ -19,7 +19,7 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
     private val eyebrow = label("지금, 이 길의 분위기", 12)
     private val caption = label("로고를 눌러 지금 이 길의 분위기를 알아보세요", 12)
     private val logo = ImageView(context).apply {
-        setImageResource(kr.urbanmood.R.mipmap.ic_launcher)
+        setImageDrawable(LogoJourneyView.createLogoDrawable(context))
         importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
     }
     val actionView: View get() = hero
@@ -102,7 +102,7 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
             logo.visibility = View.GONE
             compact(true)
         }
-        eyebrow.text = "주변을 알아가는 중"; heading.text = title; caption.text = detail
+        eyebrow.text = "주변 분위기 분석"; heading.text = title; caption.text = detail
         spinner.visibility = View.GONE
         if (recordingFraction == null) motion.show(AnalysisMotionView.Stage.ANALYZING)
         else motion.show(AnalysisMotionView.Stage.RECORDING, recordingFraction)
@@ -110,12 +110,12 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
     }
 
     fun recording(elapsedMs: Long, durationMs: Long) {
-        working("주변을 담고 있어요", "${((durationMs - elapsedMs).coerceAtLeast(0) + 999) / 1000}초 남았어요",
+        working("주변을 담고 있어요", "${(elapsedMs.coerceIn(0, durationMs.coerceAtLeast(1)) * 100 / durationMs.coerceAtLeast(1))}%",
             elapsedMs.toFloat() / durationMs.coerceAtLeast(1))
     }
 
     fun analyzing(processed: Long, total: Long) {
-        working("무드를 찾고 있어요", "장면 ${processed.coerceAtMost(total)} / $total · 빛과 색을 살펴보는 중")
+        working("무드를 분석하고 있어요", "${(processed.coerceAtMost(total) * 100 / total.coerceAtLeast(1))}%")
     }
 
     fun complete(result: RecommendationResult, animate: Boolean = true) {
@@ -127,8 +127,8 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
         spinner.visibility = View.GONE
         val words = result.commonMoodKeywords.filter { it != "수동 입력" }
         eyebrow.text = "지금 주변의 무드"
-        heading.text = words.take(2).joinToString("\n").ifEmpty { "조금 더 살펴볼까요?" }
-        caption.text = if (result.availability == kr.urbanmood.contracts.Availability.MANUAL) "직접 설정한 환경 반영" else if (words.isEmpty()) "분위기를 정할 단서가 부족해요" else ""
+        heading.text = words.take(2).joinToString("\n").ifEmpty { "분석 정보가 부족해요" }
+        caption.text = if (result.availability == kr.urbanmood.contracts.Availability.MANUAL) "직접 설정한 환경을 반영했어요" else if (words.isEmpty()) "다시 촬영해 주세요" else ""
         caption.visibility = if (caption.text.isEmpty()) View.GONE else View.VISIBLE
         hero.contentDescription = heading.text
         showMetrics(result)
@@ -158,7 +158,7 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
         if (welcome) { showWelcome(); return }
         compact(false)
         spinner.visibility = View.GONE
-        eyebrow.text = "다시 시작할 수 있어요"; heading.text = "잠시 멈췄어요"; caption.text = "로고를 눌러 다시 담아보세요"
+        eyebrow.text = "분석 중단"; heading.text = "분석이 중단됐어요"; caption.text = "로고를 눌러 다시 시작하세요"
         heading.textSize = 20f
         showMetrics(null)
     }

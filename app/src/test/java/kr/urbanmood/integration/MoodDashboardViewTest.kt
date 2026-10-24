@@ -37,7 +37,7 @@ class MoodDashboardViewTest {
         view.working("촬영 중", "1 / 30초")
         view.interrupted()
         assertEquals(View.GONE, progress.visibility)
-        assertTrue(views(view).filterIsInstance<TextView>().any { it.text == "잠시 멈췄어요" })
+        assertTrue(views(view).filterIsInstance<TextView>().any { it.text == "분석이 중단됐어요" })
     }
     private fun views(view: View): List<View> = listOf(view) + if (view is ViewGroup)
         (0 until view.childCount).flatMap { views(view.getChildAt(it)) } else emptyList()

@@ -10,6 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.launch
 import kr.urbanmood.MainActivity
 import kr.urbanmood.contracts.*
 import org.junit.Assert.*
@@ -27,6 +31,33 @@ import java.time.Duration
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [28])
 class MainActivityIntegrationTest {
+    @Test fun recreationDuringPreferenceUpdateKeepsAppliedInputsWithTheirResult() {
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
+        try {
+            val activity = controller.get()
+            val state = ViewModelProvider(activity)[SessionState::class.java]
+            val oldInputs = UserPreferences(preferredMoods = setOf("차분한"))
+            val newInputs = UserPreferences(preferredMoods = setOf("활기 넘침"))
+            val previous = completedFixture().copy(recommendationPreferences = oldInputs)
+            state.completedAnalysis = previous
+            state.preferredMoods = newInputs.preferredMoods
+            val gate = CompletableDeferred<RecommendationResult>()
+            val update = activity.lifecycleScope.launch(start = CoroutineStart.UNDISPATCHED) {
+                state.refreshRecommendation(newInputs) { _, _ -> gate.await() }
+            }
+            ReflectionHelpers.setField(activity, "recommendationJob", update)
+            controller.recreate()
+            val restored = controller.get()
+            assertTrue(update.isCancelled)
+            assertSame(previous, ViewModelProvider(restored)[SessionState::class.java].completedAnalysis)
+            assertEquals("차분한", restored.window.decorView.findViewWithTag<TextView>("evidence_applied_preferences").text.toString())
+            assertTrue(restored.window.decorView.findViewWithTag<TextView>("evidence_preference_notice").text.contains("아직 적용되지"))
+            gate.complete(previous.recommendation)
+            shadowOf(Looper.getMainLooper()).idle()
+            assertSame(previous, ViewModelProvider(restored)[SessionState::class.java].completedAnalysis)
+        } finally { controller.pause().stop().destroy() }
+    }
+
     @Test fun navigationRetainsSelectedPageAndDoesNotStartSensors() {
         val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
@@ -37,13 +68,13 @@ class MainActivityIntegrationTest {
             controller.recreate()
             val activity = controller.get()
             assertTrue(button(activity, "음악·조명").isSelected)
-            assertTrue(button(activity, "로컬 음원 선택").isShown)
+            assertTrue(button(activity, "기기에서 음악 추가").isShown)
             assertFalse(button(activity, "무드 분석").isShown)
             button(activity, "분석").performClick()
             assertTrue(button(activity, "무드 분석").isShown)
-            assertFalse(button(activity, "점수와 관측 근거").isShown)
+            assertFalse(button(activity, "기술 정보 펼치기  ↓").isShown)
             button(activity, "상세 보기  ↓").performClick()
-            assertTrue(button(activity, "점수와 관측 근거").isShown)
+            assertTrue(button(activity, "기술 정보 펼치기  ↓").isShown)
             assertNull(shadowOf(activity).lastRequestedPermission)
             assertNull(ViewModelProvider(activity)[SessionState::class.java].activeRequestId)
         } finally { controller.pause().stop().destroy() }
@@ -71,7 +102,7 @@ class MainActivityIntegrationTest {
                 assertSame(light, restored.lightingPreview)
                 assertEquals(length, restored.recordingDurationMs)
                 assertTrue(screen(activity).contains("주변 무드: 따뜻한 · 다채로운"))
-                assertTrue(screen(activity).contains("음악 활용: 차가운"))
+            assertTrue(screen(activity).contains("추천 분위기: 차가운"))
                 assertTrue(screen(activity).contains("공통 무드: 따뜻한 · 다채로운"))
                 assertFalse(restored.claimCompletionSound(completed.snapshot.requestId))
                 assertNull(shadowOf(activity).lastRequestedPermission)
@@ -145,7 +176,7 @@ class MainActivityIntegrationTest {
         val action = shortcut ?: button(activity, "설정")
         assertTrue(action.isShown)
         action.performClick()
-        assertTrue(button(activity, "기상청 키 설정").isShown)
+        assertTrue(button(activity, "기상청 인증키").isShown)
     }
     private fun screen(activity: MainActivity) = views(activity.window.decorView)
         .filterIsInstance<TextView>().joinToString("\n") { it.text.toString() }
@@ -162,7 +193,7 @@ class MainActivityIntegrationTest {
         val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
-            assertTrue(button(activity, "로컬 음원 선택").isEnabled)
+            assertTrue(button(activity, "기기에서 음악 추가").isEnabled)
             assertTrue(button(activity, "무드 분석").isEnabled)
             assertTrue(views(activity.window.decorView).any { it.contentDescription == "설정" && it.isShown })
             assertFalse(button(activity, "취소").isEnabled)
@@ -209,7 +240,7 @@ class MainActivityIntegrationTest {
         try {
             val activity = controller.get()
             openSettings(activity)
-            button(activity, "기상청 키 설정").performClick()
+            button(activity, "기상청 인증키").performClick()
             val dialog = ShadowAlertDialog.getLatestAlertDialog()
             val input = views(dialog.window!!.decorView).filterIsInstance<EditText>().single()
             assertFalse(input.isSaveEnabled)
@@ -219,7 +250,7 @@ class MainActivityIntegrationTest {
             awaitUi { session.kmaKey.isNotEmpty() }
             assertEquals("test-placeholder-not-a-real-key", session.kmaKey)
             assertFalse(screen(activity).contains("test-placeholder-not-a-real-key"))
-            button(activity, "기상청 키 설정").performClick()
+            button(activity, "기상청 인증키").performClick()
             ShadowAlertDialog.getLatestAlertDialog().getButton(AlertDialog.BUTTON_NEUTRAL).performClick()
             awaitUi { session.kmaKey.isEmpty() }
             assertEquals("", session.kmaKey)
@@ -375,12 +406,13 @@ class MainActivityIntegrationTest {
             assertSame(window, session.completedAnalysis!!.snapshot.sceneWindow)
             assertTrue(screen(activity).contains("2개 장면"))
             button(activity, "상세 보기  ↓").performClick()
-            button(activity, "점수와 관측 근거").performClick()
-            val dialog = ShadowAlertDialog.getLatestAlertDialog()
-            val details = views(dialog.window!!.decorView).filterIsInstance<TextView>().joinToString(" ") { it.text }
+            val technical = activity.findViewById<ViewGroup>(android.R.id.content).findViewWithTag<View>("evidence_technical_body")
+            assertFalse(technical.isShown)
+            button(activity, "기술 정보 펼치기  ↓").performClick()
+            assertTrue(technical.isShown)
+            val details = views(technical).filterIsInstance<TextView>().joinToString(" ") { it.text }
             assertTrue(details.contains("사람 검출: +10.0점"))
             assertTrue(details.contains("대표 구간 평균"))
-            dialog.dismiss()
             button(activity, "무드 분석").performClick()
             activity.onBackPressedDispatcher.onBackPressed()
             shadowOf(Looper.getMainLooper()).idle()
@@ -406,7 +438,7 @@ class MainActivityIntegrationTest {
             }
             shadowOf(Looper.getMainLooper()).idle()
             assertFont(activity.findViewById(android.R.id.content))
-            button(activity, "기상청 키 설정").performClick()
+            button(activity, "기상청 인증키").performClick()
             shadowOf(Looper.getMainLooper()).idle()
             var dialog = ShadowAlertDialog.getLatestAlertDialog()
             assertFont(dialog.window!!.decorView)

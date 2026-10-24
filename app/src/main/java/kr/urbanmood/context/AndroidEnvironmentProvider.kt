@@ -78,7 +78,7 @@ class AndroidEnvironmentProvider internal constructor(
                         location = LocationSnapshot(Availability.ERROR, source = SourceInfo("위치 확인 실패")),
                         weather = configuredWeather ?: WeatherSnapshot(), notices = listOf(PRIVACY))
                     mutableState.value = snapshot
-                    mutableRequest.value = EnvironmentRequestState(requestId, EnvironmentRequestPhase.FAILED, snapshot, started, clock.wallTime(), "환경을 확인하지 못했습니다. 다시 분석해 주세요.")
+                    mutableRequest.value = EnvironmentRequestState(requestId, EnvironmentRequestPhase.FAILED, snapshot, started, clock.wallTime(), "위치와 날씨를 확인하지 못했습니다. 휴대폰의 위치 설정과 인터넷 연결을 확인한 뒤 다시 분석해 주세요.")
                 }
             } finally {
                 if (session == generation) running = false
@@ -93,7 +93,7 @@ class AndroidEnvironmentProvider internal constructor(
         weatherRequests.cancel()
         job?.cancel(); job = null
         mutableRequest.value = mutableRequest.value.copy(phase = EnvironmentRequestPhase.CANCELLED,
-            completedAtEpochMs = clock.wallTime(), message = "환경 분석을 취소했습니다.")
+            completedAtEpochMs = clock.wallTime(), message = "위치·날씨 확인을 취소했습니다.")
     }
     override fun stop() { if (running) cancelRequest(mutableRequest.value.requestId) }
     override fun close() { if (!closed) { stop(); closed = true; scope.cancel() } }

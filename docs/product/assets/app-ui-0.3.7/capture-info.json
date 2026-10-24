@@ -1,0 +1,104 @@
+{
+  "appVersion": "0.3.7",
+  "versionCode": 15,
+  "apkSha256": "9392d119b5d6289e471d1d9552765512d72fda8e776e81921757ccc9c3db3e59",
+  "scope": "Native UI capture with saved actual-video score replay; no new camera or model inference. Saved ledger window: 60 seconds. App capture flow: 30 seconds.",
+  "captures": [
+    {
+      "file": "01-start.png",
+      "sha256": "6c2ca4fa1a1fb3078e17a92409855439b332d44fecc0001dfb80df193e9db22c",
+      "sourceVideoId": null,
+      "sourceLedgerSha256": null
+    },
+    {
+      "file": "06-music-page.png",
+      "sha256": "045a5b4d0ad5b2ec46dfac391a0728c8101645936aed1d569f53dd51801a1d0c",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "07-recommendation-connection.png",
+      "sha256": "26052b7992daff845f13baed6981c7701813ca5da080317b5f048a948cfb5697",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "08-settings-page.png",
+      "sha256": "ea0cbab6b7bc78c510eb4deffcffe36e94bc946deb59ed0aa28fce3d9dcab943",
+      "sourceVideoId": null,
+      "sourceLedgerSha256": null
+    },
+    {
+      "file": "full-01-evidence-context.png",
+      "sha256": "6c71eca862484f68fd7327fe11da3ac49c335bdcd6dcf0a9d61dcd3573f85f17",
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-evidence-mood-connection.png",
+      "sha256": "6c71eca862484f68fd7327fe11da3ac49c335bdcd6dcf0a9d61dcd3573f85f17",
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-evidence-scene.png",
+      "sha256": "47539a0b8448b76e966932fd609037a72268a5d48e043baebd74b8c54786579a",
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-evidence-top.png",
+      "sha256": "ebc5f3f52f1ba7e0e8e66fdc8c0abc07f04d3c56b0cf2ace6997bb9431c64438",
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-result.png",
+      "sha256": "6e9b9f1b55d0cd7f2e8dbd5447900d4f06406956c7d28232ad594c317002e05c",
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-technical-expanded.png",
+      "sha256": "4f9e9f1a37e51c8f145fb9531081a79acf324c03e5b6431ec731e961dd37ffb8",
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-02-evidence-context.png",
+      "sha256": "b7372fcff579795cd1df901307f1edee782a35153342e5516bd7b56faa3aeef9",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-evidence-mood-connection.png",
+      "sha256": "b7372fcff579795cd1df901307f1edee782a35153342e5516bd7b56faa3aeef9",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-evidence-scene.png",
+      "sha256": "b950cb5044da49c73a0c13b484bc91df1742e8ef652c9875dd265d51c2952e19",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-evidence-top.png",
+      "sha256": "5e8f257aff0dc7048b00710a66344d3b1f0ceaa70e56b4b54eccaa15ba009ac0",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-result.png",
+      "sha256": "fe6086d91d43bfdf0355c284f17307635e9c54bf88a3b26458b2ec8374fc428d",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-technical-expanded.png",
+      "sha256": "e3244bf6c8f6beefb254d2ab3c96cd0061ffd6a876deace9c64bef03acd5d34e",
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    }
+  ]
+}

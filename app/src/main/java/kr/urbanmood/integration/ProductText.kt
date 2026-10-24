@@ -62,13 +62,13 @@ internal fun scoreDetailsText(value: MoodScoreSummary?): String {
 }
 
 internal fun recommendationText(value: RecommendationResult): String {
-    if (value.availability == Availability.ERROR) return "추천을 준비하지 못했습니다. 잠시 후 다시 시도하세요."
+    if (value.availability == Availability.ERROR) return "음악을 추천하지 못했어요. 다시 시도해 주세요."
     val words = value.moodKeywords.filterNot { it == "수동 입력" }
     val common = value.commonMoodKeywords.filterNot { it == "수동 입력" }
-    return "주변 무드: ${common.joinToString(" · ").ifEmpty { "근거 부족" }}\n" +
-        "음악 활용: ${words.joinToString(" · ").ifEmpty { "추천할 분위기를 기다리고 있습니다." }}" +
-        (if (value.availability == Availability.MANUAL) "\n수동 입력한 환경을 반영했습니다." else "") +
-        (if (value.candidates.isEmpty()) "\n음원을 선택하면 어울리는 곡을 추천합니다." else "")
+    return "주변 무드: ${common.joinToString(" · ").ifEmpty { "판단 어려움" }}\n" +
+        "추천 분위기: ${words.joinToString(" · ").ifEmpty { "추천 정보 없음" }}" +
+        (if (value.availability == Availability.MANUAL) "\n직접 입력한 환경을 반영했어요." else "") +
+        (if (value.candidates.isEmpty()) "\n추천할 곡이 없어요." else "")
 }
 
 internal fun roadLabel(value: RoadType): String = when (value) {
