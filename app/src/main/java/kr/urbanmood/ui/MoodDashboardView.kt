@@ -133,14 +133,15 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
         hero.contentDescription = heading.text
         showMetrics(result)
         val colors = when {
-            "다채로운" in words -> intArrayOf(0xffddd8ef.toInt(), 0xfff2d8d6.toInt(), 0xffd5e6f0.toInt())
-            "따뜻한" in words -> intArrayOf(0xfff2c9b5.toInt(), 0xfff4dbbf.toInt(), 0xfff0d1c8.toInt())
-            "활기 넘침" in words -> intArrayOf(0xfff0c6bd.toInt(), 0xfff4d9bf.toInt(), 0xffecd5e1.toInt())
-            "차가운" in words || "청량한" in words -> intArrayOf(0xffc6dfed.toInt(), 0xffd2eae4.toInt(), 0xffd9e0f0.toInt())
-            "차분한" in words -> intArrayOf(0xffd2e4d8.toInt(), 0xffe1eadb.toInt(), 0xffd5e4e9.toInt())
-            else -> intArrayOf(0xffd7e8f2.toInt(), 0xffe2eee8.toInt(), 0xfff4e4dc.toInt())
+            "다채로운" in words -> intArrayOf(0xffb7a7e1.toInt(), 0xffefa9b4.toInt(), 0xff8dcce4.toInt())
+            "따뜻한" in words -> intArrayOf(0xffefa783.toInt(), 0xfff2cf89.toInt(), 0xffe7a8b2.toInt())
+            "활기 넘침" in words -> intArrayOf(0xffee9e99.toInt(), 0xfff0c187.toInt(), 0xffc4abe4.toInt())
+            "차가운" in words || "청량한" in words -> intArrayOf(0xff74cbea.toInt(), 0xff91dfcc.toInt(), 0xffa9b9f2.toInt())
+            "차분한" in words -> intArrayOf(0xff9cccb5.toInt(), 0xffd0dba6.toInt(), 0xffa5c8df.toInt())
+            else -> intArrayOf(0xffa7cfe9.toInt(), 0xffb9ddcf.toInt(), 0xffedc4ab.toInt())
         }
         moodBackground.setPalette(colors, animate)
+        updateMotion()
         if (animate && isShown && android.animation.ValueAnimator.areAnimatorsEnabled()) {
             heading.alpha = 0f; heading.translationY = dp(8).toFloat()
             heading.animate().alpha(1f).translationY(0f).setDuration(650).start()
@@ -185,6 +186,7 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
     override fun onAttachedToWindow() { super.onAttachedToWindow(); updateMotion() }
     override fun onDetachedFromWindow() { moodBackground.stop(); super.onDetachedFromWindow() }
     override fun onVisibilityAggregated(isVisible: Boolean) { super.onVisibilityAggregated(isVisible); updateMotion() }
+    override fun onWindowVisibilityChanged(visibility: Int) { super.onWindowVisibilityChanged(visibility); updateMotion() }
     private fun updateMotion() {
         if (isAttachedToWindow && isShown && windowVisibility == View.VISIBLE) moodBackground.start() else moodBackground.stop()
     }

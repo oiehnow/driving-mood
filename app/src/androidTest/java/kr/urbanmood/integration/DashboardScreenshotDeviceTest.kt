@@ -21,6 +21,155 @@ import java.io.File
 @RunWith(AndroidJUnit4::class)
 class DashboardScreenshotDeviceTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
+    @Test fun captureMusicIconControls() {
+        // Do not wait for a globally idle queue while the app deliberately animates continuously.
+        instrumentation.targetContext.startActivity(android.content.Intent(instrumentation.targetContext, MainActivity::class.java)
+            .addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK))
+        SystemClock.sleep(3_500)
+        lateinit var activity: MainActivity
+        instrumentation.runOnMainSync {
+            activity = androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry.getInstance()
+                .getActivitiesInStage(androidx.test.runner.lifecycle.Stage.RESUMED).filterIsInstance<MainActivity>().single()
+        }
+        try {
+            instrumentation.runOnMainSync {
+                MainActivity::class.java.getDeclaredMethod("renderRecommendation", RecommendationResult::class.java)
+                    .apply { isAccessible = true }.invoke(activity,
+                        RecommendationResult(Availability.AVAILABLE, commonMoodKeywords = listOf("따뜻한")))
+            }
+            SystemClock.sleep(2_100)
+            instrumentation.runOnMainSync {
+                click(activity, "음악·조명")
+                val controls = views(activity.window.decorView).filterIsInstance<android.widget.ImageButton>()
+                    .filter { it.contentDescription?.toString() in setOf("재생", "일시정지", "다음") }
+                assertEquals(3, controls.size)
+                controls.forEach {
+                    assertNotNull(it.drawable)
+                    assertTrue(it.minimumHeight >= 48 * activity.resources.displayMetrics.density)
+                }
+                assertFalse(views(activity.window.decorView).filterIsInstance<TextView>()
+                    .any { it.isShown && it.text.toString() in setOf("재생", "일시정지", "다음") })
+            }
+            SystemClock.sleep(800)
+            instrumentation.runOnMainSync {
+                val scroll = views(activity.window.decorView).filterIsInstance<android.widget.ScrollView>().first { it.isShown }
+                val play = views(activity.window.decorView).filterIsInstance<android.widget.ImageButton>()
+                    .single { it.contentDescription == "재생" }
+                val buttonPosition = IntArray(2); val scrollPosition = IntArray(2)
+                play.getLocationOnScreen(buttonPosition); scroll.getLocationOnScreen(scrollPosition)
+                scroll.scrollBy(0, buttonPosition[1] - scrollPosition[1] - (180 * activity.resources.displayMetrics.density).toInt())
+            }
+            SystemClock.sleep(400)
+            val image = requireNotNull(instrumentation.uiAutomation.takeScreenshot())
+            val output = File(instrumentation.targetContext.getExternalFilesDir(null), "music-icon-review").apply { mkdirs() }
+            try { File(output, "music.png").outputStream().use { assertTrue(image.compress(Bitmap.CompressFormat.PNG, 100, it)) } }
+            finally { image.recycle() }
+        } finally { instrumentation.runOnMainSync { activity.finish() } }
+    }
+    /** Fixed UI palette fixture; captures native animation, not a new camera/model analysis. */
+    @Test fun captureCoolGradientMotionPreview() {
+        val output = File(instrumentation.targetContext.getExternalFilesDir(null), "cool-gradient-review").apply { mkdirs() }
+        val result = RecommendationResult(Availability.AVAILABLE, moodKeywords = listOf("청량한"),
+            commonMoodKeywords = listOf("청량한"))
+        val timings = org.json.JSONArray()
+        val backgroundSamples = mutableListOf<IntArray>()
+        ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+            lateinit var activity: MainActivity
+            lateinit var dashboard: kr.urbanmood.ui.MoodDashboardView
+            lateinit var background: android.graphics.drawable.Animatable
+            var stableText = ""
+            val heroBounds = android.graphics.Rect()
+            scenario.onActivity {
+                activity = it
+                MainActivity::class.java.getDeclaredMethod("renderRecommendation", RecommendationResult::class.java)
+                    .apply { isAccessible = true }.invoke(it, result)
+                field<TextView>(it, "cameraStatus").text = "팔레트 UI 검토 · 예시"
+                field<TextView>(it, "frameStatus").visibility = View.GONE
+                dashboard = views(it.window.decorView).filterIsInstance<kr.urbanmood.ui.MoodDashboardView>().single()
+                background = dashboard.getChildAt(0).background as android.graphics.drawable.Animatable
+            }
+            // Finish the logo/result reveal and text transitions before comparing fixed content.
+            instrumentation.waitForIdleSync()
+            SystemClock.sleep(2_100)
+            fun visibleText() = views(activity.window.decorView).filterIsInstance<TextView>()
+                .filter { it.isShown }.joinToString("\n") { it.text.toString() }
+            instrumentation.runOnMainSync {
+                assertTrue("Native gradient animator did not start", background.isRunning)
+                assertEquals(View.GONE, field<View>(activity, "logoJourney").visibility)
+                assertNull(field<SessionState>(activity, "session").activeRequestId)
+                stableText = visibleText()
+                assertTrue(stableText.contains("청량한"))
+                val hero = dashboard.getChildAt(0)
+                val location = IntArray(2)
+                hero.getLocationOnScreen(location)
+                heroBounds.set(location[0], location[1], location[0] + hero.width, location[1] + hero.height)
+                assertTrue(heroBounds.width() > 0 && heroBounds.height() > 0)
+            }
+            val video = File(output, "cool-gradient-native.mp4")
+            val recordingStartedAt = System.currentTimeMillis()
+            val recording = instrumentation.uiAutomation.executeShellCommand("screenrecord --time-limit 15 ${video.absolutePath}")
+            var recordingLog = ""
+            android.os.ParcelFileDescriptor.AutoCloseInputStream(recording).use { commandOutput ->
+                try {
+                    SystemClock.sleep(500)
+                    val timelineStartedAt = SystemClock.elapsedRealtime()
+                    for (seconds in listOf(0, 3, 6)) {
+                        SystemClock.sleep((timelineStartedAt + seconds * 1000L - SystemClock.elapsedRealtime()).coerceAtLeast(0))
+                        instrumentation.runOnMainSync {
+                            assertTrue("Gradient stopped at ${seconds}s", background.isRunning)
+                            assertEquals("Fixture text changed during capture", stableText, visibleText())
+                        }
+                        val capturedAt = SystemClock.elapsedRealtime() - timelineStartedAt
+                        val image = requireNotNull(instrumentation.uiAutomation.takeScreenshot())
+                        try {
+                            File(output, "cool-%02ds.png".format(seconds)).outputStream().use {
+                                assertTrue(image.compress(Bitmap.CompressFormat.PNG, 100, it))
+                            }
+                            // Sample the clear upper area of the hero, away from text and the metric strip.
+                            backgroundSamples += IntArray(60) { index ->
+                                val x = heroBounds.left + (heroBounds.width() * (.2f + (index % 12) * .6f / 11)).toInt()
+                                val y = heroBounds.top + (heroBounds.height() * (.14f + (index / 12) * .1f / 4)).toInt()
+                                assertTrue("Hero sample outside screenshot", x in 0 until image.width && y in 0 until image.height)
+                                image.getPixel(x, y)
+                            }
+                            timings.put(JSONObject().put("requestedSeconds", seconds).put("capturedElapsedMs", capturedAt))
+                        } finally { image.recycle() }
+                    }
+                    fun changedPixels(first: IntArray, next: IntArray) = first.indices.count { index ->
+                        val a = first[index]; val b = next[index]
+                        kotlin.math.abs(android.graphics.Color.red(a) - android.graphics.Color.red(b)) +
+                            kotlin.math.abs(android.graphics.Color.green(a) - android.graphics.Color.green(b)) +
+                            kotlin.math.abs(android.graphics.Color.blue(a) - android.graphics.Color.blue(b)) > 12
+                    }
+                    assertTrue("Animator ran but rendered background stayed unchanged at 3s",
+                        changedPixels(backgroundSamples[0], backgroundSamples[1]) >= 10)
+                    assertTrue("Rendered background stayed unchanged from 3s to 6s",
+                        changedPixels(backgroundSamples[1], backgroundSamples[2]) >= 10)
+                    scenario.moveToState(androidx.lifecycle.Lifecycle.State.CREATED)
+                    instrumentation.waitForIdleSync()
+                    instrumentation.runOnMainSync { assertFalse("Gradient kept running while stopped", background.isRunning) }
+                    scenario.moveToState(androidx.lifecycle.Lifecycle.State.RESUMED)
+                    instrumentation.waitForIdleSync()
+                    SystemClock.sleep(500)
+                    instrumentation.runOnMainSync {
+                        assertTrue("Gradient did not resume with its window", background.isRunning)
+                        assertEquals(stableText, visibleText())
+                        assertNull(field<SessionState>(activity, "session").activeRequestId)
+                    }
+                } finally {
+                    // Allow the bounded recorder to finalize the MP4, including when an assertion fails.
+                    recordingLog = commandOutput.bufferedReader().readText()
+                }
+            }
+            assertTrue("Native recording missing or stale: $recordingLog",
+                video.length() > 4096 && video.lastModified() >= recordingStartedAt - 2000)
+            File(output, "capture-info.json").writeText(JSONObject()
+                .put("fixtureType", "UI palette fixture; not new analysis data")
+                .put("keyword", "청량한").put("nativeScreenrecordSeconds", 15)
+                .put("frames", timings).put("backgroundPixelsChanged", true)
+                .put("lifecycleStopResumeVerified", true).toString(2))
+        }
+    }
     /** Edited state walkthrough, not a timed camera benchmark. Uses genuine stored result scores. */
     @Test fun captureAnalysisMotionPreview() {
         val raw = JSONObject(instrumentation.context.assets.open("ui-review/full-01.json").bufferedReader().use { it.readText() })

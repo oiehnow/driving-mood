@@ -1,12 +1,14 @@
 {
   "capture": "Android 15 native screen recording",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "framesPerSecond": 15,
-  "durationSeconds": 24.74,
-  "frames": 371,
-  "apkSha256": "c3dffe2b378cc06a62395997e19f8dff2f25fa667eaf5e576a50cf2aeedd6bce",
+  "durationSeconds": 24.8,
+  "frames": 372,
+  "apkSha256": "f23bb2a9b83980df928acee30daaa676ecf28e1c5308856c59e8c660464f155c",
   "recordingTimeline": "edited state walkthrough; native animation timing",
   "resultKind": "saved real-driving calculation",
   "resultSource": "androidTest/assets/ui-review/full-01.json",
-  "gifSha256": "668150c4609b8e608c2d282575049a0016042ccf994ecf441423b6ead14a36e6"
+  "gifSha256": "7de07c7e66294e416604738d948a43dda71054bdc2cc5df06ba133ba3ce271e9",
+  "releaseApkSha256": "50f6971742105be9e2dd46e9c44dab4476dc9e16b96c69707c95b8a21ac17345",
+  "captureBuildNote": "Same dashboard and logo transition as release; music icon-only controls added after this recording."
 }

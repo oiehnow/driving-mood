@@ -583,12 +583,12 @@ class MainActivity : ComponentActivity() {
         addButton(audioCard, "로컬 음원 선택", services.audioAvailable) { musicPicker.launch(arrayOf("audio/*")) }
         addButton(audioCard, "곡별 장르·분위기 태그") { showTrackTags() }
         val audioButtons = row(audioCard)
-        addButton(audioButtons, "재생", services.audioAvailable) {
+        addAudioButton(audioButtons, "재생", R.drawable.ic_play, services.audioAvailable) {
             if (session.completedAnalysis == null) Toast.makeText(this, "무드 분석 후 음악을 재생할 수 있습니다.", Toast.LENGTH_SHORT).show()
             else services.audio.play()
         }
-        addButton(audioButtons, "일시정지", services.audioAvailable) { services.audio.pause() }
-        addButton(audioButtons, "다음", services.audioAvailable) { services.audio.next() }
+        addAudioButton(audioButtons, "일시정지", R.drawable.ic_pause, services.audioAvailable) { services.audio.pause() }
+        addAudioButton(audioButtons, "다음", R.drawable.ic_next, services.audioAvailable) { services.audio.next() }
         val lightingCard = card(musicPage, "조명 미리보기")
         lightingSwatch = View(this).apply { setBackgroundColor(Color.DKGRAY) }
         lightingCard.addView(lightingSwatch, LinearLayout.LayoutParams(-1, dp(58)))
@@ -880,6 +880,25 @@ class MainActivity : ComponentActivity() {
         button.setTextColor(Color.WHITE)
         button.compoundDrawableTintList = ColorStateList.valueOf(Color.WHITE)
         button.backgroundTintList = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled), intArrayOf()), intArrayOf(ink, Color.rgb(122, 140, 160)))
+    }
+    private fun addAudioButton(parent: LinearLayout, label: String, icon: Int, enabled: Boolean, action: () -> Unit): ImageButton {
+        val button = ImageButton(this).apply {
+            setImageResource(icon)
+            contentDescription = label
+            isEnabled = enabled
+            minimumWidth = dp(48); minimumHeight = dp(48)
+            scaleType = ImageView.ScaleType.CENTER_INSIDE
+            setPadding(dp(16), dp(16), dp(16), dp(16))
+            imageTintList = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled), intArrayOf()), intArrayOf(ink, muted))
+            background = android.graphics.drawable.RippleDrawable(ColorStateList.valueOf(0x18002c5f),
+                GradientDrawable().apply { setColor(Color.rgb(237, 241, 246)); cornerRadius = dp(14).toFloat() }, null)
+            stateListAnimator = null
+            setOnClickListener { action() }
+        }
+        parent.addView(button, LinearLayout.LayoutParams(0, dp(56), 1f).apply {
+            topMargin = dp(6); bottomMargin = dp(6); marginStart = dp(3); marginEnd = dp(3)
+        })
+        return button
     }
     private fun addButton(parent: LinearLayout, label: String, enabled: Boolean = true, action: () -> Unit): Button {
         val button = Button(this).apply {

@@ -8,7 +8,7 @@
 
 ## 실제 앱 화면
 
-Android 프로토타입 **0.3.5**.
+Android 프로토타입 **0.3.6**.
 
 <img src="docs/product/assets/analysis-motion/analysis-flow.gif" width="360" alt="Driving Mood 촬영·분석·결과 화면">
 
@@ -16,9 +16,9 @@ Android 프로토타입 **0.3.5**.
 
 | 로고를 눌러 시작 | 무드 결과 |
 |:---:|:---:|
-| <img src="docs/product/assets/app-ui-0.3.5/home.png" width="280" alt="로고 하나로 시작하는 Driving Mood"> | <img src="docs/product/assets/app-ui-0.3.5/result.png" width="280" alt="분석 후 무드와 대표 점수"> |
+| <img src="docs/product/assets/app-ui-0.3.6/home.png" width="280" alt="로고 하나로 시작하는 Driving Mood"> | <img src="docs/product/assets/app-ui-0.3.6/result.png" width="280" alt="분석 후 무드와 대표 점수"> |
 
-[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.5)
+[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.6)
 
 ## Pleos 차량 화면
 
@@ -42,7 +42,7 @@ Pleos Connect 에뮬레이터에서 실행하는 차량용 UI 프로토타입입
 
 ![분석 요청부터 결과까지](docs/product/assets/request-flow.gif)
 
-현재 0.3.5는 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
+현재 0.3.6는 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
 
 ## 무드 키워드를 만드는 과정
 

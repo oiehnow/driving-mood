@@ -9,19 +9,20 @@ import android.view.animation.LinearInterpolator
 import kotlin.math.cos
 import kotlin.math.sin
 
-/** A slow ambient field. Only this drawable redraws; text, layout and analysis remain unchanged. */
+/** A moving mood color field. Only this drawable redraws; text, layout and analysis remain unchanged. */
 internal class MoodGradientDrawable(private val cornerRadius: Float) : Drawable(), Animatable {
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val glowPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val clip = Path()
     private val matrix = Matrix()
+    private val area = RectF()
     private val evaluator = ArgbEvaluator()
     private var field: Shader? = null
     private var glow: Shader? = null
     private var phase = 0f
     private var drift: ValueAnimator? = null
     private var transition: ValueAnimator? = null
-    internal var palette = intArrayOf(0xffd7e8f2.toInt(), 0xffe2eee8.toInt(), 0xfff4e4dc.toInt())
+    internal var palette = intArrayOf(0xffa7cfe9.toInt(), 0xffb9ddcf.toInt(), 0xffedc4ab.toInt())
         private set
 
     fun setPalette(colors: IntArray, animate: Boolean) {
@@ -44,18 +45,21 @@ internal class MoodGradientDrawable(private val cornerRadius: Float) : Drawable(
     override fun onBoundsChange(bounds: Rect) { rebuild() }
     private fun rebuild() {
         if (bounds.isEmpty) return
-        val r = RectF(bounds)
+        area.set(bounds)
+        val r = area
         clip.reset(); clip.addRoundRect(r, cornerRadius, cornerRadius, Path.Direction.CW)
         field = LinearGradient(r.left, r.top, r.right, r.bottom, palette, null, Shader.TileMode.CLAMP)
-        glow = RadialGradient(0f, 0f, r.width() * .78f, intArrayOf(0xaaffffff.toInt(), 0x00ffffff), null, Shader.TileMode.CLAMP)
+        // A small highlight adds depth without washing out the opaque mood colors.
+        glow = RadialGradient(0f, 0f, r.width() * .58f, intArrayOf(0x28ffffff, 0x00ffffff), null, Shader.TileMode.CLAMP)
     }
 
     override fun draw(canvas: Canvas) {
         if (field == null) rebuild()
-        val r = RectF(bounds)
+        val r = area
         canvas.save(); canvas.clipPath(clip)
-        // Rotate and drift the field gently around its centre, without moving the content.
-        matrix.reset(); matrix.setRotate(sin(phase) * 28f, r.centerX(), r.centerY())
+        // A full smooth orbit makes motion visible over a few seconds, without moving the content.
+        matrix.reset(); matrix.setRotate(phase * 180f / Math.PI.toFloat(), r.centerX(), r.centerY())
+        matrix.postTranslate(cos(phase) * r.width() * .16f, sin(phase) * r.height() * .14f)
         field?.setLocalMatrix(matrix)
         paint.shader = field
         canvas.drawRect(r, paint)
@@ -68,7 +72,7 @@ internal class MoodGradientDrawable(private val cornerRadius: Float) : Drawable(
     override fun start() {
         if (isRunning || !ValueAnimator.areAnimatorsEnabled()) return
         drift = ValueAnimator.ofFloat(phase, phase + (Math.PI * 2).toFloat()).apply {
-            duration = 20_000; repeatCount = ValueAnimator.INFINITE; interpolator = LinearInterpolator()
+            duration = 12_000; repeatCount = ValueAnimator.INFINITE; interpolator = LinearInterpolator()
             addUpdateListener { phase = it.animatedValue as Float; invalidateSelf() }
             start()
         }
