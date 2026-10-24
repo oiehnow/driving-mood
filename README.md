@@ -32,6 +32,8 @@
 
 ## 현재 적용한 모델
 
+배포된 F2는 **YOLO 계열 안에서 역할을 나눈 구성**입니다. 이후 SegFormer·Mask2Former·OneFormer·DeepLab·PIDNet·SAM2.1·MobileSAM을 같은 주행 입력으로 실제 비교했습니다. 장면 분류와 객체 경계를 서로 다른 계열에 맡기는 조합을 검토하며, 개선된 사례와 창문 누락·오분류도 함께 기록했습니다. [서로 다른 모델의 장단점과 결합 실험](docs/vision/CROSS_FAMILY_REVIEW.md)
+
 ### YOLO26n 객체 검출 — 사람·차량의 위치
 
 Ultralytics **YOLO26n** 객체 검출 모델(`yolo26n.pt`)을 640 입력의 Android용 ONNX로 변환했습니다. 사람의 위치·수·면적을 관측하고, 차량 불빛과 교통시설을 조명 계산에서 제외할 영역을 제공합니다. 기존 EfficientDet-Lite0와의 개발 사례 비교에서 명확한 인물 위치 대응이 늘고 제한된 비사람 검수 영역의 오탐이 줄어, 모바일 변환을 확인한 nano 구성을 적용했습니다.
