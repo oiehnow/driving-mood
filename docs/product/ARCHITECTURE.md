@@ -354,7 +354,7 @@ Light API의 `setAmbientLightBrightnessColor`, `setAmbientLightBrightness`와 ca
 
 ![흐린 도로에서 충분히 지속되지 않은 후보를 제외한 결과](assets/driving-v4/full-04-result.png)
 
-## 10 개선할 점과 앞으로 할 일
+## 10 현재의 문제점과 개선 방향
 
 개선의 목표는 창문·간판·차량을 더 정확히 구분하고, 분석 결과가 왜 그런 분위기로 이어졌는지 설명할 수 있게 하는 것이다. 아래 내용은 앞으로 개발을 다시 진행할 때 확인할 계획이다. 현재 완료한 기능이나 진행 중인 작업을 뜻하지 않는다.
 
