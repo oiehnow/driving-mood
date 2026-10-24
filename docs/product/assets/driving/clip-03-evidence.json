@@ -1,0 +1,22 @@
+{
+  "clip_id": "clip-03",
+  "source_pts_seconds": 135.00153333333333,
+  "rgb_sha256": "9023f22b374650e862e47dab77f6544bf2c0667703347c4f93112ebba6ca7a9e",
+  "mask_sha256": "b2b94f7e0e39f5daed94460d0c18639a52931bb8059d75862821c64af4dfec00",
+  "segmentation": {
+    "model_sha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+    "class_probabilities": null
+  },
+  "presentation": {
+    "moodKeywords": [],
+    "status": "판단 보류",
+    "usableColor": false,
+    "usableLight": false
+  },
+  "metrics": {
+    "vehicleExcludedRatio": 0.38425347,
+    "colorMeasurementConfidence": 0.34,
+    "lightMeasurementConfidence": 0.34
+  },
+  "capture_context": "not provided"
+}

@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-24",
+  "scope": "Independent vision library and selected synthetic/Robolectric tests; no photo evaluation or device test",
+  "suites": [
+    {
+      "suite": "kr.urbanmood.vision.LightMeasurerTest",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "kr.urbanmood.vision.PixelMeasurementQualityTest",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "kr.urbanmood.vision.TemporalLightFilterTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "kr.urbanmood.vision.UrbanLightAnalyzerTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "kr.urbanmood.vision.VisionV2FixtureTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "tests": 35.0,
+  "failures": 0.0,
+  "errors": 0.0,
+  "skipped": 0.0,
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "lintIds": [
+    "AndroidGradlePluginVersion",
+    "NewerVersionAvailable",
+    "NewerVersionAvailable",
+    "NewerVersionAvailable"
+  ],
+  "artifact": "docs/vision/verification/build/outputs/aar/UrbanMoodVisionVerification-debug.aar",
+  "fixture": "docs/vision/v2-analyzer-fixtures.tsv"
+}

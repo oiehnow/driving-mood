@@ -1,0 +1,18 @@
+{
+  "hasBaseModelInstanceInformation": false,
+  "id": 992,
+  "slug": "lite0-detection-metadata",
+  "framework": "tfLite",
+  "fineTunable": false,
+  "overview": "TFLite deployment of tensorflow/efficientdet/lite0/detection/1.",
+  "usage": "## Example Use\n\n```python\nfrom ai_edge_litert.interpreter import Interpreter\n\ninterpreter = Interpreter(model_path='/kaggle/input/efficientdet/tflite/lite0-detection-metadata/1')\n```\n\n## Description\n\nMobile EfficientDet-Lite model to localize objects in an image, optimized to\nwork with TensorFlow Lite. This model contains both TFLite model metadata and the label file. TFLite metadata is a rich model description including both human and machine readable information.\n\n## Inputs\n\nImage data: `ByteBuffer` sized `HEIGHT x WIDTH x 3`, where `HEIGHT = 320` and\n`WIDTH = 320` with values in `[0, 255]`.\n\n### Output\n\nThis model outputs to `detection_boxes`, `detection_classes`,\n`detection_scores`, `num_detections`. The max number of output detections are\n`25`.\n\n*   **`detection_boxes`**: Bounding box for each detection.\n*   **`detection_classes`**: Object class for each detection.\n*   **`detection_scores`**: Confidence scores for each detection.\n*   **`num_detections`**: Total number of detections.\n\n#### Benchmark\n\nThe following are all latency for `Pixel 4`.\n\n1 CPU (ms) | 4 CPU (ms) | GPU (ms) | EdgeTPU (ms)\n---------- | ---------- | -------- | ------------\n49.92      | 36.77      | 48.48    | 29.26\n\nThe mAP for COCO 2017 validation dataset is `25.69%`.",
+  "downloadUrl": "",
+  "versionId": 1146,
+  "versionNumber": 1,
+  "trainingData": [],
+  "url": "https://www.kaggle.com/models/tensorflow/efficientdet/TfLite/lite0-detection-metadata",
+  "licenseName": "Apache 2.0",
+  "modelInstanceType": "unspecified",
+  "externalBaseModelUrl": "",
+  "totalUncompressedBytes": 4563519
+}

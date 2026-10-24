@@ -1,0 +1,30 @@
+[
+  {
+    "name": "kr.urbanmood.vision.LightMeasurerTest",
+    "tests": "15",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "kr.urbanmood.vision.OfflinePhotoEvaluationTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "kr.urbanmood.vision.TemporalLightFilterTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "kr.urbanmood.vision.UrbanLightAnalyzerTest",
+    "tests": "6",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  }
+]

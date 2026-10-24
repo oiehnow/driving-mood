@@ -1,0 +1,2 @@
+# Host-side APK font metadata inspection only; not bundled in Android.
+fonttools==4.63.0

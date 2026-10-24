@@ -1,0 +1,64 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+{
+  "apk": "app-release.apk",
+  "sha256": "8EE0BF0FE331310BC0F7CCEF29555AB4A301428C45DE6B48E7DD7CB7F9D6CF02",
+  "signatureVerified": true,
+  "zip16KBAligned": true,
+  "nativeLibraries": [
+    {
+      "library": "lib/arm64-v8a/libimage_processing_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/arm64-v8a/libsurface_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/armeabi-v7a/libimage_processing_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/armeabi-v7a/libsurface_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/x86/libimage_processing_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/x86/libmediapipe_tasks_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/x86/libsurface_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/x86_64/libimage_processing_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/x86_64/libmediapipe_tasks_jni.so",
+      "minimumLoadAlignment": 16384.0
+    },
+    {
+      "library": "lib/x86_64/libsurface_util_jni.so",
+      "minimumLoadAlignment": 16384.0
+    }
+  ]
+}

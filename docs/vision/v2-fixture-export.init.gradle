@@ -1,0 +1,8 @@
+// Opt-in analyzer fixture export. Paths are relative to the isolated verification project.
+gradle.projectsEvaluated {
+    allprojects {
+        tasks.withType(Test).configureEach {
+            systemProperty 'visionV2FixtureReport', rootProject.file('../v2-analyzer-fixtures.tsv').path
+        }
+    }
+}

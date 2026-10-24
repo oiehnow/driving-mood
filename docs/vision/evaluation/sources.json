@@ -1,0 +1,57 @@
+[
+  {
+    "id": "retail-wet",
+    "title": "Mathew Street in the rain at night - between the Cavern Walks and Rubber Soul, Liverpool (2011-08-12 21.21.56 by SomeDriftwood).jpg",
+    "author": "SomeDriftwood",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mathew_Street_in_the_rain_at_night_-_between_the_Cavern_Walks_and_Rubber_Soul,_Liverpool_(2011-08-12_21.21.56_by_SomeDriftwood).jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Mathew_Street_in_the_rain_at_night_-_between_the_Cavern_Walks_and_Rubber_Soul%2C_Liverpool_%282011-08-12_21.21.56_by_SomeDriftwood%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "a8c4d982773478f33a0bbc17f7dd3dd4b48ada4e194bdb91474e9d377995d83d",
+    "changes": "Original bytes unchanged. Evaluation makes resized RGB copies and boxes; those are marked separately."
+  },
+  {
+    "id": "highway-night",
+    "title": "NSHighway to JB night.jpg",
+    "author": "Brandon Lim Lik Wei",
+    "license": "CC-BY-2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:NSHighway_to_JB_night.jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/NSHighway_to_JB_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "0c6b577eacef51e10433851da2d208e11cc5c5a12663b62f9285cee36dd06a98",
+    "changes": "Original bytes unchanged. Evaluation makes resized RGB copies and boxes; those are marked separately."
+  },
+  {
+    "id": "rain-street",
+    "title": "Raining street in the night - panoramio.jpg",
+    "author": "Harri Hedman",
+    "license": "CC-BY-3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Raining_street_in_the_night_-_panoramio.jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/Raining_street_in_the_night_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "f0d380a536f47bfa111b1b54d16611a511080b0a2b14e78cca3631128bbfc2be",
+    "changes": "Original bytes unchanged. Evaluation makes resized RGB copies and boxes; those are marked separately."
+  },
+  {
+    "id": "dark-lamp",
+    "title": "Persistent Night Rain In The Light Of Street Lamp (220669549).jpeg",
+    "author": "Pavel Soro London",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Persistent_Night_Rain_In_The_Light_Of_Street_Lamp_(220669549).jpeg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Persistent_Night_Rain_In_The_Light_Of_Street_Lamp_%28220669549%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "e709055e7705bb85ed6978a416457e543079ec3a5bbf72070a2434392c79391e",
+    "changes": "Original bytes unchanged. Evaluation makes resized RGB copies and boxes; those are marked separately."
+  },
+  {
+    "id": "highway-dense",
+    "title": "Eastern Dispersal Link Highway (JOHOR).jpg",
+    "author": "Encik Tekateki",
+    "license": "CC-BY-SA-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Eastern_Dispersal_Link_Highway_(JOHOR).jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Eastern_Dispersal_Link_Highway_%28JOHOR%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "f0132e55082196b2fc6f0262b8e8f9674be1d8aa3bda07b8dc70c2be61d20627",
+    "changes": "Original bytes unchanged. Evaluation makes resized RGB copies and boxes; those are marked separately."
+  }
+]

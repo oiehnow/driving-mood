@@ -1,0 +1,22 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+secrets.properties
+signing.properties
+*.jks
+*.keystore
+.idea/
+*.iml
+captures/
+*.p12
+*.pfx
+*.dpapi
+__pycache__/
+*.pyc
+.venv/
+
+# Local collaboration records
+/AGENTS.md
+/docs/handoffs/
+/docs/reviews/

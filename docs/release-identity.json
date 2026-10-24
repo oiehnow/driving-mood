@@ -1,0 +1,14 @@
+{
+  "version": "0.2.3",
+  "versionCode": 5,
+  "displayName": "Driving Mood",
+  "applicationId": "kr.urbanmood",
+  "previousVersion": "0.2.2",
+  "sameSigningCertificate": true,
+  "signingCertificateSha256": "14ec78db3c3f710e2762d478299d5dfca0a0d62b5bb76cc4c1f345bb12b9a513",
+  "apkSha256": "8EE0BF0FE331310BC0F7CCEF29555AB4A301428C45DE6B48E7DD7CB7F9D6CF02",
+  "apkBytes": 77400497,
+  "bundledFontSha256": "3090CCDE0442BB347AA7685D9BA8B17436A60682DF6E8F92A9A670DE14056E22",
+  "bundledFontLicenseSha256": "B04538C9ABEC39A3DB75108CF0AF0FD9C77032FE8AA2CF38345B4D250E98E38E",
+  "deviceUpdateTested": false
+}

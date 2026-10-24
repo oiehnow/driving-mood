@@ -1,0 +1,208 @@
+{
+  "runtime": "ai-edge-litert 2.3.0 Windows x64 CPU, Python 3.14.4",
+  "scope": "Still samples; Pillow stretch to 320x320 for model. Android MediaPipe preprocessing/native execution not validated.",
+  "modelSha256": "2e04c53bfeac0ac2a30c057c7e2a777594ce39baaac35a92f74fb1e8c4fc4e0b",
+  "input": {
+    "shape": [
+      1,
+      320,
+      320,
+      3
+    ],
+    "dtype": "<class 'numpy.uint8'>"
+  },
+  "outputs": [
+    {
+      "name": "StatefulPartitionedCall:3",
+      "shape": [
+        1,
+        25,
+        4
+      ]
+    },
+    {
+      "name": "StatefulPartitionedCall:2",
+      "shape": [
+        1,
+        25
+      ]
+    },
+    {
+      "name": "StatefulPartitionedCall:1",
+      "shape": [
+        1,
+        25
+      ]
+    },
+    {
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+        1
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "id": "synthetic-black",
+      "synthetic": true,
+      "boxes": [],
+      "size": [
+        320,
+        240
+      ]
+    },
+    {
+      "id": "retail-wet",
+      "synthetic": false,
+      "boxes": [
+        {
+          "label": "person",
+          "confidence": 0.54296875,
+          "left": 0.6466162204742432,
+          "top": 0.47193247079849243,
+          "right": 0.7130025625228882,
+          "bottom": 0.6530675292015076
+        },
+        {
+          "label": "person",
+          "confidence": 0.54296875,
+          "left": 0.5388683676719666,
+          "top": 0.5054231286048889,
+          "right": 0.6305108666419983,
+          "bottom": 0.7600801587104797
+        },
+        {
+          "label": "person",
+          "confidence": 0.54296875,
+          "left": 0.04751056432723999,
+          "top": 0.49643945693969727,
+          "right": 0.1778794527053833,
+          "bottom": 0.9643055200576782
+        },
+        {
+          "label": "person",
+          "confidence": 0.5234375,
+          "left": 0.4730553925037384,
+          "top": 0.49454814195632935,
+          "right": 0.5457921028137207,
+          "bottom": 0.7119943499565125
+        },
+        {
+          "label": "person",
+          "confidence": 0.5234375,
+          "left": 0.15713225305080414,
+          "top": 0.48505544662475586,
+          "right": 0.2684515118598938,
+          "bottom": 0.8430763483047485
+        },
+        {
+          "label": "person",
+          "confidence": 0.4765625,
+          "left": 0.3481678366661072,
+          "top": 0.47858208417892456,
+          "right": 0.440898060798645,
+          "bottom": 0.7714179158210754
+        }
+      ],
+      "size": [
+        320,
+        240
+      ]
+    },
+    {
+      "id": "highway-night",
+      "synthetic": false,
+      "boxes": [
+        {
+          "label": "clock",
+          "confidence": 0.54296875,
+          "left": 0.3666389584541321,
+          "top": 0.7624508738517761,
+          "right": 0.6181647777557373,
+          "bottom": 0.9962500929832458
+        },
+        {
+          "label": "clock",
+          "confidence": 0.43359375,
+          "left": 0.35593414306640625,
+          "top": 0.7430258989334106,
+          "right": 0.90032958984375,
+          "bottom": 0.9960401058197021
+        },
+        {
+          "label": "clock",
+          "confidence": 0.43359375,
+          "left": 0.6374994516372681,
+          "top": 0.7391881346702576,
+          "right": 0.9063504934310913,
+          "bottom": 0.9936993718147278
+        }
+      ],
+      "size": [
+        320,
+        220
+      ]
+    },
+    {
+      "id": "rain-street",
+      "synthetic": false,
+      "boxes": [],
+      "size": [
+        320,
+        213
+      ]
+    },
+    {
+      "id": "dark-lamp",
+      "synthetic": false,
+      "boxes": [
+        {
+          "label": "bowl",
+          "confidence": 0.27734375,
+          "left": -0.01187443733215332,
+          "top": 0.014998763799667358,
+          "right": 0.9942290782928467,
+          "bottom": 0.9850012063980103
+        }
+      ],
+      "size": [
+        214,
+        320
+      ]
+    },
+    {
+      "id": "highway-dense",
+      "synthetic": false,
+      "boxes": [
+        {
+          "label": "car",
+          "confidence": 0.73828125,
+          "left": 0.8034552931785583,
+          "top": 0.6627832055091858,
+          "right": 1.0019172430038452,
+          "bottom": 0.999521791934967
+        },
+        {
+          "label": "car",
+          "confidence": 0.6875,
+          "left": 0.347054123878479,
+          "top": 0.6739020943641663,
+          "right": 0.5084271430969238,
+          "bottom": 0.8035041689872742
+        },
+        {
+          "label": "car",
+          "confidence": 0.66796875,
+          "left": 0.5716137886047363,
+          "top": 0.6755713820457458,
+          "right": 0.670788049697876,
+          "bottom": 0.7842323184013367
+        }
+      ],
+      "size": [
+        320,
+        240
+      ]
+    }
+  ]
+}

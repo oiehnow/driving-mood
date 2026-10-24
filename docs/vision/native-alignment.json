@@ -1,0 +1,42 @@
+[
+  {
+    "module": "tasks-core",
+    "library": "jni/arm64-v8a/libmediapipe_tasks_jni.so",
+    "loadSegmentAlignments": [
+      16384,
+      16384,
+      16384
+    ],
+    "allAtLeast16KiB": true
+  },
+  {
+    "module": "tasks-core",
+    "library": "jni/armeabi-v7a/libmediapipe_tasks_jni.so",
+    "loadSegmentAlignments": [
+      16384,
+      16384,
+      16384
+    ],
+    "allAtLeast16KiB": true
+  },
+  {
+    "module": "tasks-core",
+    "library": "jni/x86/libmediapipe_tasks_jni.so",
+    "loadSegmentAlignments": [
+      16384,
+      16384,
+      16384
+    ],
+    "allAtLeast16KiB": true
+  },
+  {
+    "module": "tasks-core",
+    "library": "jni/x86_64/libmediapipe_tasks_jni.so",
+    "loadSegmentAlignments": [
+      16384,
+      16384,
+      16384
+    ],
+    "allAtLeast16KiB": true
+  }
+]
