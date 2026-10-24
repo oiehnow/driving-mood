@@ -1,0 +1,353 @@
+{
+  "runtime": "desktop",
+  "sampleCount": 176,
+  "featureInputSha256": "384ea3e6210e50f532bb17822951b8da79799f037863752e8ee063902daf642c",
+  "comparison": [
+    {
+      "clipId": "clip-01",
+      "samples": 26,
+      "durationMs": 25640,
+      "beforeKeywords": [
+        "따뜻한"
+      ],
+      "afterKeywords": [],
+      "afterScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.098466955
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.016280292
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 0.1720027
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 7.28525
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.16152386
+        }
+      ]
+    },
+    {
+      "clipId": "clip-02",
+      "samples": 30,
+      "durationMs": 30000,
+      "beforeKeywords": [],
+      "afterKeywords": [],
+      "afterScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.15592834
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.062248927
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 0.22995587
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 0.028935185
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.7306241
+        }
+      ]
+    },
+    {
+      "clipId": "clip-03",
+      "samples": 30,
+      "durationMs": 30000,
+      "beforeKeywords": [],
+      "afterKeywords": [
+        "따뜻한",
+        "차가운",
+        "활기 넘침"
+      ],
+      "afterScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.9176264
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.5632409
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 1.8349023
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 6.5848894
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.14952537
+        }
+      ]
+    },
+    {
+      "clipId": "clip-04",
+      "samples": 30,
+      "durationMs": 30000,
+      "beforeKeywords": [],
+      "afterKeywords": [
+        "활기 넘침"
+      ],
+      "afterScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.28051677
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.28433374
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 3.4463456
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 0.78895825
+        },
+        {
+          "keyword": "청량한",
+          "score": 4.316315
+        }
+      ]
+    },
+    {
+      "clipId": "clip-05",
+      "samples": 30,
+      "durationMs": 30000,
+      "beforeKeywords": [],
+      "afterKeywords": [
+        "활기 넘침"
+      ],
+      "afterScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.044057615
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.04456336
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 0.8002351
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 0.0061342595
+        },
+        {
+          "keyword": "청량한",
+          "score": 7.4485655
+        }
+      ]
+    },
+    {
+      "clipId": "clip-06",
+      "samples": 30,
+      "durationMs": 30000,
+      "beforeKeywords": [],
+      "afterKeywords": [],
+      "afterScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.03272878
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.0069965413
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 0.020715423
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 2.8228009
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.06767788
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "clipId": "clip-03",
+      "frameId": "000400",
+      "sourcePtsMs": 130029.9,
+      "rgbSha256": "c7504165ecbf6a18c13eaba2367837261a71dce80e5737bf495323f9a2ca683e",
+      "maskSha256": "39b5be9a77b3a99eaf8aaa05fcca4d942bdf327cd3095623743767986702eb8b",
+      "figureSha256": "1678327656a63dcd4aaa8ab9e6ea83f81a1e243ebe0358ce7cefb3417ea0dc92",
+      "featureVersion": "semantic-contrast-rgb-v3",
+      "scoreVersion": "scene-v2.0",
+      "frameScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.7066513
+        },
+        {
+          "keyword": "차가운",
+          "score": 1.1272106
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 1.4603082
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 0.3255208
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.09442621
+        }
+      ]
+    },
+    {
+      "clipId": "clip-03",
+      "frameId": "000450",
+      "sourcePtsMs": 135001.53333333333,
+      "rgbSha256": "c8a2933a88922dce542832fbb664572a55c1ba0336b59d789ba62ccc98fd65fb",
+      "maskSha256": "bd7702b1d82b479af71b68f8452c44e48bea02554511a4baf3676a768a0b64be",
+      "figureSha256": "78c1dad2d07e504a76855e9821c94a29ebe93b24d8cd570b77b6b94533dedae5",
+      "featureVersion": "semantic-contrast-rgb-v3",
+      "scoreVersion": "scene-v2.0",
+      "frameScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.08854773
+        },
+        {
+          "keyword": "차가운",
+          "score": 1.2727329
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 0.8321615
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 0.0
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.16620918
+        }
+      ]
+    },
+    {
+      "clipId": "clip-03",
+      "frameId": "000500",
+      "sourcePtsMs": 140006.53333333335,
+      "rgbSha256": "c98e4d8572f592884a5d2e9429ea7bffdfd48e87dc1c1ec80dbdcf59c16580b4",
+      "maskSha256": "3158474a481952113ab54b7930139700558ebb603413ef79488db095cabe4def",
+      "figureSha256": "d97ec23ebfe35888c7dc4829824333ae98b8bf3a933843792aecbcc938007afe",
+      "featureVersion": "semantic-contrast-rgb-v3",
+      "scoreVersion": "scene-v2.0",
+      "frameScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 1.3114204
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.24883218
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 1.6301433
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 0.30034724
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.16860178
+        }
+      ]
+    },
+    {
+      "clipId": "clip-03",
+      "frameId": "000550",
+      "sourcePtsMs": 145011.53333333335,
+      "rgbSha256": "a84bb46effc61477cfdd4c8b356a9b44105163884e4221015b8067e84c6d7e97",
+      "maskSha256": "d1499dc707c059360b2f2ece4aaad8adb94f1fda6ed1f674a8ad84e64ea85991",
+      "figureSha256": "87cb030f40bd9af3a168c0772c68b831cbb229f087f62e3651ba64092c74b027",
+      "featureVersion": "semantic-contrast-rgb-v3",
+      "scoreVersion": "scene-v2.0",
+      "frameScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 1.7237524
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.44675806
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 2.4019966
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 0.8142361
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.10467684
+        }
+      ]
+    },
+    {
+      "clipId": "clip-03",
+      "frameId": "000600",
+      "sourcePtsMs": 150016.53333333335,
+      "rgbSha256": "89c91af32facff8a4538bd5b2ca6ad768274bdfb9f85c73d4a41382441ed3da0",
+      "maskSha256": "501b6e25525a10bdb189c8157b3ecda385a8b7bd424316bb358e52f3a1df933b",
+      "figureSha256": "982b46b69bb39a3cdeb800e86b0457857e3bc662238169319964653b80ea43d5",
+      "featureVersion": "semantic-contrast-rgb-v3",
+      "scoreVersion": "scene-v2.0",
+      "frameScores": [
+        {
+          "keyword": "따뜻한",
+          "score": 0.8454755
+        },
+        {
+          "keyword": "차가운",
+          "score": 0.19664645
+        },
+        {
+          "keyword": "시각적 활력",
+          "score": 2.0219183
+        },
+        {
+          "keyword": "활기 넘침",
+          "score": 7.1499996
+        },
+        {
+          "keyword": "청량한",
+          "score": 0.4197619
+        }
+      ]
+    }
+  ]
+}
