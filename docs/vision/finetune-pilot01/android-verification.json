@@ -1,0 +1,340 @@
+{
+  "decision": "research_only_not_promoted",
+  "environment": "Android 15 API 35 x86_64 emulator",
+  "physicalPhoneOrVehicleTest": false,
+  "sameRgbAndInputTensorHashes": true,
+  "rowsPerModel": 14,
+  "modelResults": {
+    "baseline": {
+      "apkSha256": "a350e9b2c1487eb9c32c6a43a1b421ac952549b4192943f0cf6c3f13643fa8ca",
+      "model": {
+        "asset": "assets/vision/yolo26n-sem-ade20k-320.ort",
+        "sha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+        "bytes": 6386728
+      },
+      "unitTests": {
+        "tests": 261,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "nativeFixtureAndConfigurationTests": 2,
+      "nativeRecordingCancellationTests": 5,
+      "recordings": [
+        {
+          "durationMs": 60000,
+          "samples": 60,
+          "firstPtsMs": 0,
+          "lastPtsMs": 59021,
+          "elapsedMs": 78317,
+          "peakSampledPssKb": 274574,
+          "nativeHeapBytesAtCompletion": 182289744
+        },
+        {
+          "durationMs": 30000,
+          "samples": 30,
+          "firstPtsMs": 0,
+          "lastPtsMs": 29012,
+          "elapsedMs": 39677,
+          "peakSampledPssKb": 276414,
+          "nativeHeapBytesAtCompletion": 191328432
+        }
+      ]
+    },
+    "pilot01": {
+      "apkSha256": "6a7381ccecd53027bb06a20e9cea47ff8273fa10cd75c480471c7faa8da82cd2",
+      "model": {
+        "asset": "assets/vision/yolo26n-sem-driving-mood-pilot01.ort",
+        "sha256": "f4bddf76f2f91541b36ddc86c6f7d5115e0c0cbe43907d51fdaadf2f7d369b1e",
+        "bytes": 6386752
+      },
+      "unitTests": {
+        "tests": 261,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "nativeFixtureAndConfigurationTests": 2,
+      "nativeRecordingCancellationTests": 5,
+      "recordings": [
+        {
+          "durationMs": 60000,
+          "samples": 60,
+          "firstPtsMs": 0,
+          "lastPtsMs": 59000,
+          "elapsedMs": 80623,
+          "peakSampledPssKb": 266561,
+          "nativeHeapBytesAtCompletion": 182000448
+        },
+        {
+          "durationMs": 30000,
+          "samples": 30,
+          "firstPtsMs": 0,
+          "lastPtsMs": 29007,
+          "elapsedMs": 40884,
+          "peakSampledPssKb": 275902,
+          "nativeHeapBytesAtCompletion": 190871056
+        }
+      ]
+    }
+  },
+  "desktopOrtAndroidClassMapComparison": [
+    {
+      "model": "baseline",
+      "fixture": "clip-03-000400",
+      "portraitRotated": false,
+      "inputTensorSha256": "7131dcdd890d98ba9dc137a0a79ae240fb75d98dc1eb852791992d72f310daea",
+      "desktopClassMapSha256": "80a6be5801f737e66159fc190d78cdcac183619ec699b8db66e67dda651b0dec",
+      "androidClassMapSha256": "80a6be5801f737e66159fc190d78cdcac183619ec699b8db66e67dda651b0dec",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-03-000400",
+      "portraitRotated": true,
+      "inputTensorSha256": "bdb3a30501b6810a2e631a897135f29ec4cb7db0fa06af9da010f4b06c430c51",
+      "desktopClassMapSha256": "df4a052cc0ec5b930d39040f77ab8050b589eb7cb4054f9cf27002067e32fea6",
+      "androidClassMapSha256": "df4a052cc0ec5b930d39040f77ab8050b589eb7cb4054f9cf27002067e32fea6",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-03-000899",
+      "portraitRotated": false,
+      "inputTensorSha256": "a214737e0260fee46452fd6f729a2b456b4a9546be8e911fcba6e26e9969da1e",
+      "desktopClassMapSha256": "d0b676095dc8c7c3120f71347b066bf2b1969a8bae091f0c5b8175719a9ad728",
+      "androidClassMapSha256": "d0b676095dc8c7c3120f71347b066bf2b1969a8bae091f0c5b8175719a9ad728",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-03-000899",
+      "portraitRotated": true,
+      "inputTensorSha256": "fb239ef60235781cb1aaf5617d0b1b959463121250e5627808cb8c314aa3a6b2",
+      "desktopClassMapSha256": "297220406cf135674e7a200406284e71bf02963805f57c8a5cb826963f78c94f",
+      "androidClassMapSha256": "297220406cf135674e7a200406284e71bf02963805f57c8a5cb826963f78c94f",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-04-000250",
+      "portraitRotated": false,
+      "inputTensorSha256": "96cf151aeab5bf29eb0059f9d9007a5da5f57c4f839abffca344256186f7c14b",
+      "desktopClassMapSha256": "0b9a7e90430fcbaba6bdb30855af4e07526680c2a4d1ff5a623a8643b85582ca",
+      "androidClassMapSha256": "0b9a7e90430fcbaba6bdb30855af4e07526680c2a4d1ff5a623a8643b85582ca",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-04-000250",
+      "portraitRotated": true,
+      "inputTensorSha256": "45ea81908d0f5a62996aa1d7a1a7a912bb1fb8b8bf6d278fe1b454b8c3ddd3a4",
+      "desktopClassMapSha256": "8663195b0cbd87fdc7e173713ead72f39d541c3e6b3c5c7ed2b797d6928fdac5",
+      "androidClassMapSha256": "8663195b0cbd87fdc7e173713ead72f39d541c3e6b3c5c7ed2b797d6928fdac5",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-04-000000",
+      "portraitRotated": false,
+      "inputTensorSha256": "8bf00aaa4853332ea0842268fcc37ab3546f0b909742fd3c5f4b34c6232b4fb2",
+      "desktopClassMapSha256": "3196d6ebb945f242e1fd38efab32ca1ba9767d4a8c5e2786799136c099b32287",
+      "androidClassMapSha256": "3196d6ebb945f242e1fd38efab32ca1ba9767d4a8c5e2786799136c099b32287",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-04-000150",
+      "portraitRotated": false,
+      "inputTensorSha256": "396395a598d74d70d3b93ba3279b17a5821b9ca52dae117b8a8298dc146fde8f",
+      "desktopClassMapSha256": "d607eb5d143128b7ef6b5da87b59b8cd367e476248206acc6e26b8865062c730",
+      "androidClassMapSha256": "d607eb5d143128b7ef6b5da87b59b8cd367e476248206acc6e26b8865062c730",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-04-000300",
+      "portraitRotated": false,
+      "inputTensorSha256": "2d8021d0f3fc7de482563a6fb668b4eb07816f28675966c5c2a8159ce571fd0b",
+      "desktopClassMapSha256": "a65ab228d72a66b3d3b83e37a5733631791f3d855e1a2e785b5e263a57209da9",
+      "androidClassMapSha256": "a65ab228d72a66b3d3b83e37a5733631791f3d855e1a2e785b5e263a57209da9",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-04-000450",
+      "portraitRotated": false,
+      "inputTensorSha256": "f12b81b703a9898d5749b8651035211442e673da4d72e4c41ee3145fabf1673c",
+      "desktopClassMapSha256": "cd9eeb0328a9e23471b817125155ffa94b4f547afd7660158d328b734e7b2e1b",
+      "androidClassMapSha256": "cd9eeb0328a9e23471b817125155ffa94b4f547afd7660158d328b734e7b2e1b",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-06-000000",
+      "portraitRotated": false,
+      "inputTensorSha256": "925f3ea5ab5b74d2076728a401868a7a30346e37f5771631d48eb6377a549be4",
+      "desktopClassMapSha256": "6f9ec69c0f46a6abecf6f3fd57f8f97563b5d594025f256a39e26618ecf178df",
+      "androidClassMapSha256": "6f9ec69c0f46a6abecf6f3fd57f8f97563b5d594025f256a39e26618ecf178df",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-06-000150",
+      "portraitRotated": false,
+      "inputTensorSha256": "616d16b217e8a4035db8a1cdb21f53a189082ad871d465b202449224aea0ef3f",
+      "desktopClassMapSha256": "fe825b275feeda322678ced24e0e25b64af5be230a984b357a403ca523bc6920",
+      "androidClassMapSha256": "fe825b275feeda322678ced24e0e25b64af5be230a984b357a403ca523bc6920",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-06-000300",
+      "portraitRotated": false,
+      "inputTensorSha256": "dc537f0439bf734ce9fd0be00bcf34d444795c3a6d6205b456b0059ec15b22ff",
+      "desktopClassMapSha256": "004f7f78d1c370f1cdd028ecf41cdc8b8c55d67bf45ed86d7d8817b9678df040",
+      "androidClassMapSha256": "004f7f78d1c370f1cdd028ecf41cdc8b8c55d67bf45ed86d7d8817b9678df040",
+      "differentPixels": 0
+    },
+    {
+      "model": "baseline",
+      "fixture": "clip-06-000450",
+      "portraitRotated": false,
+      "inputTensorSha256": "c009b403f2b7cc6eaaeab6f0123f2092ea6ca8d2259b689d8dbb57d1cf5bebd3",
+      "desktopClassMapSha256": "5726f34d94f78ef0c6325d86c395b9e7be532724556599d18f8b4e533bbbfb35",
+      "androidClassMapSha256": "5726f34d94f78ef0c6325d86c395b9e7be532724556599d18f8b4e533bbbfb35",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-03-000400",
+      "portraitRotated": false,
+      "inputTensorSha256": "7131dcdd890d98ba9dc137a0a79ae240fb75d98dc1eb852791992d72f310daea",
+      "desktopClassMapSha256": "d27a6b49f33b83dd7dcd779fe3012330dded19ee30533a5df087a3373db157fe",
+      "androidClassMapSha256": "d27a6b49f33b83dd7dcd779fe3012330dded19ee30533a5df087a3373db157fe",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-03-000400",
+      "portraitRotated": true,
+      "inputTensorSha256": "bdb3a30501b6810a2e631a897135f29ec4cb7db0fa06af9da010f4b06c430c51",
+      "desktopClassMapSha256": "da9bc53fbead9d6e45c357a5af489c99f1a4bc0f788b45fde8aea2e01b6f3184",
+      "androidClassMapSha256": "da9bc53fbead9d6e45c357a5af489c99f1a4bc0f788b45fde8aea2e01b6f3184",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-03-000899",
+      "portraitRotated": false,
+      "inputTensorSha256": "a214737e0260fee46452fd6f729a2b456b4a9546be8e911fcba6e26e9969da1e",
+      "desktopClassMapSha256": "9d17aa531cbdf473806923a8c5337f7be2bd27ddfcb30f924d82326e7f849fed",
+      "androidClassMapSha256": "9d17aa531cbdf473806923a8c5337f7be2bd27ddfcb30f924d82326e7f849fed",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-03-000899",
+      "portraitRotated": true,
+      "inputTensorSha256": "fb239ef60235781cb1aaf5617d0b1b959463121250e5627808cb8c314aa3a6b2",
+      "desktopClassMapSha256": "43123bb43cddbbb1fc6ef8c432b2c9a798e58b3b88b334b3c0c17f77ee30ef36",
+      "androidClassMapSha256": "43123bb43cddbbb1fc6ef8c432b2c9a798e58b3b88b334b3c0c17f77ee30ef36",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-04-000250",
+      "portraitRotated": false,
+      "inputTensorSha256": "96cf151aeab5bf29eb0059f9d9007a5da5f57c4f839abffca344256186f7c14b",
+      "desktopClassMapSha256": "73892a360c1bdcb9f003ee876f637e4cabee8e7c05db7289e2ab68e37e492155",
+      "androidClassMapSha256": "73892a360c1bdcb9f003ee876f637e4cabee8e7c05db7289e2ab68e37e492155",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-04-000250",
+      "portraitRotated": true,
+      "inputTensorSha256": "45ea81908d0f5a62996aa1d7a1a7a912bb1fb8b8bf6d278fe1b454b8c3ddd3a4",
+      "desktopClassMapSha256": "5d6f192c0f552f67613a3179a97796e7582739b96d54fc68d3566f8067c1326d",
+      "androidClassMapSha256": "5d6f192c0f552f67613a3179a97796e7582739b96d54fc68d3566f8067c1326d",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-04-000000",
+      "portraitRotated": false,
+      "inputTensorSha256": "8bf00aaa4853332ea0842268fcc37ab3546f0b909742fd3c5f4b34c6232b4fb2",
+      "desktopClassMapSha256": "078c8f6e87148921ada221093b1cd632777f8a20a585c056a12e6ad4906c3672",
+      "androidClassMapSha256": "078c8f6e87148921ada221093b1cd632777f8a20a585c056a12e6ad4906c3672",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-04-000150",
+      "portraitRotated": false,
+      "inputTensorSha256": "396395a598d74d70d3b93ba3279b17a5821b9ca52dae117b8a8298dc146fde8f",
+      "desktopClassMapSha256": "2239bf6adc28bbd11bc89c1e204a7c2560c4195a1f93dfa3a3580c256bf3a7bd",
+      "androidClassMapSha256": "2239bf6adc28bbd11bc89c1e204a7c2560c4195a1f93dfa3a3580c256bf3a7bd",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-04-000300",
+      "portraitRotated": false,
+      "inputTensorSha256": "2d8021d0f3fc7de482563a6fb668b4eb07816f28675966c5c2a8159ce571fd0b",
+      "desktopClassMapSha256": "46b003420f9a18f2a7d3ea30729e8d6dd0b3c5c379d2130851025154ce81f29e",
+      "androidClassMapSha256": "46b003420f9a18f2a7d3ea30729e8d6dd0b3c5c379d2130851025154ce81f29e",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-04-000450",
+      "portraitRotated": false,
+      "inputTensorSha256": "f12b81b703a9898d5749b8651035211442e673da4d72e4c41ee3145fabf1673c",
+      "desktopClassMapSha256": "a4a850097edcb2b3040f1cea7b75c1d09c054450ce91f32b9c6c923840dffa96",
+      "androidClassMapSha256": "a4a850097edcb2b3040f1cea7b75c1d09c054450ce91f32b9c6c923840dffa96",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-06-000000",
+      "portraitRotated": false,
+      "inputTensorSha256": "925f3ea5ab5b74d2076728a401868a7a30346e37f5771631d48eb6377a549be4",
+      "desktopClassMapSha256": "889756ec8f3a1754d43305f12c8d9e81b02e4c94420f9d283815d54330c55181",
+      "androidClassMapSha256": "889756ec8f3a1754d43305f12c8d9e81b02e4c94420f9d283815d54330c55181",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-06-000150",
+      "portraitRotated": false,
+      "inputTensorSha256": "616d16b217e8a4035db8a1cdb21f53a189082ad871d465b202449224aea0ef3f",
+      "desktopClassMapSha256": "7f32d1e4f0e7c28ce73fd0867b041d87c5059556d87b1f8888ee17fa846e2acd",
+      "androidClassMapSha256": "7f32d1e4f0e7c28ce73fd0867b041d87c5059556d87b1f8888ee17fa846e2acd",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-06-000300",
+      "portraitRotated": false,
+      "inputTensorSha256": "dc537f0439bf734ce9fd0be00bcf34d444795c3a6d6205b456b0059ec15b22ff",
+      "desktopClassMapSha256": "d5600b492a7c63c0f30e481141986ff35b01a7992e4520f86e7c510589b3b357",
+      "androidClassMapSha256": "d5600b492a7c63c0f30e481141986ff35b01a7992e4520f86e7c510589b3b357",
+      "differentPixels": 0
+    },
+    {
+      "model": "pilot01",
+      "fixture": "clip-06-000450",
+      "portraitRotated": false,
+      "inputTensorSha256": "c009b403f2b7cc6eaaeab6f0123f2092ea6ca8d2259b689d8dbb57d1cf5bebd3",
+      "desktopClassMapSha256": "da4841302af23dd031679beff42213f965d7d8f985733d49c7163392d9942f16",
+      "androidClassMapSha256": "da4841302af23dd031679beff42213f965d7d8f985733d49c7163392d9942f16",
+      "differentPixels": 0
+    }
+  ],
+  "timingScope": "Single emulator runs; recording inputs differ between runs. PSS maxima sampled every 500 ms. Not S25+ or vehicle performance.",
+  "sourceEvidenceSha256": {
+    "comparison-summary.json": "6069f7c64532ff8c70d9edbd4d3a5fdfa442bd6b6bbbc9ecdef6fdd124a1e2d5",
+    "android-export-parity.json": "346fd9e7cd3697e574585312b02713d088a24204d0464daf5fad6aba7dcd7b36"
+  }
+}
