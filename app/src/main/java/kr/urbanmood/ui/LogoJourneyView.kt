@@ -49,7 +49,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
     var onStart: (() -> Unit)? = null
     private enum class Stage { INTRO, READY, STARTING, RECORDING, ANALYZING, FINISHING, HIDDEN }
     private var stage = Stage.HIDDEN
-    private val backdrop = View(context).apply { setBackgroundColor(0xfff7f8fa.toInt()) }
+    private val backdrop = JourneyBackdrop(context)
     private val ring = JourneyRing(context)
     private val logo = ImageView(context).apply {
         setImageDrawable(createLogoDrawable(context))
@@ -89,7 +89,7 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
         setPadding(dp(20), 0, dp(20), 0)
     }
     private val percentage = TextView(context).apply {
-        textSize = 11f; setTextColor(0xff657182.toInt()); gravity = Gravity.CENTER
+        textSize = 11f; setTextColor(0xff002c5f.toInt()); gravity = Gravity.CENTER
         importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
         visibility = GONE
     }
@@ -391,6 +391,37 @@ class LogoJourneyView(context: Context) : FrameLayout(context) {
     }
 
     private fun dp(value: Int) = (value * resources.displayMetrics.density).toInt()
+}
+
+/** Visible from entry through capture/analysis, then faded by the existing result transition.
+ * Reuses the result card's shader; only the palette and full-screen orbit duration differ.
+ */
+private class JourneyBackdrop(context: Context) : View(context) {
+    private val colorField = MoodGradientDrawable(0f, orbitDurationMs = 10_000).apply {
+        // Broad, visibly different colors; navy status/progress text stays readable.
+        setPalette(intArrayOf(0xff88b6e8.toInt(), 0xffc3ace6.toInt(), 0xfff0b39b.toInt()), animate = false)
+    }
+
+    init {
+        background = colorField
+        tag = "mood-idle-background"
+        importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
+    }
+
+    private fun syncMotion() {
+        if (isAttachedToWindow && isShown && windowVisibility == VISIBLE) colorField.start()
+        else colorField.stop()
+    }
+
+    override fun onAttachedToWindow() { super.onAttachedToWindow(); syncMotion() }
+    override fun onVisibilityAggregated(isVisible: Boolean) {
+        super.onVisibilityAggregated(isVisible)
+        if (isVisible) syncMotion() else colorField.stop()
+    }
+    override fun onWindowVisibilityChanged(visibility: Int) {
+        super.onWindowVisibilityChanged(visibility); syncMotion()
+    }
+    override fun onDetachedFromWindow() { colorField.stop(); super.onDetachedFromWindow() }
 }
 
 /** Preserve the original adaptive background's 1.5× center framing, but not its OS mask.

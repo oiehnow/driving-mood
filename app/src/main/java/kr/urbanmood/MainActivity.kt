@@ -68,6 +68,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var camera: VideoCaptureController
     private lateinit var recordedAnalyzer: RecordedSceneAnalyzer
     private lateinit var completionCue: CompletionCue
+    private lateinit var clickSound: kr.urbanmood.integration.ClickSoundPlayer
     private lateinit var decodedPreview: ImageView
     private var displayedBitmap: Bitmap? = null
     private lateinit var lightingText: TextView
@@ -159,6 +160,7 @@ class MainActivity : ComponentActivity() {
         androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightNavigationBars = true
         session = ViewModelProvider(this)[SessionState::class.java]
         services = AppServices(applicationContext) { session.kmaKey }
+        clickSound = kr.urbanmood.integration.ClickSoundPlayer(this)
         buildScreen()
         camera = VideoCaptureController(this, this, preview)
         recordedAnalyzer = RecordedSceneAnalyzer(services.vision)
@@ -198,11 +200,13 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         foreground = true
+        clickSound.setForeground(true)
         updateControls()
     }
 
     override fun onPause() {
         foreground = false
+        clickSound.setForeground(false)
         if (!permissionInFlight) cancelAnalysis("분석을 취소했습니다. 다시 누르면 새로 분석합니다.")
         session.genres = preferenceInput.text.toString()
         services.audio.pause()
@@ -220,6 +224,7 @@ class MainActivity : ComponentActivity() {
         camera.close()
         recordedAnalyzer.close()
         completionCue.close()
+        clickSound.close()
         clearDecodedPreview()
         services.environment.close()
         services.audio.close()
@@ -460,7 +465,10 @@ class MainActivity : ComponentActivity() {
         resultShell = shell
         val stage = FrameLayout(this).apply { setBackgroundColor(paper) }
         stage.addView(shell, FrameLayout.LayoutParams(-1, -1))
-        logoJourney = kr.urbanmood.ui.LogoJourneyView(this).apply { onStart = { startAnalysis() } }
+        logoJourney = kr.urbanmood.ui.LogoJourneyView(this).apply {
+            actionView.isSoundEffectsEnabled = false
+            onStart = { clickSound.play(); startAnalysis() }
+        }
         stage.addView(logoJourney, FrameLayout.LayoutParams(-1, -1))
         analyzeButton = logoJourney.actionView
         settingsShortcut = ImageButton(this).apply {
@@ -469,7 +477,8 @@ class MainActivity : ComponentActivity() {
             setBackgroundColor(Color.TRANSPARENT)
             setPadding(dp(12), dp(12), dp(12), dp(12))
             contentDescription = "설정"
-            setOnClickListener { selectPage(2) }
+            isSoundEffectsEnabled = false
+            setOnClickListener { clickSound.play(); selectPage(2) }
         }
         stage.addView(settingsShortcut, FrameLayout.LayoutParams(dp(48), dp(48),
             android.view.Gravity.BOTTOM or android.view.Gravity.END).apply {
@@ -935,7 +944,8 @@ class MainActivity : ComponentActivity() {
             background = android.graphics.drawable.RippleDrawable(ColorStateList.valueOf(0x18002c5f),
                 GradientDrawable().apply { setColor(Color.rgb(237, 241, 246)); cornerRadius = dp(14).toFloat() }, null)
             stateListAnimator = null
-            setOnClickListener { action() }
+            isSoundEffectsEnabled = false
+            setOnClickListener { clickSound.play(); action() }
         }
         parent.addView(button, LinearLayout.LayoutParams(0, dp(56), 1f).apply {
             topMargin = dp(6); bottomMargin = dp(6); marginStart = dp(3); marginEnd = dp(3)
@@ -963,7 +973,8 @@ class MainActivity : ComponentActivity() {
                 compoundDrawablePadding = dp(6)
                 compoundDrawableTintList = ColorStateList.valueOf(ink)
             }
-            setOnClickListener { action() }
+            isSoundEffectsEnabled = false
+            setOnClickListener { clickSound.play(); action() }
         }
         val params = if (parent.orientation == LinearLayout.HORIZONTAL) LinearLayout.LayoutParams(0, -2, 1f)
         else LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)

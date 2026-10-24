@@ -10,7 +10,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 /** A moving mood color field. Only this drawable redraws; text, layout and analysis remain unchanged. */
-internal class MoodGradientDrawable(private val cornerRadius: Float) : Drawable(), Animatable {
+internal class MoodGradientDrawable(private val cornerRadius: Float, private val orbitDurationMs: Long = 12_000) : Drawable(), Animatable {
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val glowPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val clip = Path()
@@ -72,7 +72,7 @@ internal class MoodGradientDrawable(private val cornerRadius: Float) : Drawable(
     override fun start() {
         if (isRunning || !ValueAnimator.areAnimatorsEnabled()) return
         drift = ValueAnimator.ofFloat(phase, phase + (Math.PI * 2).toFloat()).apply {
-            duration = 12_000; repeatCount = ValueAnimator.INFINITE; interpolator = LinearInterpolator()
+            duration = orbitDurationMs; repeatCount = ValueAnimator.INFINITE; interpolator = LinearInterpolator()
             addUpdateListener { phase = it.animatedValue as Float; invalidateSelf() }
             start()
         }

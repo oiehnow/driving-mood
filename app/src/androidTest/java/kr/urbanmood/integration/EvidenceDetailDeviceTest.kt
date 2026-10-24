@@ -41,8 +41,8 @@ class EvidenceDetailDeviceTest {
     @Test fun savedDrivingResultsShowVisualEvidenceAndRecommendationConnection() {
         val context = instrumentation.targetContext
         val info = context.packageManager.getPackageInfo(context.packageName, 0)
-        assertEquals("0.3.7", info.versionName)
-        assertEquals(15L, info.longVersionCode)
+        assertEquals("0.3.8", info.versionName)
+        assertEquals(16L, info.longVersionCode)
         val activity = launchActivity()
         try {
             instrumentation.runOnMainSync {
