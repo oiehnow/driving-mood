@@ -1,0 +1,102 @@
+{
+  "status": "completed",
+  "training": {
+    "epochs": 30,
+    "optimizerSteps": 180,
+    "selectedBestEpoch": 2,
+    "selectedUsing": "official trainer validation fitness on clip02 only",
+    "checkpointSha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1",
+    "changedTensors": 104
+  },
+  "metrics": {
+    "macroIoUSupportedGT": {
+      "before": 0.6043630726961378,
+      "after": 0.5875522188608514,
+      "deltaPercentagePoints": -1.6810853835286355
+    },
+    "pixelAccuracy": {
+      "before": 0.8230701398040168,
+      "after": 0.8618605526766872,
+      "deltaPercentagePoints": 3.8790412872670377
+    },
+    "macroIoUUnionSupported": {
+      "before": 0.4029087151307585,
+      "after": 0.47004177508868106,
+      "deltaPercentagePoints": 6.713305995792257
+    }
+  },
+  "classes": [
+    {
+      "id": 1,
+      "name": "building",
+      "gtPixels": 2627,
+      "beforeIoU": 0.5577494692144374,
+      "afterIoU": 0.5620453572956782,
+      "deltaPercentagePoints": 0.42958880812408173
+    },
+    {
+      "id": 2,
+      "name": "sky",
+      "gtPixels": 33507,
+      "beforeIoU": 0.9787139820500709,
+      "afterIoU": 0.9797768068020785,
+      "deltaPercentagePoints": 0.10628247520075851
+    },
+    {
+      "id": 6,
+      "name": "road",
+      "gtPixels": 44593,
+      "beforeIoU": 0.704727822356576,
+      "afterIoU": 0.7979637425895696,
+      "deltaPercentagePoints": 9.323592023299355
+    },
+    {
+      "id": 8,
+      "name": "windowpane",
+      "gtPixels": 1254,
+      "beforeIoU": 0.0,
+      "afterIoU": 0.0,
+      "deltaPercentagePoints": 0.0
+    },
+    {
+      "id": 11,
+      "name": "sidewalk",
+      "gtPixels": 6704,
+      "beforeIoU": 0.6280107047279215,
+      "afterIoU": 0.39509293680297397,
+      "deltaPercentagePoints": -23.291776792494755
+    },
+    {
+      "id": 12,
+      "name": "person",
+      "gtPixels": 1611,
+      "beforeIoU": 0.9863438857852266,
+      "afterIoU": 0.9869646182495344,
+      "deltaPercentagePoints": 0.062073246430782714
+    },
+    {
+      "id": 20,
+      "name": "car",
+      "gtPixels": 9793,
+      "beforeIoU": 0.9793587174348697,
+      "afterIoU": 0.9785742891469764,
+      "deltaPercentagePoints": -0.07844282878932685
+    },
+    {
+      "id": 43,
+      "name": "signboard",
+      "gtPixels": 838,
+      "beforeIoU": 0.0,
+      "afterIoU": 0.0,
+      "deltaPercentagePoints": 0.0
+    }
+  ],
+  "humanVerifiedLabels": false,
+  "heldoutImages": 8,
+  "heldoutSourceVideos": 2,
+  "annotatedPixels": 100927,
+  "labeledCoverage": 0.054756401909722224,
+  "testRetuning": false,
+  "conclusion": "Mixed result; primary class mean IoU regressed. Keep official pretrained baseline. No generalization or complete vehicle-light-exclusion claim.",
+  "annotationScope": "AI-assisted partial interior polygons; unknown255; not human-verified dense ground truth"
+}

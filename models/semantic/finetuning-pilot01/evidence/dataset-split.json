@@ -1,0 +1,540 @@
+{
+  "datasetFingerprint": "5ce3b399089bec9c478f3f3418322a9bd4457af7b61eb707f0354f8bf82639a5",
+  "frozenManifestSha256": "27e7cb5b1b352e217c6836896b574d6dd275bb81c164f5e6c608f1adf47b6986",
+  "sourceVideoSplits": {
+    "train": [
+      "244a5b66974914fca1ffb2f57f60998eafde56f7e487ea976db4f0994bea6d82",
+      "24b5b7bd01a51b20ba1fd951c45a632d90c762f92829bf692c0e399b49a1fd27",
+      "8cbab2b15b88998af1f5c0474e7df1cda794cb0935d338a4372badcbfcf8ec97"
+    ],
+    "val": [
+      "5218261065b0f15c6f71cad1aea7632bfc7918499c7f7d7b2e68bb40fe71b0f7"
+    ],
+    "test": [
+      "af3048d2725c6b07b84b8278dba9dd281fde4b09167349e2e1e15704723665f5",
+      "df117c523e1f640f0c5ae3dbd5155813b208e12e0ceb613d4f57331963de02c9"
+    ]
+  },
+  "sourceVideoCounts": {
+    "train": 3,
+    "val": 1,
+    "test": 2
+  },
+  "frameCounts": {
+    "train": 12,
+    "val": 4,
+    "test": 8
+  },
+  "trainingGridStatistics": {
+    "train": {
+      "images": 12,
+      "annotatedPixels": 44911,
+      "ignorePixels": 1183889,
+      "classCounts": {
+        "0": 2581,
+        "1": 805,
+        "2": 11287,
+        "5": 3478,
+        "6": 16480,
+        "8": 59,
+        "11": 32,
+        "12": 59,
+        "20": 4100,
+        "43": 2951,
+        "80": 1923,
+        "83": 1156
+      }
+    },
+    "val": {
+      "images": 4,
+      "annotatedPixels": 16533,
+      "ignorePixels": 393067,
+      "classCounts": {
+        "2": 13530,
+        "6": 2820,
+        "20": 32,
+        "43": 151
+      }
+    }
+  },
+  "testUsedForTrainingOrSelection": false,
+  "humanVerified": false,
+  "ignoreIndex": 255,
+  "numClasses": 150,
+  "samples": [
+    {
+      "sampleId": "clip-01-000000",
+      "split": "train",
+      "sourceVideoSha256": "8cbab2b15b88998af1f5c0474e7df1cda794cb0935d338a4372badcbfcf8ec97",
+      "sourcePtsMs": 0.0,
+      "originalImageSha256": "adddd87cd63ecd4a818913a9e6576f44e702a20b734b75ae964bba5708425768",
+      "originalMaskSha256": "be71de732c6509259782b85aeb2b0172331b1bf98aa1130cbddc913109df130b",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 1130,
+      "ignorePixels": 101270,
+      "classCounts": {
+        "6": 453,
+        "20": 413,
+        "83": 264
+      }
+    },
+    {
+      "sampleId": "clip-01-000080",
+      "split": "train",
+      "sourceVideoSha256": "8cbab2b15b88998af1f5c0474e7df1cda794cb0935d338a4372badcbfcf8ec97",
+      "sourcePtsMs": 8000.0,
+      "originalImageSha256": "097695f7c0c9fe571b6ed4f508be4511c6bc7de4db6eb25eaddfb3099098d08f",
+      "originalMaskSha256": "516e58c5dec995c22f34a485765fc88d79d0ded1d4209aac85289dc0ec88e38e",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 1296,
+      "ignorePixels": 101104,
+      "classCounts": {
+        "6": 295,
+        "20": 109,
+        "83": 892
+      }
+    },
+    {
+      "sampleId": "clip-01-000160",
+      "split": "train",
+      "sourceVideoSha256": "8cbab2b15b88998af1f5c0474e7df1cda794cb0935d338a4372badcbfcf8ec97",
+      "sourcePtsMs": 16000.0,
+      "originalImageSha256": "5b6116defc5f972d1b35b2cb4193321e99974d47fbbdf71a910f174e02bea24d",
+      "originalMaskSha256": "bacbf9ddfeba96f249d03220b0c8c3016c77c4259d5d7e0a22b56d416a2864eb",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 564,
+      "ignorePixels": 101836,
+      "classCounts": {
+        "6": 324,
+        "20": 240
+      }
+    },
+    {
+      "sampleId": "clip-01-000240",
+      "split": "train",
+      "sourceVideoSha256": "8cbab2b15b88998af1f5c0474e7df1cda794cb0935d338a4372badcbfcf8ec97",
+      "sourcePtsMs": 24000.0,
+      "originalImageSha256": "c110c323e3b55c386d072faeb7b0a17c108401ce465a55683039c1f77082c597",
+      "originalMaskSha256": "2aac0378e297f6a4eca74c3bb2573371295d8658f1f15fd9b321609688c94e93",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 842,
+      "ignorePixels": 101558,
+      "classCounts": {
+        "6": 347,
+        "20": 495
+      }
+    },
+    {
+      "sampleId": "clip-02-000000",
+      "split": "val",
+      "sourceVideoSha256": "5218261065b0f15c6f71cad1aea7632bfc7918499c7f7d7b2e68bb40fe71b0f7",
+      "sourcePtsMs": 48000.0,
+      "originalImageSha256": "16a7595eda9d98249e8ba19ec8a9341a94e8ba6488a48a2db5c98dc7d1233780",
+      "originalMaskSha256": "4aeec314295cf1b205d54909e2e891d18be303f1ce2db1a1fdd0bf25505809b8",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 5392,
+      "ignorePixels": 97008,
+      "classCounts": {
+        "2": 5000,
+        "6": 392
+      }
+    },
+    {
+      "sampleId": "clip-02-000150",
+      "split": "val",
+      "sourceVideoSha256": "5218261065b0f15c6f71cad1aea7632bfc7918499c7f7d7b2e68bb40fe71b0f7",
+      "sourcePtsMs": 63000.0,
+      "originalImageSha256": "7eb9cdd558c7043dc4a9c17e6e0f24fb397db478c3f0cdea04c2fd8fe61b2333",
+      "originalMaskSha256": "d746270fa2a6a2e8b2ed0dff0cd9725e7094c708d7b3b5dbace12362484494a4",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 4079,
+      "ignorePixels": 98321,
+      "classCounts": {
+        "2": 3250,
+        "6": 797,
+        "20": 32
+      }
+    },
+    {
+      "sampleId": "clip-02-000300",
+      "split": "val",
+      "sourceVideoSha256": "5218261065b0f15c6f71cad1aea7632bfc7918499c7f7d7b2e68bb40fe71b0f7",
+      "sourcePtsMs": 78000.0,
+      "originalImageSha256": "ccc474892623af18048bc14557f3e82d201552388b42f2ae91edb1380d2492e6",
+      "originalMaskSha256": "2bc1d8dd727393727e6868f0f94762810951cb3b1dcc5ccad2227250c2ed6a94",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 3957,
+      "ignorePixels": 98443,
+      "classCounts": {
+        "2": 2700,
+        "6": 1257
+      }
+    },
+    {
+      "sampleId": "clip-02-000450",
+      "split": "val",
+      "sourceVideoSha256": "5218261065b0f15c6f71cad1aea7632bfc7918499c7f7d7b2e68bb40fe71b0f7",
+      "sourcePtsMs": 93000.0,
+      "originalImageSha256": "27e7f451d96b77d869e06f57cf46d489b94c305fe86fc6c7c38efdc3fc0015d4",
+      "originalMaskSha256": "3e9322392dcbaf4467b82f6cda2c638cffe955e16bf7a3989f5f0b7376d1f4ed",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 3105,
+      "ignorePixels": 99295,
+      "classCounts": {
+        "2": 2580,
+        "6": 374,
+        "43": 151
+      }
+    },
+    {
+      "sampleId": "clip-03-000400",
+      "split": "train",
+      "sourceVideoSha256": "244a5b66974914fca1ffb2f57f60998eafde56f7e487ea976db4f0994bea6d82",
+      "sourcePtsMs": 130029.9,
+      "originalImageSha256": "c7504165ecbf6a18c13eaba2367837261a71dce80e5737bf495323f9a2ca683e",
+      "originalMaskSha256": "1a0e41728981d4f12c76234fea2ede0b2d541200ce06e644376f4bc02888baaa",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 4201,
+      "ignorePixels": 98199,
+      "classCounts": {
+        "1": 240,
+        "6": 1931,
+        "20": 1172,
+        "43": 372,
+        "80": 486
+      }
+    },
+    {
+      "sampleId": "clip-03-000550",
+      "split": "train",
+      "sourceVideoSha256": "244a5b66974914fca1ffb2f57f60998eafde56f7e487ea976db4f0994bea6d82",
+      "sourcePtsMs": 145011.53333333335,
+      "originalImageSha256": "a84bb46effc61477cfdd4c8b356a9b44105163884e4221015b8067e84c6d7e97",
+      "originalMaskSha256": "4aaa13e7f4db67c4f2e6c56e4e8111f89e64fb220489c4c44513c0518aa3500f",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 2976,
+      "ignorePixels": 99424,
+      "classCounts": {
+        "6": 2221,
+        "20": 345,
+        "43": 84,
+        "80": 326
+      }
+    },
+    {
+      "sampleId": "clip-03-000700",
+      "split": "train",
+      "sourceVideoSha256": "244a5b66974914fca1ffb2f57f60998eafde56f7e487ea976db4f0994bea6d82",
+      "sourcePtsMs": 160026.53333333333,
+      "originalImageSha256": "1b596461c28075eab435c1141f0cfdebb3fc11451622a265f6b74cdafc2585aa",
+      "originalMaskSha256": "de77629e3bba277cc4f9398890beea4a6c6f5b280ce30fa3839b84e4982ea2f0",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 4939,
+      "ignorePixels": 97461,
+      "classCounts": {
+        "1": 396,
+        "6": 1671,
+        "12": 59,
+        "20": 153,
+        "43": 2195,
+        "80": 465
+      }
+    },
+    {
+      "sampleId": "clip-03-000850",
+      "split": "train",
+      "sourceVideoSha256": "244a5b66974914fca1ffb2f57f60998eafde56f7e487ea976db4f0994bea6d82",
+      "sourcePtsMs": 175008.1666666667,
+      "originalImageSha256": "dee01525a0fccd498752bc450f18a54b235a04b9f28bca5a803945037e026ec1",
+      "originalMaskSha256": "b4ab09abe8a98e4f0f53f13baa20c4520a9152023281c4ad0f50b88a5e07ea75",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 2605,
+      "ignorePixels": 99795,
+      "classCounts": {
+        "6": 1893,
+        "20": 66,
+        "80": 646
+      }
+    },
+    {
+      "sampleId": "clip-05-000000",
+      "split": "train",
+      "sourceVideoSha256": "24b5b7bd01a51b20ba1fd951c45a632d90c762f92829bf692c0e399b49a1fd27",
+      "sourcePtsMs": 0.0,
+      "originalImageSha256": "7619b6e24d5fc51ce7849788a7aab55122b4b7bd4a707b01763b1e08168ec86c",
+      "originalMaskSha256": "58e1d3a012e9734a5deb05200d37c10fd2a4fd9837c90eb6ac8873ebec22aee3",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 8557,
+      "ignorePixels": 93843,
+      "classCounts": {
+        "0": 2581,
+        "5": 3478,
+        "6": 2380,
+        "20": 118
+      }
+    },
+    {
+      "sampleId": "clip-05-000150",
+      "split": "train",
+      "sourceVideoSha256": "24b5b7bd01a51b20ba1fd951c45a632d90c762f92829bf692c0e399b49a1fd27",
+      "sourcePtsMs": 15015.0,
+      "originalImageSha256": "d528cc4af98cb7d07de6bce4a5a0fb7467d05a68755a4b10be81d5103791b12a",
+      "originalMaskSha256": "e3655d5b933640fc83aa6f209be4e94f097656ff92621c9660fbf18b93a05ece",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 7641,
+      "ignorePixels": 94759,
+      "classCounts": {
+        "1": 44,
+        "2": 5232,
+        "6": 1683,
+        "20": 382,
+        "43": 300
+      }
+    },
+    {
+      "sampleId": "clip-05-000300",
+      "split": "train",
+      "sourceVideoSha256": "24b5b7bd01a51b20ba1fd951c45a632d90c762f92829bf692c0e399b49a1fd27",
+      "sourcePtsMs": 30030.0,
+      "originalImageSha256": "7d23dd3b4e79bf127d0a35822a3a346cacedf6d51446075387e7742b76db15c8",
+      "originalMaskSha256": "7ebeac56d218dc5a74b033614588eb1b86ce04dede70d0cebd8b8b54c7ba23ff",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 6327,
+      "ignorePixels": 96073,
+      "classCounts": {
+        "1": 62,
+        "2": 3535,
+        "6": 2600,
+        "8": 39,
+        "20": 91
+      }
+    },
+    {
+      "sampleId": "clip-05-000450",
+      "split": "train",
+      "sourceVideoSha256": "24b5b7bd01a51b20ba1fd951c45a632d90c762f92829bf692c0e399b49a1fd27",
+      "sourcePtsMs": 45011.63333333334,
+      "originalImageSha256": "9b7f8376e10f19786c928cd715ad7d8ef8c7329a176acf8f1c24ef29018c0e29",
+      "originalMaskSha256": "e6c69c9630a8a4845a2e336a0bdaa46e2bba13880f1e03195e991b2fa8290158",
+      "originalSize": [
+        640,
+        360
+      ],
+      "resizedSize": [
+        320,
+        180
+      ],
+      "padding": [
+        0,
+        70,
+        0,
+        70
+      ],
+      "annotatedPixels": 3833,
+      "ignorePixels": 98567,
+      "classCounts": {
+        "1": 63,
+        "2": 2520,
+        "6": 682,
+        "8": 20,
+        "11": 32,
+        "20": 516
+      }
+    }
+  ]
+}

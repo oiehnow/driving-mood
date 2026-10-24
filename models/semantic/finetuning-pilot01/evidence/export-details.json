@@ -1,0 +1,60 @@
+{
+  "differentPixelDetails": [
+    {
+      "sampleId": "clip-02-000000",
+      "x": 94,
+      "y": 21,
+      "insideImageContent": false,
+      "pytorchClass": 6,
+      "onnxClass": 3,
+      "ortClass": 6,
+      "pytorchTop2ClassIds": [
+        6,
+        3
+      ],
+      "pytorchTop2Logits": [
+        7.170804023742676,
+        7.170791149139404
+      ],
+      "pytorchReferenceMargin": 1.2874603271484375e-05,
+      "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+    },
+    {
+      "sampleId": "clip-03-000850",
+      "x": 102,
+      "y": 286,
+      "insideImageContent": false,
+      "pytorchClass": 5,
+      "onnxClass": 2,
+      "ortClass": 5,
+      "pytorchTop2ClassIds": [
+        5,
+        2
+      ],
+      "pytorchTop2Logits": [
+        6.716446399688721,
+        6.716409206390381
+      ],
+      "pytorchReferenceMargin": 3.719329833984375e-05,
+      "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+    }
+  ],
+  "onnxStructuredLocalPathMatches": [],
+  "ortPrintableLocalPathMatchesOutsideTensorBytes": [],
+  "incidentalAsciiPatternsInsideNumericTensorBytes": [
+    {
+      "stringSha256": "461a38195e026f19aa5d1a4cffcd0ce0cd76388175eb90a2623315ce44c2c0d0",
+      "offset": 3728096,
+      "length": 9,
+      "tensor": "model.graph.initializer[56]"
+    },
+    {
+      "stringSha256": "e2a2c8131a20f8c62cc7cbe6587b7a81ba83f7a4a6fea869c0604d4f80649906",
+      "offset": 3982088,
+      "length": 4,
+      "tensor": "model.graph.initializer[56]"
+    }
+  ],
+  "allObservedDifferencesInsideLetterboxPadding": true,
+  "note": "Small argmax disagreements preserved; no accuracy improvement inferred from runtime parity."
+}

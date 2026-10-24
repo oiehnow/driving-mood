@@ -1,0 +1,13 @@
+{
+  "before": 5.465783596038818,
+  "afterIgnoreOnlyPerturbation": 5.465783596038818,
+  "ignoredGradientAbsSum": 0.0,
+  "wall0GradientAbsSum": 0.9931482076644897,
+  "car20GradientAbsSum": 0.9945640563964844,
+  "items": {
+    "ce_loss": 5.28115177154541,
+    "dice_loss": 0.18463173508644104,
+    "aux_loss": 0.0
+  },
+  "source": "official Ultralytics SemanticSegmentationLoss; numeric fixture; not real-frame accuracy"
+}

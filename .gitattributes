@@ -3,3 +3,5 @@
 *.pt binary
 *.onnx binary
 *.ort binary
+# Research snapshots include hashes of the original files and upstream notices.
+models/semantic/finetuning-pilot01/** -text -whitespace

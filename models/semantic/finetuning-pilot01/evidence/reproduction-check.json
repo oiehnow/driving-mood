@@ -1,0 +1,169 @@
+{
+  "actualPreparedFilesCompared": 32,
+  "allTrainingInputHashesMatch": true,
+  "newTrainingExecuted": false,
+  "testPixelsRead": false,
+  "scriptSyntaxParsed": true,
+  "files": [
+    {
+      "file": "images/train/clip-01-000000.png",
+      "sha256": "4f5c627b8ce6a6748fb44c0dbfda16cada86b78344da4526028b2f2f2fb7eea6",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-01-000000.png",
+      "sha256": "0f0f6842e4059b182f79e8f58252ff3205973cb834fc2a3a4343c5f159fdd7bf",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-01-000080.png",
+      "sha256": "f1d9957139b1c280d6e046d488e33a44fd58af6f7d52badd590633f40fc524bb",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-01-000080.png",
+      "sha256": "a9792a55952fb139417643a1b5c0cd6f23be9effab47e8760194513e7e43f520",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-01-000160.png",
+      "sha256": "d79ed8e7531973dc3a1562c107322ad3545b685065809b3fe216bb9f566d8646",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-01-000160.png",
+      "sha256": "4ec501fb89aad43e8ec6eb649cacb6a5b219522d6307eb762abe43ca74640795",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-01-000240.png",
+      "sha256": "7d3034b57dac7cf6cd81a9ee8d2dc4b3a75972cac816e126aa5abeba964d7e93",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-01-000240.png",
+      "sha256": "fcec4ace2e5bf01eaedee0607ab9f1082b929fada234ab2b24c34958ad64074a",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/val/clip-02-000000.png",
+      "sha256": "f43de740f485337aaba69fed60ba4aec3cd1cd997ee543f25a545154aaee63d2",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/val/clip-02-000000.png",
+      "sha256": "bcb5c50cb79ef82ecf6c0d7b75bb60e01d96b8652c85ac9c70af75732882e703",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/val/clip-02-000150.png",
+      "sha256": "f944740aea887980b41c676d06f13f9ee3aa8c0ea8e4ce58c426ef71dc77bb26",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/val/clip-02-000150.png",
+      "sha256": "ce5b1cd4ae0c9dc5a2e75adbcb5ad41edd18d18ce27b3605743cfcded32d60b8",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/val/clip-02-000300.png",
+      "sha256": "e2cf26ad6a1c16db428b4b1916a95f8875db7c880bfd48de4077fad143ac68f1",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/val/clip-02-000300.png",
+      "sha256": "e10d5d0a7cc4ea91a77cfe46e989766c075d7ea6f205bda0d8d5e89fe0d4b71e",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/val/clip-02-000450.png",
+      "sha256": "f22a8e27d9d3c603e40f1826452b4a540ca0797b134ab17e29bebcd70ff9b56d",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/val/clip-02-000450.png",
+      "sha256": "1f05a1350c531a5a507b4b7eddd956606f1ddbc6d5af81722cd0aeff8891bb3b",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-03-000400.png",
+      "sha256": "3982509341dcd2d47727dd5eed68fa14206b3cc964bcd9a6fe175ca931605ea9",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-03-000400.png",
+      "sha256": "f3cfbe2a6476556473b7892b884491543e3f2627eb7ea9346ecf932e39e58ed9",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-03-000550.png",
+      "sha256": "175d677cc887f1850977396a9908cdb19fc2d38dbb4b0a249c9394c70e7a7bba",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-03-000550.png",
+      "sha256": "9950ec283e3fa1713d3dbf3b4f09835cc44590ddc1b8d406a61ccdf49f02fea0",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-03-000700.png",
+      "sha256": "c457572f18fe05e4bf390c4a4d03c2281597fbea5c713047eac3bc4389e2d262",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-03-000700.png",
+      "sha256": "af6164439653729eccd5dfe0c395c57743bd100330777c142fdea8faa3db416c",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-03-000850.png",
+      "sha256": "8455115ccf22597090ec9500d8bc02c1982cc1c68e10d9d76e927365f9363939",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-03-000850.png",
+      "sha256": "33f927c93752834dcc728c2ea3cf4d3ab8e8328e27a46b486fc0acdae591ee4b",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-05-000000.png",
+      "sha256": "056d1b55cb274c177ea21a2c8c24cfeece82cc0073256f675cf7bac0c50a605e",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-05-000000.png",
+      "sha256": "33f1b3a2a980b2cd6c4a546cb6d7d1c2d2ffcae4c7b8ae160bd8cb928ec86040",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-05-000150.png",
+      "sha256": "7a6f92cd5040f8f0dabdd15460a0709d8b22875c99d82d9e336b5fa769136c7d",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-05-000150.png",
+      "sha256": "ba394609038ea0e18f1eeeb67918ebafeda99f9cbd09e840febb8d55520167cf",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-05-000300.png",
+      "sha256": "7fe2a93bafb404bd579558a5ab2aed1e1268966b0c94d748cd3d7b02f94ea7b5",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-05-000300.png",
+      "sha256": "12d658cb07704624695f0592d4837c47651bd1d1a283d060520940cbbc751851",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "images/train/clip-05-000450.png",
+      "sha256": "5703bb8195ea5f7ebbbc78399ced681b1e21511a9a9324642fa075f1c8e797d7",
+      "identicalToTrainingInput": true
+    },
+    {
+      "file": "masks/train/clip-05-000450.png",
+      "sha256": "c4ee7bad4e128e4b15cf92d935207292f046a4555bd9cac85939dec029d9e40a",
+      "identicalToTrainingInput": true
+    }
+  ]
+}

@@ -1,0 +1,531 @@
+{
+  "status": "completed_research_pilot_not_promoted",
+  "date": "2026-10-24",
+  "productBaseline": "0.3.1 official pretrained YOLO26n-sem-ADE20K",
+  "training": {
+    "epochs": 30,
+    "optimizerSteps": 180,
+    "bestEpoch": 2,
+    "firstLosses": {
+      "train/ce_loss": 1.69656,
+      "train/dice_loss": 0.46118,
+      "train/aux_loss": 0.70363
+    },
+    "lastLosses": {
+      "train/ce_loss": 0.01821,
+      "train/dice_loss": 0.02508,
+      "train/aux_loss": 0.00887
+    }
+  },
+  "weights": {
+    "best": {
+      "bytes": 3492835,
+      "sha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1",
+      "changedTensors": 104,
+      "unchangedTensors": 260
+    },
+    "last": {
+      "bytes": 3492835,
+      "sha256": "7ceab8a3d36d6c0213ea2f244191cd7dae0fdcfd8773d72032fa4ec538a2a702",
+      "changedTensors": 104,
+      "unchangedTensors": 260
+    }
+  },
+  "baselineCheckpointSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+  "dataset": {
+    "fingerprint": "5ce3b399089bec9c478f3f3418322a9bd4457af7b61eb707f0354f8bf82639a5",
+    "splits": {
+      "train": {
+        "videos": [
+          "clip-01",
+          "clip-03",
+          "clip-05"
+        ],
+        "images": 12
+      },
+      "validation": {
+        "videos": [
+          "clip-02"
+        ],
+        "images": 4
+      },
+      "test": {
+        "videos": [
+          "clip-04",
+          "clip-06"
+        ],
+        "images": 8
+      }
+    },
+    "annotation": "AI-assisted partial interior polygons, not human-verified dense ground truth",
+    "ignoreValue": 255,
+    "classContract": "ADE20K 0..149; 0 is wall",
+    "sourceVideosAndLabelsPublished": false
+  },
+  "evaluationProtocol": {
+    "version": "partial-heldout-v1",
+    "frozenBeforeFineTunedTestPredictions": true,
+    "split": "test",
+    "sourceVideos": [
+      "clip-04",
+      "clip-06"
+    ],
+    "samples": 8,
+    "modelSelection": "B pilot01 best checkpoint selected on validation only; one heldout comparison, no tuning from test",
+    "inference": "Both ONNX models: fixed320 RGB/255 NCHW, OpenCV INTER_LINEAR aspect-preserving resize, centered114padding, 2 CPU threads",
+    "predictionAlignment": "crop padding, nearest-exact upsample uint8 class map to original640x360; identical preprocessing both models",
+    "primaryEvaluationGrid": "original640x360, only frozen label !=255 pixels",
+    "primaryMetrics": [
+      "IoU per ground-truth-supported class",
+      "macroIoU over8 ground-truth-supported classes",
+      "pixelAccuracy"
+    ],
+    "secondaryMetrics": [
+      "IoU over union-supported classes including false-positive-only classes",
+      "per-source-video metrics",
+      "class confusion counts",
+      "eligible-surface confusion risks"
+    ],
+    "absentClassPolicy": "ground-truth-absent classes are null in primary average, never perfect; false-positive-only counts reported separately",
+    "annotationLimit": "AI-assisted partial interior polygons, not human-verified dense ground truth or full-image boundary evaluation",
+    "noTestRetuning": true
+  },
+  "evaluation": {
+    "baseline": {
+      "metrics": {
+        "annotatedPixels": 100927,
+        "pixelAccuracy": 0.8230701398040168,
+        "macroIoUSupportedGT": 0.6043630726961378,
+        "macroIoUUnionSupported": 0.4029087151307585,
+        "classes": {
+          "0": {
+            "gtPixels": 0,
+            "predictedOnLabeledPixels": 10,
+            "truePositivePixels": 0,
+            "iou": null,
+            "recall": null,
+            "precision": 0.0
+          },
+          "1": {
+            "gtPixels": 2627,
+            "predictedOnLabeledPixels": 4710,
+            "truePositivePixels": 2627,
+            "iou": 0.5577494692144374,
+            "recall": 1.0,
+            "precision": 0.5577494692144374
+          },
+          "2": {
+            "gtPixels": 33507,
+            "predictedOnLabeledPixels": 33516,
+            "truePositivePixels": 33151,
+            "iou": 0.9787139820500709,
+            "recall": 0.9893753544035575,
+            "precision": 0.989109678959303
+          },
+          "3": {
+            "gtPixels": 0,
+            "predictedOnLabeledPixels": 7463,
+            "truePositivePixels": 0,
+            "iou": null,
+            "recall": null,
+            "precision": 0.0
+          },
+          "6": {
+            "gtPixels": 44593,
+            "predictedOnLabeledPixels": 32101,
+            "truePositivePixels": 31705,
+            "iou": 0.704727822356576,
+            "recall": 0.7109860291974076,
+            "precision": 0.9876639357029376
+          },
+          "8": {
+            "gtPixels": 1254,
+            "predictedOnLabeledPixels": 0,
+            "truePositivePixels": 0,
+            "iou": 0.0,
+            "recall": 0.0,
+            "precision": null
+          },
+          "11": {
+            "gtPixels": 6704,
+            "predictedOnLabeledPixels": 4246,
+            "truePositivePixels": 4224,
+            "iou": 0.6280107047279215,
+            "recall": 0.630071599045346,
+            "precision": 0.9948186528497409
+          },
+          "12": {
+            "gtPixels": 1611,
+            "predictedOnLabeledPixels": 1589,
+            "truePositivePixels": 1589,
+            "iou": 0.9863438857852266,
+            "recall": 0.9863438857852266,
+            "precision": 1.0
+          },
+          "20": {
+            "gtPixels": 9793,
+            "predictedOnLabeledPixels": 9961,
+            "truePositivePixels": 9774,
+            "iou": 0.9793587174348697,
+            "recall": 0.9980598386602675,
+            "precision": 0.9812267844593916
+          },
+          "21": {
+            "gtPixels": 0,
+            "predictedOnLabeledPixels": 7248,
+            "truePositivePixels": 0,
+            "iou": null,
+            "recall": null,
+            "precision": 0.0
+          },
+          "43": {
+            "gtPixels": 838,
+            "predictedOnLabeledPixels": 0,
+            "truePositivePixels": 0,
+            "iou": 0.0,
+            "recall": 0.0,
+            "precision": null
+          },
+          "105": {
+            "gtPixels": 0,
+            "predictedOnLabeledPixels": 83,
+            "truePositivePixels": 0,
+            "iou": null,
+            "recall": null,
+            "precision": 0.0
+          }
+        },
+        "falsePositiveOnlyClasses": {
+          "0": 10,
+          "3": 7463,
+          "21": 7248,
+          "105": 83
+        }
+      },
+      "risks": {
+        "carLabeledPixels": 9793,
+        "carPredictedAsBuildingWindowSign": 0,
+        "roadSidewalkLabeledPixels": 51297,
+        "roadSidewalkPredictedAsBuildingWindowSign": 0,
+        "signboardLabeledPixels": 838,
+        "signboardPredictedOutsideEligibleClasses": 365,
+        "personFalsePositiveOnOtherLabeledClasses": 0,
+        "note": "Semantic confusion on labeled pixels only; not actual light-mask leakage/recall or object detection accuracy"
+      }
+    },
+    "finetuned": {
+      "metrics": {
+        "annotatedPixels": 100927,
+        "pixelAccuracy": 0.8618605526766872,
+        "macroIoUSupportedGT": 0.5875522188608514,
+        "macroIoUUnionSupported": 0.47004177508868106,
+        "classes": {
+          "1": {
+            "gtPixels": 2627,
+            "predictedOnLabeledPixels": 4674,
+            "truePositivePixels": 2627,
+            "iou": 0.5620453572956782,
+            "recall": 1.0,
+            "precision": 0.5620453572956782
+          },
+          "2": {
+            "gtPixels": 33507,
+            "predictedOnLabeledPixels": 33552,
+            "truePositivePixels": 33187,
+            "iou": 0.9797768068020785,
+            "recall": 0.9904497567672427,
+            "precision": 0.9891213638531235
+          },
+          "3": {
+            "gtPixels": 0,
+            "predictedOnLabeledPixels": 2103,
+            "truePositivePixels": 0,
+            "iou": null,
+            "recall": null,
+            "precision": 0.0
+          },
+          "6": {
+            "gtPixels": 44593,
+            "predictedOnLabeledPixels": 39113,
+            "truePositivePixels": 37150,
+            "iou": 0.7979637425895696,
+            "recall": 0.8330903953535308,
+            "precision": 0.9498120829391762
+          },
+          "8": {
+            "gtPixels": 1254,
+            "predictedOnLabeledPixels": 0,
+            "truePositivePixels": 0,
+            "iou": 0.0,
+            "recall": 0.0,
+            "precision": null
+          },
+          "11": {
+            "gtPixels": 6704,
+            "predictedOnLabeledPixels": 2678,
+            "truePositivePixels": 2657,
+            "iou": 0.39509293680297397,
+            "recall": 0.3963305489260143,
+            "precision": 0.9921583271097835
+          },
+          "12": {
+            "gtPixels": 1611,
+            "predictedOnLabeledPixels": 1590,
+            "truePositivePixels": 1590,
+            "iou": 0.9869646182495344,
+            "recall": 0.9869646182495344,
+            "precision": 1.0
+          },
+          "20": {
+            "gtPixels": 9793,
+            "predictedOnLabeledPixels": 9969,
+            "truePositivePixels": 9774,
+            "iou": 0.9785742891469764,
+            "recall": 0.9980598386602675,
+            "precision": 0.980439362022269
+          },
+          "21": {
+            "gtPixels": 0,
+            "predictedOnLabeledPixels": 7248,
+            "truePositivePixels": 0,
+            "iou": null,
+            "recall": null,
+            "precision": 0.0
+          },
+          "43": {
+            "gtPixels": 838,
+            "predictedOnLabeledPixels": 0,
+            "truePositivePixels": 0,
+            "iou": 0.0,
+            "recall": 0.0,
+            "precision": null
+          }
+        },
+        "falsePositiveOnlyClasses": {
+          "3": 2103,
+          "21": 7248
+        }
+      },
+      "risks": {
+        "carLabeledPixels": 9793,
+        "carPredictedAsBuildingWindowSign": 0,
+        "roadSidewalkLabeledPixels": 51297,
+        "roadSidewalkPredictedAsBuildingWindowSign": 0,
+        "signboardLabeledPixels": 838,
+        "signboardPredictedOutsideEligibleClasses": 365,
+        "personFalsePositiveOnOtherLabeledClasses": 0,
+        "note": "Semantic confusion on labeled pixels only; not actual light-mask leakage/recall or object detection accuracy"
+      }
+    }
+  },
+  "evaluationInputAndLabelsUnchanged": true,
+  "testUsedForTrainingOrCheckpointSelection": false,
+  "exports": {
+    "contract": {
+      "inputShape": [
+        1,
+        3,
+        320,
+        320
+      ],
+      "inputType": "float32 RGB/255 NCHW centered114padding",
+      "outputShape": [
+        1,
+        320,
+        320
+      ],
+      "outputType": "uint8",
+      "classes": 150
+    },
+    "conversion": {
+      "runtime": "1.31.0",
+      "target": "arm",
+      "optimization": "Fixed",
+      "quantized": false
+    },
+    "artifacts": [
+      {
+        "file": "best.pt",
+        "bytes": 3492835,
+        "sha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1"
+      },
+      {
+        "file": "yolo26n-sem-driving-mood-pilot01.pt",
+        "bytes": 3492835,
+        "sha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1"
+      },
+      {
+        "file": "raw-export.onnx",
+        "bytes": 6292481,
+        "sha256": "2061299bb4d96999d470a5434605aed1857017d8689babe133853afeb6237996"
+      },
+      {
+        "file": "yolo26n-sem-driving-mood-pilot01.onnx",
+        "bytes": 6292454,
+        "sha256": "57f7204fe13a50ab7498b6d2ad76ff782d5a9e62682c617b9891d81df12b3efa"
+      },
+      {
+        "file": "yolo26n-sem-driving-mood-pilot01.ort",
+        "bytes": 6386752,
+        "sha256": "f4bddf76f2f91541b36ddc86c6f7d5115e0c0cbe43907d51fdaadf2f7d369b1e"
+      }
+    ],
+    "validation": {
+      "actualTrainValFrames": 16,
+      "testFramesUsed": 0,
+      "comparisons": [
+        {
+          "sampleId": "clip-01-000000",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "177f17acaa5f0ab77287d6170665132f3a402e616f50ffd39e944a7421394e69",
+          "ortPredictionSha256": "177f17acaa5f0ab77287d6170665132f3a402e616f50ffd39e944a7421394e69"
+        },
+        {
+          "sampleId": "clip-01-000080",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "28a918e04f15ceb16638a94c448c75d9ba02bbbad7c97d5ebd9b773755464875",
+          "ortPredictionSha256": "28a918e04f15ceb16638a94c448c75d9ba02bbbad7c97d5ebd9b773755464875"
+        },
+        {
+          "sampleId": "clip-01-000160",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "c9b5b0e39054d49078bea910c005f088e18cbc4301dc23dbfca423c4260fb773",
+          "ortPredictionSha256": "c9b5b0e39054d49078bea910c005f088e18cbc4301dc23dbfca423c4260fb773"
+        },
+        {
+          "sampleId": "clip-01-000240",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "08a4dc2dd70fdfaddfd3a58bf970030a71de156a12ea0b5750e3635ab838b3bf",
+          "ortPredictionSha256": "08a4dc2dd70fdfaddfd3a58bf970030a71de156a12ea0b5750e3635ab838b3bf"
+        },
+        {
+          "sampleId": "clip-02-000000",
+          "split": "val",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 1,
+          "onnxPredictionSha256": "3da5644ca81b9904de9dfa2df4f7308407987f1cb26f7d3681023821372d3b6c",
+          "ortPredictionSha256": "6748469fdb7d2f3377a134e3975c737b6651808192a7b08e7a89cc80ce657246"
+        },
+        {
+          "sampleId": "clip-02-000150",
+          "split": "val",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "80dcf1466dbd0f9a07ee6df42569a81c40ea100fa9e4f05bedc005e4a96ab0e9",
+          "ortPredictionSha256": "80dcf1466dbd0f9a07ee6df42569a81c40ea100fa9e4f05bedc005e4a96ab0e9"
+        },
+        {
+          "sampleId": "clip-02-000300",
+          "split": "val",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "c08526795997e49dc01e8c3ed60902e65e1e7ce60b07fe3a377cf833d2b9655f",
+          "ortPredictionSha256": "c08526795997e49dc01e8c3ed60902e65e1e7ce60b07fe3a377cf833d2b9655f"
+        },
+        {
+          "sampleId": "clip-02-000450",
+          "split": "val",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "62a7ed89b177c66c91f44bdff949c8b3088cb02e7ff086ca5b3f51a21da8e979",
+          "ortPredictionSha256": "62a7ed89b177c66c91f44bdff949c8b3088cb02e7ff086ca5b3f51a21da8e979"
+        },
+        {
+          "sampleId": "clip-03-000400",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "d27a6b49f33b83dd7dcd779fe3012330dded19ee30533a5df087a3373db157fe",
+          "ortPredictionSha256": "d27a6b49f33b83dd7dcd779fe3012330dded19ee30533a5df087a3373db157fe"
+        },
+        {
+          "sampleId": "clip-03-000550",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "8a1e28d717de9058916dbd0d333e980b261d6d66a51253867aeb347309c749d8",
+          "ortPredictionSha256": "8a1e28d717de9058916dbd0d333e980b261d6d66a51253867aeb347309c749d8"
+        },
+        {
+          "sampleId": "clip-03-000700",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "51f012e25d88ecb4bc0d0a8574cb26c0f909991e413a61d5d0356212224c380f",
+          "ortPredictionSha256": "51f012e25d88ecb4bc0d0a8574cb26c0f909991e413a61d5d0356212224c380f"
+        },
+        {
+          "sampleId": "clip-03-000850",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 1,
+          "onnxVsOrtDifferentPixels": 1,
+          "onnxPredictionSha256": "6e5b5f7826e829aef3b60a43e7a3dee96163009a64fda4122da2464d1b6493ae",
+          "ortPredictionSha256": "a7f97cbe4dba033bbc6f8894040d51a6a58fe3a960b7c07b903b54bf851fd3e4"
+        },
+        {
+          "sampleId": "clip-05-000000",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "a1c231116e441727ce2d47b716f5e8289da9c4ab30c3b1dbec2f95a2a9acd77d",
+          "ortPredictionSha256": "a1c231116e441727ce2d47b716f5e8289da9c4ab30c3b1dbec2f95a2a9acd77d"
+        },
+        {
+          "sampleId": "clip-05-000150",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "49a2501b069f1ed3954baaef1465a1f042e393cd16ca71ca7769eb2969e674e7",
+          "ortPredictionSha256": "49a2501b069f1ed3954baaef1465a1f042e393cd16ca71ca7769eb2969e674e7"
+        },
+        {
+          "sampleId": "clip-05-000300",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "1eef51814aaba3a6d6e3174b6ec0cf6a9bc11171b7ee94dfa10698cf46cfb7c0",
+          "ortPredictionSha256": "1eef51814aaba3a6d6e3174b6ec0cf6a9bc11171b7ee94dfa10698cf46cfb7c0"
+        },
+        {
+          "sampleId": "clip-05-000450",
+          "split": "train",
+          "pixels": 102400,
+          "pytorchVsOnnxDifferentPixels": 0,
+          "onnxVsOrtDifferentPixels": 0,
+          "onnxPredictionSha256": "2b573a693fb41ba14690eca48a6c00921441caa55c1cd89717e8dade804b3d05",
+          "ortPredictionSha256": "2b573a693fb41ba14690eca48a6c00921441caa55c1cd89717e8dade804b3d05"
+        }
+      ],
+      "totalPyTorchOnnxDifferentPixels": 1,
+      "totalOnnxOrtDifferentPixels": 2
+    }
+  },
+  "sourceEvidenceSha256": {
+    "training-result.json": "1c20f726d4f0c1303f27a4acdfba1742fc1fcaa534faa7d5b49c3f54ef9db442",
+    "pilot-01-audit.jsonl": "c19c55921e68ec937f65cad18875db8416b092b40af1e1a168a572a6a073e322",
+    "evaluation.json": "1825f1610b6ee8881d2b05e39a14f397235521fd5def2743131cfb31d3c0d0c0"
+  }
+}

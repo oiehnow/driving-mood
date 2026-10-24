@@ -1,0 +1,143 @@
+{
+  "diagnosticOnly": true,
+  "testUsed": false,
+  "selectedCheckpointUnchanged": true,
+  "replayEpoch": 2,
+  "sameFrozen30EpochSchedule": true,
+  "trainingValidatorMetrics": {
+    "metrics/mIoU": 0.76979,
+    "metrics/pixel_acc": 0.89923,
+    "val/ce_loss": 0.40187,
+    "val/dice_loss": 0.27555,
+    "val/aux_loss": 0.0
+  },
+  "roundedReplayVsFrozenBestDifferentTensorNames": [],
+  "variants": {
+    "in_memory_fp32": {
+      "metrics": {
+        "metrics/mIoU": 0.7697874903678894,
+        "metrics/pixel_acc": 0.8992318511009216,
+        "fitness": 0.7697874903678894
+      },
+      "classes": {
+        "2": {
+          "name": "sky",
+          "groundTruthPixels": 13530,
+          "iou": 0.9670858979225159
+        },
+        "6": {
+          "name": "road",
+          "groundTruthPixels": 2820,
+          "iou": 0.43780919909477234
+        },
+        "20": {
+          "name": "car",
+          "groundTruthPixels": 32,
+          "iou": 0.6875
+        },
+        "43": {
+          "name": "signboard",
+          "groundTruthPixels": 151,
+          "iou": 0.9867549538612366
+        }
+      },
+      "differsFromInMemoryAll": 0,
+      "differsFromInMemoryLabeled": 0
+    },
+    "rounded_half_then_fp32": {
+      "metrics": {
+        "metrics/mIoU": 0.7703894376754761,
+        "metrics/pixel_acc": 0.8998367190361023,
+        "fitness": 0.7703894376754761
+      },
+      "classes": {
+        "2": {
+          "name": "sky",
+          "groundTruthPixels": 13530,
+          "iou": 0.9673733115196228
+        },
+        "6": {
+          "name": "road",
+          "groundTruthPixels": 2820,
+          "iou": 0.439929336309433
+        },
+        "20": {
+          "name": "car",
+          "groundTruthPixels": 32,
+          "iou": 0.6875
+        },
+        "43": {
+          "name": "signboard",
+          "groundTruthPixels": 151,
+          "iou": 0.9867549538612366
+        }
+      },
+      "differsFromInMemoryAll": 412,
+      "differsFromInMemoryLabeled": 15
+    },
+    "rounded_half_fused_fp32": {
+      "metrics": {
+        "metrics/mIoU": 0.7625200748443604,
+        "metrics/pixel_acc": 0.8997157216072083,
+        "fitness": 0.7625200748443604
+      },
+      "classes": {
+        "2": {
+          "name": "sky",
+          "groundTruthPixels": 13530,
+          "iou": 0.9673014879226685
+        },
+        "6": {
+          "name": "road",
+          "groundTruthPixels": 2820,
+          "iou": 0.43977391719818115
+        },
+        "20": {
+          "name": "car",
+          "groundTruthPixels": 32,
+          "iou": 0.65625
+        },
+        "43": {
+          "name": "signboard",
+          "groundTruthPixels": 151,
+          "iou": 0.9867549538612366
+        }
+      },
+      "differsFromInMemoryAll": 719,
+      "differsFromInMemoryLabeled": 18
+    },
+    "frozen_official_best": {
+      "metrics": {
+        "metrics/mIoU": 0.7625200748443604,
+        "metrics/pixel_acc": 0.8997157216072083,
+        "fitness": 0.7625200748443604
+      },
+      "classes": {
+        "2": {
+          "name": "sky",
+          "groundTruthPixels": 13530,
+          "iou": 0.9673014879226685
+        },
+        "6": {
+          "name": "road",
+          "groundTruthPixels": 2820,
+          "iou": 0.43977391719818115
+        },
+        "20": {
+          "name": "car",
+          "groundTruthPixels": 32,
+          "iou": 0.65625
+        },
+        "43": {
+          "name": "signboard",
+          "groundTruthPixels": 151,
+          "iou": 0.9867549538612366
+        }
+      },
+      "differsFromInMemoryAll": 719,
+      "differsFromInMemoryLabeled": 18
+    }
+  },
+  "originalBestSha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1",
+  "originalBestUnchanged": true
+}

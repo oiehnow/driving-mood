@@ -1,0 +1,216 @@
+{
+  "status": "exported",
+  "trainingResultSha256": "1c20f726d4f0c1303f27a4acdfba1742fc1fcaa534faa7d5b49c3f54ef9db442",
+  "trainedCheckpointSha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1",
+  "originalPretrainedWeightSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+  "outputContract": {
+    "inputShape": [
+      1,
+      3,
+      320,
+      320
+    ],
+    "inputType": "float32 RGB/255 NCHW centered114padding",
+    "outputShape": [
+      1,
+      320,
+      320
+    ],
+    "outputType": "uint8",
+    "classes": 150
+  },
+  "artifacts": [
+    {
+      "bytes": 3492835,
+      "sha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1",
+      "file": "best.pt"
+    },
+    {
+      "bytes": 3492835,
+      "sha256": "b337375379a299acbb451d0f5704970e86d1851db64a1a62f6729138119e64c1",
+      "file": "yolo26n-sem-driving-mood-pilot01.pt"
+    },
+    {
+      "bytes": 6292481,
+      "sha256": "2061299bb4d96999d470a5434605aed1857017d8689babe133853afeb6237996",
+      "file": "raw-export.onnx"
+    },
+    {
+      "bytes": 6292454,
+      "sha256": "57f7204fe13a50ab7498b6d2ad76ff782d5a9e62682c617b9891d81df12b3efa",
+      "file": "yolo26n-sem-driving-mood-pilot01.onnx"
+    },
+    {
+      "bytes": 6386752,
+      "sha256": "f4bddf76f2f91541b36ddc86c6f7d5115e0c0cbe43907d51fdaadf2f7d369b1e",
+      "file": "yolo26n-sem-driving-mood-pilot01.ort"
+    }
+  ],
+  "conversion": {
+    "runtime": "1.31.0",
+    "target": "arm",
+    "optimization": "Fixed",
+    "quantized": false
+  },
+  "metadata": {
+    "descriptionChangedOnly": true,
+    "tensorsUnchanged": true,
+    "originalDescriptionSha256": "c20e7da04e304965e6b4cdb2e9bc4f5430df4ff6b97522ef545f7086933678b4",
+    "licensePreserved": true
+  },
+  "validation": {
+    "actualTrainValFrames": 16,
+    "testFramesUsed": 0,
+    "comparisons": [
+      {
+        "sampleId": "clip-01-000000",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "177f17acaa5f0ab77287d6170665132f3a402e616f50ffd39e944a7421394e69",
+        "ortPredictionSha256": "177f17acaa5f0ab77287d6170665132f3a402e616f50ffd39e944a7421394e69"
+      },
+      {
+        "sampleId": "clip-01-000080",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "28a918e04f15ceb16638a94c448c75d9ba02bbbad7c97d5ebd9b773755464875",
+        "ortPredictionSha256": "28a918e04f15ceb16638a94c448c75d9ba02bbbad7c97d5ebd9b773755464875"
+      },
+      {
+        "sampleId": "clip-01-000160",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "c9b5b0e39054d49078bea910c005f088e18cbc4301dc23dbfca423c4260fb773",
+        "ortPredictionSha256": "c9b5b0e39054d49078bea910c005f088e18cbc4301dc23dbfca423c4260fb773"
+      },
+      {
+        "sampleId": "clip-01-000240",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "08a4dc2dd70fdfaddfd3a58bf970030a71de156a12ea0b5750e3635ab838b3bf",
+        "ortPredictionSha256": "08a4dc2dd70fdfaddfd3a58bf970030a71de156a12ea0b5750e3635ab838b3bf"
+      },
+      {
+        "sampleId": "clip-02-000000",
+        "split": "val",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 1,
+        "onnxPredictionSha256": "3da5644ca81b9904de9dfa2df4f7308407987f1cb26f7d3681023821372d3b6c",
+        "ortPredictionSha256": "6748469fdb7d2f3377a134e3975c737b6651808192a7b08e7a89cc80ce657246"
+      },
+      {
+        "sampleId": "clip-02-000150",
+        "split": "val",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "80dcf1466dbd0f9a07ee6df42569a81c40ea100fa9e4f05bedc005e4a96ab0e9",
+        "ortPredictionSha256": "80dcf1466dbd0f9a07ee6df42569a81c40ea100fa9e4f05bedc005e4a96ab0e9"
+      },
+      {
+        "sampleId": "clip-02-000300",
+        "split": "val",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "c08526795997e49dc01e8c3ed60902e65e1e7ce60b07fe3a377cf833d2b9655f",
+        "ortPredictionSha256": "c08526795997e49dc01e8c3ed60902e65e1e7ce60b07fe3a377cf833d2b9655f"
+      },
+      {
+        "sampleId": "clip-02-000450",
+        "split": "val",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "62a7ed89b177c66c91f44bdff949c8b3088cb02e7ff086ca5b3f51a21da8e979",
+        "ortPredictionSha256": "62a7ed89b177c66c91f44bdff949c8b3088cb02e7ff086ca5b3f51a21da8e979"
+      },
+      {
+        "sampleId": "clip-03-000400",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "d27a6b49f33b83dd7dcd779fe3012330dded19ee30533a5df087a3373db157fe",
+        "ortPredictionSha256": "d27a6b49f33b83dd7dcd779fe3012330dded19ee30533a5df087a3373db157fe"
+      },
+      {
+        "sampleId": "clip-03-000550",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "8a1e28d717de9058916dbd0d333e980b261d6d66a51253867aeb347309c749d8",
+        "ortPredictionSha256": "8a1e28d717de9058916dbd0d333e980b261d6d66a51253867aeb347309c749d8"
+      },
+      {
+        "sampleId": "clip-03-000700",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "51f012e25d88ecb4bc0d0a8574cb26c0f909991e413a61d5d0356212224c380f",
+        "ortPredictionSha256": "51f012e25d88ecb4bc0d0a8574cb26c0f909991e413a61d5d0356212224c380f"
+      },
+      {
+        "sampleId": "clip-03-000850",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 1,
+        "onnxVsOrtDifferentPixels": 1,
+        "onnxPredictionSha256": "6e5b5f7826e829aef3b60a43e7a3dee96163009a64fda4122da2464d1b6493ae",
+        "ortPredictionSha256": "a7f97cbe4dba033bbc6f8894040d51a6a58fe3a960b7c07b903b54bf851fd3e4"
+      },
+      {
+        "sampleId": "clip-05-000000",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "a1c231116e441727ce2d47b716f5e8289da9c4ab30c3b1dbec2f95a2a9acd77d",
+        "ortPredictionSha256": "a1c231116e441727ce2d47b716f5e8289da9c4ab30c3b1dbec2f95a2a9acd77d"
+      },
+      {
+        "sampleId": "clip-05-000150",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "49a2501b069f1ed3954baaef1465a1f042e393cd16ca71ca7769eb2969e674e7",
+        "ortPredictionSha256": "49a2501b069f1ed3954baaef1465a1f042e393cd16ca71ca7769eb2969e674e7"
+      },
+      {
+        "sampleId": "clip-05-000300",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "1eef51814aaba3a6d6e3174b6ec0cf6a9bc11171b7ee94dfa10698cf46cfb7c0",
+        "ortPredictionSha256": "1eef51814aaba3a6d6e3174b6ec0cf6a9bc11171b7ee94dfa10698cf46cfb7c0"
+      },
+      {
+        "sampleId": "clip-05-000450",
+        "split": "train",
+        "pixels": 102400,
+        "pytorchVsOnnxDifferentPixels": 0,
+        "onnxVsOrtDifferentPixels": 0,
+        "onnxPredictionSha256": "2b573a693fb41ba14690eca48a6c00921441caa55c1cd89717e8dade804b3d05",
+        "ortPredictionSha256": "2b573a693fb41ba14690eca48a6c00921441caa55c1cd89717e8dade804b3d05"
+      }
+    ],
+    "totalPyTorchOnnxDifferentPixels": 1,
+    "totalOnnxOrtDifferentPixels": 2
+  },
+  "appDefaultChanged": false,
+  "androidExecutionVerified": false,
+  "accuracyImprovementClaimed": false
+}

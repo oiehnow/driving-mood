@@ -1,0 +1,161 @@
+{
+  "status": "archived_research_pilot_not_promoted",
+  "containsPrivateImages": false,
+  "containsMasks": false,
+  "containsModelBinaries": false,
+  "personalAbsolutePathScanPassed": true,
+  "unmodifiedUpstreamLicensePathNotices": [
+    {
+      "file": "licenses/pytorch-LICENSE.txt",
+      "publicUpstreamCiPathOccurrences": 380,
+      "licensePreservedByteForByte": true
+    }
+  ],
+  "files": {
+    "ANNOTATION_POLICY.md": {
+      "bytes": 3832,
+      "sha256": "c4120945121b0b3906232a0b52099911e88c2683b91fc22ba158b7b311d249bb"
+    },
+    "audit-sources/checkpoint_precision.py": {
+      "bytes": 4053,
+      "sha256": "23d4f60bf6a64956c53a5e7737149a40f11cf4ba568fff5f3d7bcb7c8c51afe3"
+    },
+    "audit-sources/configure_offline.py": {
+      "bytes": 747,
+      "sha256": "5625a467d3fe2b4aa2572eaffa1fb5dca1a00e1cc0ae242b9bf9a9bc4fe90d63"
+    },
+    "audit-sources/original_data_preparation.py": {
+      "bytes": 5020,
+      "sha256": "d633ff0a51f9444eeeb31a0ef4341b4f1152614d68c6b41656f5fea52f28dcd1"
+    },
+    "audit-sources/original_mobile_export.py": {
+      "bytes": 5656,
+      "sha256": "370884becec2c945377464ac1055d60e2a140ef305d6e441bce70d1bb5b4489e"
+    },
+    "audit-sources/original_training_driver.py": {
+      "bytes": 7467,
+      "sha256": "4c99cc302fac80df9ef03b7a2bff7c66423a550ae958c555112b6dd2bf159e90"
+    },
+    "class-names.json": {
+      "bytes": 2963,
+      "sha256": "a529a83228169e96f8ff41795cdfded3e9f0608a6281726b463b1fcd72129612"
+    },
+    "evidence/best-tensor-hashes.json": {
+      "bytes": 70553,
+      "sha256": "87f5f1d1cf47629ca62548b8f28282a0f8023bb8ac366ca5f194b491e8766cdf"
+    },
+    "evidence/checkpoint-precision.json": {
+      "bytes": 3829,
+      "sha256": "d9824776d6e71a5364b663dc1eea97427e33ee50f6ff11972d6e4a0026a06371"
+    },
+    "evidence/dataset-split.json": {
+      "bytes": 13949,
+      "sha256": "98afbb3e16e362b8d13c0108f65ba83896c47737123e1794d4386be21f97167f"
+    },
+    "evidence/environment.json": {
+      "bytes": 5630,
+      "sha256": "d3210c12c74ccd68dd91378d61da75f7ec1567c474780f17a267573b78f6d004"
+    },
+    "evidence/epochs.csv": {
+      "bytes": 2917,
+      "sha256": "888bb490931a1a5d2087cd0d42e3ebdf18cb464f28efd1443d536acd4e4a2476"
+    },
+    "evidence/export-details.json": {
+      "bytes": 1763,
+      "sha256": "d7bbfdc717cac2f62054e5f1a5fcd2940239002a657c5b2cdcf5ee1aeeaeee80"
+    },
+    "evidence/ignore255-check.json": {
+      "bytes": 431,
+      "sha256": "58e9553c2d3484022f5d094a4cc102303ad38bdb76aa26f1ead03a1af78c9713"
+    },
+    "evidence/last-tensor-hashes.json": {
+      "bytes": 70553,
+      "sha256": "41c3a4df1fff592fc346296b7d8f25e4563da5da217486fcbb10cbe07a540f13"
+    },
+    "evidence/model-manifest.json": {
+      "bytes": 8448,
+      "sha256": "b7ed7ac648bdbb8fa1c507d8d544a3d5067b6afc4a0bb1284b8e4b8bd0548d91"
+    },
+    "evidence/optimizer-and-epoch-events.jsonl": {
+      "bytes": 67930,
+      "sha256": "c19c55921e68ec937f65cad18875db8416b092b40af1e1a168a572a6a073e322"
+    },
+    "evidence/reproduction-check.json": {
+      "bytes": 6240,
+      "sha256": "c0b8e7555fb8f15dd3be09f83aa19ed42fc6add597f19287c2f3be0100e210ea"
+    },
+    "evidence/trainable-parameters.json": {
+      "bytes": 6404,
+      "sha256": "1f54f0cd9ca965bec8ad47aface73fd4f23320c6b8fd9df1ede2a57546a464d0"
+    },
+    "evidence/trainer-initial-tensor-hashes.json": {
+      "bytes": 70553,
+      "sha256": "5b1862011e16142ee7b0da3796abe1d20357f9c853261f37af38fed0825a2e13"
+    },
+    "evidence/training-curves.png": {
+      "bytes": 113677,
+      "sha256": "4dba49d67e80b96c3f3e47c23ee6a8771c863feed7e71c14d2abccdd9f0f8283"
+    },
+    "evidence/training-summary.json": {
+      "bytes": 1383,
+      "sha256": "1c9911402502687ec8c5bcfb9e8c1c0df4e81c8aaec251d79603eb27e8e07e72"
+    },
+    "evidence/weight-deltas.json": {
+      "bytes": 36733,
+      "sha256": "a3d0f0fbf6e1b5ecf64103696a169230a7076c66446c50b8bbaaeec12043243f"
+    },
+    "independent-evaluation/summary.json": {
+      "bytes": 2925,
+      "sha256": "13c519522a00b11f4a50767fbaf565503f18019db4d8b2c47e6d65ef7e6492a0"
+    },
+    "independent-evaluation/SUMMARY.md": {
+      "bytes": 2818,
+      "sha256": "a1d40eaee40b97d1ee2cd5381a9b045db88ed6dc9b66b425c9860bbdd5a8fd46"
+    },
+    "licenses/onnxruntime-LICENSE.txt": {
+      "bytes": 1094,
+      "sha256": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674"
+    },
+    "licenses/opencv-LICENSE.txt": {
+      "bytes": 1090,
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107"
+    },
+    "licenses/opencv-THIRD-PARTY.txt": {
+      "bytes": 183251,
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb"
+    },
+    "licenses/pytorch-LICENSE.txt": {
+      "bytes": 385089,
+      "sha256": "3e289336d947fdf82f085f2a5ca757088084dd67d6530d46b4f02eb07461bb13"
+    },
+    "licenses/torchvision-LICENSE.txt": {
+      "bytes": 1546,
+      "sha256": "c06363f9d33627dc5173b13522444cc85fbb4739f63e16d4587d5c0a165b5b1e"
+    },
+    "licenses/ultralytics-LICENSE.txt": {
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    "pilot_config.json": {
+      "bytes": 764,
+      "sha256": "5b22796e073ccf5f896b3023e4ef0cb0bfcb48ddbfde4da68b6959773d01894b"
+    },
+    "prepare_data.py": {
+      "bytes": 2380,
+      "sha256": "8e0c65b4c595c4bc7454471bbd65181f5087d89fb6b6b707f60bd254c472c6b9"
+    },
+    "README.md": {
+      "bytes": 6393,
+      "sha256": "eb8285fff596a31b89c36b9e0acfbde9cfcb954aef8b39153cf082637bddd8ec"
+    },
+    "requirements-lock.txt": {
+      "bytes": 868,
+      "sha256": "f4ebf186e7907b7b0d5609e2907e2b58097fe5007ddcb5b54935d37bbc1676db"
+    },
+    "train.py": {
+      "bytes": 923,
+      "sha256": "147e5ac8a6d2347177aea40321c47a4d646838eed4dfd278d501ba228c28eee2"
+    }
+  },
+  "sourceSnapshotManifestSha256": "5d7add9d6325e8af1ffb8b1449059cea180eca5745ea375ee4ace1337c89df24"
+}
