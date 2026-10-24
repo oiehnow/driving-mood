@@ -1,0 +1,262 @@
+{
+  "sampledFrames": 240,
+  "representativeBuckets": 236,
+  "model": "YOLO26n-sem-ADE20K official baseline",
+  "runtime": "desktop semantic replay with product Kotlin scoring",
+  "analysisInputModified": false,
+  "captureTimeGpsWeatherProvided": false,
+  "objectDetectorRun": false,
+  "clips": [
+    {
+      "videoId": "full-01",
+      "title": "노을 드라이브",
+      "sourceUrl": "https://www.youtube.com/watch?v=HiQoIAcs018",
+      "sourceStartPtsMs": 676416.6666666666,
+      "lastObservationPtsMs": 735416.6666666666,
+      "sampledFrames": 60,
+      "representativeBuckets": 60,
+      "observationWindowMs": 60000,
+      "presentationSeconds": 90,
+      "keywords": [
+        "따뜻한"
+      ],
+      "runtime": "desktop semantic replay with product Kotlin scoring",
+      "objectDetectorRun": false,
+      "model": "official baseline",
+      "inputLedgerSha256": "3beb96503c8fd2e4f33b4d2bcd23c78bed345beb93851951b179a29a5fb036a0",
+      "ruleVersion": "scene-v2.0+sky-color-v1",
+      "analysisInputModified": false,
+      "redactions": [
+        {
+          "reason": "song_caption",
+          "rectangle1280x720": [
+            448,
+            584,
+            410,
+            72
+          ],
+          "startSeconds": 0,
+          "endSeconds": 90
+        }
+      ],
+      "videos": [
+        {
+          "file": "01-original.mp4",
+          "sha256": "b5707e101452eda1d76f995e2c55483bd3cb98ba88eaa8909db7a4c2ae4cc7ed",
+          "bytes": 32616207,
+          "durationSeconds": 90
+        },
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "f6d8d40a8d18b335ae6a8c277bfd600a7ce3a3951ca29a944baaf9c142764d7e",
+          "bytes": 5005906,
+          "durationSeconds": 90.0
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "96538a677e09d19f681352581597422f663148c1f27ae6a623cd6d2e432f8bd7",
+          "bytes": 2654183,
+          "durationSeconds": 90.0
+        }
+      ]
+    },
+    {
+      "videoId": "full-02",
+      "title": "서울 낮 도심",
+      "sourceUrl": "https://www.youtube.com/watch?v=WVb-cQUID2A",
+      "sourceStartPtsMs": 1639800.0,
+      "lastObservationPtsMs": 1698800.0,
+      "sampledFrames": 60,
+      "representativeBuckets": 60,
+      "observationWindowMs": 60000,
+      "presentationSeconds": 90,
+      "keywords": [
+        "활기 넘침",
+        "차가운"
+      ],
+      "runtime": "desktop semantic replay with product Kotlin scoring",
+      "objectDetectorRun": false,
+      "model": "official baseline",
+      "inputLedgerSha256": "f1cfb072c67adc4e7fa82d1e5e66c1282e383655284eb024b00cd394ade6fa50",
+      "ruleVersion": "scene-v2.0+sky-color-v1",
+      "analysisInputModified": false,
+      "redactions": [
+        {
+          "reason": "creator_watermark",
+          "rectangle1280x720": [
+            0,
+            656,
+            154,
+            64
+          ],
+          "startSeconds": 0,
+          "endSeconds": 90
+        }
+      ],
+      "videos": [
+        {
+          "file": "01-original.mp4",
+          "sha256": "31e465aeb684fa2a781f0686e8c64e79c4245509cb804b2d29544cc8b93e2909",
+          "bytes": 101144000,
+          "durationSeconds": 90
+        },
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "9cd0722991c2c8418c6cc4187c4622692b92f92322231cbe2aecd72811ad120e",
+          "bytes": 10561079,
+          "durationSeconds": 90.0
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "ab2cd1a07a62de47fdcbffddef2649fe274e6289fefb27db740b7d538b20c357",
+          "bytes": 7009073,
+          "durationSeconds": 90.0
+        }
+      ]
+    },
+    {
+      "videoId": "full-03",
+      "title": "서울 밤 도심",
+      "sourceUrl": "https://www.youtube.com/watch?v=SRpMapyw6Aw",
+      "sourceStartPtsMs": 1901317.0,
+      "lastObservationPtsMs": 1960308.0,
+      "sampledFrames": 60,
+      "representativeBuckets": 56,
+      "observationWindowMs": 60000,
+      "presentationSeconds": 90,
+      "keywords": [
+        "활기 넘침"
+      ],
+      "runtime": "desktop semantic replay with product Kotlin scoring",
+      "objectDetectorRun": false,
+      "model": "official baseline",
+      "inputLedgerSha256": "6de74731d30f02f550ee6a8d2365aefd751697f8c445ee15133adcfa83f50495",
+      "ruleVersion": "scene-v2.0+sky-color-v1",
+      "analysisInputModified": false,
+      "redactions": [
+        {
+          "reason": "creator_watermark",
+          "rectangle1280x720": [
+            0,
+            656,
+            154,
+            64
+          ],
+          "startSeconds": 0,
+          "endSeconds": 90
+        },
+        {
+          "reason": "song_caption",
+          "rectangle1280x720": [
+            692,
+            670,
+            588,
+            50
+          ],
+          "startSeconds": 0,
+          "endSeconds": 90
+        },
+        {
+          "reason": "location_caption",
+          "rectangle1280x720": [
+            486,
+            626,
+            308,
+            86
+          ],
+          "startSeconds": 0,
+          "endSeconds": 90
+        }
+      ],
+      "videos": [
+        {
+          "file": "01-original.mp4",
+          "sha256": "5964a0d36648df6fea2f1d98c4e0194005c06bc546e251454c1bb6922cfb46d7",
+          "bytes": 54303970,
+          "durationSeconds": 90
+        },
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "a083d201dc0df8a427284eee8651b7eecf69eecb18cd380a107cfec6a74f8a66",
+          "bytes": 8369313,
+          "durationSeconds": 90.0
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "b17fdf415432e795d9c9bb8d967fe87d50791f84859f1a0b664b6da19024aee6",
+          "bytes": 4617861,
+          "durationSeconds": 90.0
+        }
+      ]
+    },
+    {
+      "videoId": "full-04",
+      "title": "흐린 날 도로",
+      "sourceUrl": "https://www.youtube.com/watch?v=8tC3e7ojWEY",
+      "sourceStartPtsMs": 1588700.0,
+      "lastObservationPtsMs": 1647700.0,
+      "sampledFrames": 60,
+      "representativeBuckets": 60,
+      "observationWindowMs": 60000,
+      "presentationSeconds": 90,
+      "keywords": [],
+      "runtime": "desktop semantic replay with product Kotlin scoring",
+      "objectDetectorRun": false,
+      "model": "official baseline",
+      "inputLedgerSha256": "fc90f543bda31f2a8ba92b039df55a8b76b882b31111c7dace7acd94d73f2ddb",
+      "ruleVersion": "scene-v2.0+sky-color-v1",
+      "analysisInputModified": false,
+      "redactions": [],
+      "videos": [
+        {
+          "file": "01-original.mp4",
+          "sha256": "abf90aca5b0f2ba17bc69bb15987b74ab73d0d35e70ed0e93f9fc0a37543c3c1",
+          "bytes": 74841351,
+          "durationSeconds": 90
+        },
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "8b0f124e35c042ec65f9abdf791e8e8d9d0e4a00f8689820c9ee1941ef2fd4f4",
+          "bytes": 6359152,
+          "durationSeconds": 90.0
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "ab3962fad076e52974004958e1047cfdc6298ecba8e80bb9127d36b85281dfac",
+          "bytes": 4234654,
+          "durationSeconds": 90.0
+        }
+      ]
+    }
+  ],
+  "selectedFigures": [
+    {
+      "videoId": "full-01",
+      "frameId": "full-01-030",
+      "sourcePtsMs": 706416.6666666666,
+      "originalRgbSha256": "9b2c3b561585e1a39379260ab88a48d59e7157eb4e967c4754e2e3ed8adf8d75",
+      "displayRgbSha256": "ee22e64715b1e38f27ddd0e64a4893e8f41b9cca86d3d255ce1c4c5220534888"
+    },
+    {
+      "videoId": "full-02",
+      "frameId": "full-02-030",
+      "sourcePtsMs": 1669800.0,
+      "originalRgbSha256": "6c93f0a0997a2c34cbf937f9b7060ed9a0ec93781abeebe2f0f3b1611bfe187b",
+      "displayRgbSha256": "17ef0509ef236864ca512e2d6c9cf5a39208282cba9cb39581bef368e48e6c3d"
+    },
+    {
+      "videoId": "full-03",
+      "frameId": "full-03-030",
+      "sourcePtsMs": 1931313.0,
+      "originalRgbSha256": "428fe6eb42957d44fb76203abe4fc855ca26e049d150ca7f379c9af291ce727d",
+      "displayRgbSha256": "bafd95dbcdf2b835992f50b272fa4543bf510ee433401e3503966ce7b3071512"
+    },
+    {
+      "videoId": "full-04",
+      "frameId": "full-04-030",
+      "sourcePtsMs": 1618700.0,
+      "originalRgbSha256": "ea41b4cadabf8ab5f95f5fafa37d4c43e4637fb38196c34e63ba4f6731585da2",
+      "displayRgbSha256": "ea41b4cadabf8ab5f95f5fafa37d4c43e4637fb38196c34e63ba4f6731585da2"
+    }
+  ]
+}

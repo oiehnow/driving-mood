@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "finetuning02-public-v1",
+  "date": "2026-10-24",
+  "trial": "Pilot02",
+  "decision": {
+    "adoptPilot02": false,
+    "retainOfficialBaseline": true,
+    "reason": "개발 검증의 종합 점수는 개선됐으나 간판 오탐과 기존 보도·사람 성능 퇴행이 핵심 목적에 불리해 공식 기준 모델을 유지한다."
+  },
+  "process": {
+    "trainingImages": 24,
+    "developmentValidationImages": 8,
+    "aiPartialPolygons": 135,
+    "epochs": 30,
+    "optimizerUpdates": 360,
+    "selectedEpoch": 5,
+    "changedTensors": 104,
+    "checkpointSelection": "개발 검증 자료의 학습기 fitness로 선택",
+    "newIndependentTest": false
+  },
+  "evaluation": {
+    "method": "양 모델에 동일 RGB320 중앙114 letterbox 입력; 예측을 동일 원본 주석 격자로 nearest-exact 정렬",
+    "ignoreLabel": 255,
+    "wallClass": 0,
+    "classCount": 150,
+    "meanIoUDefinition": "주석이 있는 class의 IoU 단순평균; 주석 없는 class는 N/A",
+    "pixelWeightedAccuracyDefinition": "전체 주석 픽셀 중 정분류 픽셀 비율",
+    "scopes": [
+      {
+        "name": "development_validation",
+        "images": 8,
+        "annotatedPixels": 170948,
+        "seenDuringDevelopment": true,
+        "usedForCheckpointSelection": true,
+        "baselinePixelWeightedAccuracyPercent": 81.01235463415776,
+        "pilot02PixelWeightedAccuracyPercent": 89.25404216486885
+      },
+      {
+        "name": "existing_regression",
+        "images": 8,
+        "annotatedPixels": 100927,
+        "seenDuringDevelopment": true,
+        "usedForCheckpointSelection": false,
+        "oneComparisonForThisCandidate": true,
+        "baselinePixelWeightedAccuracyPercent": 82.30701398040168,
+        "pilot02PixelWeightedAccuracyPercent": 82.88465920913136
+      }
+    ],
+    "scopeNote": "AI 부분주석 개발 검증과 기존 고정 회귀 비교이며 새 독립 시험이 아니다. 미주석 영역의 오탐·전체 경계는 평가하지 않는다.",
+    "trainerValidationMetricsIncluded": false,
+    "metrics": [
+      {
+        "metric": "development_mean_iou",
+        "label": "개발 검증 · 평균 IoU",
+        "scope": "development_validation",
+        "classId": null,
+        "baselinePercent": 41.97909703268034,
+        "pilot02Percent": 48.258934268534865,
+        "deltaPercentagePoints": 6.279837235854524
+      },
+      {
+        "metric": "regression_mean_iou",
+        "label": "기존 회귀 · 평균 IoU",
+        "scope": "existing_regression",
+        "classId": null,
+        "baselinePercent": 60.43630726961378,
+        "pilot02Percent": 53.37982269917049,
+        "deltaPercentagePoints": -7.056484570443288
+      },
+      {
+        "metric": "signboard_iou",
+        "label": "간판 · 개발 검증",
+        "scope": "development_validation",
+        "classId": 43,
+        "baselinePercent": 62.175324675324674,
+        "pilot02Percent": 44.72693032015066,
+        "deltaPercentagePoints": -17.448394355174013
+      },
+      {
+        "metric": "sidewalk_iou",
+        "label": "보도 · 기존 회귀",
+        "scope": "existing_regression",
+        "classId": 11,
+        "baselinePercent": 62.801070472792155,
+        "pilot02Percent": 24.193548387096776,
+        "deltaPercentagePoints": -38.60752208569538
+      },
+      {
+        "metric": "person_iou",
+        "label": "사람 · 기존 회귀",
+        "scope": "existing_regression",
+        "classId": 12,
+        "baselinePercent": 98.63438857852266,
+        "pilot02Percent": 77.5915580384854,
+        "deltaPercentagePoints": -21.04283054003725
+      }
+    ],
+    "signboardDetail": {
+      "baseline": {
+        "annotatedSignboardPixels": 616,
+        "truePositivePixels": 383,
+        "falsePositivePixelsOnOtherAnnotatedClasses": 0,
+        "recallPercent": 62.175324675324674,
+        "precisionPercent": 100.0
+      },
+      "candidate": {
+        "annotatedSignboardPixels": 616,
+        "truePositivePixels": 475,
+        "falsePositivePixelsOnOtherAnnotatedClasses": 446,
+        "recallPercent": 77.1103896103896,
+        "precisionPercent": 51.57437567861021
+      }
+    }
+  },
+  "sha256": {
+    "models": {
+      "officialBaselineOnnx": "3af7911808fd81e95982b3541fe4c1151016fc6e596b872d0b62f3874d575dad",
+      "pilot02Onnx": "7ec054b1e7f7c594e01d7e5ce2047f233c70c941448490f8e61b2ba320c699dd",
+      "pilot02SelectedCheckpoint": "54f5cdcaf5c95edec5bfcdef92bd1c62e99e5ac3f8ced8c4ab0e4883fd6cac0e"
+    },
+    "code": {
+      "evaluator": "f7fe2e7e7a675a21a5b15cd1e713d9a70443b032e62f2d7be385b825ade1ac48",
+      "reusedPreprocessingAndMetrics": "f796d1a50074e06a2f5a1aaefaa0ed354699edc8e33a41b46fbfe97ac2aa8299"
+    },
+    "data": {
+      "developmentManifest": "94f6fd863315b6f62d907eb8710ae68408c37850acef33da337cdf177d05c62c",
+      "existingRegressionManifest": "27e7cb5b1b352e217c6836896b574d6dd275bb81c164f5e6c608f1adf47b6986"
+    }
+  },
+  "officialSources": [
+    {
+      "component": "Ultralytics semantic model/training",
+      "url": "https://github.com/ultralytics/ultralytics",
+      "license": "AGPL-3.0"
+    },
+    {
+      "component": "ONNX Runtime",
+      "url": "https://github.com/microsoft/onnxruntime",
+      "license": "MIT"
+    },
+    {
+      "component": "OpenCV preprocessing",
+      "url": "https://github.com/opencv/opencv",
+      "license": "Apache-2.0"
+    },
+    {
+      "component": "Matplotlib chart",
+      "url": "https://github.com/matplotlib/matplotlib",
+      "license": "Matplotlib License (PSF-based)"
+    },
+    {
+      "component": "Pretendard",
+      "url": "https://github.com/orioncactus/pretendard",
+      "license": "SIL Open Font License 1.1"
+    }
+  ]
+}

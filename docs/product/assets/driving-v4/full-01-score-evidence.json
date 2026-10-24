@@ -1,0 +1,1125 @@
+{
+  "videoId": "full-01",
+  "sourcePtsMs": 706416.6666666666,
+  "originalRgbSha256": "9b2c3b561585e1a39379260ab88a48d59e7157eb4e967c4754e2e3ed8adf8d75",
+  "displayRgbSha256": "ee22e64715b1e38f27ddd0e64a4893e8f41b9cca86d3d255ce1c4c5220534888",
+  "frameRuleVersion": "scene-v2.0+sky-color-v1",
+  "keywords": [
+    "따뜻한"
+  ],
+  "frameScores": [
+    {
+      "keyword": "따뜻한",
+      "score": 0.22606638,
+      "contributions": [
+        {
+          "id": "feature_warm",
+          "label": "빨강·노랑 범위 색감",
+          "observedValue": 0.0032295196,
+          "unit": "전체 화면 대비 실제 픽셀·채도 비율",
+          "weight": 70.0,
+          "delta": 0.22606638,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "화면 기준 관측 강도 · 유효 1개 구간 평균 · 품질 별도. 실제 영역별 측정량으로 배분",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:1",
+              "allocatedDelta": 0.003384661
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:2",
+              "allocatedDelta": 0.000154321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:3",
+              "allocatedDelta": 0.00929817
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:4",
+              "allocatedDelta": 0.0032110582
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:5",
+              "allocatedDelta": 0.0025023445
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:6",
+              "allocatedDelta": 0.014647352
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:7",
+              "allocatedDelta": 0.00064110314
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:8",
+              "allocatedDelta": 0.00032543
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:9",
+              "allocatedDelta": 0.002863821
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:10",
+              "allocatedDelta": 0.0065353834
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:11",
+              "allocatedDelta": 0.0026667074
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:12",
+              "allocatedDelta": 0.022927666
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:13",
+              "allocatedDelta": 0.06324118
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:14",
+              "allocatedDelta": 0.0006469807
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:15",
+              "allocatedDelta": 0.0010357361
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:16",
+              "allocatedDelta": 0.0068704896
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:17",
+              "allocatedDelta": 0.0041299653
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:18",
+              "allocatedDelta": 0.0049218526
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:1",
+              "allocatedDelta": 0.008270244
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:2",
+              "allocatedDelta": 0.00033816422
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:3",
+              "allocatedDelta": 0.0006661184
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:4",
+              "allocatedDelta": 0.0009376482
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:5",
+              "allocatedDelta": 0.0010927281
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:6",
+              "allocatedDelta": 0.004365815
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:7",
+              "allocatedDelta": 0.011660452
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:8",
+              "allocatedDelta": 0.0119830575
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:9",
+              "allocatedDelta": 0.00638396
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:10",
+              "allocatedDelta": 0.0007435554
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:11",
+              "allocatedDelta": 0.0049476842
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:12",
+              "allocatedDelta": 0.0037115791
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:13",
+              "allocatedDelta": 0.0038981964
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:14",
+              "allocatedDelta": 0.006324047
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:15",
+              "allocatedDelta": 0.010738894
+            }
+          ],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_warm",
+          "label": "따뜻한 색감 지속 근거",
+          "observedValue": 1.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "면적≥0.1%, 색 분류 가능≥절반, 빨강·노랑 비중≥60%",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_mixed",
+          "label": "따뜻하고 차가운 색 혼재",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "두 색군 각각≥20%, 합계≥60%",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_coverage",
+          "label": "유효 관측 구간",
+          "observedValue": 1.0,
+          "unit": "전체 기간 구간 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "전체 실제 기간 기준",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_area",
+          "label": "관측된 밝은 면적",
+          "observedValue": 0.006566358,
+          "unit": "화면 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "중복 없는 관측 픽셀 합집합",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_color_coverage",
+          "label": "관측 픽셀 중 색 분류 가능 범위",
+          "observedValue": 0.9929495,
+          "unit": "관측 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "세 채널 상한 근접 픽셀은 색 미확인",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_0",
+          "label": "기록된 RGB: 빨강",
+          "observedValue": 0.0043055555,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_1",
+          "label": "기록된 RGB: 노랑",
+          "observedValue": 0.0016666667,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_2",
+          "label": "기록된 RGB: 초록",
+          "observedValue": 0.0,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_3",
+          "label": "기록된 RGB: 청록",
+          "observedValue": 0.0,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_4",
+          "label": "기록된 RGB: 파랑",
+          "observedValue": 0.0,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_5",
+          "label": "기록된 RGB: 자홍",
+          "observedValue": 0.0,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_6",
+          "label": "기록된 RGB: 무채색에 가까움",
+          "observedValue": 0.0005478395,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_7",
+          "label": "기록된 RGB: 세 채널 상한 근접·색 미확인",
+          "observedValue": 4.6296296e-05,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_0",
+          "label": "RGB 상한 근접 채널 0 개",
+          "observedValue": 0.0049228393,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_1",
+          "label": "RGB 상한 근접 채널 1 개",
+          "observedValue": 0.0013348765,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_2",
+          "label": "RGB 상한 근접 채널 2 개",
+          "observedValue": 0.00026234568,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_3",
+          "label": "RGB 상한 근접 채널 3 개",
+          "observedValue": 4.6296296e-05,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "sky_color_warm_strength",
+          "label": "하늘색 따뜻한 원시 강도",
+          "observedValue": 13.284756,
+          "unit": "하늘색 규칙점수",
+          "weight": 70.0,
+          "delta": 13.284756,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "70×색상군 채도합/전체 RGB 픽셀, 유효 1개 구간 평균. 어둡거나 작은 하늘도 원시값 보존; 기존 색·조명 점수와 합산하지 않음. 품질 미평가",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        },
+        {
+          "id": "sky_color_warm_support",
+          "label": "하늘색 따뜻한 지속 근거",
+          "observedValue": 1.0,
+          "unit": "전체 창 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 면적≥2%, 평균 encoded luma≥0.10, 평균 채도≥0.05 및 색상군 조건 충족 1/1 구간. 결측·부적격도 분모에 포함; 50% 이상일 때만 자동 키워드",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        }
+      ]
+    },
+    {
+      "keyword": "차가운",
+      "score": 0.0,
+      "contributions": [
+        {
+          "id": "feature_cool",
+          "label": "청록·파랑 범위 색감",
+          "observedValue": 0.0,
+          "unit": "전체 화면 대비 실제 픽셀·채도 비율",
+          "weight": 70.0,
+          "delta": 0.0,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "화면 기준 관측 강도 · 유효 1개 구간 평균 · 품질 별도. 실제 영역별 측정량으로 배분",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:1",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:2",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:3",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:4",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:5",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:6",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:7",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:8",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:9",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:10",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:11",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:12",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:13",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:14",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:15",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:16",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:17",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:18",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:1",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:2",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:3",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:4",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:5",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:6",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:7",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:8",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:9",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:10",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:11",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:12",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:13",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:14",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:15",
+              "allocatedDelta": 0.0
+            }
+          ],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_cool",
+          "label": "차가운 색감 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "면적≥0.1%, 색 분류 가능≥절반, 청록·파랑 채도합 비중≥60%인 실제 구간.",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_mixed",
+          "label": "따뜻하고 차가운 색 혼재",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "두 색군 각각≥20%, 합계≥60%",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "sky_color_cool_strength",
+          "label": "하늘색 차가운 원시 강도",
+          "observedValue": 0.004021936,
+          "unit": "하늘색 규칙점수",
+          "weight": 70.0,
+          "delta": 0.004021936,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "70×색상군 채도합/전체 RGB 픽셀, 유효 1개 구간 평균. 어둡거나 작은 하늘도 원시값 보존; 기존 색·조명 점수와 합산하지 않음. 품질 미평가",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        },
+        {
+          "id": "sky_color_cool_support",
+          "label": "하늘색 차가운 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 창 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 면적≥2%, 평균 encoded luma≥0.10, 평균 채도≥0.05 및 색상군 조건 충족 0/1 구간. 결측·부적격도 분모에 포함; 50% 이상일 때만 자동 키워드",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        }
+      ]
+    },
+    {
+      "keyword": "시각적 활력",
+      "score": 0.22982253,
+      "contributions": [
+        {
+          "id": "feature_light_area",
+          "label": "밝은 장면 관측 면적",
+          "observedValue": 0.006566358,
+          "unit": "전체 화면 대비 실제 픽셀·채도 비율",
+          "weight": 35.0,
+          "delta": 0.22982253,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "화면 기준 관측 강도 · 유효 1개 구간 평균 · 품질 별도. 실제 영역별 측정량으로 배분",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:1",
+              "allocatedDelta": 0.0043209875
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:2",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:3",
+              "allocatedDelta": 0.01107253
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:4",
+              "allocatedDelta": 0.0037808642
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:5",
+              "allocatedDelta": 0.0024305556
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:6",
+              "allocatedDelta": 0.012692901
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:7",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:8",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:9",
+              "allocatedDelta": 0.0024305556
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:10",
+              "allocatedDelta": 0.005131173
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:11",
+              "allocatedDelta": 0.0021604938
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:12",
+              "allocatedDelta": 0.020254629
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:13",
+              "allocatedDelta": 0.0712963
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:14",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:15",
+              "allocatedDelta": 0.0010802469
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:16",
+              "allocatedDelta": 0.016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:17",
+              "allocatedDelta": 0.0032407406
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:LOCAL_CONTRAST:18",
+              "allocatedDelta": 0.0043209875
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:1",
+              "allocatedDelta": 0.008641975
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:2",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:3",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:4",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:5",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:6",
+              "allocatedDelta": 0.0032407406
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:7",
+              "allocatedDelta": 0.008641975
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:8",
+              "allocatedDelta": 0.01107253
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:9",
+              "allocatedDelta": 0.005131173
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:10",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:11",
+              "allocatedDelta": 0.0043209875
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:12",
+              "allocatedDelta": 0.0024305556
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:13",
+              "allocatedDelta": 0.0037808642
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:14",
+              "allocatedDelta": 0.0062114196
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:lightfeat:EXTENDED_BRIGHT_SURFACE:15",
+              "allocatedDelta": 0.011342585
+            }
+          ],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_visual",
+          "label": "시각적 활력 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "면적≥2%, 양수 영역 중심이2×2 중2구역 이상에 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_people_light",
+          "label": "사람·밝은 영역 동시 관측",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "같은 구간에 유효한 사람 검출과 면적≥0.1%의 분포된 밝은 영역 관측",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        }
+      ]
+    },
+    {
+      "keyword": "활기 넘침",
+      "score": 0.0,
+      "contributions": [
+        {
+          "id": "persons",
+          "label": "프레임 사람 검출",
+          "observedValue": null,
+          "unit": null,
+          "weight": 55.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "사람 검출 수의 구간 평균 · 측정 품질 반영",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "semantic_person_area",
+          "label": "실제 사람 마스크 영역",
+          "observedValue": 0.0,
+          "unit": "화면 비율",
+          "weight": 20.0,
+          "delta": 0.0,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "양의 검출 수가 없는 구간의 사람 마스크 면적",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "vehicle_exclusion",
+          "label": "차량 조명 제외",
+          "observedValue": null,
+          "unit": null,
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "차량 제외 영역 참조",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:sem:20:1",
+              "allocatedDelta": null
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:sem:20:2",
+              "allocatedDelta": null
+            }
+          ],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "semantic_context",
+          "label": "하늘·건물·사람 마스크",
+          "observedValue": null,
+          "unit": null,
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "사람·건물 의미 마스크 관측",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        }
+      ]
+    },
+    {
+      "keyword": "청량한",
+      "score": 5.667827,
+      "contributions": [
+        {
+          "id": "sky_light",
+          "label": "하늘 마스크 밝기",
+          "observedValue": null,
+          "unit": null,
+          "weight": 25.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 마스크 면적×밝기 · 품질 반영",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "sky_light_raw",
+          "label": "품질 미평가 하늘 마스크 밝기",
+          "observedValue": 0.5667827,
+          "unit": "정규화 명도",
+          "weight": 10.0,
+          "delta": 5.667827,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "하늘 마스크 면적×밝기 · 품질 미평가 상한10점",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-01-030:sem:2:1",
+              "allocatedDelta": 5.667827
+            }
+          ],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "mild_dry_weather",
+          "label": "기온·강수 맥락",
+          "observedValue": null,
+          "unit": "°C",
+          "weight": 35.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": {
+            "name": "날씨 미연결",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": null
+          },
+          "reason": "관측 기온·강수 조건",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "rain_counter",
+          "label": "강수 반대 근거",
+          "observedValue": null,
+          "unit": "mm/지난1시간",
+          "weight": -15.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": {
+            "name": "날씨 미연결",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": null
+          },
+          "reason": "관측 강수량에 따른 조정",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        }
+      ]
+    },
+    {
+      "keyword": "다채로운",
+      "score": 13.288777,
+      "contributions": [
+        {
+          "id": "sky_color_mixed_strength",
+          "label": "하늘색 다채로운 원시 강도",
+          "observedValue": 13.288777,
+          "unit": "하늘색 규칙점수",
+          "weight": 70.0,
+          "delta": 13.288777,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "70×색상군 채도합/전체 RGB 픽셀, 유효 1개 구간 평균. 어둡거나 작은 하늘도 원시값 보존; 기존 색·조명 점수와 합산하지 않음. 품질 미평가",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        },
+        {
+          "id": "sky_color_mixed_support",
+          "label": "하늘색 다채로운 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 창 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 면적≥2%, 평균 encoded luma≥0.10, 평균 채도≥0.05 및 색상군 조건 충족 0/1 구간. 결측·부적격도 분모에 포함; 50% 이상일 때만 자동 키워드",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        }
+      ]
+    }
+  ],
+  "cumulativeScores": [
+    {
+      "keyword": "따뜻한",
+      "score": 0.37066582
+    },
+    {
+      "keyword": "차가운",
+      "score": 0.0075657177
+    },
+    {
+      "keyword": "시각적 활력",
+      "score": 0.4405067
+    },
+    {
+      "keyword": "활기 넘침",
+      "score": 0.020318931
+    },
+    {
+      "keyword": "청량한",
+      "score": 5.478942
+    },
+    {
+      "keyword": "다채로운",
+      "score": 10.905717
+    }
+  ]
+}

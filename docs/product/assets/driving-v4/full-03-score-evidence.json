@@ -1,0 +1,2655 @@
+{
+  "videoId": "full-03",
+  "sourcePtsMs": 1931313.0,
+  "originalRgbSha256": "428fe6eb42957d44fb76203abe4fc855ca26e049d150ca7f379c9af291ce727d",
+  "displayRgbSha256": "bafd95dbcdf2b835992f50b272fa4543bf510ee433401e3503966ce7b3071512",
+  "frameRuleVersion": "scene-v2.0+sky-color-v1",
+  "keywords": [
+    "활기 넘침"
+  ],
+  "frameScores": [
+    {
+      "keyword": "따뜻한",
+      "score": 0.5556706,
+      "contributions": [
+        {
+          "id": "feature_warm",
+          "label": "빨강·노랑 범위 색감",
+          "observedValue": 0.007938151,
+          "unit": "전체 화면 대비 실제 픽셀·채도 비율",
+          "weight": 70.0,
+          "delta": 0.5556706,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "화면 기준 관측 강도 · 유효 1개 구간 평균 · 품질 별도. 실제 영역별 측정량으로 배분",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:1",
+              "allocatedDelta": 0.0507969
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:2",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:3",
+              "allocatedDelta": 0.0007147822
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:4",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:5",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:6",
+              "allocatedDelta": 0.024293132
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:7",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:8",
+              "allocatedDelta": 0.029497972
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:9",
+              "allocatedDelta": 0.0019236659
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:10",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:11",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:12",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:13",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:14",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:15",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:16",
+              "allocatedDelta": 0.0025932356
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:17",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:18",
+              "allocatedDelta": 0.0014453848
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:19",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:20",
+              "allocatedDelta": 0.0072668726
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:21",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:22",
+              "allocatedDelta": 0.0002302074
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:23",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:24",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:25",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:26",
+              "allocatedDelta": 0.00013748597
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:27",
+              "allocatedDelta": 0.00040489112
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:28",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:29",
+              "allocatedDelta": 0.00028807644
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:30",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:31",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:32",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:33",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:34",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:35",
+              "allocatedDelta": 0.00036955814
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:36",
+              "allocatedDelta": 0.00011047979
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:37",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:38",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:39",
+              "allocatedDelta": 0.00452904
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:40",
+              "allocatedDelta": 0.00025792615
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:41",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:42",
+              "allocatedDelta": 0.00024779857
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:43",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:44",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:45",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:46",
+              "allocatedDelta": 0.001549636
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:47",
+              "allocatedDelta": 0.118675284
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:48",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:49",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:50",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:51",
+              "allocatedDelta": 0.0121660475
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:52",
+              "allocatedDelta": 0.0025251913
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:53",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:54",
+              "allocatedDelta": 0.00018268883
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:55",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:56",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:57",
+              "allocatedDelta": 0.017556852
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:58",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:59",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:60",
+              "allocatedDelta": 0.001443987
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:61",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:62",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:63",
+              "allocatedDelta": 0.051706288
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:64",
+              "allocatedDelta": 0.011412914
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:65",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:66",
+              "allocatedDelta": 0.0058370056
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:67",
+              "allocatedDelta": 0.013253875
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:68",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:69",
+              "allocatedDelta": 0.0064814542
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:70",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:71",
+              "allocatedDelta": 0.010564052
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:72",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:73",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:74",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:75",
+              "allocatedDelta": 0.00053939084
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:76",
+              "allocatedDelta": 0.0020507202
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:77",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:78",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:79",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:1",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:2",
+              "allocatedDelta": 0.00067687436
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:3",
+              "allocatedDelta": 0.0109924935
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:4",
+              "allocatedDelta": 0.015401286
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:5",
+              "allocatedDelta": 0.00011856368
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:6",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:7",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:8",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:9",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:10",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:11",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:12",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:13",
+              "allocatedDelta": 0.00055744813
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:14",
+              "allocatedDelta": 0.016373994
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:15",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:16",
+              "allocatedDelta": 0.00042336315
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:17",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:18",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:19",
+              "allocatedDelta": 0.00011210109
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:20",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:21",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:22",
+              "allocatedDelta": 0.00049438834
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:23",
+              "allocatedDelta": 0.0013965241
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:24",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:25",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:26",
+              "allocatedDelta": 0.00074928894
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:27",
+              "allocatedDelta": 0.00022201023
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:28",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:29",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:30",
+              "allocatedDelta": 0.00011901025
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:31",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:32",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:33",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:34",
+              "allocatedDelta": 0.00011347131
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:35",
+              "allocatedDelta": 0.078868024
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:36",
+              "allocatedDelta": 0.0063987523
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:37",
+              "allocatedDelta": 0.00013503086
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:38",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:39",
+              "allocatedDelta": 0.008283203
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:40",
+              "allocatedDelta": 0.0011485557
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:41",
+              "allocatedDelta": 0.004596765
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:42",
+              "allocatedDelta": 0.0010886451
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:43",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:44",
+              "allocatedDelta": 0.0010721424
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:45",
+              "allocatedDelta": 0.0003682773
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:46",
+              "allocatedDelta": 0.0015948619
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:47",
+              "allocatedDelta": 0.00014329805
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:48",
+              "allocatedDelta": 0.0006004782
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:49",
+              "allocatedDelta": 0.0058489563
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:50",
+              "allocatedDelta": 0.00085505215
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:51",
+              "allocatedDelta": 0.0017629989
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:52",
+              "allocatedDelta": 0.011701843
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:53",
+              "allocatedDelta": 0.00060345547
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:54",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:55",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:56",
+              "allocatedDelta": 0.0017969012
+            }
+          ],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_warm",
+          "label": "따뜻한 색감 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "면적≥0.1%, 색 분류 가능≥절반, 빨강·노랑 비중≥60%",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_mixed",
+          "label": "따뜻하고 차가운 색 혼재",
+          "observedValue": 1.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "두 색군 각각≥20%, 합계≥60%",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_coverage",
+          "label": "유효 관측 구간",
+          "observedValue": 1.0,
+          "unit": "전체 기간 구간 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "전체 실제 기간 기준",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_area",
+          "label": "관측된 밝은 면적",
+          "observedValue": 0.05256173,
+          "unit": "화면 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "중복 없는 관측 픽셀 합집합",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_color_coverage",
+          "label": "관측 픽셀 중 색 분류 가능 범위",
+          "observedValue": 0.9793012,
+          "unit": "관측 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "세 채널 상한 근접 픽셀은 색 미확인",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_0",
+          "label": "기록된 RGB: 빨강",
+          "observedValue": 0.009336419,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_1",
+          "label": "기록된 RGB: 노랑",
+          "observedValue": 0.00962963,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_2",
+          "label": "기록된 RGB: 초록",
+          "observedValue": 0.0050308644,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_3",
+          "label": "기록된 RGB: 청록",
+          "observedValue": 0.0078549385,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_4",
+          "label": "기록된 RGB: 파랑",
+          "observedValue": 0.0017438271,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_5",
+          "label": "기록된 RGB: 자홍",
+          "observedValue": 0.00013117284,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_6",
+          "label": "기록된 RGB: 무채색에 가까움",
+          "observedValue": 0.017746914,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_category_7",
+          "label": "기록된 RGB: 세 채널 상한 근접·색 미확인",
+          "observedValue": 0.001087963,
+          "unit": "전체 화면 대비 해당 범주 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "실제 픽셀 분포의 구간 평균",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_0",
+          "label": "RGB 상한 근접 채널 0 개",
+          "observedValue": 0.050378088,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_1",
+          "label": "RGB 상한 근접 채널 1 개",
+          "observedValue": 0.00091049384,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_2",
+          "label": "RGB 상한 근접 채널 2 개",
+          "observedValue": 0.00018518518,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "feature_rgb_upper_3",
+          "label": "RGB 상한 근접 채널 3 개",
+          "observedValue": 0.001087963,
+          "unit": "전체 화면 대비 해당 픽셀 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "RGB 상한 근접 채널 수별 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "sky_color_warm_strength",
+          "label": "하늘색 따뜻한 원시 강도",
+          "observedValue": 0.008206326,
+          "unit": "하늘색 규칙점수",
+          "weight": 70.0,
+          "delta": 0.008206326,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "70×색상군 채도합/전체 RGB 픽셀, 유효 1개 구간 평균. 어둡거나 작은 하늘도 원시값 보존; 기존 색·조명 점수와 합산하지 않음. 품질 미평가",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        },
+        {
+          "id": "sky_color_warm_support",
+          "label": "하늘색 따뜻한 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 창 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 면적≥2%, 평균 encoded luma≥0.10, 평균 채도≥0.05 및 색상군 조건 충족 0/1 구간. 결측·부적격도 분모에 포함; 50% 이상일 때만 자동 키워드",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        }
+      ]
+    },
+    {
+      "keyword": "차가운",
+      "score": 0.2842583,
+      "contributions": [
+        {
+          "id": "feature_cool",
+          "label": "청록·파랑 범위 색감",
+          "observedValue": 0.004060833,
+          "unit": "전체 화면 대비 실제 픽셀·채도 비율",
+          "weight": 70.0,
+          "delta": 0.2842583,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "화면 기준 관측 강도 · 유효 1개 구간 평균 · 품질 별도. 실제 영역별 측정량으로 배분",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:1",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:2",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:3",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:4",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:5",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:6",
+              "allocatedDelta": 0.0006746085
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:7",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:8",
+              "allocatedDelta": 0.0041733785
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:9",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:10",
+              "allocatedDelta": 0.006184502
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:11",
+              "allocatedDelta": 0.008456073
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:12",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:13",
+              "allocatedDelta": 0.00019862605
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:14",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:15",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:16",
+              "allocatedDelta": 0.011276031
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:17",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:18",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:19",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:20",
+              "allocatedDelta": 0.0028012148
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:21",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:22",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:23",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:24",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:25",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:26",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:27",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:28",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:29",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:30",
+              "allocatedDelta": 0.027856205
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:31",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:32",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:33",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:34",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:35",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:36",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:37",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:38",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:39",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:40",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:41",
+              "allocatedDelta": 0.0028517074
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:42",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:43",
+              "allocatedDelta": 0.0015296154
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:44",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:45",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:46",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:47",
+              "allocatedDelta": 0.04124892
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:48",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:49",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:50",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:51",
+              "allocatedDelta": 0.021091629
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:52",
+              "allocatedDelta": 0.0005692702
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:53",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:54",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:55",
+              "allocatedDelta": 0.0007378745
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:56",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:57",
+              "allocatedDelta": 0.00053896935
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:58",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:59",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:60",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:61",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:62",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:63",
+              "allocatedDelta": 0.03642486
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:64",
+              "allocatedDelta": 0.00052049034
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:65",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:66",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:67",
+              "allocatedDelta": 0.0012798106
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:68",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:69",
+              "allocatedDelta": 0.000577755
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:70",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:71",
+              "allocatedDelta": 0.0008571671
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:72",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:73",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:74",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:75",
+              "allocatedDelta": 0.002459518
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:76",
+              "allocatedDelta": 0.0018157418
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:77",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:78",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:79",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:1",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:2",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:3",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:4",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:5",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:6",
+              "allocatedDelta": 0.001918396
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:7",
+              "allocatedDelta": 0.0002107799
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:8",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:9",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:10",
+              "allocatedDelta": 0.0032085741
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:11",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:12",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:13",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:14",
+              "allocatedDelta": 0.00017185748
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:15",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:16",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:17",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:18",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:19",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:20",
+              "allocatedDelta": 0.0029422878
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:21",
+              "allocatedDelta": 0.0004898794
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:22",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:23",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:24",
+              "allocatedDelta": 0.005251371
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:25",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:26",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:27",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:28",
+              "allocatedDelta": 0.002218215
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:29",
+              "allocatedDelta": 0.00037573808
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:30",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:31",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:32",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:33",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:34",
+              "allocatedDelta": 0.0021626283
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:35",
+              "allocatedDelta": 0.026434084
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:36",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:37",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:38",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:39",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:40",
+              "allocatedDelta": 0.00011325169
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:41",
+              "allocatedDelta": 0.04440667
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:42",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:43",
+              "allocatedDelta": 0.007316448
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:44",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:45",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:46",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:47",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:48",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:49",
+              "allocatedDelta": 0.006344373
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:50",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:51",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:52",
+              "allocatedDelta": 0.00026060152
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:53",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:54",
+              "allocatedDelta": 0.0
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:55",
+              "allocatedDelta": 0.0063091815
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:56",
+              "allocatedDelta": 0.0
+            }
+          ],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_cool",
+          "label": "차가운 색감 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "면적≥0.1%, 색 분류 가능≥절반, 청록·파랑 채도합 비중≥60%인 실제 구간.",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_mixed",
+          "label": "따뜻하고 차가운 색 혼재",
+          "observedValue": 1.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "두 색군 각각≥20%, 합계≥60%",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "sky_color_cool_strength",
+          "label": "하늘색 차가운 원시 강도",
+          "observedValue": 0.03447456,
+          "unit": "하늘색 규칙점수",
+          "weight": 70.0,
+          "delta": 0.03447456,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "70×색상군 채도합/전체 RGB 픽셀, 유효 1개 구간 평균. 어둡거나 작은 하늘도 원시값 보존; 기존 색·조명 점수와 합산하지 않음. 품질 미평가",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        },
+        {
+          "id": "sky_color_cool_support",
+          "label": "하늘색 차가운 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 창 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 면적≥2%, 평균 encoded luma≥0.10, 평균 채도≥0.05 및 색상군 조건 충족 0/1 구간. 결측·부적격도 분모에 포함; 50% 이상일 때만 자동 키워드",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        }
+      ]
+    },
+    {
+      "keyword": "시각적 활력",
+      "score": 1.8396605,
+      "contributions": [
+        {
+          "id": "feature_light_area",
+          "label": "밝은 장면 관측 면적",
+          "observedValue": 0.05256173,
+          "unit": "전체 화면 대비 실제 픽셀·채도 비율",
+          "weight": 35.0,
+          "delta": 1.8396605,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "화면 기준 관측 강도 · 유효 1개 구간 평균 · 품질 별도. 실제 영역별 측정량으로 배분",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:1",
+              "allocatedDelta": 0.094521604
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:2",
+              "allocatedDelta": 0.0021604938
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:3",
+              "allocatedDelta": 0.0016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:4",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:5",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:6",
+              "allocatedDelta": 0.05779321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:7",
+              "allocatedDelta": 0.0016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:8",
+              "allocatedDelta": 0.09425154
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:9",
+              "allocatedDelta": 0.0035108025
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:10",
+              "allocatedDelta": 0.028896606
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:11",
+              "allocatedDelta": 0.0067515434
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:12",
+              "allocatedDelta": 0.0024305556
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:13",
+              "allocatedDelta": 0.0021604938
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:14",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:15",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:16",
+              "allocatedDelta": 0.025925925
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:17",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:18",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:19",
+              "allocatedDelta": 0.0027006173
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:20",
+              "allocatedDelta": 0.03888889
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:21",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:22",
+              "allocatedDelta": 0.0010802469
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:23",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:24",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:25",
+              "allocatedDelta": 0.0010802469
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:26",
+              "allocatedDelta": 0.0010802469
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:27",
+              "allocatedDelta": 0.0032407406
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:28",
+              "allocatedDelta": 0.0016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:29",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:30",
+              "allocatedDelta": 0.050231483
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:31",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:32",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:33",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:34",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:35",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:36",
+              "allocatedDelta": 0.0048611113
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:37",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:38",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:39",
+              "allocatedDelta": 0.0048611113
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:40",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:41",
+              "allocatedDelta": 0.018094135
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:42",
+              "allocatedDelta": 0.0067515434
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:43",
+              "allocatedDelta": 0.0037808642
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:44",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:45",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:46",
+              "allocatedDelta": 0.0078317905
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:47",
+              "allocatedDelta": 0.33082563
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:48",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:49",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:50",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:51",
+              "allocatedDelta": 0.054012347
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:52",
+              "allocatedDelta": 0.0032407406
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:53",
+              "allocatedDelta": 0.0013503087
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:54",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:55",
+              "allocatedDelta": 0.004591049
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:56",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:57",
+              "allocatedDelta": 0.034027778
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:58",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:59",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:60",
+              "allocatedDelta": 0.0024305556
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:61",
+              "allocatedDelta": 0.0035108025
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:62",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:63",
+              "allocatedDelta": 0.22928241
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:64",
+              "allocatedDelta": 0.032677468
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:65",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:66",
+              "allocatedDelta": 0.012692901
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:67",
+              "allocatedDelta": 0.025115741
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:68",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:69",
+              "allocatedDelta": 0.02349537
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:70",
+              "allocatedDelta": 0.0016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:71",
+              "allocatedDelta": 0.018364197
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:72",
+              "allocatedDelta": 0.004050926
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:73",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:74",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:75",
+              "allocatedDelta": 0.004050926
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:76",
+              "allocatedDelta": 0.005131173
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:77",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:78",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:LOCAL_CONTRAST:79",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:1",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:2",
+              "allocatedDelta": 0.005131173
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:3",
+              "allocatedDelta": 0.015663581
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:4",
+              "allocatedDelta": 0.02322531
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:5",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:6",
+              "allocatedDelta": 0.010532407
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:7",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:8",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:9",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:10",
+              "allocatedDelta": 0.0032407406
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:11",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:12",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:13",
+              "allocatedDelta": 0.0024305556
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:14",
+              "allocatedDelta": 0.013233025
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:15",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:16",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:17",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:18",
+              "allocatedDelta": 0.0032407406
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:19",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:20",
+              "allocatedDelta": 0.012692901
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:21",
+              "allocatedDelta": 0.0016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:22",
+              "allocatedDelta": 0.0013503087
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:23",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:24",
+              "allocatedDelta": 0.0043209875
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:25",
+              "allocatedDelta": 0.0016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:26",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:27",
+              "allocatedDelta": 0.008101852
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:28",
+              "allocatedDelta": 0.008101852
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:29",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:30",
+              "allocatedDelta": 0.0010802469
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:31",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:32",
+              "allocatedDelta": 0.016743828
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:33",
+              "allocatedDelta": 0.0027006173
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:34",
+              "allocatedDelta": 0.058333334
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:35",
+              "allocatedDelta": 0.12827933
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:36",
+              "allocatedDelta": 0.010262346
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:37",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:38",
+              "allocatedDelta": 0.0027006173
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:39",
+              "allocatedDelta": 0.025655864
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:40",
+              "allocatedDelta": 0.002970679
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:41",
+              "allocatedDelta": 0.108024694
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:42",
+              "allocatedDelta": 0.0013503087
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:43",
+              "allocatedDelta": 0.010802469
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:44",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:45",
+              "allocatedDelta": 0.00054012344
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:46",
+              "allocatedDelta": 0.0048611113
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:47",
+              "allocatedDelta": 0.00027006172
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:48",
+              "allocatedDelta": 0.0013503087
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:49",
+              "allocatedDelta": 0.021604938
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:50",
+              "allocatedDelta": 0.0018904321
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:51",
+              "allocatedDelta": 0.0016203703
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:52",
+              "allocatedDelta": 0.017824074
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:53",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:54",
+              "allocatedDelta": 0.00081018516
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:55",
+              "allocatedDelta": 0.009182098
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:lightfeat:EXTENDED_BRIGHT_SURFACE:56",
+              "allocatedDelta": 0.0010813475
+            }
+          ],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_visual",
+          "label": "시각적 활력 지속 근거",
+          "observedValue": 1.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "면적≥2%, 양수 영역 중심이2×2 중2구역 이상에 분포",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        },
+        {
+          "id": "interpret_people_light",
+          "label": "사람·밝은 영역 동시 관측",
+          "observedValue": 0.0,
+          "unit": "전체 기간 구간 중 조건 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "같은 구간에 유효한 사람 검출과 면적≥0.1%의 분포된 밝은 영역 관측",
+          "evidence": [],
+          "basis": "OBSERVED_FEATURE_STRENGTH"
+        }
+      ]
+    },
+    {
+      "keyword": "활기 넘침",
+      "score": 0.0,
+      "contributions": [
+        {
+          "id": "persons",
+          "label": "프레임 사람 검출",
+          "observedValue": null,
+          "unit": null,
+          "weight": 55.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "사람 검출 수의 구간 평균 · 측정 품질 반영",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "semantic_person_area",
+          "label": "실제 사람 마스크 영역",
+          "observedValue": 0.0,
+          "unit": "화면 비율",
+          "weight": 20.0,
+          "delta": 0.0,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "양의 검출 수가 없는 구간의 사람 마스크 면적",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "vehicle_exclusion",
+          "label": "차량 조명 제외",
+          "observedValue": null,
+          "unit": null,
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "차량 제외 영역 참조",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:sem:20:1",
+              "allocatedDelta": null
+            }
+          ],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "semantic_context",
+          "label": "하늘·건물·사람 마스크",
+          "observedValue": null,
+          "unit": null,
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "사람·건물 의미 마스크 관측",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        }
+      ]
+    },
+    {
+      "keyword": "청량한",
+      "score": 0.11554025,
+      "contributions": [
+        {
+          "id": "sky_light",
+          "label": "하늘 마스크 밝기",
+          "observedValue": null,
+          "unit": null,
+          "weight": 25.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 마스크 면적×밝기 · 품질 반영",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "sky_light_raw",
+          "label": "품질 미평가 하늘 마스크 밝기",
+          "observedValue": 0.085909456,
+          "unit": "정규화 명도",
+          "weight": 10.0,
+          "delta": 0.11554025,
+          "measurementQuality": null,
+          "source": {
+            "name": "동일 실제 RGB 및 저장된 공식 baseline 의미마스크",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": "semantic-contrast-rgb-v3 + actual main sky observer; no object detector; source capture epoch unknown; synthetic transport epoch only"
+          },
+          "reason": "하늘 마스크 면적×밝기 · 품질 미평가 상한10점",
+          "evidence": [
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:sem:2:1",
+              "allocatedDelta": 0.057770126
+            },
+            {
+              "sampleElapsedMs": 0,
+              "regionId": "full-03-030:sem:2:2",
+              "allocatedDelta": 0.057770126
+            }
+          ],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "mild_dry_weather",
+          "label": "기온·강수 맥락",
+          "observedValue": null,
+          "unit": "°C",
+          "weight": 35.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": {
+            "name": "날씨 미연결",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": null
+          },
+          "reason": "관측 기온·강수 조건",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        },
+        {
+          "id": "rain_counter",
+          "label": "강수 반대 근거",
+          "observedValue": null,
+          "unit": "mm/지난1시간",
+          "weight": -15.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": {
+            "name": "날씨 미연결",
+            "observedAtEpochMs": null,
+            "fetchedAtEpochMs": null,
+            "cached": false,
+            "detail": null
+          },
+          "reason": "관측 강수량에 따른 조정",
+          "evidence": [],
+          "basis": "LEGACY_HEURISTIC"
+        }
+      ]
+    },
+    {
+      "keyword": "다채로운",
+      "score": 0.042680886,
+      "contributions": [
+        {
+          "id": "sky_color_mixed_strength",
+          "label": "하늘색 다채로운 원시 강도",
+          "observedValue": 0.042680886,
+          "unit": "하늘색 규칙점수",
+          "weight": 70.0,
+          "delta": 0.042680886,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "70×색상군 채도합/전체 RGB 픽셀, 유효 1개 구간 평균. 어둡거나 작은 하늘도 원시값 보존; 기존 색·조명 점수와 합산하지 않음. 품질 미평가",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        },
+        {
+          "id": "sky_color_mixed_support",
+          "label": "하늘색 다채로운 지속 근거",
+          "observedValue": 0.0,
+          "unit": "전체 창 충족 비율",
+          "weight": 0.0,
+          "delta": null,
+          "measurementQuality": null,
+          "source": null,
+          "reason": "하늘 면적≥2%, 평균 encoded luma≥0.10, 평균 채도≥0.05 및 색상군 조건 충족 0/1 구간. 결측·부적격도 분모에 포함; 50% 이상일 때만 자동 키워드",
+          "evidence": [],
+          "basis": "SKY_COLOR_RULE"
+        }
+      ]
+    }
+  ],
+  "cumulativeScores": [
+    {
+      "keyword": "따뜻한",
+      "score": 0.70947534
+    },
+    {
+      "keyword": "차가운",
+      "score": 0.20040092
+    },
+    {
+      "keyword": "시각적 활력",
+      "score": 1.4749855
+    },
+    {
+      "keyword": "활기 넘침",
+      "score": 0.08068783
+    },
+    {
+      "keyword": "청량한",
+      "score": 0.07602646
+    },
+    {
+      "keyword": "다채로운",
+      "score": 0.10619832
+    }
+  ]
+}

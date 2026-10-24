@@ -1,0 +1,109 @@
+{
+  "status": "RELEASE_0_3_2_BUILT_AND_VERIFIED",
+  "dateKst": "2026-10-24",
+  "sourceBase": "e322009beed6845a8a94cad11f52ca9dca3b7f71",
+  "sourceChanges": [
+    {
+      "path": "app/src/androidTest/java/kr/urbanmood/integration/ProductionConfigurationDeviceTest.kt",
+      "sha256": "15bf991a9d8aca27d70e9d1f01489bc6012e170fc9a546705c6a06f355132a16"
+    },
+    {
+      "path": "app/build.gradle.kts",
+      "sha256": "0f4ef156e21836386d7b8592c760c3e331aec2e0193434876f63941314426b20"
+    }
+  ],
+  "package": "kr.urbanmood",
+  "appName": "Driving Mood",
+  "versionCode": 10,
+  "versionName": "0.3.2",
+  "model": {
+    "asset": "assets/vision/yolo26n-sem-ade20k-320.ort",
+    "sha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+    "bytes": 6386728,
+    "officialBaseline": true,
+    "pilot02Included": false
+  },
+  "licenseAssets": [
+    "assets/licenses/Apache-2.0.txt",
+    "assets/licenses/DrivingMood-AGPL-3.0.txt",
+    "assets/licenses/Gradle-LICENSE.txt",
+    "assets/licenses/Gradle-NOTICE.txt",
+    "assets/licenses/JSR305-source-copyright.txt",
+    "assets/licenses/Pretendard-OFL.txt",
+    "assets/licenses/Protobuf-LICENSE.txt",
+    "assets/licenses/SEMANTIC-SOURCES.txt",
+    "assets/licenses/SKY-OBSERVATION-SOURCES.txt",
+    "assets/licenses/Skia-LICENSE.txt",
+    "assets/licenses/THIRD_PARTY_NOTICES.txt",
+    "assets/licenses/androidx.activity--activity--1.11.0--1.txt",
+    "assets/licenses/androidx.activity--activity-ktx--1.11.0--1.txt",
+    "assets/licenses/androidx.annotation--annotation-jvm--1.9.1--1.txt",
+    "assets/licenses/androidx.camera--camera-camera2--1.6.2--1.txt",
+    "assets/licenses/androidx.camera--camera-camera2-pipe--1.6.2--1.txt",
+    "assets/licenses/androidx.camera--camera-core--1.6.2--1.txt",
+    "assets/licenses/androidx.camera--camera-lifecycle--1.6.2--1.txt",
+    "assets/licenses/androidx.camera--camera-video--1.6.2--1.txt",
+    "assets/licenses/androidx.camera--camera-view--1.6.2--1.txt",
+    "assets/licenses/androidx.camera.featurecombinationquery--featurecombinationquery--1.6.2--1.txt",
+    "assets/licenses/androidx.camera.viewfinder--viewfinder-core--1.5.1--1.txt",
+    "assets/licenses/androidx.core--core--1.17.0--1.txt",
+    "assets/licenses/androidx.core--core-backported-fixes--1.0.0--1.txt",
+    "assets/licenses/androidx.core--core-ktx--1.17.0--1.txt",
+    "assets/licenses/androidx.core--core-viewtree--1.0.0--1.txt",
+    "assets/licenses/androidx.exifinterface--exifinterface--1.4.2--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-common-jvm--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-livedata--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-livedata-core--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-livedata-core-ktx--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-runtime-android--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-runtime-ktx-android--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-viewmodel--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-viewmodel-android--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-viewmodel-ktx--2.9.4--1.txt",
+    "assets/licenses/androidx.lifecycle--lifecycle-viewmodel-savedstate-android--2.9.4--1.txt",
+    "assets/licenses/androidx.profileinstaller--profileinstaller--1.4.0--1.txt",
+    "assets/licenses/androidx.savedstate--savedstate-android--1.3.1--1.txt",
+    "assets/licenses/androidx.savedstate--savedstate-ktx--1.3.1--1.txt",
+    "assets/licenses/androidx.tracing--tracing-android--1.3.0--1.txt",
+    "assets/licenses/androidx.tracing--tracing-ktx--1.3.0--1.txt",
+    "assets/licenses/jakarta.inject--jakarta.inject-api--2.0.1--1.txt",
+    "assets/licenses/jakarta.inject--jakarta.inject-api--2.0.1--2.txt",
+    "assets/licenses/onnxruntime-LICENSE.txt",
+    "assets/licenses/onnxruntime-ThirdPartyNotices.txt",
+    "assets/licenses/org.checkerframework--checker-qual--3.43.0--1.txt",
+    "assets/licenses/runtime-license-index.txt",
+    "assets/licenses/ultralytics-LICENSE.txt"
+  ],
+  "build": {
+    "release": "BUILD SUCCESSFUL",
+    "releaseLintVital": "passed",
+    "androidTestApk": "BUILD SUCCESSFUL"
+  },
+  "currentVerification": {
+    "nativeTest": "ProductionConfigurationDeviceTest",
+    "passed": 1,
+    "failed": 0,
+    "device": "Android15 API35 x86_64 emulator-5554",
+    "updatedFrom": "0.3.1/code9",
+    "installed": "0.3.2/code10",
+    "installedApkHashMatches": true
+  },
+  "physicalPhoneVerified": false,
+  "apk": {
+    "bytes": 223695691,
+    "sha256": "b58a7dce222732728a40bd0048032356dfd864ade135a74fa6c353ef86effbdc",
+    "certificateSha256": "14ec78db3c3f710e2762d478299d5dfca0a0d62b5bb76cc4c1f345bb12b9a513",
+    "signatureVerified": true,
+    "zipAndElf16KBVerified": true,
+    "wordingAndSensitiveTextAuditPassed": true
+  },
+  "reusedVerification": {
+    "sourceFilesMatchedBeforeBump": 156,
+    "unitPassed": 306,
+    "unitFailures": 0,
+    "lintErrors": 0,
+    "lintWarnings": 39,
+    "reason": "All 156 previously verified source/config files matched before the bump. Only version metadata and its native expectation changed; business code, contracts, models and unit tests unchanged. Full unit/lint and long recording/replay not rerun.",
+    "reference": "vision/sky-mood-verification.json"
+  }
+}
