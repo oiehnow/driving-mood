@@ -3,7 +3,7 @@ package kr.urbanmood.contracts
 /** Runtime provenance, not a claim that an offline frame ran through the Android model. */
 enum class SceneObservationRuntime { ANDROID_CAMERA, ANDROID_RECORDED, DESKTOP_SEGMENTATION, TEST_FIXTURE }
 
-enum class ContributionBasis { LEGACY_HEURISTIC, OBSERVED_FEATURE_STRENGTH }
+enum class ContributionBasis { LEGACY_HEURISTIC, OBSERVED_FEATURE_STRENGTH, SKY_COLOR_RULE }
 /** RGB observations; none of these names establishes a physical emitting source. */
 enum class LightGroupKind { LOCAL_CONTRAST, EXTENDED_BRIGHT_SURFACE, LEGACY_UNCLASSIFIED_CANDIDATE }
 
@@ -128,7 +128,7 @@ data class SemanticSceneObservation(
     // Legacy signboardBrightAreaRatio keeps its original meaning; do not assume equality
     // with this list's sum or add both measurements as independent score contributions.
     val signLightRegions: List<SignLightEvidence>? = null,
-    // Same-frame raw RGB sky-mask observations; unused by existing mood rules.
+    // Same-frame raw RGB sky-mask observations; interpretation retains a separate contribution basis.
     val skyColor: SkyColorObservation? = null,
 )
 

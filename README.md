@@ -22,6 +22,8 @@
 
 사람·주변 조명은 활력, 색감은 따뜻함·차가움, 하늘·날씨는 산뜻함의 근거로 사용합니다. 차량광을 제외한 뒤 각 요소의 기여를 계산하고 시간 구간별로 평균합니다. 박스별 점수와 계산 원장을 연결해 결과의 근거를 확인할 수 있습니다.
 
+개발 소스에는 [하늘색의 시간 변화에 따른 무드 해석](docs/vision/SKY_COLOR.md)을 추가했습니다. 공통 주변 무드를 음악 취향과 분리해 화면·음악·조명 미리보기에 전달합니다.
+
 ![관측 영역과 기여 점수, 시간 구간 누적](docs/product/assets/driving-v2/scoring-pipeline.png)
 
 [무드 점수 설계](docs/product/MOOD_SCORING.md) · [제품 구조와 Pleos 연동 계획](docs/product/ARCHITECTURE.md) · [설계 보고서 PDF](docs/product/DrivingMood-Design.pdf)
@@ -29,6 +31,8 @@
 ## 실제 주행 영상 분석
 
 실제 주행 영상 6개로 모델과 점수 규칙을 비교합니다. 데스크톱 연구에서는 작은 간판·넓은 건물 조명을 관측하고 각 영역의 기여를 계산했습니다.
+
+추가 주행 영상 4개와 웹 실사진 43장으로 [장면 다양성을 보강](docs/vision/DATA_COVERAGE.md)하고 있습니다. 새 영상의 실제 연속 프레임 240장에서는 30초·60초 하늘색 계산과 Android 결과 연결을 확인했습니다.
 
 ![실제 야간 도심의 관측 영역과 기여](docs/product/assets/driving-v3/clip-03-observation.gif)
 

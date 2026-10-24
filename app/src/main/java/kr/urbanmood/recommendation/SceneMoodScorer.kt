@@ -12,16 +12,34 @@ class SceneMoodScorer {
         val regionWeights:List<Float>? = null)
 
     fun score(window:SceneWindow, environment:EnvironmentSnapshot?=null, evaluationTimeEpochMs:Long?=null):MoodScoreSummary {
-        val normalized = runCatching {
-            SceneAccumulator(window.durationMs,window.bucketDurationMs).also { a ->
-                window.samples.forEach { a.add(it.elapsedMs,it.vision) }
-            }.snapshot()
-        }.getOrElse { SceneWindow(0) }
-        val samples = normalized.samples.filter {
-            it.vision.status in setOf(AnalysisStatus.OK,AnalysisStatus.LOW_CONFIDENCE) && it.vision.method != AnalysisMethod.NONE &&
-                (evaluationTimeEpochMs==null || it.vision.sceneObservations?.runtime==SceneObservationRuntime.DESKTOP_SEGMENTATION ||
-                    EnvironmentPolicy.fresh(it.vision.frameTimeEpochMs,evaluationTimeEpochMs,normalized.durationMs+VisionMeasurementPolicy.MAX_AGE_MS))
-        }
+        val base = scoreBase(window, environment, evaluationTimeEpochMs)
+        val normalized = normalize(window)
+        val sky = SkyColorMoodScorer().score(normalized, usableSamples(normalized, evaluationTimeEpochMs))
+        if (sky.isEmpty()) return base
+        val merged = base.scores.map { old ->
+            val extra = sky.firstOrNull { it.keyword == old.keyword }
+            // Preserve the old numeric score: sky rule points are a separately displayed basis.
+            if (extra == null) old else old.copy(contributions = old.contributions + extra.contributions)
+        } + sky.filter { added -> base.scores.none { it.keyword == added.keyword } }
+        return base.copy(ruleVersion = base.ruleVersion + SkyColorMoodScorer.VERSION_SUFFIX, scores = merged,
+            notes = base.notes + "하늘색 원시 강도와 지속 조건을 별도로 표시합니다. 2%/0.10/0.05 및 50% 지속은 고정 프로토타입 정책이며 감정·정확도 확률이 아닙니다.")
+    }
+
+    private fun normalize(window:SceneWindow):SceneWindow = runCatching {
+        SceneAccumulator(window.durationMs,window.bucketDurationMs).also { a ->
+            window.samples.forEach { a.add(it.elapsedMs,it.vision) }
+        }.snapshot()
+    }.getOrElse { SceneWindow(0) }
+
+    private fun usableSamples(normalized:SceneWindow, evaluationTimeEpochMs:Long?):List<SceneSample> = normalized.samples.filter {
+        it.vision.status in setOf(AnalysisStatus.OK,AnalysisStatus.LOW_CONFIDENCE) && it.vision.method != AnalysisMethod.NONE &&
+            (evaluationTimeEpochMs==null || it.vision.sceneObservations?.runtime==SceneObservationRuntime.DESKTOP_SEGMENTATION ||
+                EnvironmentPolicy.fresh(it.vision.frameTimeEpochMs,evaluationTimeEpochMs,normalized.durationMs+VisionMeasurementPolicy.MAX_AGE_MS))
+    }
+
+    private fun scoreBase(window:SceneWindow, environment:EnvironmentSnapshot?, evaluationTimeEpochMs:Long?):MoodScoreSummary {
+        val normalized = normalize(window)
+        val samples = usableSamples(normalized,evaluationTimeEpochMs)
         // Presence selects the version even if the new evidence is malformed; never silently
         // replace rejected new measurements with the legacy hue/ambient/sign path.
         if (window.samples.any { it.vision.sceneObservations?.lightFeatures!=null }) {
@@ -29,7 +47,7 @@ class SceneMoodScorer {
                 samples,environment,evaluationTimeEpochMs)
             // Reuse unchanged person/sky/weather rules, but discard every legacy light/color/sign
             // contribution. Never add area-strength units to legacy heuristic points.
-            val independent=score(window.copy(samples=window.samples.map { s -> s.copy(vision=s.vision.copy(
+            val independent=scoreBase(window.copy(samples=window.samples.map { s -> s.copy(vision=s.vision.copy(
                 sceneObservations=s.vision.sceneObservations?.copy(lightFeatures=null))) }),environment,evaluationTimeEpochMs)
             val personContributions=independent.scores.first { it.keyword=="활기 넘침" }.contributions.filter {
                 it.id in setOf("persons","semantic_person_area","vehicle_exclusion","semantic_context") }.map {
@@ -172,7 +190,17 @@ class SceneMoodScorer {
                 "박스 ID는 해당 프레임 안에서만 유효하며 추적 ID가 아닙니다."))
     }
 
-    fun keywords(summary:MoodScoreSummary):List<String> = if(summary.ruleVersion==SceneFeatureScorer.RULE_VERSION)
+    fun keywords(summary:MoodScoreSummary):List<String> {
+        val base = summary.copy(ruleVersion=summary.ruleVersion.removeSuffix(SkyColorMoodScorer.VERSION_SUFFIX),
+            scores=summary.scores.mapNotNull { mood ->
+                val original=mood.contributions.filter { it.basis!=ContributionBasis.SKY_COLOR_RULE }
+                if (original.isEmpty() && mood.contributions.any { it.basis==ContributionBasis.SKY_COLOR_RULE }) null
+                else mood.copy(contributions=original)
+            })
+        return (baseKeywords(base)+SkyColorMoodScorer.keywords(summary)).distinct()
+    }
+
+    private fun baseKeywords(summary:MoodScoreSummary):List<String> = if(usesLightFeatures(summary))
         (SceneFeatureScorer.keywords(summary)+summary.scores.filter {
             (it.keyword=="활기 넘침" && (it.score ?: -1f)>=35f) || (it.keyword=="청량한" && (it.score ?: -1f)>=20f)
         }.map { it.keyword }).distinct() else summary.scores.filter { mood ->
@@ -257,6 +285,8 @@ class SceneMoodScorer {
     private fun quality(value:Float?):Boolean = unit(value) && value!!>=.5f
     private fun positiveQuality(value:Float?):Boolean = unit(value) && value!!>0f
     companion object {
+        internal fun usesLightFeatures(summary:MoodScoreSummary):Boolean =
+            summary.ruleVersion.removeSuffix(SkyColorMoodScorer.VERSION_SUFFIX)==SceneFeatureScorer.RULE_VERSION
         const val RULE_VERSION = "scene-v1.2"
         private const val SIGN_TOLERANCE = 1e-6f
     }

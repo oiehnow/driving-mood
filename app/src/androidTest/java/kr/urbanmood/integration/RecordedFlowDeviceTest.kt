@@ -20,6 +20,8 @@ import androidx.test.filters.SdkSuppress
 import androidx.test.platform.app.InstrumentationRegistry
 import kr.urbanmood.MainActivity
 import kr.urbanmood.contracts.SceneObservationRuntime
+import kr.urbanmood.contracts.FrameInputSource
+import kr.urbanmood.recommendation.SceneMoodScorer
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -112,17 +114,51 @@ class RecordedFlowDeviceTest {
                 assertTrue(window.durationMs in (duration - 1000)..duration)
                 assertTrue("sample count ${window.samples.size}", window.samples.size >= duration / 1000 - 2)
                 assertTrue(window.samples.all { sample -> sample.vision.sceneObservations?.runtime == SceneObservationRuntime.ANDROID_RECORDED })
+                window.samples.forEach { sample ->
+                    val raw = sample.vision.sceneObservations?.semantic?.skyColor
+                    assertNotNull("Missing B raw sky statistics at ${sample.elapsedMs}", raw)
+                    assertEquals("sky-rgb-v1", raw!!.measurementVersion)
+                    assertEquals(FrameInputSource.ANDROID_RECORDED, raw.frame.inputSource)
+                    assertEquals(sample.vision.frameTimeEpochMs, raw.frame.capturedAtEpochMs)
+                    assertNotNull(raw.frame.mediaPresentationTimeUs)
+                    assertEquals(raw.statistics.skyPixCount, raw.statistics.hueSectorCounts.sum() + raw.statistics.achromaticPixCount)
+                }
+                val pts = window.samples.map { it.vision.sceneObservations!!.semantic!!.skyColor!!.frame.mediaPresentationTimeUs!! }
+                assertTrue("Actual decoder PTS must increase", pts.zipWithNext().all { (a, b) -> b > a })
                 val expectedVersion = "semantic-contrast-mobile-v1"
                 assertTrue(window.samples.all { sample -> sample.vision.sceneObservations?.lightFeatures?.measurementVersion == expectedVersion })
-                assertEquals("scene-v2.0", completed.recommendation.scoreSummary?.ruleVersion)
+                assertEquals("scene-v2.0+sky-color-v1", completed.recommendation.scoreSummary?.ruleVersion)
                 assertFalse(completed.recommendation.scoreSummary!!.notes.any { note -> note.contains("미지원 측정 버전") })
                 assertTrue(window.samples.zipWithNext().all { (a,b) -> b.elapsedMs > a.elapsedMs })
                 assertTrue(snapshot.analyzedAtEpochMs >= snapshot.observationEndEpochMs!!)
                 assertEquals(snapshot.requestId, field<Long?>(state!!, "lastNotifiedId"))
                 assertFalse(state!!.claimCompletionSound(snapshot.requestId))
+                val common = completed.recommendation.commonMoodKeywords
+                assertEquals(SceneMoodScorer().keywords(completed.recommendation.scoreSummary!!), common)
+                assertTrue(field<TextView>(it, "moodText").text.contains(
+                    "주변 무드: ${common.joinToString(" · ").ifEmpty { "근거 부족" }}"))
+                val suggested = LightingPreview.suggestion(completed)
+                if (suggested != null) {
+                    assertEquals(common, state!!.lightingPreview?.moodKeywords)
+                    assertEquals(snapshot.requestId, state!!.lightingPreview?.requestId)
+                }
+                report("COMMON words=$common lighting=${state!!.lightingPreview?.moodKeywords} skyRawSamples=${pts.size} firstPtsUs=${pts.first()} lastPtsUs=${pts.last()}")
                 report("SUCCESS mode=$expectedVersion duration=$duration samples=${window.samples.size} first=${window.samples.first().elapsedMs} last=${window.samples.last().elapsedMs} completionGate=once elapsed=${SystemClock.elapsedRealtime() - start} peakSampledPssKb=$maxPssKb nativeHeapBytes=${android.os.Debug.getNativeHeapAllocatedSize()}")
             }
             await(10_000, "completed video cleanup") { recordings().isEmpty() }
+            val beforeRotation = state!!.completedAnalysis
+            val lightBeforeRotation = state!!.lightingPreview
+            scenario.recreate()
+            scenario.onActivity { activity ->
+                val restored = field<SessionState>(activity, "session")
+                assertSame(beforeRotation, restored.completedAnalysis)
+                assertEquals(lightBeforeRotation, restored.lightingPreview)
+                assertNull(restored.activeRequestId)
+                assertFalse(restored.claimCompletionSound(beforeRotation!!.snapshot.requestId))
+                assertTrue(field<Button>(activity, "analyzeButton").isEnabled)
+            }
+            assertTrue(recordings().isEmpty())
+            report("RESTORED duration=$duration same completed snapshot/common mood/light; no new recording or completion cue")
         }
     }
 

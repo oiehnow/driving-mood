@@ -389,7 +389,7 @@ class MainActivity : ComponentActivity() {
     private fun renderLighting() {
         if (!::lightingText.isInitialized) return
         val value = session.lightingPreview
-        lightingText.text = value?.let { "${it.name} · 밝기 ${(it.brightness * 100).toInt()}% · ${it.reason}" }
+        lightingText.text = value?.let { "${it.name} · 밝기 ${(it.brightness * 100).toInt()}% · ${it.reason}\n공통 무드: ${it.moodKeywords.joinToString(" · ").ifEmpty { "미확인" }}" }
             ?: "프리셋을 선택하세요."
         val color = value?.colorArgb ?: Color.DKGRAY
         val level = value?.brightness ?: 1f
@@ -492,7 +492,7 @@ class MainActivity : ComponentActivity() {
         moodCard.addView(desiredMoodText)
         renderDesiredMoods()
         configurationButtons += addButton(moodCard, "원하는 분위기 선택") { showDesiredMoods() }
-        moodText = text("무드 분석을 마치면 키워드와 음악 추천을 확인할 수 있습니다.", 14, Color.WHITE)
+        moodText = text("무드 분석을 마치면 주변 무드와 음악·조명 활용을 확인할 수 있습니다.", 14, Color.WHITE)
         moodCard.addView(moodText)
         scoreText = text("관측을 마치면 분위기별 점수와 기여 항목을 확인할 수 있습니다.", 13, muted)
         moodCard.addView(scoreText)
@@ -530,7 +530,8 @@ class MainActivity : ComponentActivity() {
         lightingCard.addView(lightingText)
         val lightingButtons = row(lightingCard)
         LightingPreview.presets.forEach { preset -> configurationButtons += addButton(lightingButtons, preset.name) {
-            session.lightingPreview = preset.copy(requestId = session.completedAnalysis?.snapshot?.requestId)
+            session.lightingPreview = preset.copy(requestId = session.completedAnalysis?.snapshot?.requestId,
+                moodKeywords = session.completedAnalysis?.recommendation?.commonMoodKeywords.orEmpty().toList())
             renderLighting()
         } }
         configurationButtons += addButton(lightingCard, "밝기 조절") {

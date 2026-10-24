@@ -1,0 +1,576 @@
+{
+  "schemaVersion": 1,
+  "scope": "Sky rule calculation and Android common-mood consumers; not mood or segmentation accuracy",
+  "ruleVersionSuffix": "+sky-color-v1",
+  "policy": {
+    "warmHueSectors": [
+      0,
+      1,
+      11
+    ],
+    "coolHueSectors": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "sectorWidthDegrees": 30,
+    "strengthWeight": 70,
+    "minimumSkyArea": 0.02,
+    "minimumMeanEncodedLuma": 0.1,
+    "minimumMeanSaturation": 0.05,
+    "dominantShare": 0.6,
+    "mixedEachShare": 0.2,
+    "mixedTotalShare": 0.6,
+    "minimumWindowSupport": 0.5,
+    "policyWasLearned": false
+  },
+  "appUnitTests": 306,
+  "appUnitFailures": 0,
+  "nativeRecordedFlowConfigurationAndRawTests": 8,
+  "nativeTestBreakdown": {
+    "recordedFlowAndCompletionCue": 5,
+    "productionConfiguration": 1,
+    "syntheticRawInput": 2
+  },
+  "nativeTemporalTests": 4,
+  "temporalWindows": 8,
+  "temporalFrames": 240,
+  "temporalInputScope": "Real driving RGB and desktop baseline masks replayed on Android; actual PTS retained",
+  "recordingTestScope": "Research release app camera recording and actual decode/model path; emulator validation",
+  "releaseApk031Replaced": false,
+  "videos": [
+    {
+      "videoId": "full-01",
+      "frames": 60,
+      "originalCaptureEpochKnown": false,
+      "timeOfDayEvidenceUsed": false,
+      "windows": [
+        {
+          "durationMs": 30000,
+          "inputSampleCount": 30,
+          "sampledBucketCount": 30,
+          "firstPtsUs": 676416667,
+          "lastPtsUs": 705416667,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [
+            "따뜻한"
+          ],
+          "lightingKeywords": [
+            "따뜻한"
+          ],
+          "musicKeywords": [
+            "따뜻한"
+          ],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 11.026144,
+              "delta": 11.026144,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0.96666664,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 0.0031028888,
+              "delta": 0.0031028888,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 11.029247,
+              "delta": 11.029247,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        },
+        {
+          "durationMs": 60000,
+          "inputSampleCount": 60,
+          "sampledBucketCount": 60,
+          "firstPtsUs": 676416667,
+          "lastPtsUs": 735416667,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [
+            "따뜻한"
+          ],
+          "lightingKeywords": [
+            "따뜻한"
+          ],
+          "musicKeywords": [
+            "따뜻한"
+          ],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 10.873665,
+              "delta": 10.873665,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0.98333335,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 0.03205282,
+              "delta": 0.03205282,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 10.905717,
+              "delta": 10.905717,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        }
+      ],
+      "nativeEvidenceSha256": "e812229eb744779c03bd0625d26da6f088ea83f7e09097cd58f10e8fd5f95f4c",
+      "inputManifestSha256": "2d67f7f241058b73f85064b01cb0f2bb21ef188900039af77a5b015179af3645"
+    },
+    {
+      "videoId": "full-02",
+      "frames": 60,
+      "originalCaptureEpochKnown": false,
+      "timeOfDayEvidenceUsed": false,
+      "windows": [
+        {
+          "durationMs": 30000,
+          "inputSampleCount": 30,
+          "sampledBucketCount": 30,
+          "firstPtsUs": 1639800000,
+          "lastPtsUs": 1668800000,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [
+            "차가운"
+          ],
+          "lightingKeywords": [
+            "차가운"
+          ],
+          "musicKeywords": [
+            "차가운"
+          ],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 0.038614105,
+              "delta": 0.038614105,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 3.205993,
+              "delta": 3.205993,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 1,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 3.244607,
+              "delta": 3.244607,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        },
+        {
+          "durationMs": 60000,
+          "inputSampleCount": 60,
+          "sampledBucketCount": 60,
+          "firstPtsUs": 1639800000,
+          "lastPtsUs": 1698800000,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [
+            "차가운"
+          ],
+          "lightingKeywords": [
+            "차가운"
+          ],
+          "musicKeywords": [
+            "차가운"
+          ],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 0.06434652,
+              "delta": 0.06434652,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 3.9162164,
+              "delta": 3.9162164,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 1,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 3.980563,
+              "delta": 3.980563,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        }
+      ],
+      "nativeEvidenceSha256": "15350a5705109f3d7e1b675f6be701243bad12e4fe3d71d3b3e9dac51691dd95",
+      "inputManifestSha256": "4171129e57d4bfe237569b9fafa8e873a22244e356a0f4a105289c5cfe02160d"
+    },
+    {
+      "videoId": "full-03",
+      "frames": 60,
+      "originalCaptureEpochKnown": false,
+      "timeOfDayEvidenceUsed": false,
+      "windows": [
+        {
+          "durationMs": 30000,
+          "inputSampleCount": 31,
+          "sampledBucketCount": 29,
+          "firstPtsUs": 1901317000,
+          "lastPtsUs": 1931313000,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [],
+          "lightingKeywords": null,
+          "musicKeywords": [],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 0.006037504,
+              "delta": 0.006037504,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 0.120533705,
+              "delta": 0.120533705,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 0.033333335,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 0.12657121,
+              "delta": 0.12657121,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        },
+        {
+          "durationMs": 60000,
+          "inputSampleCount": 60,
+          "sampledBucketCount": 56,
+          "firstPtsUs": 1901317000,
+          "lastPtsUs": 1960308000,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [],
+          "lightingKeywords": null,
+          "musicKeywords": [],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 0.041979287,
+              "delta": 0.041979287,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0.016666668,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 0.06421903,
+              "delta": 0.06421903,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 0.016666668,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 0.10619832,
+              "delta": 0.10619832,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        }
+      ],
+      "nativeEvidenceSha256": "2003104178098669528c67a04d249ed668d2aa33dab51259e64b64a0edcf4555",
+      "inputManifestSha256": "4dc4f2aa933057db4c34e88b1c75645bf1d7c312a136c6f3a0a4506ee0f36441"
+    },
+    {
+      "videoId": "full-04",
+      "frames": 60,
+      "originalCaptureEpochKnown": false,
+      "timeOfDayEvidenceUsed": false,
+      "windows": [
+        {
+          "durationMs": 30000,
+          "inputSampleCount": 30,
+          "sampledBucketCount": 30,
+          "firstPtsUs": 1588700000,
+          "lastPtsUs": 1617700000,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [],
+          "lightingKeywords": null,
+          "musicKeywords": [],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 0.010108882,
+              "delta": 0.010108882,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 1.2077829,
+              "delta": 1.2077829,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 0.13333334,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 1.2178917,
+              "delta": 1.2178917,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        },
+        {
+          "durationMs": 60000,
+          "inputSampleCount": 60,
+          "sampledBucketCount": 60,
+          "firstPtsUs": 1588700000,
+          "lastPtsUs": 1647700000,
+          "ruleVersion": "scene-v1.2+sky-color-v1",
+          "commonMoodKeywords": [],
+          "lightingKeywords": null,
+          "musicKeywords": [],
+          "screenRestorationPassed": true,
+          "oppositeMusicPreferencesPreserveCommon": true,
+          "skyContributions": [
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_strength",
+              "observedValue": 0.018799365,
+              "delta": 0.018799365,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "따뜻한",
+              "id": "sky_color_warm_support",
+              "observedValue": 0,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_strength",
+              "observedValue": 1.2616729,
+              "delta": 1.2616729,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "차가운",
+              "id": "sky_color_cool_support",
+              "observedValue": 0.46666667,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_strength",
+              "observedValue": 1.2804723,
+              "delta": 1.2804723,
+              "unit": "하늘색 규칙점수"
+            },
+            {
+              "keyword": "다채로운",
+              "id": "sky_color_mixed_support",
+              "observedValue": 0.016666668,
+              "delta": null,
+              "unit": "전체 창 충족 비율"
+            }
+          ]
+        }
+      ],
+      "nativeEvidenceSha256": "3b2e57c3984f04e8bfa66dcb8ccdcecad09d74d19dc63a4249c42422882ef7eb",
+      "inputManifestSha256": "0e7ba224bef2e515baed6a5151b6ca6a57d65043c2a1620b7bf3ac0ebce29b56"
+    }
+  ],
+  "mainIntegration": {
+    "unitTests": 306,
+    "unitFailures": 0,
+    "nativeProductionConfigurationTests": 1,
+    "lintErrors": 0,
+    "lintWarnings": 39,
+    "promotedFiles": 14,
+    "productionFilesUnchangedDuringVerification": 156,
+    "validationOnlyApkSha256": "0409a9baf908d2315dd468cb6dd508d4a43b2e9d0d4d5f1c73e16e4608cf7358",
+    "original031ApkPreserved": true,
+    "physicalPhoneVerified": false
+  }
+}

@@ -67,20 +67,24 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
                 ?.let { SceneSample(0,it) }))
         val scorer = SceneMoodScorer()
         val scores = scorer.score(if(recorded && observationTime==null && request.timeContextAvailable) window.copy(samples=emptyList()) else window,env,observationTime)
-        words += scorer.keywords(scores)
+        val common = scorer.keywords(scores).toList()
+        words += common
         // Retain detailed single-frame provenance for older callers; accumulated scoring uses the whole window.
-        if (request.sceneWindow==null && !offline && !recorded && scores.ruleVersion!=SceneFeatureScorer.RULE_VERSION)
+        if (request.sceneWindow==null && !offline && !recorded && !SceneMoodScorer.usesLightFeatures(scores))
             reasons += SceneInterpreter.interpret(request.vision,env.road,roadUsable,request.nowEpochMs,zone).reasons
         reasons += scores.notes
         scores.scores.forEach { mood ->
-            reasons += "${mood.keyword} 근거 점수: ${mood.score?.toString() ?: "미확인"}"
+            reasons += "${mood.keyword} ${if (mood.contributions.all { it.basis==ContributionBasis.SKY_COLOR_RULE }) "하늘색 규칙점수" else "기존 근거 점수"}: ${mood.score?.toString() ?: "미확인"}"
             mood.contributions.forEach { c ->
-                if(c.basis==ContributionBasis.OBSERVED_FEATURE_STRENGTH && c.delta==null)
+                if(c.basis==ContributionBasis.SKY_COLOR_RULE)
+                    reasons += "${c.label}: ${c.observedValue?.let { "$it ${c.unit.orEmpty()}" } ?: "미측정"} · ${c.reason}"
+                else if(c.basis==ContributionBasis.OBSERVED_FEATURE_STRENGTH && c.delta==null)
                     reasons += "${c.label}: ${c.observedValue?.let { "$it ${c.unit.orEmpty()}" } ?: "미측정"}"
                 else reasons += "${c.label}: ${c.delta?.let { "${if (it>=0) "+" else ""}$it" } ?: "미반영"} · ${c.reason}${c.source?.let { " · 출처: ${it.name}" } ?: ""}"
             }
         }
-        if(scores.ruleVersion!=SceneFeatureScorer.RULE_VERSION) confidence += scores.scores.count { it.score != null } * .025f
+        if(!SceneMoodScorer.usesLightFeatures(scores)) confidence += scores.scores.count { it.score != null &&
+            it.contributions.any { c -> c.basis!=ContributionBasis.SKY_COLOR_RULE } } * .025f
         if (manual) { words += "수동 입력"; confidence = minOf(confidence, 0.35f) }
 
         // The shared vocabulary is the only accepted selection surface. Never retain previous requests.
@@ -106,7 +110,7 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
         if (allowed.isNotEmpty() && allowed.all { it.tags.isEmpty() }) reasons += "곡의 분위기 정보가 없어 최근 곡의 반복을 줄여 무작위로 고릅니다."
         val query = (words.filterNot { it == "수동 입력" } + request.preferences.preferredGenres.take(3) + "음악").joinToString(" ").take(200)
         return RecommendationResult(if (manual) Availability.MANUAL else Availability.AVAILABLE,
-            words.toList(), query, candidates, reasons, confidence.coerceIn(0f, 1f),scores)
+            words.toList(), query, candidates, reasons, confidence.coerceIn(0f, 1f),scores, commonMoodKeywords=common)
     }
 }
 

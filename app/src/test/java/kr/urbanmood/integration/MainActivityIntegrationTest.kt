@@ -26,6 +26,48 @@ import java.time.Duration
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [28])
 class MainActivityIntegrationTest {
+    @Test fun commonMoodAndLightingSurviveRotationAndCancelledNextRequestAtBothDurations() {
+        for (length in listOf(30_000L, 60_000L)) {
+            val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+            try {
+                val initial = controller.get()
+                val state = ViewModelProvider(initial)[SessionState::class.java]
+                val base = completedFixture()
+                val completed = base.copy(snapshot = base.snapshot.copy(sceneWindow = SceneWindow(length)),
+                    recommendation = base.recommendation.copy(moodKeywords = listOf("차가운"),
+                        commonMoodKeywords = listOf("따뜻한", "다채로운")))
+                state.recordingDurationMs = length
+                state.completedAnalysis = completed
+                val light = LightingPreview.suggestion(completed)!!
+                state.lightingPreview = light
+                assertTrue(state.claimCompletionSound(completed.snapshot.requestId))
+                controller.recreate()
+                val activity = controller.get()
+                val restored = ViewModelProvider(activity)[SessionState::class.java]
+                assertSame(completed, restored.completedAnalysis)
+                assertSame(light, restored.lightingPreview)
+                assertEquals(length, restored.recordingDurationMs)
+                assertTrue(screen(activity).contains("주변 무드: 따뜻한 · 다채로운"))
+                assertTrue(screen(activity).contains("음악 활용: 차가운"))
+                assertTrue(screen(activity).contains("공통 무드: 따뜻한 · 다채로운"))
+                assertFalse(restored.claimCompletionSound(completed.snapshot.requestId))
+                assertNull(shadowOf(activity).lastRequestedPermission)
+                button(activity, "무드 분석").performClick()
+                assertNotNull(restored.activeRequestId)
+                button(activity, "취소").performClick()
+                val pending = shadowOf(activity).lastRequestedPermission
+                activity.onRequestPermissionsResult(pending.requestCode, pending.requestedPermissions,
+                    IntArray(pending.requestedPermissions.size) { PackageManager.PERMISSION_GRANTED })
+                shadowOf(Looper.getMainLooper()).idle()
+                assertNull(restored.activeRequestId)
+                assertSame(completed, restored.completedAnalysis)
+                assertSame(light, restored.lightingPreview)
+                assertFalse(restored.claimCompletionSound(completed.snapshot.requestId))
+                assertTrue(screen(activity).contains("공통 무드: 따뜻한 · 다채로운"))
+            } finally { controller.pause().stop().destroy() }
+        }
+    }
+
     @Test fun recordingLengthAndLightingPreviewSurviveRotationWithoutStartingCapture() {
         val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
         try {

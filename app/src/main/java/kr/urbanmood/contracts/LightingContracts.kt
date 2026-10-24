@@ -10,4 +10,5 @@ data class LightingPreviewOutput(
     val brightness: Float,
     val reason: String,
     val target: LightingTarget = LightingTarget.PREVIEW_ONLY,
+    val moodKeywords: List<String> = emptyList(), // shared observed-scene keywords, not a new lighting score
 )

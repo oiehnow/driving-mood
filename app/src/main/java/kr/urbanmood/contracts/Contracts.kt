@@ -165,7 +165,7 @@ data class UserPreferences(
 
 /** Shared UI/recommendation vocabulary; no parallel mood enum or arbitrary input aliases. */
 object MoodVocabulary {
-    val options: List<String> = listOf("따뜻한", "몽환적인", "차분한", "잔잔한", "편안한", "포근한", "청량한", "차가운", "우울", "활기 넘침")
+    val options: List<String> = listOf("따뜻한", "몽환적인", "차분한", "잔잔한", "편안한", "포근한", "청량한", "차가운", "다채로운", "우울", "활기 넘침")
 }
 data class RecommendationRequest(
     val vision: VisionResult?,
@@ -190,6 +190,9 @@ data class RecommendationResult(
     val reasons: List<String> = emptyList(),
     val confidence: Float? = null,
     val scoreSummary: MoodScoreSummary? = null,
+    // Shared observed-scene keywords, computed once before music preferences.
+    // Music, lighting and UI consume this same list; it is not a driver emotion assessment.
+    val commonMoodKeywords: List<String> = emptyList(),
 )
 interface RecommendationEngine {
     /** Serial background call. Pure local computation; no network/Bitmap access.

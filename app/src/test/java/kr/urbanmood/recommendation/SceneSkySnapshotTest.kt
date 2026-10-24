@@ -142,7 +142,7 @@ class SceneSkySnapshotTest {
         }
     }
 
-    @Test fun rawSkyDoesNotChangeEitherScoreVersionOrRecommendation() {
+    @Test fun skyRuleIsSeparateWhileAllExistingScoresAndContributionsStayUnchanged() {
         val scorer = SceneMoodScorer()
         for (features in listOf(false, true)) {
             fun window(sky: SkyColorObservation?): SceneWindow {
@@ -163,9 +163,16 @@ class SceneSkySnapshotTest {
                 for (observation in listOf(sky(), sky(true))) {
                     val changed = window(observation)
                     val actual = scorer.score(changed, environment)
-                    assertEquals(expected, actual)
+                    assertEquals(expected.ruleVersion + SkyColorMoodScorer.VERSION_SUFFIX, actual.ruleVersion)
+                    assertEquals(expected.scores, actual.scores.filter { a -> expected.scores.any { it.keyword==a.keyword } }
+                        .map { it.copy(contributions=it.contributions.filter { c -> c.basis!=ContributionBasis.SKY_COLOR_RULE }) })
+                    assertEquals(6, actual.scores.flatMap { it.contributions }.count { it.basis==ContributionBasis.SKY_COLOR_RULE })
                     assertEquals(scorer.keywords(expected), scorer.keywords(actual))
-                    assertEquals(recommendation, MoodRecommendationEngine(Random(17)).recommend(request.copy(sceneWindow = changed)))
+                    val updated = MoodRecommendationEngine(Random(17)).recommend(request.copy(sceneWindow = changed))
+                    assertEquals(recommendation.confidence, updated.confidence)
+                    assertEquals(recommendation.candidates, updated.candidates)
+                    assertEquals(recommendation.moodKeywords, updated.moodKeywords)
+                    assertEquals(scorer.keywords(actual), updated.commonMoodKeywords)
                 }
             }
         }
