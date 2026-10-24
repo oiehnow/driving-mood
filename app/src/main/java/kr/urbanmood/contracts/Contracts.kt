@@ -65,6 +65,7 @@ data class VisionResult(
     // True only after a successful vehicle/light exclusion pass, including zero detections.
     // Does not guarantee all vehicles/reflections were removed. Failed/unrun pass = false.
     val vehicleMaskApplied: Boolean = false,
+    val sceneObservations: SceneObservations? = null,
 )
 
 interface VisionAnalyzer : AutoCloseable {
@@ -166,6 +167,10 @@ data class RecommendationRequest(
     val catalog: List<LocalTrack> = emptyList(),
     val recentTrackIds: List<String> = emptyList(),
     val nowEpochMs: Long = System.currentTimeMillis(),
+    val sceneWindow: SceneWindow? = null,
+    // False for recorded inputs with unknown wall-clock capture time. nowEpochMs may
+    // still be an evaluation clock, but must not generate time-of-day mood evidence.
+    val timeContextAvailable: Boolean = true,
 )
 data class RecommendationResult(
     val availability: Availability,
@@ -174,6 +179,7 @@ data class RecommendationResult(
     val candidates: List<LocalTrack> = emptyList(), // randomized preferred order, playable local only
     val reasons: List<String> = emptyList(),
     val confidence: Float? = null,
+    val scoreSummary: MoodScoreSummary? = null,
 )
 interface RecommendationEngine {
     /** Serial background call. Pure local computation; no network/Bitmap access.

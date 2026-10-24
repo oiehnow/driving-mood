@@ -10,6 +10,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock
 import android.provider.OpenableColumns
 import android.provider.Settings
 import android.view.View
@@ -26,6 +27,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kr.urbanmood.camera.CameraController
+import kr.urbanmood.camera.EvidenceOverlayView
 import kr.urbanmood.contracts.*
 import kr.urbanmood.integration.AppServices
 import kr.urbanmood.integration.SessionState
@@ -36,6 +38,9 @@ import kr.urbanmood.integration.AnalysisStep
 import kr.urbanmood.integration.CompletedAnalysis
 import kr.urbanmood.integration.OneShotAnalysisRunner
 import kr.urbanmood.integration.AppTypography
+import kr.urbanmood.integration.CapturedScene
+import kr.urbanmood.integration.TimedSceneCapture
+import kr.urbanmood.recommendation.SceneMoodScorer
 import kr.urbanmood.context.AndroidEnvironmentProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.CancellableContinuation
@@ -56,6 +61,9 @@ class MainActivity : ComponentActivity() {
     private lateinit var services: AppServices
     private lateinit var camera: CameraController
     private lateinit var preview: PreviewView
+    private lateinit var previewContainer: FrameLayout
+    private lateinit var evidenceOverlay: EvidenceOverlayView
+    private lateinit var scoreText: TextView
     private lateinit var cameraStatus: TextView
     private lateinit var frameStatus: TextView
     private lateinit var analysisText: TextView
@@ -76,11 +84,14 @@ class MainActivity : ComponentActivity() {
     private val recentTracks get() = session.recentTracks
     private var analysisJob: Job? = null
     private var recommendationJob: Job? = null
+    private var liveScoreJob: Job? = null
+    private var overlayFrameVersion = 0L
     private var permissionInFlight = false
     private var permissionRequestId: Long? = null
     private var permissionContinuation: CancellableContinuation<Boolean>? = null
     private var cameraRequestId: Long? = null
-    private var cameraContinuation: CancellableContinuation<VisionResult>? = null
+    private var cameraResultSink: ((VisionResult, kr.urbanmood.camera.FrameReceipt) -> Unit)? = null
+    private var cameraFailureSink: ((String) -> Unit)? = null
     private var foreground = false
     private val mint = Color.rgb(157, 228, 203)
     private val muted = Color.rgb(171, 190, 200)
@@ -127,15 +138,11 @@ class MainActivity : ComponentActivity() {
         buildScreen()
         camera = CameraController(this, this, preview, services.vision,
             onStatus = { cameraStatus.text = it },
-            onResult = { result, _ ->
-                val continuation = cameraContinuation
-                if (cameraRequestId?.let(session::ownsRequest) == true && continuation?.isActive == true) continuation.resume(result)
+            onResult = { result, receipt ->
+                if (cameraRequestId?.let(session::ownsRequest) == true) cameraResultSink?.invoke(result, receipt)
             },
             onFailure = { reason ->
-                val continuation = cameraContinuation
-                if (cameraRequestId?.let(session::ownsRequest) == true && continuation?.isActive == true) {
-                    continuation.resume(VisionResult(System.currentTimeMillis(), AnalysisStatus.FAILED, reasons = listOf(reason)))
-                }
+                if (cameraRequestId?.let(session::ownsRequest) == true) cameraFailureSink?.invoke(reason)
             })
         session.completedAnalysis?.let {
             renderCompleted(it)
@@ -195,20 +202,21 @@ class MainActivity : ComponentActivity() {
         if (!foreground || permissionInFlight) return
         val id = session.beginAnalysis() ?: return
         recommendationJob?.cancel()
+        scoreText.text = "관측 중 · 수집을 마친 뒤 기여 점수를 계산합니다."
         updateControls()
         analysisJob = lifecycleScope.launch {
             try {
                 services.environment.setManualWeather(condition = session.manualWeather)
                 services.environment.setManualRoad(session.manualRoad)
-                val result = OneShotAnalysisRunner(services.environment).run(id,
+                val result = OneShotAnalysisRunner(services.environment).runWindow(id,
                     permissions = { requestPermissionsForAnalysis(id) },
-                    capture = { captureLatest(id) },
+                    capture = { captureScene(id) },
                     recommend = { recommendSnapshot(it) },
                     progress = { step ->
                         if (session.ownsRequest(id)) cameraStatus.text = when (step) {
                             AnalysisStep.PERMISSIONS -> "분석에 필요한 권한을 확인하고 있습니다."
                             AnalysisStep.ENVIRONMENT -> "현재 위치와 날씨를 한 번 확인하고 있습니다."
-                            AnalysisStep.CAMERA -> "주변 색감을 확인하고 있습니다."
+                            AnalysisStep.CAMERA -> "50초 동안 주변 장면을 관측합니다."
                             AnalysisStep.RECOMMENDING -> "확인한 정보로 무드 키워드를 만들고 있습니다."
                         }
                     })
@@ -218,15 +226,18 @@ class MainActivity : ComponentActivity() {
                     services.audio.setQueue(result.recommendation.candidates)
                 }
             } catch (_: TimeoutCancellationException) {
-                if (session.ownsRequest(id)) cameraStatus.text = "시간이 초과되어 분석을 취소했습니다. 이전 결과는 유지됩니다."
+                if (session.ownsRequest(id)) showInterrupted("시간이 초과되어 분석을 취소했습니다. 이전 결과는 유지됩니다.")
             } catch (_: CancellationException) {
-                if (session.ownsRequest(id)) cameraStatus.text = "분석을 취소했습니다. 이전 결과는 유지됩니다."
+                if (session.ownsRequest(id)) showInterrupted("분석을 취소했습니다. 이전 결과는 유지됩니다.")
             } catch (_: Exception) {
-                if (session.ownsRequest(id)) cameraStatus.text = "분석을 마치지 못했습니다. 이전 결과는 유지됩니다. 다시 시도해 주세요."
+                if (session.ownsRequest(id)) showInterrupted("분석을 마치지 못했습니다. 이전 결과는 유지됩니다. 다시 시도해 주세요.")
             } finally {
                 releaseCamera(id)
                 services.environment.cancelRequest(id)
                 session.endAnalysis(id)
+                session.completedAnalysis?.let {
+                    if (session.activeRequestId == null) scoreText.text = kr.urbanmood.integration.scoreSummaryText(it.recommendation.scoreSummary)
+                }
                 updateControls()
             }
         }
@@ -252,24 +263,54 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private suspend fun captureLatest(id: Long): VisionResult {
-        return try {
-            suspendCancellableCoroutine { continuation ->
+    private suspend fun captureScene(id: Long): CapturedScene {
+        return TimedSceneCapture(elapsedNow = SystemClock::elapsedRealtime).capture(
+            start = { receive, fail ->
                 cameraRequestId = id
-                cameraContinuation = continuation
-                preview.visibility = View.VISIBLE
-                continuation.invokeOnCancellation { releaseCamera(id) }
-                camera.start(singleShot = true)
-            }
-        } finally { releaseCamera(id) }
+                cameraResultSink = receive
+                cameraFailureSink = fail
+                previewContainer.visibility = View.VISIBLE
+                camera.start()
+            },
+            stop = { releaseCamera(id) },
+            progress = { elapsed, frames ->
+                if (session.ownsRequest(id)) frameStatus.text = "관측 ${(elapsed / 1000).coerceAtMost(50)} / 50초 · 처리한 프레임 ${frames}개"
+            },
+            observed = { value, receipt -> if (session.ownsRequest(id)) {
+                renderVision(value)
+                evidenceOverlay.show(value, receipt)
+                val frameVersion = ++overlayFrameVersion
+                // One local score calculation at a time; do not queue work behind camera frames.
+                if (liveScoreJob?.isActive != true) {
+                    val env = services.environment.requestState.value.takeIf { it.requestId == id }?.snapshot
+                    liveScoreJob = lifecycleScope.launch {
+                        fun current() = session.ownsRequest(id) && overlayFrameVersion == frameVersion &&
+                            cameraRequestId == id && SystemClock.elapsedRealtime() - receipt.receivedAtElapsedMs < 1_500
+                        try {
+                            val score = withContext(Dispatchers.Default) {
+                                SceneMoodScorer().score(SceneWindow(1_000, receivedFrameCount = 1,
+                                    samples = listOf(SceneSample(0, value))), env, value.frameTimeEpochMs)
+                            }
+                            if (current()) evidenceOverlay.show(value, receipt, score)
+                        } catch (cancelled: CancellationException) { throw cancelled }
+                        catch (_: Exception) { if (current()) evidenceOverlay.show(value, receipt, calculationFailed = true) }
+                    }
+                }
+            } },
+        )
     }
 
     private fun releaseCamera(id: Long) {
         if (cameraRequestId != id) return
-        cameraContinuation = null
+        cameraResultSink = null
+        cameraFailureSink = null
         cameraRequestId = null
+        overlayFrameVersion++
+        liveScoreJob?.cancel()
+        liveScoreJob = null
         camera.stop("카메라 수집을 종료했습니다.")
-        preview.visibility = View.GONE
+        evidenceOverlay.clear()
+        previewContainer.visibility = View.GONE
     }
 
     private fun cancelAnalysis(message: String) {
@@ -278,8 +319,18 @@ class MainActivity : ComponentActivity() {
         analysisJob?.cancel()
         services.environment.cancelRequest(id)
         releaseCamera(id)
-        cameraStatus.text = message
+        showInterrupted(message)
         updateControls()
+    }
+
+    private fun showInterrupted(message: String) {
+        val previous = session.completedAnalysis
+        if (previous != null) renderCompleted(previous) else {
+            analysisText.text = "관측을 완료하지 못했습니다. 다시 눌러 새로 관측할 수 있습니다."
+            frameStatus.text = "미완료 관측을 지웠습니다."
+            scoreText.text = kr.urbanmood.integration.scoreSummaryText(null)
+        }
+        cameraStatus.text = message
     }
 
     private fun updateControls() {
@@ -295,7 +346,8 @@ class MainActivity : ComponentActivity() {
         val request = RecommendationRequest(snapshot.vision, snapshot.environment,
             UserPreferences(preferenceInput.text.toString().split(',').map { it.trim() }.filter { it.isNotEmpty() }.toSet(),
                 preferredMoods = session.preferredMoods.toSet()),
-            tracks.toList(), recentTracks.toList(), nowEpochMs = snapshot.analyzedAtEpochMs)
+            tracks.toList(), recentTracks.toList(), nowEpochMs = snapshot.analyzedAtEpochMs,
+            sceneWindow = snapshot.sceneWindow)
         return withContext(Dispatchers.Default) { services.recommendation.recommend(request) }
     }
 
@@ -320,6 +372,7 @@ class MainActivity : ComponentActivity() {
     private fun renderRecommendation(value: RecommendationResult) {
         recommendation = value
         moodText.text = recommendationText(value)
+        scoreText.text = kr.urbanmood.integration.scoreSummaryText(value.scoreSummary)
         searchButton.isEnabled = !value.youtubeQuery.isNullOrBlank()
     }
 
@@ -327,7 +380,9 @@ class MainActivity : ComponentActivity() {
         latestVision = value.snapshot.vision
         environment = value.snapshot.environment
         cameraStatus.text = "분석 완료 · ${time(value.snapshot.analyzedAtEpochMs)}"
-        frameStatus.text = "완료한 결과입니다. 다시 누를 때만 새 정보를 수집합니다."
+        frameStatus.text = value.snapshot.sceneWindow?.let {
+            "${it.durationMs / 1000}초 관측 · ${it.samples.size}개 시간 구간 · 수집 종료"
+        } ?: "완료한 결과입니다. 다시 누를 때만 새 정보를 수집합니다."
         renderVision(value.snapshot.vision)
         renderEnvironment(value.snapshot.environment)
         renderRecommendation(value.recommendation)
@@ -353,13 +408,19 @@ class MainActivity : ComponentActivity() {
             scaleType = PreviewView.ScaleType.FIT_CENTER
             setBackgroundColor(Color.BLACK)
             contentDescription = "후면 카메라 실시간 미리보기"
-            visibility = View.GONE
         }
-        captureCard.addView(preview, LinearLayout.LayoutParams(-1, dp(260)))
+        evidenceOverlay = EvidenceOverlayView(this)
+        previewContainer = FrameLayout(this).apply {
+            visibility = View.GONE
+            addView(preview, FrameLayout.LayoutParams(-1, -1))
+            addView(evidenceOverlay, FrameLayout.LayoutParams(-1, -1))
+        }
+        captureCard.addView(previewContainer, LinearLayout.LayoutParams(-1, dp(260)))
         cameraStatus = text("버튼을 누르면 위치·날씨·카메라를 한 번 확인합니다.", 14, mint)
-        frameStatus = text("확인이 끝나면 수집을 멈추고 결과를 유지합니다.", 12, muted)
+        frameStatus = text("위치·날씨 확인 후 50초 관측하고 결과를 유지합니다.", 12, muted)
         captureCard.addView(cameraStatus)
         captureCard.addView(frameStatus)
+        captureCard.addView(text("박스 옆 점수는 현재 프레임의 기여이며 최종 50초 점수와 다릅니다. 이동하면 직전 분석 영역과 현재 화면의 위치가 다를 수 있습니다.", 12, muted))
         val cameraButtons = row(captureCard)
         analyzeButton = addButton(cameraButtons, "무드 분석") { startAnalysis() }
         cancelButton = addButton(cameraButtons, "취소", false) { cancelAnalysis("분석을 취소했습니다. 이전 결과는 유지됩니다.") }
@@ -402,6 +463,11 @@ class MainActivity : ComponentActivity() {
         moodCard.addView(text("음악에서 원하는 분위기를 직접 선택합니다. 현재 기분을 감지한 결과가 아닙니다.", 12, muted))
         moodText = text("무드 분석을 마치면 키워드와 음악 추천을 확인할 수 있습니다.", 14, Color.WHITE)
         moodCard.addView(moodText)
+        scoreText = text("관측을 마치면 분위기별 점수와 기여 항목을 확인할 수 있습니다.", 13, muted)
+        moodCard.addView(scoreText)
+        addButton(moodCard, "점수와 관측 근거") {
+            showDetails("점수와 관측 근거", kr.urbanmood.integration.scoreDetailsText(recommendation?.scoreSummary))
+        }
         addButton(moodCard, "추천 이유") {
             showDetails("추천 이유", recommendation?.reasons?.filterNot { it.startsWith("영상 근거:") }
                 ?.joinToString("\n") ?: "사용 가능한 환경과 취향을 바탕으로 추천을 준비하고 있습니다.")
@@ -521,7 +587,9 @@ class MainActivity : ComponentActivity() {
             AnalysisStatus.FAILED -> "분석하지 못했습니다. 카메라를 다시 시작해 주세요."
         }
         analysisText.text = "$status\n" + kr.urbanmood.integration.visionQualityText(value) +
-            "\n밝기 ${percent(value.colors?.brightness)} · 채도 ${percent(value.colors?.saturation)} · 빛 영역 ${percent(value.colors?.luminousAreaRatio)}"
+            "\n밝기 ${percent(value.colors?.brightness)} · 채도 ${percent(value.colors?.saturation)} · 빛 영역 ${percent(value.colors?.luminousAreaRatio)}" +
+            (value.sceneObservations?.let { "\n현재 프레임 · 사람 검출 ${it.persons?.detectionCount?.let { count -> "${count}개" } ?: "미확인"}" +
+                " · 주변 빛 후보 ${it.ambientLights?.candidateCount?.let { count -> "${count}개" } ?: "미확인"}\n검출 수는 실제 인원수나 영업 중인 상점 수가 아닙니다." } ?: "")
     }
 
     private fun renderEnvironment(value: EnvironmentSnapshot) {

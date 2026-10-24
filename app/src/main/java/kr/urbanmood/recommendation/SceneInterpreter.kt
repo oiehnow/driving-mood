@@ -71,11 +71,12 @@ internal object SceneInterpreter {
         }
 
         val hue = v.colors!!.hueDegrees!!
-        val mood = if (hue < 65f || hue > 330f) "따뜻한" else "몽환적인"
-        // Product heuristic around cyan (180) and blue (240), not a measured emotion.
-        // Keep the existing broad music-style cue; cold adds a more specific color cue.
-        val moods = if (hue >= 165f && hue < 255f) listOf(mood, "차가운") else listOf(mood)
-        reasons += "차량을 제외한 화면의 색감에서 '$mood' 분위기를 참고했습니다. 장소의 종류나 영업 상태를 뜻하지 않습니다."
+        val moods = when {
+            hue < 65f || hue > 330f -> listOf("따뜻한")
+            hue >= 165f && hue < 255f -> listOf("차가운")
+            else -> emptyList()
+        }
+        reasons += "차량을 제외한 화면의 색감을 확인했습니다. 색상 하나로 몽환적인 감정이나 장소의 종류·영업 상태를 판단하지 않습니다."
         if ("차가운" in moods) reasons += "측정한 파랑·청록 계열 색감에서 '차가운' 음악 분위기를 추가했습니다. 기온이나 운전자의 실제 감정을 뜻하지 않습니다."
         return SceneInterpretation(moods, reasons, v.colorMeasurementConfidence!! * .1f)
     }

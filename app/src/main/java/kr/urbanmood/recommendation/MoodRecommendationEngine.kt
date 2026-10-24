@@ -18,16 +18,23 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
         val zone = runCatching { ZoneId.of(env.zoneId) }.getOrElse {
             reasons += "시간대 설정을 확인할 수 없어 한국 시간을 사용합니다."; ZoneId.of("Asia/Seoul")
         }
-        val hour = Instant.ofEpochMilli(request.nowEpochMs).atZone(zone).hour
-        val night = hour < 6 || hour >= 19
-        words += if (night) "야간" else if (hour < 11) "아침" else if (hour < 17) "낮" else "저녁"
-        reasons += "기기 시각 ${hour}시 (${zone.id})를 기준으로 골랐습니다."
+        val observations = request.sceneWindow?.samples?.mapNotNull { it.vision.sceneObservations }
+            ?: listOfNotNull(request.vision?.sceneObservations)
+        val offline = observations.any { it.runtime == SceneObservationRuntime.DESKTOP_SEGMENTATION }
+        val observationTime = if (!request.timeContextAvailable) null
+            else if (offline) observations.mapNotNull { it.source.observedAtEpochMs?.takeIf { t -> t > 0 } }.maxOrNull()
+            else request.nowEpochMs.takeIf { it > 0 }
+        val hour = observationTime?.let { Instant.ofEpochMilli(it).atZone(zone).hour }
+        if (hour != null) {
+            words += if (hour < 6 || hour >= 19) "야간" else if (hour < 11) "아침" else if (hour < 17) "낮" else "저녁"
+            reasons += "${if (offline) "제공된 촬영" else "분석 당시 기기"} 시각 ${hour}시 (${zone.id})를 기준으로 골랐습니다."
+        } else reasons += "촬영 시각이 제공되지 않아 시간대 후보를 만들지 않았습니다. 현재 시각으로 대체하지 않습니다."
 
-        val locationFresh = EnvironmentPolicy.usableLocation(env.location, request.nowEpochMs)
+        val locationFresh = observationTime != null && EnvironmentPolicy.usableLocation(env.location, observationTime)
         if (locationFresh) confidence += 0.05f else reasons += "최근 위치를 확인하지 못해 위치 정보 반영을 제한합니다."
         val roadUsable = env.road.availability == Availability.MANUAL || (locationFresh &&
             env.road.availability == Availability.AVAILABLE && EnvironmentPolicy.fresh(env.road.source.observedAtEpochMs,
-                request.nowEpochMs, EnvironmentPolicy.LOCATION_MAX_AGE_MS))
+                observationTime!!, EnvironmentPolicy.LOCATION_MAX_AGE_MS))
         if (env.road.availability == Availability.MANUAL) { manual = true; reasons += "도로는 수동 입력값입니다. 자동으로 확인한 도로 정보가 아닙니다." }
         if (roadUsable) when (env.road.type) {
             RoadType.HIGHWAY -> { words += "고속도로"; words += "일정한 리듬"; reasons += "고속도로 정보를 참고해 일정한 리듬의 음악을 골랐습니다." }
@@ -39,7 +46,7 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
         val weather = env.weather
         val weatherUsable = weather.availability == Availability.MANUAL || (locationFresh &&
             weather.availability == Availability.AVAILABLE && EnvironmentPolicy.fresh(weather.source.observedAtEpochMs,
-                request.nowEpochMs, EnvironmentPolicy.WEATHER_MAX_AGE_MS))
+                observationTime!!, EnvironmentPolicy.WEATHER_MAX_AGE_MS))
         if (weatherUsable) {
             if (weather.availability == Availability.MANUAL) { manual = true; reasons += "날씨는 수동 입력값입니다. 실제 관측값이 아닙니다." }
             else { confidence += 0.15f; reasons += "${weather.source.name}${if (weather.source.cached) " (이전 조회 정보)" else ""} · 관측 ${Instant.ofEpochMilli(weather.source.observedAtEpochMs!!).atZone(zone)}" }
@@ -52,11 +59,21 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
             weather.temperatureC?.takeIf { it.isFinite() }?.let { if (it < 5) words += "포근한" else if (it > 28) words += "청량한" }
         } else reasons += "최근 날씨를 확인하지 못해 날씨 정보는 추천에 반영하지 않았습니다."
 
-        val scene = SceneInterpreter.interpret(request.vision, env.road, roadUsable, request.nowEpochMs, zone)
-        words += scene.moodKeywords
-        reasons += scene.reasons
-        confidence += scene.confidenceContribution
-        if (words.size == 1) words += if (night) "잔잔한" else "편안한"
+        val window = request.sceneWindow ?: SceneWindow(1_000,receivedFrameCount=if (request.vision==null) 0 else 1,
+            samples=listOfNotNull(request.vision?.takeIf { offline || (observationTime != null &&
+                EnvironmentPolicy.fresh(it.frameTimeEpochMs,observationTime,VisionMeasurementPolicy.MAX_AGE_MS)) }
+                ?.let { SceneSample(0,it) }))
+        val scorer = SceneMoodScorer()
+        val scores = scorer.score(window,env,observationTime)
+        words += scorer.keywords(scores)
+        // Retain detailed single-frame provenance for older callers; accumulated scoring uses the whole window.
+        if (request.sceneWindow==null && !offline) reasons += SceneInterpreter.interpret(request.vision,env.road,roadUsable,request.nowEpochMs,zone).reasons
+        reasons += scores.notes
+        scores.scores.forEach { mood ->
+            reasons += "${mood.keyword} 근거 점수: ${mood.score?.toString() ?: "미확인"}"
+            mood.contributions.forEach { c -> reasons += "${c.label}: ${c.delta?.let { "${if (it>=0) "+" else ""}$it" } ?: "미반영"} · ${c.reason}${c.source?.let { " · 출처: ${it.name}" } ?: ""}" }
+        }
+        confidence += scores.scores.count { it.score != null } * .025f
         if (manual) { words += "수동 입력"; confidence = minOf(confidence, 0.35f) }
 
         // The shared vocabulary is the only accepted selection surface. Never retain previous requests.
@@ -82,7 +99,7 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
         if (allowed.isNotEmpty() && allowed.all { it.tags.isEmpty() }) reasons += "곡의 분위기 정보가 없어 최근 곡의 반복을 줄여 무작위로 고릅니다."
         val query = (words.filterNot { it == "수동 입력" } + request.preferences.preferredGenres.take(3) + "음악").joinToString(" ").take(200)
         return RecommendationResult(if (manual) Availability.MANUAL else Availability.AVAILABLE,
-            words.toList(), query, candidates, reasons, confidence.coerceIn(0f, 1f))
+            words.toList(), query, candidates, reasons, confidence.coerceIn(0f, 1f),scores)
     }
 }
 

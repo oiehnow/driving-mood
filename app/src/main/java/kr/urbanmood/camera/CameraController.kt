@@ -20,7 +20,8 @@ import kr.urbanmood.contracts.*
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
 
-data class FrameReceipt(val sequence: Long, val width: Int, val height: Int, val processingMs: Long)
+data class FrameReceipt(val sequence: Long, val width: Int, val height: Int, val processingMs: Long,
+    val receivedAtElapsedMs: Long = 0)
 
 /** Main-thread lifecycle commands; only analyze/close run on the single worker. */
 class CameraController(
@@ -100,7 +101,7 @@ class CameraController(
                         sequence++
                         val result = analyzer.analyze(CameraFrame(bitmap, receivedAt, proxy.imageInfo.timestamp, sequence))
                         val receipt = FrameReceipt(sequence, bitmap.width, bitmap.height,
-                            (SystemClock.elapsedRealtimeNanos() - now) / 1_000_000)
+                            (SystemClock.elapsedRealtimeNanos() - now) / 1_000_000, now / 1_000_000)
                         main.execute { if (tokens.isCurrent(token)) {
                             if (singleShot) stop("영상 확인 완료 · 카메라를 종료했습니다.")
                             onResult(result, receipt)
@@ -112,7 +113,7 @@ class CameraController(
                                 onResult(VisionResult(
                                 System.currentTimeMillis(), AnalysisStatus.FAILED,
                                 reasons = listOf("프레임 처리 실패 (${e.javaClass.simpleName})")),
-                                FrameReceipt(sequence, 0, 0, 0))
+                                FrameReceipt(sequence, 0, 0, 0, SystemClock.elapsedRealtime()))
                             }
                         }
                     } finally {

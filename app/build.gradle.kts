@@ -10,8 +10,8 @@ android {
         applicationId = "kr.urbanmood"
         minSdk = 26
         targetSdk = 36
-        versionCode = 5
-        versionName = "0.2.3"
+        versionCode = 7
+        versionName = "0.2.5"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     val releaseStore = providers.environmentVariable("URBANMOOD_STORE_FILE").orNull

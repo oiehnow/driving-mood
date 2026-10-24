@@ -48,6 +48,7 @@ class UrbanLightAnalyzerTest {
             val result=analyzer.analyze(first)
             assertEquals(AnalysisStatus.MODEL_NOT_READY,result.status)
             assertNull(result.urbanLightScore); assertNull(result.colors); assertNull(result.vehicleExcludedRatio)
+            assertNull(result.sceneObservations)
             analyzer.analyze(second); assertEquals(1,attempts)
             now+=6_000_000_000L
             analyzer.analyze(second.copy(sequence=3,cameraTimestampNs=750_000_000L)); assertEquals(2,attempts)
@@ -65,6 +66,7 @@ class UrbanLightAnalyzerTest {
             assertNull(failed.colors); assertTrue(failed.debugRegions.isEmpty()); assertEquals(1,detector.closes)
             assertNull(failed.colorMeasurementConfidence); assertNull(failed.lightMeasurementConfidence)
             assertNull(failed.semanticConfidence); assertFalse(failed.vehicleMaskApplied)
+            assertNull(failed.sceneObservations)
             assertFalse(second.bitmap.isRecycled)
         } finally { first.bitmap.recycle(); second.bitmap.recycle(); analyzer.close() }
     }

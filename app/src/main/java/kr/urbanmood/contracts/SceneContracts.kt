@@ -1,0 +1,150 @@
+package kr.urbanmood.contracts
+
+/** Runtime provenance, not a claim that an offline frame ran through the Android model. */
+enum class SceneObservationRuntime { ANDROID_CAMERA, DESKTOP_SEGMENTATION, TEST_FIXTURE }
+
+enum class RegionEvidenceKind { PERSON, VEHICLE, AMBIENT_LIGHT, SKY, BUILDING, SIGNBOARD, OTHER }
+enum class RegionEvidenceSource { OBJECT_DETECTOR, PIXEL_HEURISTIC, SEMANTIC_COMPONENT }
+
+/** ID is unique only inside one frame; never a tracked/distinct person ID.
+ * Bounds use upright full-frame normalized [0,1] coordinates, not preview coordinates.
+ */
+data class RegionEvidence(
+    val id: String,
+    val left: Float, val top: Float, val right: Float, val bottom: Float,
+    val label: String,
+    val kind: RegionEvidenceKind,
+    val source: RegionEvidenceSource,
+    val exclusionReason: String? = null,
+)
+
+/** One frame's detector output. Zero detections is not proof of absence.
+ * count is NOT a distinct-person count. areaRatio is union box area / full frame.
+ * threshold/capacity describe the detector configuration, not accuracy. Null = unknown.
+ */
+data class PersonObservation(
+    val detectionCount: Int,
+    val areaRatio: Float? = null,
+    val scoreThreshold: Float? = null,
+    val detectorCapacity: Int? = null,
+    val capacityReached: Boolean? = null,
+    val measurementQuality: Float? = null, // [0,1], heuristic quality, never probability
+)
+
+/** Non-vehicle light candidates from this frame; neither shops nor business activity. */
+data class AmbientLightObservation(
+    val candidateCount: Int,
+    val areaRatio: Float? = null,
+    val vehiclesExcluded: Boolean = false,
+    val measurementQuality: Float? = null,
+)
+
+/** One real sign-mask component in the same upright frame as RegionEvidence.
+ * regionId references a unique SIGNBOARD / SEMANTIC_COMPONENT region, never a track ID.
+ * All ratios use the SAME full-frame pixel count and raster, never bounding-box area.
+ * brightAreaRatio: sign mask AND common brightness predicate AFTER all hard exclusions
+ * (geometry, vehicles, traffic lights, reflections, paired lights, glare, etc.).
+ * ambientOverlapAreaRatio: those eligible bright pixels AND the union of ACTUALLY
+ * ACCEPTED ambient candidate pixels used by the ambient measurement, not their boxes.
+ * uniqueBrightAreaRatio: eligible bright pixels MINUS that accepted ambient union.
+ * Ratios must be finite in [0,1], with bright = overlap + unique within float tolerance.
+ * Components must be pixel-disjoint; unique means ambient deduplication in ONE frame.
+ * These are measurements, not quality/probability, shops, or business activity.
+ */
+data class SignLightEvidence(
+    val regionId: String,
+    val brightAreaRatio: Float,
+    val ambientOverlapAreaRatio: Float,
+    val uniqueBrightAreaRatio: Float,
+)
+
+/** Actual semantic mask measurements only. Unsupported Android observations stay null.
+ * All area ratios use full frame area. personAreaRatio is NOT a detector/person count.
+ * signboardCandidateCount counts mask components, not unique shops/signs over time.
+ * skyBrightness is mean normalized luminance of sky-mask pixels, not measured weather.
+ */
+data class SemanticSceneObservation(
+    val personAreaRatio: Float? = null,
+    val skyAreaRatio: Float? = null,
+    val buildingAreaRatio: Float? = null,
+    val signboardAreaRatio: Float? = null,
+    val signboardCandidateCount: Int? = null,
+    val skyBrightness: Float? = null,
+    val measurementQuality: Float? = null,
+    // Signboard-mask AND measured bright RGB pixels / full frame area. Not neon,
+    // storefront, business activity, or detector confidence. Unsupported stays null.
+    val signboardBrightAreaRatio: Float? = null,
+    // Complete per-component measurement, independent of overlay/debug display limits.
+    // Null = unsupported/unmeasured/incomplete; empty = measured with zero sign components.
+    // Retain zero rows for existing dark, fully overlapping, or fully excluded components.
+    // All IDs must reference same-frame sign regions; no partial list or fabricated zero.
+    // Producers/accumulators must detach this list when freezing observation snapshots.
+    // Legacy signboardBrightAreaRatio keeps its original meaning; do not assume equality
+    // with this list's sum or add both measurements as independent score contributions.
+    val signLightRegions: List<SignLightEvidence>? = null,
+)
+
+data class SceneObservations(
+    val runtime: SceneObservationRuntime,
+    val source: SourceInfo,
+    val persons: PersonObservation? = null,
+    val ambientLights: AmbientLightObservation? = null,
+    val semantic: SemanticSceneObservation? = null,
+    val notes: List<String> = emptyList(),
+    val regions: List<RegionEvidence> = emptyList(),
+)
+
+/** Elapsed receipt time from one capture window, never epoch/camera presentation time. */
+data class SceneSample(val elapsedMs: Long, val vision: VisionResult)
+
+/** Bounded representative frames, at most one per bucket. No Bitmap/position history.
+ * Only 0 <= elapsedMs < durationMs participates. Lists must be detached snapshots.
+ * receivedFrameCount is frame count, never summed people. Empty samples = unobserved.
+ */
+data class SceneWindow(
+    val durationMs: Long,
+    val bucketDurationMs: Long = 1_000,
+    val receivedFrameCount: Int = 0,
+    val samples: List<SceneSample> = emptyList(),
+)
+
+/** Allocation of ONE group's delta across actual regions. Sum of allocatedDelta must
+ * equal that contribution's delta, never repeat the full capped score on each box.
+ * A null allocation is a reference/exclusion only, not an invented penalty.
+ */
+data class RegionScoreReference(
+    val sampleElapsedMs: Long,
+    val regionId: String,
+    val allocatedDelta: Float? = null,
+)
+
+/** An auditable heuristic contribution, not a probability or learned coefficient.
+ * delta=null means not applied/missing/unsupported; reason must explain this.
+ */
+data class MoodScoreContribution(
+    val id: String,
+    val label: String,
+    val observedValue: Float? = null,
+    val unit: String? = null,
+    val weight: Float = 0f,
+    val delta: Float? = null,
+    val measurementQuality: Float? = null,
+    val source: SourceInfo? = null,
+    val reason: String,
+    val evidence: List<RegionScoreReference> = emptyList(),
+)
+
+data class MoodScore(
+    val keyword: String,
+    val score: Float? = null, // heuristic points; null = insufficient evidence, not zero mood
+    val contributions: List<MoodScoreContribution> = emptyList(),
+)
+
+data class MoodScoreSummary(
+    val ruleVersion: String,
+    val windowDurationMs: Long,
+    val receivedFrameCount: Int,
+    val sampledBucketCount: Int,
+    val scores: List<MoodScore> = emptyList(),
+    val notes: List<String> = emptyList(),
+)

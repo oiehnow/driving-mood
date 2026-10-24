@@ -88,10 +88,11 @@ class MoodRecommendationEngineTest {
         val cool = recommend(vision=measuredColor().copy(colors=measuredColor().colors!!.copy(hueDegrees=220f)))
         assertTrue(warm.moodKeywords.contains("따뜻한"))
         assertFalse(warm.moodKeywords.contains("몽환적인"))
-        assertTrue(cool.moodKeywords.contains("몽환적인"))
+        assertTrue(cool.moodKeywords.contains("차가운"))
+        assertFalse(cool.moodKeywords.contains("몽환적인"))
         assertFalse(cool.moodKeywords.contains("따뜻한"))
         assertTrue(warm.youtubeQuery!!.contains("따뜻한"))
-        assertTrue(cool.youtubeQuery!!.contains("몽환적인"))
+        assertTrue(cool.youtubeQuery!!.contains("차가운"))
         assertFalse(warm.moodKeywords.contains("경쾌한"))
         assertTrue(warm.reasons.any { it.contains("색감") })
         assertTrue(warm.reasons.any { it.contains("의미") && it.contains("미평가") })
@@ -169,12 +170,12 @@ class MoodRecommendationEngineTest {
         assertEquals(listOf("b","a"),order)
     }
 
-    @Test fun cyanBlueAddsColdAlongsideDreamyOnlyInsideExplicitHueBand() {
+    @Test fun cyanBlueAddsColdWithoutDreamyOnlyInsideExplicitHueBand() {
         val valid = measuredColor()
         for (hue in listOf(165f,180f,220f,240f,254.99f)) {
             val r = recommend(vision=valid.copy(colors=valid.colors!!.copy(hueDegrees=hue)))
             assertTrue("hue=$hue",r.moodKeywords.contains("차가운"))
-            assertTrue(r.moodKeywords.contains("몽환적인"))
+            assertFalse(r.moodKeywords.contains("몽환적인"))
             assertFalse(r.moodKeywords.contains("우울"))
             assertFalse(r.moodKeywords.contains("활기 넘침"))
         }
@@ -249,5 +250,49 @@ class MoodRecommendationEngineTest {
             MoodTagWeights.weight(setOf(it),emptySet(),emptySet(),setOf("활기 넘침"))
         }
         assertEquals(listOf("other","활기 넘침"),order)
+    }
+    @Test fun hueAloneNeverCreatesDreamyMoodWithoutExplicitPreference() {
+        val valid = measuredColor()
+        for (hue in listOf(80f,180f,220f,300f)) {
+            val result = recommend(vision=valid.copy(colors=valid.colors!!.copy(hueDegrees=hue)))
+            assertFalse("hue=$hue",result.moodKeywords.contains("몽환적인"))
+        }
+        val selected = engine.recommend(RecommendationRequest(null,env,
+            UserPreferences(preferredMoods=setOf("몽환적인")),nowEpochMs=now))
+        assertTrue(selected.moodKeywords.contains("몽환적인"))
+    }
+    @Test fun missingObservationsDoNotBecomeCalmOrSadEvidence() {
+        val result = recommend(EnvironmentSnapshot(zoneId="Asia/Seoul"))
+        for (mood in listOf("우울","차분한","잔잔한","편안한")) assertFalse(result.moodKeywords.contains(mood))
+    }
+    @Test fun offlineUnknownCaptureTimeDoesNotUseCurrentTimeButKeepsObservedColor() {
+        val v = measuredColor().copy(frameTimeEpochMs=0,sceneObservations=SceneObservations(
+            SceneObservationRuntime.DESKTOP_SEGMENTATION,SourceInfo("실제 offline RGB와 mask")))
+        val result = engine.recommend(RecommendationRequest(v,EnvironmentSnapshot(zoneId="Asia/Seoul"),nowEpochMs=now))
+        assertFalse(result.moodKeywords.any { it in setOf("야간","아침","낮","저녁") })
+        assertTrue(result.moodKeywords.contains("따뜻한"))
+        assertTrue(result.reasons.any { it.contains("현재 시각으로 대체하지") })
+    }
+    @Test fun accumulatedWindowDrivesScoreAndUserTargetDoesNotRewriteEvidenceLedger() {
+        val frames = (0..49).map { i -> SceneSample(i*1_000L,measuredColor().copy(frameTimeEpochMs=now-49_000+i*1_000)) }
+        val window = SceneWindow(50_000,receivedFrameCount=50,samples=frames)
+        val request = RecommendationRequest(null,env,sceneWindow=window,nowEpochMs=now)
+        val actual = engine.recommend(request)
+        val selected = engine.recommend(request.copy(preferences=UserPreferences(preferredMoods=setOf("우울"))))
+        assertEquals(50,actual.scoreSummary!!.sampledBucketCount)
+        assertTrue(actual.moodKeywords.contains("따뜻한"))
+        assertEquals(actual.scoreSummary,selected.scoreSummary)
+        assertTrue(selected.moodKeywords.contains("우울"))
+        assertFalse(selected.moodKeywords.contains("따뜻한"))
+    }
+    @Test fun explicitMissingTimeOverridesEvaluationClockWithoutDiscardingWindow() {
+        val request = RecommendationRequest(null,env,nowEpochMs=now,timeContextAvailable=false,
+            sceneWindow=SceneWindow(50_000,samples=listOf(SceneSample(0,measuredColor()))))
+        val result = engine.recommend(request)
+        assertFalse(result.moodKeywords.any { it in setOf("야간","아침","낮","저녁") })
+        assertTrue(result.moodKeywords.contains("따뜻한"))
+        assertTrue(result.reasons.any { it.contains("현재 시각으로 대체하지") })
+        val empty = engine.recommend(request.copy(sceneWindow=SceneWindow(50_000)))
+        assertFalse(empty.moodKeywords.any { it in setOf("야간","아침","낮","저녁") })
     }
 }

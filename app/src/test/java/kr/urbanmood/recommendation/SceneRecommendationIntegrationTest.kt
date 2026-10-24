@@ -17,7 +17,7 @@ class SceneRecommendationIntegrationTest {
         val now = 1_792_762_200_000L
         val tracks = listOf(
             LocalTrack("warm", Uri.parse("content://test/warm"), "warm", tags=setOf("따뜻한")),
-            LocalTrack("cool", Uri.parse("content://test/cool"), "cool", tags=setOf("몽환적인")),
+            LocalTrack("cool", Uri.parse("content://test/cool"), "cool", tags=setOf("차가운")),
         )
         fun warmSelections(hue: Float): Int {
             val engine = MoodRecommendationEngine(Random(12))

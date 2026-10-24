@@ -73,6 +73,8 @@ class UrbanLightAnalyzer internal constructor(
             slowRuns=if(elapsed>220) slowRuns+1 else 0
             if(slowRuns>=3 && pixelLongEdge>240) { pixelLongEdge=240; temporal.reset(); slowRuns=0 }
             val c=measurement.colors
+            val observations=SceneObservationBuilder.build(detections.boxes,detections.atCapacity,measurement,
+                frame.capturedAtEpochMs,"${frame.cameraTimestampNs}:${frame.sequence}")
             return VisionResult(frame.capturedAtEpochMs,AnalysisStatus.LOW_CONFIDENCE,
                 urbanLightScore=measurement.score,
                 colors=ColorFeatures(c.argb,c.hue,c.saturation,c.brightness,c.luminousArea),
@@ -85,7 +87,8 @@ class UrbanLightAnalyzer internal constructor(
                 lightMeasurementConfidence=measurement.pixelQuality.lightConfidence,
                 // COCO vehicle detections do not evaluate storefront/building semantics.
                 semanticConfidence=null,
-                vehicleMaskApplied=true)
+                vehicleMaskApplied=true,
+                sceneObservations=observations)
         } catch(e:Exception) {
             invalidateDetector()
             nextRetryNs=started+5_000_000_000L

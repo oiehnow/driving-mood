@@ -187,7 +187,7 @@ class MainActivityIntegrationTest {
             val previous = completedFixture()
             session.completedAnalysis = previous
             button(activity, "무드 분석").performClick()
-            shadowOf(Looper.getMainLooper()).idleFor(Duration.ofSeconds(61))
+            shadowOf(Looper.getMainLooper()).idleFor(Duration.ofSeconds(111))
             assertNull(session.activeRequestId)
             assertSame(previous, session.completedAnalysis)
             assertTrue(screen(activity).contains("시간이 초과"))
@@ -233,6 +233,38 @@ class MainActivityIntegrationTest {
             road = RoadContext(Availability.MANUAL, RoadType.HIGHWAY, source = SourceInfo("수동 입력"))),
             VisionResult(1_792_800_000_000, AnalysisStatus.FAILED)),
         RecommendationResult(Availability.MANUAL, listOf("차분한")))
+
+    @Test fun scoreLedgerAndCompletedWindowSurviveRotationAndCancelledNewRequest() {
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        try {
+            val initial = controller.get()
+            val base = completedFixture()
+            val window = SceneWindow(50_000, receivedFrameCount = 8,
+                samples = listOf(SceneSample(0, base.snapshot.vision), SceneSample(1_000, base.snapshot.vision)))
+            val ledger = MoodScoreSummary("scene-test", 50_000, 8, 2, listOf(MoodScore("활기 넘침", 10f,
+                listOf(MoodScoreContribution("people", "사람 검출", delta = 10f, reason = "대표 구간 평균의 그룹 기여")))))
+            val completed = base.copy(snapshot = base.snapshot.copy(sceneWindow = window),
+                recommendation = base.recommendation.copy(scoreSummary = ledger))
+            ViewModelProvider(initial)[SessionState::class.java].completedAnalysis = completed
+            controller.recreate()
+            val activity = controller.get()
+            val session = ViewModelProvider(activity)[SessionState::class.java]
+            assertSame(window, session.completedAnalysis!!.snapshot.sceneWindow)
+            assertTrue(screen(activity).contains("2개 시간 구간"))
+            button(activity, "점수와 관측 근거").performClick()
+            val dialog = ShadowAlertDialog.getLatestAlertDialog()
+            val details = views(dialog.window!!.decorView).filterIsInstance<TextView>().joinToString(" ") { it.text }
+            assertTrue(details.contains("사람 검출: +10.0점"))
+            assertTrue(details.contains("대표 구간 평균"))
+            dialog.dismiss()
+            button(activity, "무드 분석").performClick()
+            button(activity, "취소").performClick()
+            shadowOf(Looper.getMainLooper()).idle()
+            assertSame(completed, session.completedAnalysis)
+            assertNull(session.activeRequestId)
+            assertTrue(screen(activity).contains("활기 넘침 10.0점"))
+        } finally { controller.pause().stop().destroy() }
+    }
 
     @Test fun bundledFontCoversMainInputButtonsDialogsAndUpdatedText() {
         val controller = Robolectric.buildActivity(MainActivity::class.java).setup()

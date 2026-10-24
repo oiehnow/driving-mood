@@ -7,12 +7,14 @@ import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.withTimeoutOrNull
 
 enum class AnalysisStep { PERMISSIONS, ENVIRONMENT, CAMERA, RECOMMENDING }
-data class AnalysisTimeouts(val environmentMs: Long = 35_000, val cameraMs: Long = 8_000, val totalMs: Long = 60_000)
+data class AnalysisTimeouts(val environmentMs: Long = 35_000, val cameraMs: Long = 60_000, val totalMs: Long = 110_000)
+data class CapturedScene(val vision: VisionResult, val window: SceneWindow? = null)
 data class AnalysisSnapshot(
     val requestId: Long,
     val analyzedAtEpochMs: Long,
     val environment: EnvironmentSnapshot,
     val vision: VisionResult,
+    val sceneWindow: SceneWindow? = null,
 )
 data class CompletedAnalysis(val snapshot: AnalysisSnapshot, val recommendation: RecommendationResult)
 
@@ -26,6 +28,14 @@ class OneShotAnalysisRunner(
         requestId: Long,
         permissions: suspend () -> Boolean,
         capture: suspend () -> VisionResult,
+        recommend: suspend (AnalysisSnapshot) -> RecommendationResult,
+        progress: (AnalysisStep) -> Unit = {},
+    ): CompletedAnalysis = runWindow(requestId, permissions, { CapturedScene(capture()) }, recommend, progress)
+
+    suspend fun runWindow(
+        requestId: Long,
+        permissions: suspend () -> Boolean,
+        capture: suspend () -> CapturedScene,
         recommend: suspend (AnalysisSnapshot) -> RecommendationResult,
         progress: (AnalysisStep) -> Unit = {},
     ): CompletedAnalysis = withTimeout(timeouts.totalMs) {
@@ -47,13 +57,13 @@ class OneShotAnalysisRunner(
                 else env.copy(notices = env.notices + listOfNotNull(terminal.message))
             if (terminal == null) environment.cancelRequest(requestId)
             progress(AnalysisStep.CAMERA)
-            val vision = if (!cameraAllowed) unavailableVision("카메라 권한이 없어 영상은 반영하지 않았습니다.")
+            val captured = if (!cameraAllowed) CapturedScene(unavailableVision("카메라 권한이 없어 영상은 반영하지 않았습니다."))
                 else try {
                     withTimeoutOrNull(timeouts.cameraMs) { capture() }
-                        ?: unavailableVision("카메라 확인 시간이 지나 영상은 반영하지 않았습니다.")
+                        ?: CapturedScene(unavailableVision("카메라 확인 시간이 지나 영상은 반영하지 않았습니다."))
                 } catch (error: CancellationException) { throw error }
-                catch (_: Exception) { unavailableVision("카메라를 사용할 수 없어 영상은 반영하지 않았습니다.") }
-            val snapshot = AnalysisSnapshot(requestId, now(), envSnapshot, vision)
+                catch (_: Exception) { CapturedScene(unavailableVision("카메라를 사용할 수 없어 영상은 반영하지 않았습니다.")) }
+            val snapshot = AnalysisSnapshot(requestId, now(), envSnapshot, captured.vision, captured.window)
             progress(AnalysisStep.RECOMMENDING)
             CompletedAnalysis(snapshot, recommend(snapshot))
         } finally {

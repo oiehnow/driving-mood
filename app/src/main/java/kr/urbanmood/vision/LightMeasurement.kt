@@ -26,11 +26,24 @@ internal data class PixelMeasurementQuality(
     val excludedBrightRatio: Float = 0f,
     val reasons: List<String> = emptyList(),
 )
+/** Optional same-frame measurement-grid selections. No RGB or Bitmap is retained.
+ * Arrays are newly owned per call, row-major width*height. Consumers must not mutate them.
+ * Semantic-eligible pixels are NOT accepted light candidates or proof of a light's type.
+ */
+internal data class LightPixelEvidence(
+    val width: Int,
+    val height: Int,
+    val acceptedAmbientMask: BooleanArray,
+    val semanticEligibleBrightMask: BooleanArray,
+)
 internal data class LightMeasurement(
     val score: Float?, val colors: MeasuredColors, val vehicleRatio: Float,
     val confidence: Float, val reasons: List<String>, val regions: List<LightRegion>,
     val signature: FloatArray,
     val pixelQuality: PixelMeasurementQuality = PixelMeasurementQuality(),
+    // All accepted connected light regions, independent of the capped debug list.
+    val candidateRegions: List<LightRegion> = emptyList(),
+    val pixelEvidence: LightPixelEvidence? = null,
 )
 
 /** Pixel measurements + conservative geometry heuristics, NOT a storefront classifier.
@@ -44,7 +57,8 @@ internal class LightMeasurer {
         val cy get() = (top + bottom) / 2f
     }
 
-    fun measure(frame: PixelFrame, boxes: List<ObjectBox>, detectorAtCapacity: Boolean): LightMeasurement {
+    fun measure(frame: PixelFrame, boxes: List<ObjectBox>, detectorAtCapacity: Boolean,
+                capturePixelEvidence: Boolean = false): LightMeasurement {
         val w = frame.width; val h = frame.height; val n = w * h
         val value = FloatArray(n); val saturation = FloatArray(n); val hue = FloatArray(n)
         val luma = FloatArray(n)
@@ -164,6 +178,11 @@ internal class LightMeasurer {
             }
         }
         val accepted = mutableListOf<Int>()
+        val candidateRegions = mutableListOf<LightRegion>()
+        val acceptedMask = if(capturePixelEvidence) BooleanArray(n) else null
+        // bright already excludes vehicles, traffic objects, reflection columns and geometry.
+        // Retain small/skinny/sparse components for measured semantic intersections only.
+        val semanticEligibleMask = if(capturePixelEvidence) bright.copyOf() else null
         var rejected = 0; var candidates = 0; var billboard = 0; var glareCount = 0
         blobs.forEachIndexed { index, blob ->
             val area = blob.pixels.size.toFloat()/n
@@ -173,9 +192,17 @@ internal class LightMeasurer {
             // Saturated neutral cores lose both color and source identity. This also rejects
             // some white signs: a conservative uncertainty veto, NOT a streetlamp classifier.
             val glare = area >= .002f && blob.pixels.count { value[it]>.98f && saturation[it]<.15f }.toFloat()/blob.pixels.size > .45f
+            if(semanticEligibleMask!=null && (paired[index] || tooLarge || glare)) {
+                blob.pixels.forEach { semanticEligibleMask[it]=false }
+            }
             val eligible = !paired[index] && !tooLarge && !glare && area >= .0008f && fill >= .35f &&
                 blob.width >= max(3f,w*.025f) && blob.height >= max(2f,h*.018f) && aspect in .4f..7f
-            if (eligible) { accepted.addAll(blob.pixels.toList()); candidates++ }
+            if (eligible) {
+                accepted.addAll(blob.pixels.toList()); candidates++
+                if(acceptedMask!=null) blob.pixels.forEach { acceptedMask[it]=true }
+                candidateRegions.add(LightRegion(blob.left.toFloat()/w,blob.top.toFloat()/h,
+                    (blob.right+1f)/w,(blob.bottom+1f)/h,"주변 조명 후보",false))
+            }
             else { rejected += blob.pixels.size; if (tooLarge) billboard++; if(glare) glareCount++ }
             if (regions.size < 64) regions.add(LightRegion(blob.left.toFloat()/w,blob.top.toFloat()/h,
                 (blob.right+1f)/w,(blob.bottom+1f)/h,
@@ -271,7 +298,10 @@ internal class LightMeasurer {
         qualityReasons.add("조명 측정에 살펴본 범위는 화면의 ${(validRatio*100).toInt()}%입니다. 측정한 조명 중 ${(candidateClipped*100).toInt()}%는 너무 밝게 찍혀 원래 색이 달라졌을 수 있습니다.")
         val pixelQuality=PixelMeasurementQuality(colorQuality,lightQuality,validRatio,accepted.size,
             darkRatio,clipping,candidateClipped,exclusion.coerceIn(0f,1f),qualityReasons)
-        return LightMeasurement(score,colors,vehicleRatio,confidence,reasons,regions,signature,pixelQuality)
+        return LightMeasurement(score,colors,vehicleRatio,confidence,reasons,regions,signature,pixelQuality,
+            candidateRegions.toList(),
+            if(acceptedMask!=null && semanticEligibleMask!=null)
+                LightPixelEvidence(w,h,acceptedMask,semanticEligibleMask) else null)
     }
 
     private fun components(mask: BooleanArray, width: Int, height: Int): List<Blob> {

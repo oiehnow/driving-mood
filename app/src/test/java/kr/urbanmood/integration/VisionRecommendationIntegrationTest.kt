@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import kr.urbanmood.contracts.*
 import kr.urbanmood.recommendation.MoodRecommendationEngine
+import kr.urbanmood.recommendation.SceneAccumulator
 import kr.urbanmood.vision.*
 import kotlin.random.Random
 import org.junit.Assert.*
@@ -22,7 +23,7 @@ class VisionRecommendationIntegrationTest {
     private val environment = EnvironmentSnapshot(generatedAtEpochMs = now, zoneId = "Asia/Seoul")
     private val catalog = listOf(
         LocalTrack("warm", Uri.parse("content://fixture/warm"), "Warm fixture", tags = setOf("따뜻한")),
-        LocalTrack("cool", Uri.parse("content://fixture/cool"), "Cool fixture", tags = setOf("몽환적인")),
+        LocalTrack("cool", Uri.parse("content://fixture/cool"), "Cool fixture", tags = setOf("차가운")),
     )
 
     private fun analyze(color: Int = 0xffe09030.toInt(), masked: Boolean = false,
@@ -56,14 +57,34 @@ class VisionRecommendationIntegrationTest {
         }
         assertTrue(recommend(warm).moodKeywords.contains("따뜻한"))
         assertFalse(recommend(cool).moodKeywords.contains("따뜻한"))
-        assertTrue(recommend(cool).moodKeywords.contains("몽환적인"))
+        assertTrue(recommend(cool).moodKeywords.contains("차가운"))
+        assertFalse(recommend(cool).moodKeywords.contains("몽환적인"))
         assertTrue(recommend(warm).youtubeQuery!!.contains("따뜻한"))
-        assertTrue(recommend(cool).youtubeQuery!!.contains("몽환적인"))
+        assertTrue(recommend(cool).youtubeQuery!!.contains("차가운"))
         // Paired identical seeds keep randomness identical while only measured hue changes.
         val warmFirst = (0 until 64).count { recommend(warm, it).candidates.first().id == "warm" }
         val coolFirst = (0 until 64).count { recommend(cool, it).candidates.first().id == "warm" }
         assertTrue("Measured color must change candidate weights", warmFirst > coolFirst)
         assertFalse(recommend(warm).moodKeywords.contains("경쾌한"))
+    }
+
+    @Test fun actualMeasuredWindowRetainsEarlyEvidenceAndDoesNotInventRecordedTime() {
+        val early = analyze()
+        val late = early.copy(frameTimeEpochMs = now + 49_000,
+            sceneObservations = early.sceneObservations?.let { it.copy(source = it.source.copy(observedAtEpochMs = now + 49_000)) })
+        val accumulator = SceneAccumulator()
+        assertTrue(accumulator.add(0, early))
+        assertTrue(accumulator.add(49_000, late))
+        val result = MoodRecommendationEngine(Random(7)).recommend(RecommendationRequest(late, environment,
+            catalog = catalog, nowEpochMs = now + 50_000, sceneWindow = accumulator.snapshot(), timeContextAvailable = false))
+        assertEquals(2, result.scoreSummary!!.sampledBucketCount)
+        val warmth = result.scoreSummary.scores.single { it.keyword == "따뜻한" }
+        assertTrue(warmth.score!! > 0)
+        assertTrue(warmth.contributions.single { it.id == "warm_color" }.reason.contains("2개"))
+        assertTrue(result.moodKeywords.contains("따뜻한"))
+        assertFalse(result.moodKeywords.contains("몽환적인"))
+        assertTrue(result.moodKeywords.none { it in listOf("야간", "아침", "낮", "저녁") })
+        assertTrue(result.reasons.none { it.contains("기기 시각") })
     }
 
     @Test fun actualExcludedDarkAndFailedFramesCannotSupplyColorMood() {

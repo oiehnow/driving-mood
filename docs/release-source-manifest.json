@@ -1,0 +1,342 @@
+[
+  {
+    "file": "app/build.gradle.kts",
+    "sha256": "6C203ED1682B76E6A88CB89F19921CE6F87A48D482D381BA0C09FA3421214AA2"
+  },
+  {
+    "file": "app/src/main/AndroidManifest.xml",
+    "sha256": "74DEB9F4AFAF7A25C67C1D8B9D7EEB1642EFD937D3113224567E31573DBE4F6E"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.activity--activity--1.11.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.activity--activity-ktx--1.11.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.annotation--annotation-jvm--1.9.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-camera2--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-camera2-pipe--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-core--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-lifecycle--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-video--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-view--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera.featurecombinationquery--featurecombinationquery--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera.viewfinder--viewfinder-core--1.5.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core--1.17.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core-backported-fixes--1.0.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core-ktx--1.17.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core-viewtree--1.0.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.exifinterface--exifinterface--1.4.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-common-jvm--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-livedata--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-livedata-core--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-livedata-core-ktx--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-runtime-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-runtime-ktx-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel-ktx--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel-savedstate-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.profileinstaller--profileinstaller--1.4.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.savedstate--savedstate-android--1.3.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.savedstate--savedstate-ktx--1.3.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.tracing--tracing-android--1.3.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.tracing--tracing-ktx--1.3.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Apache-2.0.txt",
+    "sha256": "C71D239DF91726FC519C6EB72D318EC65820627232B2F796219E87DCF35D0AB4"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Gradle-LICENSE.txt",
+    "sha256": "9536D88EA948603D18E232A13F5958D67807CD80828036B082BFF171D2CF0703"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Gradle-NOTICE.txt",
+    "sha256": "C2DE5FD9ADC7CCC4E1382A0E1F38EC6E14F8CA6E28D3C20289FE80353B019AA1"
+  },
+  {
+    "file": "app/src/main/assets/licenses/jakarta.inject--jakarta.inject-api--2.0.1--1.txt",
+    "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30"
+  },
+  {
+    "file": "app/src/main/assets/licenses/jakarta.inject--jakarta.inject-api--2.0.1--2.txt",
+    "sha256": "992ED62DD3EE17D73CE6A4A5E02DD0FED9EB326BF386AA5304E6A512214DF540"
+  },
+  {
+    "file": "app/src/main/assets/licenses/JSR305-source-copyright.txt",
+    "sha256": "DF438089AD469CC38B9D868E3D292EBA8E8D07277EB5ACA6D9F07559321E25C3"
+  },
+  {
+    "file": "app/src/main/assets/licenses/org.checkerframework--checker-qual--3.43.0--1.txt",
+    "sha256": "E90EAA08DEA089DF10F2BF7F9DBA63A5F6237C01562C4741E2E86773E78582D5"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Pretendard-OFL.txt",
+    "sha256": "B04538C9ABEC39A3DB75108CF0AF0FD9C77032FE8AA2CF38345B4D250E98E38E"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Protobuf-LICENSE.txt",
+    "sha256": "6E5E117324AFD944DCF67F36CF329843BC1A92229A8CD9BB573D7A83130FEA7D"
+  },
+  {
+    "file": "app/src/main/assets/licenses/runtime-license-index.txt",
+    "sha256": "C62FEFA1696BCA3D918E5C171999E36AAACA30E9E483D2FE1C6A663DF34FE6BA"
+  },
+  {
+    "file": "app/src/main/assets/licenses/THIRD_PARTY_NOTICES.txt",
+    "sha256": "5EE5AEF8B7D85F1A0C93BCA8917893B3FABF2C9A0BF820801710A483B5A93A8C"
+  },
+  {
+    "file": "app/src/main/assets/vision/Apache-2.0.txt",
+    "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30"
+  },
+  {
+    "file": "app/src/main/assets/vision/efficientdet-lite0-metadata-v1.tflite",
+    "sha256": "2E04C53BFEAC0AC2A30C057C7E2A777594CE39BAAAC35A92F74FB1E8C4FC4E0B"
+  },
+  {
+    "file": "app/src/main/assets/vision/THIRD-PARTY-NOTICES.md",
+    "sha256": "9EDAE7BBC08AE9CEDA421F95B8C3D3B4FBF14DD30912CAAD1885E47876731DA1"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/audio/LocalAudioPlayer.kt",
+    "sha256": "AE78DFAA9F3409A4B41F4DB348AEC754761CB563B4F17E7744E3C4EC6FDEE796"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/audio/PlaybackPolicies.kt",
+    "sha256": "8C0B09684787CBD41DF03EC23B6C0F8F1A9401996CAAB61FE126C345D1CE2BFA"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/CameraController.kt",
+    "sha256": "FAB001CDE709744B10EC9FF52FF77BF24DF8C7E5AA34BD119631757CE05DB967"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/CapturePolicy.kt",
+    "sha256": "EF1094C3D9795DDF3C1C07D992E0A12E48F6990E7B4B183BF96881DAD98C39EB"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/EvidenceOverlayView.kt",
+    "sha256": "BAB51365049B4E36CDE7FB68A8F0D5ADD8F2D06EF32BA78155150A5D494E756B"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/RegionScoreCaptions.kt",
+    "sha256": "374761567FB333B817B39570BE5760B276DF61B9C878B49254DD683BCA9D04F5"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/AndroidEnvironmentProvider.kt",
+    "sha256": "EA457A91BFC62669B2548A110325BF23DC97BA055AED18F88773684E7B5C44A4"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/AndroidOneShotLocation.kt",
+    "sha256": "B71BD759C46B247ED5F458F411EC427C90FB6B234E3EF5E3B4A4801D82AA807A"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/KmaWeather.kt",
+    "sha256": "AA0A8633B41906A5F3143C38427BCEE649BB9540A7F88FC3D7A2CB47E26FDD64"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/WeatherRequests.kt",
+    "sha256": "1547890C7352FF5EAC25A4299339A066C816607D0772CF4AC854FC4422EBF604"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/Contracts.kt",
+    "sha256": "BF184FA0435398464E4EC4CC7AB116142D0380DD33790B70AF8C9E6A86409955"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/SceneContracts.kt",
+    "sha256": "092065329F638D518A80515F3E621F83033FDA04754D807267AC9F129F6AC22B"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/VisionMeasurementPolicy.kt",
+    "sha256": "4AC1E713FA705A20BFDD9CDA85B8F32250FC6A626FBE007BDEE69C7323FF5B65"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/AppServices.kt",
+    "sha256": "A594FCA04290D4CC5117C6E284614BFE4796AB0FB41463D0D5E63C12CA6F1B2E"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/AppTypography.kt",
+    "sha256": "25837808B569CCEBBB09CCE10CB121E5441F23B1F3B457A6CB64D49F84132F60"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/OneShotAnalysis.kt",
+    "sha256": "6C1F1AE5353BD5B23F743EA98625CE915CB5D645793384760201E7EE1840BF52"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/ProductText.kt",
+    "sha256": "EAF010FF393A8130DCA70A7953B659E40AEA22AC331FD1EE7B15B17E1B219E3B"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/SessionState.kt",
+    "sha256": "DBBBDA8DAFCD89D298069BCBB3D80C75D830AB871F43DE3C807F42977B781E74"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/TimedSceneCapture.kt",
+    "sha256": "26B09BF617961F5BCDDB0A747381346BD9CB4AFDDCECA5E7D44F366D028D27C3"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/VisionQualityText.kt",
+    "sha256": "D17299C820DB4FA63EB716C0FD704E581BDA66924FBEBCBB2DE0EA53DC6EF642"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/MainActivity.kt",
+    "sha256": "8AED284F83F0346AE48403384AD0DDC8894B1D0B82DCEB2B5A80241ABB823C99"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/MoodRecommendationEngine.kt",
+    "sha256": "BE6A04E82F61237E09C7F84AB61106197E6788CEC3E1B4569ECB8DA042B70E3F"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneAccumulator.kt",
+    "sha256": "3A3D680B5FF9763CAE194901B996AB432C4AF2018DCAF980D46DD169CBCE83EA"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneInterpreter.kt",
+    "sha256": "6E4D0E164B25D097EF94A76AB3F48224013DFB2E3B85B1405BAAECAE09D4C0DD"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneMoodScorer.kt",
+    "sha256": "C0F6C61CA438AB9AB59996BC284ED2BFC0701E7334DC4C2B840150C78AAE209E"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/LightMeasurement.kt",
+    "sha256": "E6C194A2F1DC894DB196C6BB2B2A421D1953C91C8657C0ED3A2DE76C385282D0"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/MediaPipeVehicleDetector.kt",
+    "sha256": "4326DA49E81ACFFCC7192E99950DD1D2ABF493A7B06C900EEA64A6A603E1F935"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/SceneObservationBuilder.kt",
+    "sha256": "5CAAC61F27958AC989ECEC4F709702E7217F76A16EC6217311474D2E06812527"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/TemporalLightFilter.kt",
+    "sha256": "DED98824A6FE6633C823415545EC9E61A28C571B952E9F717EC0AE5D0A454DA0"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/UrbanLightAnalyzer.kt",
+    "sha256": "0E90F3E16582EE4B07E825DBA77DC9CF0043F180DBEF569C4B701948320F1AF1"
+  },
+  {
+    "file": "app/src/main/res/drawable/ic_urbanmood.xml",
+    "sha256": "5D2AA5A6F983112D9C4DD12A1FF67104222CE3788134067F099D623A4B533EB9"
+  },
+  {
+    "file": "app/src/main/res/font/pretendard_variable.ttf",
+    "sha256": "3090CCDE0442BB347AA7685D9BA8B17436A60682DF6E8F92A9A670DE14056E22"
+  },
+  {
+    "file": "app/src/main/res/values/strings.xml",
+    "sha256": "20AD92FCB8BCD9D388F60E052E8DB20D3111794BA44762699F42673A45117B81"
+  },
+  {
+    "file": "app/src/main/res/values/styles.xml",
+    "sha256": "78071F8DEA25DE3401F03C76FD7441DDA83858D2FBE6BC96DBAD273F662AF658"
+  },
+  {
+    "file": "app/src/main/res/xml/data_extraction_rules.xml",
+    "sha256": "7A4E6DEFDCB7E21A8CDB4BB4CBDBBEF15BCD4C6BAE923372FBFA07F0642AC29A"
+  },
+  {
+    "file": "build.gradle.kts",
+    "sha256": "01BF64A5A698963BB7685D8B13DA26A3088E4C87D6919A6CDECD2642A1934130"
+  },
+  {
+    "file": "gradle.properties",
+    "sha256": "2C642158EE68807B5B44D817ED7B5A49C186F5B70C830A1A94CB0F0BBCBA7DA6"
+  },
+  {
+    "file": "settings.gradle.kts",
+    "sha256": "C191310474F362794B72B0D9FD31DC76A88DFDBBFEA4C27FA205FE6AE40B053A"
+  }
+]
