@@ -39,3 +39,7 @@ AndroidX 저작권자는 Android Open Source Project, Kotlin 계열은 JetBrains
 | Skia SkRGBToHSV | https://github.com/google/skia/blob/main/src/core/SkColor.cpp — 하늘 RGB의 HSV 변환을 Kotlin으로 옮겨 활용. Skia 런타임 의존성은 추가하지 않음 | BSD-3-Clause; Copyright 2006 The Android Open Source Project / Copyright (c) 2011 Google Inc.; 원문 `app/src/main/assets/licenses/Skia-LICENSE.txt` |
 
 [모델 소스와 변환](models/semantic/README.md), [앱 내 고지](app/src/main/assets/licenses/SEMANTIC-SOURCES.txt), [전체 AGPL 원문](app/src/main/assets/licenses/ultralytics-LICENSE.txt)을 보존한다.
+
+## 사용자 제공 클릭음
+
+`mood_click.mp3`는 사용자가 앱의 클릭음으로 제공한 파일을 그대로 사용한다. 프로젝트 소스 라이선스를 음원에 일괄 적용하지 않는다. Android 플랫폼의 SoundPool API로 재생하며 별도 오디오 라이브러리를 추가하지 않는다.

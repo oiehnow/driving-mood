@@ -1,18 +1,18 @@
 # Driving Mood 앱 화면
 
-Driving Mood **0.3.7**.
+Driving Mood **0.3.8**.
 
 ## 분석과 무드 결과
 
 로고를 누르면 30초 촬영 후 분석이 이어진다. 결과에서 **상세 보기**로 관측 근거를 확인하고, **재분석**으로 새로 관측한다.
 
-<img src="assets/analysis-motion/analysis-flow.gif" width="360" alt="실제 앱의 촬영·분석·결과 전환 미리보기">
+<img src="assets/app-ui-0.3.8/analysis-transition.gif" width="360" alt="실제 앱의 촬영·분석·결과 전환 미리보기">
 
-0.3.6 앱 전환 미리보기 · 실제 주행 영상의 저장된 계산 결과 사용.
+0.3.8 실제 앱 화면 · 저장된 주행 분석 결과 재생.
 
 | 시작 | 노을 주행 결과 | 낮 도심 결과 |
 |---|---|---|
-| <img src="assets/app-ui-0.3.7/01-start.png" width="240" alt="Driving Mood 시작 화면"> | <img src="assets/app-ui-0.3.7/full-01-result.png" width="240" alt="노을 주행의 따뜻한 무드"> | <img src="assets/app-ui-0.3.7/full-02-result.png" width="240" alt="낮 도심의 무드 결과"> |
+| <img src="assets/app-ui-0.3.8/01-start.png" width="240" alt="Driving Mood 시작 화면"> | <img src="assets/app-ui-0.3.8/full-01-result.png" width="240" alt="노을 주행의 따뜻한 무드"> | <img src="assets/app-ui-0.3.8/full-02-result.png" width="240" alt="낮 도심의 무드 결과"> |
 
 색감의 하늘색 점수와 시각적 활력의 관측 강도를 구분하며 측정하지 않은 값은 ‘—’로 표시한다.
 
@@ -20,7 +20,7 @@ Driving Mood **0.3.7**.
 
 | 색감과 밝기 | 촬영 정보·음악 추천 |
 |---|---|
-| <img src="assets/app-ui-0.3.7/full-01-evidence-top.png" width="300" alt="하늘색과 주변 조명의 측정값"> | <img src="assets/app-ui-0.3.7/full-01-evidence-context.png" width="300" alt="촬영 정보와 음악 추천 연결"> |
+| <img src="assets/app-ui-0.3.8/full-01-evidence-top.png" width="300" alt="하늘색과 주변 조명의 측정값"> | <img src="assets/app-ui-0.3.8/full-01-evidence-context.png" width="300" alt="촬영 정보와 음악 추천 연결"> |
 
 ## 음악·조명과 설정
 
@@ -28,7 +28,7 @@ Driving Mood **0.3.7**.
 
 | 음악 추천 | 추천 이유 | 설정·제작자 |
 |---|---|---|
-| <img src="assets/app-ui-0.3.7/06-music-page.png" width="240" alt="음악 추천과 내 음악"> | <img src="assets/app-ui-0.3.7/07-recommendation-connection.png" width="240" alt="음악 추천 이유"> | <img src="assets/app-ui-0.3.7/08-settings-page.png" width="240" alt="설정과 제작자 oieh"> |
+| <img src="assets/app-ui-0.3.8/06-music-page.png" width="240" alt="음악 추천과 내 음악"> | <img src="assets/app-ui-0.3.8/07-recommendation-connection.png" width="240" alt="음악 추천 이유"> | <img src="assets/app-ui-0.3.8/08-settings-page.png" width="240" alt="설정과 제작자 oieh"> |
 
 ## 아이콘
 
@@ -40,4 +40,4 @@ Driving Mood **0.3.7**.
 
 제작자 **oieh**.
 
-[APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.7) · [실제 주행 영상 분석](VIDEO_DEMO.md) · [검증 기록](../VALIDATION.md) · [캡처 정보](assets/app-ui-0.3.7/capture-info.json)
+[APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.8) · [실제 주행 영상 분석](VIDEO_DEMO.md) · [검증 기록](../VALIDATION.md) · [캡처 정보](assets/app-ui-0.3.8/capture-info.json)

@@ -4,27 +4,27 @@
   <img src="docs/product/assets/brand/driving-mood-icon-round.png" width="160" alt="Driving Mood 아이콘">
 </p>
 
-주변 환경과 운전자 맥락에서 **무드 키워드를 추출해 음악·조명·장소 추천으로 연결하는 앱**입니다. 카메라가 관측한 빛과 사람, 도로·날씨 정보에 사용자의 취향과 원하는 분위기를 결합합니다.
+주변 풍경과 주행 상황을 분석해 **무드 키워드를 만들고, 사용자의 취향에 맞는 음악을 추천하는 앱**입니다. 카메라에 담긴 빛과 사람, 도로·날씨 정보로 주변 분위기를 파악하고, 사용자가 원하는 분위기를 음악 선택에 반영합니다. 같은 결과를 차량 조명과 주변 장소 추천에도 활용하는 것이 목표입니다.
 
 ## 실제 앱 화면
 
-Android 프로토타입 **0.3.7**.
+Android 프로토타입 **0.3.8**.
 
-<img src="docs/product/assets/analysis-motion/analysis-flow.gif" width="360" alt="Driving Mood 촬영·분석·결과 화면">
+<img src="docs/product/assets/app-ui-0.3.8/analysis-transition.gif" width="360" alt="Driving Mood 촬영·분석·결과 화면">
 
-0.3.6 앱 전환 미리보기 · 실제 주행 영상의 저장된 계산 결과 사용.
+0.3.8 실제 앱 화면 · 저장된 주행 분석 결과 재생.
 
 | 로고를 눌러 시작 | 무드 결과 | 분석 상세 |
 |:---:|:---:|:---:|
-| <img src="docs/product/assets/app-ui-0.3.7/01-start.png" width="240" alt="Driving Mood 시작 화면"> | <img src="docs/product/assets/app-ui-0.3.7/full-01-result.png" width="240" alt="노을 주행의 무드 결과"> | <img src="docs/product/assets/app-ui-0.3.7/full-01-evidence-top.png" width="240" alt="하늘색과 주변 조명, 밝기와 사람의 분석 기록"> |
+| <img src="docs/product/assets/app-ui-0.3.8/01-start.png" width="240" alt="Driving Mood 시작 화면"> | <img src="docs/product/assets/app-ui-0.3.8/full-01-result.png" width="240" alt="노을 주행의 무드 결과"> | <img src="docs/product/assets/app-ui-0.3.8/full-01-evidence-top.png" width="240" alt="하늘색과 주변 조명, 밝기와 사람의 분석 기록"> |
 
-[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.7)
+[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.8)
 
 ## Pleos 차량 화면
 
 ![Pleos에서 실행한 Driving Mood UI 프로토타입](docs/product/assets/pleos/prototype-result.png)
 
-Pleos Connect 에뮬레이터에서 실행하는 차량용 UI 프로토타입입니다. 무드 결과를 음악·조명·주행 맥락으로 연결하는 화면을 구성했습니다.
+Pleos Connect 에뮬레이터에서 실행하는 차량용 프로토타입입니다. 무드 결과와 음악·조명 기능, 내비게이션을 한 앱에서 연결합니다.
 
 [차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md)
 
@@ -42,7 +42,7 @@ Pleos Connect 에뮬레이터에서 실행하는 차량용 UI 프로토타입입
 
 ![분석 요청부터 결과까지](docs/product/assets/request-flow.gif)
 
-현재 0.3.7은 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
+현재 0.3.8은 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
 
 ## 무드 키워드를 만드는 과정
 

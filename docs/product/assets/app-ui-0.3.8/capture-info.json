@@ -1,0 +1,62 @@
+{
+  "appVersion": "0.3.8",
+  "versionCode": 16,
+  "captureType": "Native UI-stage walkthrough with saved actual driving ledger; no camera\/model inference",
+  "sourceVideoId": "full-01",
+  "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d",
+  "idleBackgroundChangedSamples": 785,
+  "backgroundStopResumeVerified": true,
+  "clickSoundLoaded": true,
+  "clickSoundReturnedStreamId": 1,
+  "soundAudiblyVerified": false,
+  "frames": [
+    {
+      "file": "01-start-center.png",
+      "capturedAtEpochMs": 1792845187472
+    },
+    {
+      "file": "02-idle-a.png",
+      "capturedAtEpochMs": 1792845190514
+    },
+    {
+      "file": "03-idle-b.png",
+      "capturedAtEpochMs": 1792845193524
+    },
+    {
+      "file": "04-capture-stage.png",
+      "capturedAtEpochMs": 1792845195737
+    },
+    {
+      "file": "05-analysis-stage.png",
+      "capturedAtEpochMs": 1792845198911
+    },
+    {
+      "file": "06-result.png",
+      "capturedAtEpochMs": 1792845202861
+    },
+    {
+      "file": "07-detail-colors.png",
+      "capturedAtEpochMs": 1792845207012
+    },
+    {
+      "file": "08-detail-scene.png",
+      "capturedAtEpochMs": 1792845209077
+    },
+    {
+      "file": "09-music.png",
+      "capturedAtEpochMs": 1792845211166
+    },
+    {
+      "file": "10-recommendation.png",
+      "capturedAtEpochMs": 1792845213296
+    },
+    {
+      "file": "11-lighting-preview.png",
+      "capturedAtEpochMs": 1792845215390
+    },
+    {
+      "file": "12-settings.png",
+      "capturedAtEpochMs": 1792845217454
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "appVersion": "0.3.8",
+  "versionCode": 16,
+  "input": "Saved actual-video score replay; no new camera or model inference",
+  "sourceLedgerObservationsVerified": true,
+  "technicalDetailsInitiallyCollapsed": true,
+  "recommendationNavigationVerified": true,
+  "captures": [
+    {
+      "file": "01-start.png",
+      "capturedAtEpochMs": 1792843992035,
+      "sourceVideoId": null,
+      "sourceLedgerSha256": null
+    },
+    {
+      "file": "full-01-result.png",
+      "capturedAtEpochMs": 1792843994754,
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-evidence-top.png",
+      "capturedAtEpochMs": 1792843995290,
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-evidence-scene.png",
+      "capturedAtEpochMs": 1792843995725,
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-evidence-context.png",
+      "capturedAtEpochMs": 1792843996151,
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-evidence-mood-connection.png",
+      "capturedAtEpochMs": 1792843996583,
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-01-technical-expanded.png",
+      "capturedAtEpochMs": 1792843997030,
+      "sourceVideoId": "full-01",
+      "sourceLedgerSha256": "8b1f3d7c1933a6a352e0834ae4df62290c1285feaddafec6411aa66ff5f87b5d"
+    },
+    {
+      "file": "full-02-result.png",
+      "capturedAtEpochMs": 1792843999659,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-evidence-top.png",
+      "capturedAtEpochMs": 1792844000147,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-evidence-scene.png",
+      "capturedAtEpochMs": 1792844000579,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-evidence-context.png",
+      "capturedAtEpochMs": 1792844001003,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-evidence-mood-connection.png",
+      "capturedAtEpochMs": 1792844001422,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "full-02-technical-expanded.png",
+      "capturedAtEpochMs": 1792844001852,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "06-music-page.png",
+      "capturedAtEpochMs": 1792844002315,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "07-recommendation-connection.png",
+      "capturedAtEpochMs": 1792844003010,
+      "sourceVideoId": "full-02",
+      "sourceLedgerSha256": "bec66991de679b674642eba2dcf451a19c4c64c189562550dfaed870a1982b6c"
+    },
+    {
+      "file": "08-settings-page.png",
+      "capturedAtEpochMs": 1792844003451,
+      "sourceVideoId": null,
+      "sourceLedgerSha256": null
+    }
+  ]
+}
