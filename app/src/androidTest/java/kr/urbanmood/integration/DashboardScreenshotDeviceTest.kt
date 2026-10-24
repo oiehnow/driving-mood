@@ -41,29 +41,71 @@ class DashboardScreenshotDeviceTest {
                 summary.getInt("receivedFrameCount"), summary.getInt("sampledBucketCount"), scores))
         val output = File(instrumentation.targetContext.getExternalFilesDir(null), "analysis-motion").apply { mkdirs() }
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
-            lateinit var dashboard: kr.urbanmood.ui.MoodDashboardView
+            lateinit var journey: kr.urbanmood.ui.LogoJourneyView
+            lateinit var previewActivity: MainActivity
             scenario.onActivity { activity ->
-                dashboard = views(activity.window.decorView).filterIsInstance<kr.urbanmood.ui.MoodDashboardView>().single()
-                field<TextView>(activity, "cameraStatus").text = "촬영 · 분석 · 결과 전환 미리보기"
+                previewActivity = activity
+                journey = field(activity, "logoJourney")
             }
-            for (frame in 0 until 130) {
-                instrumentation.runOnMainSync {
-                    when {
-                        frame < 10 -> Unit
-                        frame < 45 -> dashboard.recording(((frame - 10) * 30_000L / 34), 30_000)
-                        frame == 45 -> dashboard.working("무드를 찾고 있어요", "빛과 색을 모으고 있어요")
-                        frame == 95 -> dashboard.complete(result)
+            val begin = MainActivity::class.java.getDeclaredMethod("beginLogoAnalysis").apply { isAccessible = true }
+            val complete = MainActivity::class.java.getDeclaredMethod("renderRecommendation", RecommendationResult::class.java)
+                .apply { isAccessible = true }
+            fun showSavedResult() {
+                field<TextView>(previewActivity, "cameraStatus").text = raw.getString("sceneTitle") + " · 저장된 관측 결과"
+                complete.invoke(previewActivity, result)
+            }
+            val video = File(output, "logo-journey.mp4")
+            val recordingStartedAt = System.currentTimeMillis()
+            val recording = instrumentation.uiAutomation.executeShellCommand(
+                "screenrecord --time-limit 25 ${video.absolutePath}")
+            var recordingLog = ""
+            android.os.ParcelFileDescriptor.AutoCloseInputStream(recording).use { commandOutput ->
+                try {
+                    SystemClock.sleep(500)
+                    val timelineStartedAt = SystemClock.elapsedRealtime()
+                    val stillFrames = setOf(0, 20, 50, 90, 130, 160)
+                    for (frame in 0 until 180) {
+                        instrumentation.runOnMainSync {
+                            when {
+                                frame == 0 -> journey.showIntro()
+                                frame == 25 -> begin.invoke(previewActivity)
+                                frame in 35..65 -> journey.recording((frame - 35) * 1_000L, 30_000)
+                                frame == 66 -> journey.analyzing()
+                                frame in 70..105 -> journey.analyzing(((frame - 70) * 30L / 35 + 1).coerceAtMost(30), 30)
+                                frame == 110 -> showSavedResult()
+                                frame == 155 -> begin.invoke(previewActivity)
+                                frame in 165..179 -> journey.recording((frame - 165) * 1_000L, 30_000)
+                            }
+                        }
+                        // Screenrecord preserves native motion timing; stills never define video playback speed.
+                        val nextFrameAt = timelineStartedAt + (frame + 1) * 100L
+                        SystemClock.sleep((nextFrameAt - SystemClock.elapsedRealtime()).coerceAtLeast(0))
+                        if (frame in stillFrames) {
+                            val image = requireNotNull(instrumentation.uiAutomation.takeScreenshot())
+                            try {
+                                File(output, "frame-%03d.png".format(frame)).outputStream().use {
+                                    assertTrue(image.compress(Bitmap.CompressFormat.PNG, 100, it))
+                                }
+                            } finally { image.recycle() }
+                        }
                     }
+                    instrumentation.runOnMainSync { showSavedResult() }
+                    SystemClock.sleep(1_100)
+                    instrumentation.runOnMainSync {
+                        val visibleText = views(previewActivity.window.decorView).filterIsInstance<TextView>()
+                            .filter { it.isShown }.joinToString("\n") { it.text.toString() }
+                        words.forEach { word -> assertTrue("Saved result keyword not visible: $word", visibleText.contains(word)) }
+                        assertEquals(View.GONE, journey.visibility)
+                        assertEquals(View.VISIBLE, field<View>(previewActivity, "headerLogo").visibility)
+                        assertNull(field<SessionState>(previewActivity, "session").activeRequestId)
+                    }
+                } finally {
+                    // Keep the shell pipe open until the bounded recorder exits and finalizes its MP4.
+                    recordingLog = commandOutput.bufferedReader().readText()
                 }
-                SystemClock.sleep(100)
-                val image = requireNotNull(instrumentation.uiAutomation.takeScreenshot())
-                File(output, "frame-%03d.png".format(frame)).outputStream().use { image.compress(Bitmap.CompressFormat.PNG, 100, it) }
-                image.recycle()
             }
-            scenario.onActivity { activity ->
-                assertTrue(views(activity.window.decorView).filterIsInstance<TextView>().any { it.text.toString().contains("따뜻한") })
-                dashboard.interrupted()
-            }
+            assertTrue("Native screen recording missing or stale: $recordingLog",
+                video.length() > 4_096 && video.lastModified() >= recordingStartedAt - 2_000)
         }
     }
     @Test fun captureAppAndSavedDrivingResults() {

@@ -48,6 +48,11 @@
       "name": "info",
       "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/info-duotone.svg",
       "sha256": "dec9ea1394c618d6d576ba43e0f08eea265eaf20046e98bc3da19eb4b8da73e8"
+    },
+    {
+      "name": "settings-gear",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/duotone/gear-six-duotone.svg",
+      "sha256": "049e51d9b794d6b2649073414f90daed5ebadbebfcefb178170aef21c7ace330"
     }
   ]
 }

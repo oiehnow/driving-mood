@@ -43,7 +43,8 @@ internal class AnalysisMotionView(context: Context) : View(context) {
 
     override fun onDraw(canvas: Canvas) {
         val cx = width / 2f; val cy = height / 2f
-        val radius = min(width, height) * .44f
+        // Working motion sits inside the text block instead of enclosing the labels.
+        val radius = min(width, height) * if (stage == Stage.IDLE) .44f else .35f
         paint.shader = null; paint.style = Paint.Style.STROKE
         paint.strokeWidth = resources.displayMetrics.density
         paint.color = 0x65ffffff

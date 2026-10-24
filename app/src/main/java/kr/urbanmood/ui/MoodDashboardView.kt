@@ -15,9 +15,14 @@ import kr.urbanmood.integration.dashboardMetrics
 class MoodDashboardView(context: Context) : LinearLayout(context) {
     private val ink = Color.rgb(0, 44, 95)
     private val hero = FrameLayout(context)
-    private val heading = label("아직 만나지 않은\n오늘의 무드", 27, true)
+    private val heading = label("무드 분석", 20, true)
     private val eyebrow = label("지금, 이 길의 분위기", 12)
-    private val caption = label("짧게 담고, 분위기를 발견하세요", 12)
+    private val caption = label("로고를 눌러 지금 이 길의 분위기를 알아보세요", 12)
+    private val logo = ImageView(context).apply {
+        setImageResource(kr.urbanmood.R.mipmap.ic_launcher)
+        importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
+    }
+    val actionView: View get() = hero
     private val spinner = ProgressBar(context).apply {
         isIndeterminate = true; indeterminateTintList = ColorStateList.valueOf(ink); visibility = View.GONE
         contentDescription = "무드 분석 진행 중"
@@ -26,14 +31,29 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
     private lateinit var metricStrip: LinearLayout
     private val moodBackground = MoodGradientDrawable(dp(30).toFloat())
     private val motion = AnalysisMotionView(context)
+    private var welcome = false
 
     init {
         orientation = VERTICAL
         hero.background = moodBackground
+        hero.tag = "mood-analysis-action"
+        hero.isFocusable = true
+        hero.contentDescription = "무드 분석 시작"
+        hero.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View, info: android.view.accessibility.AccessibilityNodeInfo) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info.className = Button::class.java.name
+            }
+        }
+        hero.foreground = android.graphics.drawable.RippleDrawable(ColorStateList.valueOf(0x18002c5f), null, surface(Color.WHITE, 30))
         addView(hero, LayoutParams(-1, dp(274)))
         hero.addView(motion, FrameLayout.LayoutParams(dp(246), dp(246), Gravity.CENTER))
-        val center = LinearLayout(context).apply { orientation = VERTICAL; gravity = Gravity.CENTER; setPadding(dp(12), 0, dp(12), dp(10)) }
+        val center = LinearLayout(context).apply {
+            orientation = VERTICAL; gravity = Gravity.CENTER; setPadding(dp(12), 0, dp(12), dp(10))
+            importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+        }
         center.addView(eyebrow)
+        center.addView(logo, LayoutParams(dp(88), dp(88)).apply { topMargin = dp(16) })
         center.addView(heading, LayoutParams(-1, -2).apply { topMargin = dp(10) })
         center.addView(caption, LayoutParams(-1, -2).apply { topMargin = dp(12) })
         hero.addView(center, FrameLayout.LayoutParams(-1, -2, Gravity.CENTER))
@@ -54,9 +74,34 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
         showMetrics(null)
     }
 
+    fun showWelcome() {
+        welcome = true
+        logo.visibility = View.VISIBLE
+        eyebrow.visibility = View.GONE; heading.visibility = View.GONE; caption.visibility = View.GONE
+        motion.visibility = View.GONE; metricStrip.visibility = View.GONE
+        logo.layoutParams = (logo.layoutParams as LayoutParams).apply { width = dp(128); height = dp(128); topMargin = 0 }
+        motion.layoutParams = FrameLayout.LayoutParams(dp(200), dp(200), Gravity.CENTER)
+        hero.layoutParams = LayoutParams(-1, -1)
+    }
+
+    fun leaveWelcome() {
+        if (!welcome) return
+        welcome = false
+        eyebrow.visibility = View.VISIBLE; heading.visibility = View.VISIBLE; caption.visibility = View.VISIBLE
+        motion.visibility = View.VISIBLE
+        hero.layoutParams = LayoutParams(-1, dp(274))
+    }
+
     fun working(title: String, detail: String, recordingFraction: Float? = null) {
         resetReveal()
-        compact(true)
+        hero.contentDescription = "$title. $detail"
+        if (welcome) {
+            logo.visibility = View.VISIBLE
+            motion.visibility = View.VISIBLE
+        } else {
+            logo.visibility = View.GONE
+            compact(true)
+        }
         eyebrow.text = "주변을 알아가는 중"; heading.text = title; caption.text = detail
         spinner.visibility = View.GONE
         if (recordingFraction == null) motion.show(AnalysisMotionView.Stage.ANALYZING)
@@ -74,14 +119,18 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
     }
 
     fun complete(result: RecommendationResult, animate: Boolean = true) {
+        leaveWelcome()
         resetReveal()
+        logo.visibility = View.GONE
         motion.show(AnalysisMotionView.Stage.IDLE)
         compact(false)
         spinner.visibility = View.GONE
         val words = result.commonMoodKeywords.filter { it != "수동 입력" }
         eyebrow.text = "지금 주변의 무드"
         heading.text = words.take(2).joinToString("\n").ifEmpty { "조금 더 살펴볼까요?" }
-        caption.text = if (result.availability == kr.urbanmood.contracts.Availability.MANUAL) "직접 설정한 환경 반영" else if (words.isEmpty()) "분위기를 정할 단서가 부족해요" else "이 분위기를 음악과 조명으로"
+        caption.text = if (result.availability == kr.urbanmood.contracts.Availability.MANUAL) "직접 설정한 환경 반영" else if (words.isEmpty()) "분위기를 정할 단서가 부족해요" else ""
+        caption.visibility = if (caption.text.isEmpty()) View.GONE else View.VISIBLE
+        hero.contentDescription = heading.text
         showMetrics(result)
         val colors = when {
             "다채로운" in words -> intArrayOf(0xffddd8ef.toInt(), 0xfff2d8d6.toInt(), 0xffd5e6f0.toInt())
@@ -102,10 +151,14 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
 
     fun interrupted() {
         resetReveal()
+        logo.visibility = View.VISIBLE
+        hero.contentDescription = "무드 분석 다시 시작"
         motion.show(AnalysisMotionView.Stage.IDLE)
+        if (welcome) { showWelcome(); return }
         compact(false)
         spinner.visibility = View.GONE
-        eyebrow.text = "다시 시작할 수 있어요"; heading.text = "잠시 멈췄어요"; caption.text = "무드 분석을 눌러 다시 담아보세요"
+        eyebrow.text = "다시 시작할 수 있어요"; heading.text = "잠시 멈췄어요"; caption.text = "로고를 눌러 다시 담아보세요"
+        heading.textSize = 20f
         showMetrics(null)
     }
 
@@ -120,12 +173,12 @@ class MoodDashboardView(context: Context) : LinearLayout(context) {
     }
     private fun compact(busy: Boolean) {
         val height = dp(if (busy) 190 else 274)
+        heading.textSize = if (busy) 23f else 27f
         if (hero.layoutParams.height != height) {
             hero.layoutParams = hero.layoutParams.apply { this.height = height }
             hero.getChildAt(0).layoutParams = (hero.getChildAt(0).layoutParams as FrameLayout.LayoutParams).apply {
                 width = dp(if (busy) 198 else 246); this.height = width
             }
-            heading.textSize = if (busy) 23f else 27f
         }
         metricStrip.visibility = if (busy) View.GONE else View.VISIBLE
     }

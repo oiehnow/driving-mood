@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.RectF
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
@@ -17,6 +18,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
@@ -68,7 +70,6 @@ class MainActivity : ComponentActivity() {
     private lateinit var completionCue: CompletionCue
     private lateinit var decodedPreview: ImageView
     private var displayedBitmap: Bitmap? = null
-    private lateinit var durationButton: Button
     private lateinit var lightingText: TextView
     private lateinit var lightingSwatch: View
     private lateinit var preview: PreviewView
@@ -85,7 +86,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var searchButton: Button
     private lateinit var preferenceInput: EditText
     private lateinit var desiredMoodText: TextView
-    private lateinit var analyzeButton: Button
+    private lateinit var analyzeButton: View
     private lateinit var cancelButton: Button
     private val configurationButtons = mutableListOf<Button>()
     private var latestVision: VisionResult? = null
@@ -107,6 +108,15 @@ class MainActivity : ComponentActivity() {
     private lateinit var detailPanel: LinearLayout
     private val pages = mutableListOf<ScrollView>()
     private val navigationButtons = mutableListOf<Button>()
+    private lateinit var homeBody: LinearLayout
+    private lateinit var navigationBar: View
+    private lateinit var logoJourney: kr.urbanmood.ui.LogoJourneyView
+    private lateinit var resultShell: View
+    private lateinit var headerLogo: ImageView
+    private lateinit var reanalyzeButton: Button
+    private lateinit var settingsShortcut: ImageButton
+    private var welcomeVisible = false
+    private var resultTransitionRunning = false
 
     private val analysisPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
         val continuation = permissionContinuation
@@ -152,6 +162,15 @@ class MainActivity : ComponentActivity() {
         camera = VideoCaptureController(this, this, preview)
         recordedAnalyzer = RecordedSceneAnalyzer(services.vision)
         completionCue = CompletionCue(this)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                when {
+                    session.activeRequestId != null -> cancelAnalysis("분석을 취소했습니다.")
+                    session.selectedPage != 0 -> selectPage(0)
+                    else -> { isEnabled = false; onBackPressedDispatcher.onBackPressed(); isEnabled = true }
+                }
+            }
+        })
         session.completedAnalysis?.let {
             renderCompleted(it)
             services.audio.setQueue(it.recommendation.candidates)
@@ -213,7 +232,7 @@ class MainActivity : ComponentActivity() {
         if (!foreground || permissionInFlight) return
         selectPage(0)
         val id = session.beginAnalysis() ?: return
-        dashboard.working("주변을 담을 준비", "카메라 연결을 확인하고 있어요")
+        beginLogoAnalysis()
         recommendationJob?.cancel()
         scoreText.text = "촬영을 마치면 주변 무드를 분석합니다."
         clearDecodedPreview()
@@ -285,7 +304,7 @@ class MainActivity : ComponentActivity() {
         val clip = camera.record(duration,
             progress = { elapsed -> if (session.ownsRequest(id)) {
                 cameraStatus.text = "촬영 중"
-                dashboard.recording(elapsed, duration)
+                logoJourney.recording(elapsed, duration)
                 frameStatus.text = "${elapsed / 1000} / ${duration / 1000}초"
             } },
             finalizing = { if (session.ownsRequest(id)) cameraStatus.text = "영상 저장 마무리 중" })
@@ -294,7 +313,7 @@ class MainActivity : ComponentActivity() {
             preview.visibility = View.GONE
             decodedPreview.visibility = View.VISIBLE
             cameraStatus.text = "분석 중"
-            dashboard.working("무드를 찾고 있어요", "촬영한 장면을 차근차근 살펴보는 중")
+            logoJourney.analyzing()
             frameStatus.text = "촬영한 영상의 장면을 확인하고 있습니다."
             return withTimeout(180_000) {
                 recordedAnalyzer.analyze(clip) { value, bitmap, elapsed, samples ->
@@ -303,7 +322,7 @@ class MainActivity : ComponentActivity() {
                         samples = listOf(SceneSample(0, value))), env, value.frameTimeEpochMs)
                     withContext(Dispatchers.Main) {
                         if (session.ownsRequest(id)) {
-                            dashboard.analyzing(elapsed / 1000 + 1, (clip.timing.durationMs + 999) / 1000)
+                            logoJourney.analyzing(elapsed / 1000 + 1, (clip.timing.durationMs + 999) / 1000)
                             val owned = bitmap.copy(Bitmap.Config.ARGB_8888, false)
                             decodedPreview.setImageBitmap(owned)
                             displayedBitmap?.recycle()
@@ -347,7 +366,8 @@ class MainActivity : ComponentActivity() {
     private fun showInterrupted(message: String) {
         val previous = session.completedAnalysis
         if (previous != null) renderCompleted(previous) else {
-            dashboard.interrupted()
+            logoJourney.resetAfterFailure()
+            if (foreground) Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             analysisText.text = "관측을 완료하지 못했습니다. 다시 눌러 새로 관측할 수 있습니다."
             frameStatus.text = "미완료 관측을 지웠습니다."
             scoreText.text = kr.urbanmood.integration.scoreSummaryText(null)
@@ -359,10 +379,11 @@ class MainActivity : ComponentActivity() {
         if (!::analyzeButton.isInitialized) return
         val busy = session.activeRequestId != null
         analyzeButton.isEnabled = !busy && !permissionInFlight
-        analyzeButton.text = if (busy) "분석 중…" else "무드 분석"
+        reanalyzeButton.isEnabled = !busy && !permissionInFlight
+        settingsShortcut.visibility = if (welcomeVisible && !resultTransitionRunning && !busy && !permissionInFlight) View.VISIBLE else View.GONE
         cancelButton.isEnabled = busy
-        cancelButton.visibility = if (busy) View.VISIBLE else View.GONE
-        frameStatus.visibility = if (busy || session.completedAnalysis != null) View.VISIBLE else View.GONE
+        cancelButton.visibility = if (busy && !welcomeVisible) View.VISIBLE else View.GONE
+        frameStatus.visibility = if (!welcomeVisible && (busy || session.completedAnalysis != null)) View.VISIBLE else View.GONE
         navigationButtons.forEachIndexed { index, button -> button.isEnabled = !busy || index == 0 }
         configurationButtons.forEach { it.isEnabled = !busy }
     }
@@ -400,6 +421,7 @@ class MainActivity : ComponentActivity() {
         moodText.text = recommendationText(value)
         scoreText.text = kr.urbanmood.integration.scoreSummaryText(value.scoreSummary)
         searchButton.isEnabled = !value.youtubeQuery.isNullOrBlank()
+        revealAnalysisScreen()
     }
 
     private fun renderLighting() {
@@ -429,6 +451,24 @@ class MainActivity : ComponentActivity() {
 
     private fun buildScreen() {
         val shell = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(paper) }
+        resultShell = shell
+        val stage = FrameLayout(this).apply { setBackgroundColor(paper) }
+        stage.addView(shell, FrameLayout.LayoutParams(-1, -1))
+        logoJourney = kr.urbanmood.ui.LogoJourneyView(this).apply { onStart = { startAnalysis() } }
+        stage.addView(logoJourney, FrameLayout.LayoutParams(-1, -1))
+        analyzeButton = logoJourney.actionView
+        settingsShortcut = ImageButton(this).apply {
+            setImageResource(R.drawable.ic_settings_gear)
+            imageTintList = ColorStateList.valueOf(muted)
+            setBackgroundColor(Color.TRANSPARENT)
+            setPadding(dp(12), dp(12), dp(12), dp(12))
+            contentDescription = "설정"
+            setOnClickListener { selectPage(2) }
+        }
+        stage.addView(settingsShortcut, FrameLayout.LayoutParams(dp(48), dp(48),
+            android.view.Gravity.BOTTOM or android.view.Gravity.END).apply {
+                rightMargin = dp(16); bottomMargin = dp(16)
+            })
         val pageHost = FrameLayout(this)
         shell.addView(pageHost, LinearLayout.LayoutParams(-1, 0, 1f))
         fun page(): LinearLayout {
@@ -439,34 +479,26 @@ class MainActivity : ComponentActivity() {
             return body
         }
         val root = page()
+        homeBody = root
         val musicPage = page()
         val settingsPage = page()
-        setContentView(shell)
-        ViewCompat.setOnApplyWindowInsetsListener(shell) { view, insets ->
+        setContentView(stage)
+        ViewCompat.setOnApplyWindowInsetsListener(stage) { view, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout())
             val keyboard = insets.getInsets(WindowInsetsCompat.Type.ime())
             view.setPadding(bars.left, bars.top, bars.right, maxOf(bars.bottom, keyboard.bottom))
             insets
         }
         val brand = row(root).apply { gravity = android.view.Gravity.CENTER_VERTICAL }
-        brand.addView(ImageView(this).apply {
+        headerLogo = ImageView(this).apply {
             setImageResource(R.mipmap.ic_launcher)
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
-        }, LinearLayout.LayoutParams(dp(38), dp(38)).apply { marginEnd = dp(10) })
+        }
+        brand.addView(headerLogo, LinearLayout.LayoutParams(dp(38), dp(38)).apply { marginEnd = dp(10) })
         brand.addView(text(getString(R.string.app_name), 18, ink, true))
         root.addView(text("지금 이 길의 분위기", 13, muted))
-        val actions = row(root)
-        durationButton = addButton(actions, "촬영 ${session.recordingDurationMs / 1000}초") {
-            AlertDialog.Builder(this).setTitle("촬영 길이")
-                .setSingleChoiceItems(arrayOf("30초", "60초"), if (session.recordingDurationMs == 30_000L) 0 else 1) { dialog, selected ->
-                    session.recordingDurationMs = if (selected == 0) 30_000 else 60_000
-                    durationButton.text = "촬영 ${session.recordingDurationMs / 1000}초"
-                    dialog.dismiss()
-                }.setNegativeButton("취소", null).showWithAppFont()
-        }
-        configurationButtons += durationButton
-        analyzeButton = addButton(actions, "무드 분석") { startAnalysis() }.also { primary(it) }
         dashboard = kr.urbanmood.ui.MoodDashboardView(this)
+        dashboard.actionView.apply { tag = null; isClickable = false; isFocusable = false; accessibilityDelegate = null }
         root.addView(dashboard, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(18); bottomMargin = dp(12) })
         preview = PreviewView(this).apply {
             implementationMode = PreviewView.ImplementationMode.COMPATIBLE
@@ -514,6 +546,7 @@ class MainActivity : ComponentActivity() {
             showDetails("점수와 관측 근거", kr.urbanmood.integration.scoreDetailsText(recommendation?.scoreSummary))
         }
         addButton(root, "음악과 조명으로 이어가기  →") { selectPage(1) }
+        reanalyzeButton = addButton(root, "재분석") { startAnalysis() }
 
         musicPage.addView(text("나의 드라이브", 28, ink, true))
         musicPage.addView(text("주변의 무드를 나만의 분위기로", 13, muted))
@@ -612,6 +645,7 @@ class MainActivity : ComponentActivity() {
         val navigation = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL; setPadding(dp(12), dp(8), dp(12), dp(8)); setBackgroundColor(Color.WHITE)
         }
+        navigationBar = navigation
         shell.addView(navigation, LinearLayout.LayoutParams(-1, -2))
         listOf("분석", "음악·조명", "설정").forEachIndexed { index, label ->
             val item = addButton(navigation, label) { selectPage(index) }
@@ -620,7 +654,58 @@ class MainActivity : ComponentActivity() {
             navigationButtons += item
         }
         selectPage(session.selectedPage)
-        typography.watch(shell)
+        if (!session.hasEnteredAnalysis && session.completedAnalysis == null && session.selectedPage == 0) {
+            showLogoScreen()
+        }
+        typography.watch(stage)
+    }
+
+    private fun showLogoScreen() {
+        welcomeVisible = true
+        analyzeButton = logoJourney.actionView
+        resultShell.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+        headerLogo.visibility = View.INVISIBLE
+        settingsShortcut.visibility = View.VISIBLE
+        logoJourney.post { if (welcomeVisible && session.activeRequestId == null) logoJourney.showIntro() }
+    }
+
+    private fun headerBounds(): RectF {
+        val logoLocation = IntArray(2)
+        val overlayLocation = IntArray(2)
+        headerLogo.getLocationOnScreen(logoLocation)
+        logoJourney.getLocationOnScreen(overlayLocation)
+        val x = (logoLocation[0] - overlayLocation[0]).toFloat()
+        val y = (logoLocation[1] - overlayLocation[1]).toFloat()
+        return RectF(x, y, x + headerLogo.width, y + headerLogo.height)
+    }
+
+    private fun beginLogoAnalysis() {
+        resultTransitionRunning = false
+        pages[0].scrollTo(0, 0)
+        val fromHeader = if (!welcomeVisible) headerBounds() else null
+        welcomeVisible = true
+        analyzeButton = logoJourney.actionView
+        settingsShortcut.visibility = View.GONE
+        resultShell.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+        headerLogo.visibility = View.INVISIBLE
+        logoJourney.startCapture(fromHeader)
+    }
+
+    private fun revealAnalysisScreen() {
+        session.hasEnteredAnalysis = true
+        if (!welcomeVisible) return
+        resultTransitionRunning = true
+        settingsShortcut.visibility = View.GONE
+        previewContainer.visibility = View.GONE
+        pages[0].scrollTo(0, 0)
+        logoJourney.finishTo(headerBounds()) {
+            resultTransitionRunning = false
+            welcomeVisible = false
+            analyzeButton = reanalyzeButton
+            headerLogo.visibility = View.VISIBLE
+            resultShell.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_AUTO
+            updateControls()
+        }
     }
 
     private fun selectPage(index: Int) {
@@ -633,6 +718,16 @@ class MainActivity : ComponentActivity() {
             button.setTextColor(if (button.isSelected) ink else muted)
             button.backgroundTintList = ColorStateList.valueOf(if (button.isSelected) Color.rgb(234, 240, 247) else Color.WHITE)
             button.compoundDrawableTintList = ColorStateList.valueOf(if (button.isSelected) ink else muted)
+        }
+        if (::reanalyzeButton.isInitialized) {
+            if (selected != 0) {
+                welcomeVisible = false
+                logoJourney.visibility = View.GONE
+                settingsShortcut.visibility = View.GONE
+                resultShell.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_AUTO
+            } else if (session.completedAnalysis == null && session.activeRequestId == null && !welcomeVisible) {
+                showLogoScreen()
+            }
         }
     }
 

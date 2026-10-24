@@ -51,19 +51,16 @@ class RecordedFlowDeviceTest {
 
     private fun complete(duration: Long) {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+            SystemClock.sleep(1_200) // The launch action settles before a user tap.
             var state: SessionState? = null
             lateinit var runningActivity: MainActivity
             scenario.onActivity { activity ->
                 runningActivity = activity
                 state = field(activity, "session")
-                if (duration == 60_000L) {
-                    field<Button>(activity, "durationButton").performClick()
-                    val choices = WindowInspector.getGlobalWindowViews().firstNotNullOf { findList(it) }
-                    choices.performItemClick(choices.getChildAt(1), 1, choices.getItemIdAtPosition(1))
-                }
+                // Longer capture remains an internal pipeline test; the product uses one 30s action.
+                if (duration == 60_000L) state!!.recordingDurationMs = duration
                 assertEquals(duration, state!!.recordingDurationMs)
-                assertEquals("촬영 ${duration / 1000}초", field<Button>(activity, "durationButton").text.toString())
-                field<Button>(activity, "analyzeButton").performClick()
+                field<View>(activity, "analyzeButton").performClick()
             }
             var sawRecording = false
             var sawAnalysis = false
@@ -159,7 +156,7 @@ class RecordedFlowDeviceTest {
                 assertEquals(lightBeforeRotation, restored.lightingPreview)
                 assertNull(restored.activeRequestId)
                 assertFalse(restored.claimCompletionSound(beforeRotation!!.snapshot.requestId))
-                assertTrue(field<Button>(activity, "analyzeButton").isEnabled)
+                assertTrue(field<View>(activity, "analyzeButton").isEnabled)
             }
             assertTrue(recordings().isEmpty())
             report("RESTORED duration=$duration same completed snapshot/common mood/light; no new recording or completion cue")
@@ -168,14 +165,17 @@ class RecordedFlowDeviceTest {
 
     @Test fun backgroundCancellationDeletesVideoAndDoesNotCommit() {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+            SystemClock.sleep(1_200)
             var state: SessionState? = null
+            lateinit var runningActivity: MainActivity
             scenario.onActivity { activity ->
+                runningActivity = activity
                 state = field(activity, "session")
-                field<Button>(activity, "analyzeButton").performClick()
+                field<View>(activity, "analyzeButton").performClick()
             }
             await(30_000, "recording started") {
                 var recording = false
-                scenario.onActivity { recording = field<TextView>(it, "cameraStatus").text == "촬영 중" }
+                instrumentation.runOnMainSync { recording = field<TextView>(runningActivity, "cameraStatus").text == "촬영 중" }
                 recording && recordings().any { it.length() > 0 }
             }
             scenario.moveToState(Lifecycle.State.CREATED)
@@ -212,14 +212,17 @@ class RecordedFlowDeviceTest {
 
     @Test fun cancelDuringDecodeDeletesVideo() {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+            SystemClock.sleep(1_200)
             var state: SessionState? = null
+            lateinit var runningActivity: MainActivity
             scenario.onActivity {
+                runningActivity = it
                 state = field(it, "session")
-                field<Button>(it, "analyzeButton").performClick()
+                field<View>(it, "analyzeButton").performClick()
             }
             await(90_000, "decoded preview before cancellation") {
                 var decoded = false
-                scenario.onActivity { decoded = field<ImageView>(it, "decodedPreview").drawable != null }
+                instrumentation.runOnMainSync { decoded = field<ImageView>(runningActivity, "decodedPreview").drawable != null }
                 decoded
             }
             assertTrue(recordings().isNotEmpty())

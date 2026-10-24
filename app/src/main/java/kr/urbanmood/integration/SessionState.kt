@@ -8,6 +8,7 @@ import kr.urbanmood.contracts.RoadType
 class SessionState : ViewModel() {
     var kmaKey: String = ""
     var selectedPage: Int = 0
+    var hasEnteredAnalysis: Boolean = false
     var genres: String = ""
     var preferredMoods: Set<String> = emptySet()
     val tracks = mutableListOf<LocalTrack>()

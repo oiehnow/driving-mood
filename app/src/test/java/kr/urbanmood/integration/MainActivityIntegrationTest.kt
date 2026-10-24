@@ -20,6 +20,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows.shadowOf
 import org.robolectric.annotation.Config
 import org.robolectric.shadows.ShadowAlertDialog
+import org.robolectric.util.ReflectionHelpers
 import java.time.Duration
 
 /** Real activity/services with Android shadows. No claim of native camera/model/GPS/audio execution. */
@@ -27,8 +28,10 @@ import java.time.Duration
 @Config(sdk = [28])
 class MainActivityIntegrationTest {
     @Test fun navigationRetainsSelectedPageAndDoesNotStartSensors() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
+            ViewModelProvider(controller.get())[SessionState::class.java].completedAnalysis = completedFixture()
+            controller.recreate()
             button(controller.get(), "음악·조명").performClick()
             assertEquals(1, ViewModelProvider(controller.get())[SessionState::class.java].selectedPage)
             controller.recreate()
@@ -48,7 +51,7 @@ class MainActivityIntegrationTest {
 
     @Test fun commonMoodAndLightingSurviveRotationAndCancelledNextRequestAtBothDurations() {
         for (length in listOf(30_000L, 60_000L)) {
-            val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+            val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
             try {
                 val initial = controller.get()
                 val state = ViewModelProvider(initial)[SessionState::class.java]
@@ -74,7 +77,7 @@ class MainActivityIntegrationTest {
                 assertNull(shadowOf(activity).lastRequestedPermission)
                 button(activity, "무드 분석").performClick()
                 assertNotNull(restored.activeRequestId)
-                button(activity, "취소").performClick()
+                activity.onBackPressedDispatcher.onBackPressed()
                 val pending = shadowOf(activity).lastRequestedPermission
                 activity.onRequestPermissionsResult(pending.requestCode, pending.requestedPermissions,
                     IntArray(pending.requestedPermissions.size) { PackageManager.PERMISSION_GRANTED })
@@ -89,33 +92,61 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun recordingLengthAndLightingPreviewSurviveRotationWithoutStartingCapture() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             var activity = controller.get()
-            button(activity, "촬영 30초").performClick()
-            val lengthDialog = ShadowAlertDialog.getLatestAlertDialog()
-            lengthDialog.listView.performItemClick(null, 1, 1)
-            assertTrue(button(activity, "촬영 60초").isEnabled)
+            assertFalse(screen(activity).contains("촬영 30초"))
+            assertFalse(screen(activity).contains("촬영 60초"))
+            assertTrue(button(activity, "무드 분석").isEnabled)
+            openSettings(activity)
+            button(activity, "음악·조명").performClick()
             button(activity, "아이스 블루").performClick()
             button(activity, "밝기 조절").performClick()
             ShadowAlertDialog.getLatestAlertDialog().listView.performItemClick(null, 2, 2)
             val before = ViewModelProvider(activity)[SessionState::class.java]
-            assertEquals(60_000L, before.recordingDurationMs)
+            assertEquals(30_000L, before.recordingDurationMs)
             assertEquals(.75f, before.lightingPreview!!.brightness)
             assertEquals(LightingTarget.PREVIEW_ONLY, before.lightingPreview!!.target)
             assertNull(before.activeRequestId)
             val config = Configuration(activity.resources.configuration).apply { orientation = Configuration.ORIENTATION_LANDSCAPE }
             controller.configurationChange(config)
             activity = controller.get()
-            assertEquals(60_000L, ViewModelProvider(activity)[SessionState::class.java].recordingDurationMs)
+            assertEquals(30_000L, ViewModelProvider(activity)[SessionState::class.java].recordingDurationMs)
             assertTrue(screen(activity).contains("아이스 블루 · 밝기 75%"))
             assertNull(shadowOf(activity).lastRequestedPermission)
         } finally { controller.pause().stop().destroy() }
     }
     private fun views(root: View): List<View> = listOf(root) + if (root is ViewGroup)
         (0 until root.childCount).flatMap { views(root.getChildAt(it)) } else emptyList()
-    private fun button(activity: MainActivity, label: String) = views(activity.window.decorView)
-        .filterIsInstance<Button>().first { it.text.toString() == label }
+    private fun button(activity: MainActivity, label: String): View {
+        if (label == "무드 분석") {
+            shadowOf(Looper.getMainLooper()).idle()
+            val decor = activity.window.decorView
+            decor.measure(View.MeasureSpec.makeMeasureSpec(1080, View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(1920, View.MeasureSpec.EXACTLY))
+            decor.layout(0, 0, 1080, 1920)
+            // Robolectric setup attaches the view while leaving the synthetic window GONE.
+            val attachInfo = ReflectionHelpers.getField<Any?>(decor, "mAttachInfo")
+            if (attachInfo != null) {
+                ReflectionHelpers.setField(attachInfo, "mWindowVisibility", View.VISIBLE)
+                decor.dispatchWindowVisibilityChanged(View.VISIBLE)
+            }
+            // Allow the finite intro/result transition to settle without draining recurring animations.
+            shadowOf(Looper.getMainLooper()).idleFor(Duration.ofMillis(1_100))
+            val candidates = views(activity.window.decorView)
+            return candidates.firstOrNull { it.tag == "mood-analysis-action" && it.isShown }
+                ?: candidates.filterIsInstance<Button>().first { it.text.toString() == "재분석" }
+        }
+        return views(activity.window.decorView).filterIsInstance<Button>().first { it.text.toString() == label }
+    }
+    private fun openSettings(activity: MainActivity) {
+        shadowOf(Looper.getMainLooper()).idle()
+        val shortcut = views(activity.window.decorView).firstOrNull { it.contentDescription == "설정" && it.isShown }
+        val action = shortcut ?: button(activity, "설정")
+        assertTrue(action.isShown)
+        action.performClick()
+        assertTrue(button(activity, "기상청 키 설정").isShown)
+    }
     private fun screen(activity: MainActivity) = views(activity.window.decorView)
         .filterIsInstance<TextView>().joinToString("\n") { it.text.toString() }
     private fun awaitUi(condition: () -> Boolean) {
@@ -128,11 +159,12 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun launchWithoutKeysOrPermissionsShowsMissingDataAndAllowsLocalSelection() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
             assertTrue(button(activity, "로컬 음원 선택").isEnabled)
             assertTrue(button(activity, "무드 분석").isEnabled)
+            assertTrue(views(activity.window.decorView).any { it.contentDescription == "설정" && it.isShown })
             assertFalse(button(activity, "취소").isEnabled)
             assertNull(ViewModelProvider(activity)[SessionState::class.java].activeRequestId)
             assertNull(shadowOf(activity).lastRequestedPermission)
@@ -144,7 +176,7 @@ class MainActivityIntegrationTest {
             assertEquals("Driving Mood", activity.applicationInfo.loadLabel(activity.packageManager).toString())
             assertEquals("kr.urbanmood", activity.packageName)
             assertTrue(screen(activity).contains("영상은 기기에 임시 저장 후 삭제합니다."))
-            assertTrue(button(activity, "촬영 30초").isEnabled)
+            assertFalse(screen(activity).contains("촬영 30초"))
             assertTrue(screen(activity).contains("조명 미리보기"))
             listOf("PHONE PROTOTYPE", "Pleos", "휴대폰 실험", "실제 기기 검증", "시연", "공모전", "제출", "HSV", "ABI").forEach {
                 assertFalse("Internal wording on product screen: $it", screen(activity).contains(it))
@@ -153,9 +185,10 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun manualSettingsOnlyConfigureTheNextRun() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
+            openSettings(activity)
             button(activity, "수동 설정").performClick()
             val dialog = ShadowAlertDialog.getLatestAlertDialog()
             dialog.listView.performItemClick(null, 3, 3)
@@ -172,9 +205,10 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun weatherKeyIsMemoryOnlyMaskedAndDeletable() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
+            openSettings(activity)
             button(activity, "기상청 키 설정").performClick()
             val dialog = ShadowAlertDialog.getLatestAlertDialog()
             val input = views(dialog.window!!.decorView).filterIsInstance<EditText>().single()
@@ -196,7 +230,7 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun duplicateTapIsBlockedPermissionPauseSurvivesButBackgroundCancels() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
             val session = ViewModelProvider(activity)[SessionState::class.java]
@@ -226,14 +260,14 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun cancelThenLatePermissionKeepsPriorCompletedResult() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
             val session = ViewModelProvider(activity)[SessionState::class.java]
             val previous = completedFixture()
             session.completedAnalysis = previous
             button(activity, "무드 분석").performClick()
-            button(activity, "취소").performClick()
+            activity.onBackPressedDispatcher.onBackPressed()
             assertNull(session.activeRequestId)
             assertSame(previous, session.completedAnalysis)
             val request = shadowOf(activity).lastRequestedPermission
@@ -246,7 +280,7 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun deniedPermissionsCompletePartialResultAndResumeDoesNotRefresh() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
             val session = ViewModelProvider(activity)[SessionState::class.java]
@@ -268,7 +302,7 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun permissionDeadlineShowsCancellationAndLateCallbackCannotRestart() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
             val session = ViewModelProvider(activity)[SessionState::class.java]
@@ -291,7 +325,7 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun rotationRestoresCompletedSnapshotWithoutCollection() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val session = ViewModelProvider(controller.get())[SessionState::class.java]
             val previous = completedFixture()
@@ -309,6 +343,7 @@ class MainActivityIntegrationTest {
             assertTrue(screen(recreated).contains("수동 입력"))
             assertTrue(button(recreated, "무드 분석").isEnabled)
             assertNull(shadowOf(recreated).lastRequestedPermission)
+            button(recreated, "음악·조명").performClick()
             button(recreated, "취향 적용").performClick()
             awaitUi { restored.completedAnalysis?.recommendation != previous.recommendation }
             assertSame(previous.snapshot, restored.completedAnalysis?.snapshot)
@@ -323,7 +358,7 @@ class MainActivityIntegrationTest {
         RecommendationResult(Availability.MANUAL, listOf("차분한")))
 
     @Test fun scoreLedgerAndCompletedWindowSurviveRotationAndCancelledNewRequest() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val initial = controller.get()
             val base = completedFixture()
@@ -339,6 +374,7 @@ class MainActivityIntegrationTest {
             val session = ViewModelProvider(activity)[SessionState::class.java]
             assertSame(window, session.completedAnalysis!!.snapshot.sceneWindow)
             assertTrue(screen(activity).contains("2개 장면"))
+            button(activity, "상세 보기  ↓").performClick()
             button(activity, "점수와 관측 근거").performClick()
             val dialog = ShadowAlertDialog.getLatestAlertDialog()
             val details = views(dialog.window!!.decorView).filterIsInstance<TextView>().joinToString(" ") { it.text }
@@ -346,7 +382,7 @@ class MainActivityIntegrationTest {
             assertTrue(details.contains("대표 구간 평균"))
             dialog.dismiss()
             button(activity, "무드 분석").performClick()
-            button(activity, "취소").performClick()
+            activity.onBackPressedDispatcher.onBackPressed()
             shadowOf(Looper.getMainLooper()).idle()
             assertSame(completed, session.completedAnalysis)
             assertNull(session.activeRequestId)
@@ -355,9 +391,11 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun bundledFontCoversMainInputButtonsDialogsAndUpdatedText() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
+            // Enter settings through the launch shortcut, without starting sensor collection.
+            openSettings(activity)
             fun assertFont(root: View) {
                 val texts = views(root).filterIsInstance<TextView>().filter { it.isShown }
                 assertTrue(texts.isNotEmpty())
@@ -376,6 +414,7 @@ class MainActivityIntegrationTest {
             input.setText("font-display-placeholder")
             assertFont(dialog.window!!.decorView)
             dialog.dismiss()
+            button(activity, "음악·조명").performClick()
             button(activity, "원하는 분위기 선택").performClick()
             shadowOf(Looper.getMainLooper()).idle()
             dialog = ShadowAlertDialog.getLatestAlertDialog()
@@ -396,10 +435,12 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun desiredMoodApplyCancelAndClearNeverStartCollection() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
             val session = ViewModelProvider(activity)[SessionState::class.java]
+            openSettings(activity)
+            button(activity, "음악·조명").performClick()
             button(activity, "원하는 분위기 선택").performClick()
             var dialog = ShadowAlertDialog.getLatestAlertDialog()
             selectMood(dialog, "차가운")
@@ -427,10 +468,12 @@ class MainActivityIntegrationTest {
     }
 
     @Test fun desiredMoodUsesCompletedSnapshotAndSurvivesRotation() {
-        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup().visible().windowFocusChanged(true)
         try {
             val activity = controller.get()
             val session = ViewModelProvider(activity)[SessionState::class.java]
+            openSettings(activity)
+            button(activity, "음악·조명").performClick()
             val previous = completedFixture()
             session.completedAnalysis = previous
             button(activity, "원하는 분위기 선택").performClick()

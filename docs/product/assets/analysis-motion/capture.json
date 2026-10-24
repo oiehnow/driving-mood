@@ -1,12 +1,12 @@
 {
-  "capture": "Android 15 native application state walkthrough",
-  "framesPerSecond": 10,
-  "durationSeconds": 13,
-  "apkSha256": "17de7c74632e6b8ecf42b522910386129988e803e5bf8210fcbdc55ae58f26ce",
-  "recordingTimeline": "edited for transition preview",
+  "capture": "Android 15 native screen recording",
+  "version": "0.3.5",
+  "framesPerSecond": 15,
+  "durationSeconds": 20.07,
+  "frames": 301,
+  "apkSha256": "8e6e6f58b3e5338c754121b602df984d37a2d2715f5faa334c229d156c720557",
+  "recordingTimeline": "edited state walkthrough; native animation timing",
   "resultKind": "saved real-driving calculation",
-  "version": "0.3.4",
-  "gifSha256": "dc55d0ca1ba658e450b851f4704534e0f3ec74d5b0fcb15351f3505b4974a0a6",
-  "frames": 130,
-  "resultSource": "androidTest/assets/ui-review/full-01.json"
+  "resultSource": "androidTest/assets/ui-review/full-01.json",
+  "gifSha256": "fdd9f3d35e82d57cf105727405727e39920c8f02b2afe7d570c93c343ac30db8"
 }
