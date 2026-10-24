@@ -65,6 +65,8 @@ Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 �
 - [큰 화면 녹화 보기 · YouTube](https://www.youtube.com/watch?v=xvGNWKhK-sA)
 - [3분할 화면 녹화 보기 · YouTube](https://www.youtube.com/watch?v=PEK9LYrkSss)
 
+<sub>실제 Pleos 앱 환경 UI 테스트 화면</sub>
+
 [차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md) · [Pleos APK](https://github.com/oiehnow/driving-mood/releases/tag/pleos-preview-v0.1.1)
 
 ## 원하는 분위기
