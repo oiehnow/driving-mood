@@ -1,0 +1,106 @@
+{
+  "version": "0.1.1",
+  "versionCode": 2,
+  "scope": "Pleos emulator native UI. Mood keywords and values are a manual demonstration scenario. Local music playback and navigation SDK response are separate functions.",
+  "captures": [
+    {
+      "file": "album-detail.png",
+      "sha256": "d7c69034cc4955b7b9562e29d5efdfbf8ee12869867870c90467f2d0e4b90b14"
+    },
+    {
+      "file": "analyzing.png",
+      "sha256": "a389ed2b67058a6ac28a08fb3661763761abab40279c6e5e1c46b17a3991d3d6"
+    },
+    {
+      "file": "final-split-result.png",
+      "sha256": "1ae1a1f58c6357c0f76e92ed2d39de1c43e31740ff5d47bf8d4952f15979d6b7"
+    },
+    {
+      "file": "final-wide-result.png",
+      "sha256": "5447ecd6d70052c3b84126947dd544baf914f2c36dcbca26c2668aadcf765ed3"
+    },
+    {
+      "file": "lighting.png",
+      "sha256": "99bb9d5bef156f3aa62e75c8138c5f84196f0eca2d76425e6fd94624868a4e59"
+    },
+    {
+      "file": "navigation-search.png",
+      "sha256": "59c8bc40d251e6609c5f68506e5bf1bb6a8161a89242086edb939edd04371998"
+    },
+    {
+      "file": "playing.png",
+      "sha256": "53036de7cec00f57d47c8c4e3413a61bd706076eb14df77c373511e6d78a6c27"
+    },
+    {
+      "file": "pleos-flow.gif",
+      "sha256": "f242f175747252b9a0b76e7108097398e49bcc84d6cad37410df12b3e4e1457a"
+    },
+    {
+      "file": "start.png",
+      "sha256": "c9010fc205aea29326d7906592936f27e21103ef29801647b177d5791dd0bf17"
+    }
+  ],
+  "apkSha256": "aaa15c8728ebf054e3136fba4f0919268912593e3c9788dda05a161201c785e5",
+  "videoProcessing": {
+    "audio": "Actual emulator gRPC output, not the original MP3 overlaid",
+    "alignment": "Host start timestamps; screen encoder startup latency unmeasured",
+    "ending": "Last 2 seconds of picture and recorded audio fade together",
+    "wide": {
+      "durationSeconds": 67.4,
+      "trimStartSeconds": 22,
+      "audioDelayMs": 212
+    },
+    "split": {
+      "durationSeconds": 89,
+      "audioDelayMs": 203
+    }
+  },
+  "videos": [
+    {
+      "file": "DrivingMood-Pleos-0.1.1-wide.mp4",
+      "sha256": "b7cda0553898e3ef55630a458712055875dfe290c98c844e555cc7c53b2aaead",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "duration": "67.400000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "duration": "67.400000"
+          }
+        ],
+        "format": {
+          "duration": "67.400000"
+        }
+      }
+    },
+    {
+      "file": "DrivingMood-Pleos-0.1.1-split.mp4",
+      "sha256": "767c489aadd1c2ae2ae070d5fc6fda49b86e78fdac72e5be634b8627c6ebf66b",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "duration": "89.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "duration": "89.000000"
+          }
+        ],
+        "format": {
+          "duration": "89.000000"
+        }
+      }
+    }
+  ]
+}

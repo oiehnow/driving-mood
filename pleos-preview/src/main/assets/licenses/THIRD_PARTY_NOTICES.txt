@@ -10,3 +10,13 @@ License: SIL Open Font License 1.1 (Pretendard-OFL.txt)
 
 Driving Mood source and original icon assets are reused from this project.
 See DrivingMood-AGPL-3.0.txt for the project source license.
+
+Pleos NaviHelper SDK 3.0.5 (with navi-data 3.0.4 and navi-aidl 3.0.1)
+Provider: Pleos Playground / Hyundai Motor Group
+Documentation: https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/intro
+Distribution: https://nexus-playground.pleos.ai/repository/maven-releases/
+Used through the official SDK dependency for navigation screen requests,
+destination requests and navigation information callbacks.
+Official sample reference: https://github.com/Pleos-Playground/pleos-sample-navi-app
+The sample source was not copied into this application.
+SDK and associated materials retain their providers' copyright and terms.

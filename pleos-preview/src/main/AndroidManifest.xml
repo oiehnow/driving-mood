@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="pleos.car.permission.NAVI_CUSTOM_MAP" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE_SEARCH" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
     <application android:theme="@style/PreviewTheme" android:label="Driving Mood Preview"
         android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:supportsRtl="true">
+        <service android:name=".MidnightPlaybackService" android:exported="false"
+            android:foregroundServiceType="mediaPlayback" android:stopWithTask="false" />
         <activity android:name=".PreviewActivity" android:exported="true" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -22,11 +22,11 @@ Android 프로토타입 **0.3.8**.
 
 ## Pleos 차량 화면
 
-![Pleos에서 실행한 Driving Mood UI 프로토타입](docs/product/assets/pleos/prototype-result.png)
+![Pleos에서 실행한 Driving Mood](docs/product/assets/pleos-0.1.1/final-split-result.png)
 
-Pleos Connect 에뮬레이터에서 실행하는 차량용 프로토타입입니다. 무드 결과와 음악·조명 기능, 내비게이션을 한 앱에서 연결합니다.
+Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 조회, 조명 미리보기.
 
-[차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md)
+[차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md) · [Pleos APK](https://github.com/oiehnow/driving-mood/releases/tag/pleos-preview-v0.1.1)
 
 ## 원하는 분위기
 
