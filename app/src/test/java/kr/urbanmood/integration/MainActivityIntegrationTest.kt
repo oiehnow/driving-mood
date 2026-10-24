@@ -26,6 +26,30 @@ import java.time.Duration
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [28])
 class MainActivityIntegrationTest {
+    @Test fun recordingLengthAndLightingPreviewSurviveRotationWithoutStartingCapture() {
+        val controller = Robolectric.buildActivity(MainActivity::class.java).setup()
+        try {
+            var activity = controller.get()
+            button(activity, "촬영 30초").performClick()
+            val lengthDialog = ShadowAlertDialog.getLatestAlertDialog()
+            lengthDialog.listView.performItemClick(null, 1, 1)
+            assertTrue(button(activity, "촬영 60초").isEnabled)
+            button(activity, "아이스 블루").performClick()
+            button(activity, "밝기 조절").performClick()
+            ShadowAlertDialog.getLatestAlertDialog().listView.performItemClick(null, 2, 2)
+            val before = ViewModelProvider(activity)[SessionState::class.java]
+            assertEquals(60_000L, before.recordingDurationMs)
+            assertEquals(.75f, before.lightingPreview!!.brightness)
+            assertEquals(LightingTarget.PREVIEW_ONLY, before.lightingPreview!!.target)
+            assertNull(before.activeRequestId)
+            val config = Configuration(activity.resources.configuration).apply { orientation = Configuration.ORIENTATION_LANDSCAPE }
+            controller.configurationChange(config)
+            activity = controller.get()
+            assertEquals(60_000L, ViewModelProvider(activity)[SessionState::class.java].recordingDurationMs)
+            assertTrue(screen(activity).contains("아이스 블루 · 밝기 75%"))
+            assertNull(shadowOf(activity).lastRequestedPermission)
+        } finally { controller.pause().stop().destroy() }
+    }
     private fun views(root: View): List<View> = listOf(root) + if (root is ViewGroup)
         (0 until root.childCount).flatMap { views(root.getChildAt(it)) } else emptyList()
     private fun button(activity: MainActivity, label: String) = views(activity.window.decorView)
@@ -57,7 +81,9 @@ class MainActivityIntegrationTest {
             assertFalse(screen(activity).contains("UrbanMood"))
             assertEquals("Driving Mood", activity.applicationInfo.loadLabel(activity.packageManager).toString())
             assertEquals("kr.urbanmood", activity.packageName)
-            assertTrue(screen(activity).contains("영상은 저장하거나 전송하지 않습니다."))
+            assertTrue(screen(activity).contains("영상은 기기에 임시 저장 후 삭제합니다."))
+            assertTrue(button(activity, "촬영 30초").isEnabled)
+            assertTrue(screen(activity).contains("조명 미리보기"))
             listOf("PHONE PROTOTYPE", "Pleos", "휴대폰 실험", "실제 기기 검증", "시연", "공모전", "제출", "HSV", "ABI").forEach {
                 assertFalse("Internal wording on product screen: $it", screen(activity).contains(it))
             }
@@ -250,7 +276,7 @@ class MainActivityIntegrationTest {
             val activity = controller.get()
             val session = ViewModelProvider(activity)[SessionState::class.java]
             assertSame(window, session.completedAnalysis!!.snapshot.sceneWindow)
-            assertTrue(screen(activity).contains("2개 시간 구간"))
+            assertTrue(screen(activity).contains("2개 장면"))
             button(activity, "점수와 관측 근거").performClick()
             val dialog = ShadowAlertDialog.getLatestAlertDialog()
             val details = views(dialog.window!!.decorView).filterIsInstance<TextView>().joinToString(" ") { it.text }

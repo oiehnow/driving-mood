@@ -1,7 +1,7 @@
 [
   {
     "file": "app/build.gradle.kts",
-    "sha256": "6C203ED1682B76E6A88CB89F19921CE6F87A48D482D381BA0C09FA3421214AA2"
+    "sha256": "14740D49DFF9E56E21E36BF9CAB684EE08336B356EFA936A3AD395407C4B8D8F"
   },
   {
     "file": "app/src/main/AndroidManifest.xml",
@@ -208,8 +208,20 @@
     "sha256": "BAB51365049B4E36CDE7FB68A8F0D5ADD8F2D06EF32BA78155150A5D494E756B"
   },
   {
+    "file": "app/src/main/java/kr/urbanmood/camera/RecordedVideoDecoder.kt",
+    "sha256": "3B554986674225537BD9B72225164171ED30F08D8BC168308E7800AFB4070E13"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/RecordingPolicy.kt",
+    "sha256": "ACB0996CDA3F9A4E09203F129D604D63C313D0AE45A552C4F67AF1497C2E1C5E"
+  },
+  {
     "file": "app/src/main/java/kr/urbanmood/camera/RegionScoreCaptions.kt",
-    "sha256": "374761567FB333B817B39570BE5760B276DF61B9C878B49254DD683BCA9D04F5"
+    "sha256": "752CA8667D06B7AA19ECE4FF57AD9F9430FADFE5816D593D4A846C705341C076"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/VideoCaptureController.kt",
+    "sha256": "8EE21F9F637661A079E95C379841C32EB5847D230D2E60B10371EA55498CFEBD"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/context/AndroidEnvironmentProvider.kt",
@@ -229,11 +241,15 @@
   },
   {
     "file": "app/src/main/java/kr/urbanmood/contracts/Contracts.kt",
-    "sha256": "BF184FA0435398464E4EC4CC7AB116142D0380DD33790B70AF8C9E6A86409955"
+    "sha256": "7374190E003550E39C23D6DF33D7C140C3C59B7D259465609CC7127BA187F929"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/LightingContracts.kt",
+    "sha256": "477BE76682F9447AB416A18C554480CAF05A59F7656A3E9DED0670B2DC7C4A8C"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/contracts/SceneContracts.kt",
-    "sha256": "092065329F638D518A80515F3E621F83033FDA04754D807267AC9F129F6AC22B"
+    "sha256": "C67F928CC3E667B7181D5AD4780B25813FF54E45167D851573F94644CE1B8FDA"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/contracts/VisionMeasurementPolicy.kt",
@@ -248,16 +264,32 @@
     "sha256": "25837808B569CCEBBB09CCE10CB121E5441F23B1F3B457A6CB64D49F84132F60"
   },
   {
+    "file": "app/src/main/java/kr/urbanmood/integration/CompletionCue.kt",
+    "sha256": "775073B6C69877F1B39764E49A7DE48D4195A4D5D6BF2C9BB71A174F314A8AAF"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/LightingPreview.kt",
+    "sha256": "54A7C21A4EF164A96ADF4CA307BF487351F55C6642E6463A7ED5B4757B4871AE"
+  },
+  {
     "file": "app/src/main/java/kr/urbanmood/integration/OneShotAnalysis.kt",
-    "sha256": "6C1F1AE5353BD5B23F743EA98625CE915CB5D645793384760201E7EE1840BF52"
+    "sha256": "779B26DBC758992F941C6914129CC7D4749C1F198CA5B8913FDBC1F0749674D4"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/integration/ProductText.kt",
-    "sha256": "EAF010FF393A8130DCA70A7953B659E40AEA22AC331FD1EE7B15B17E1B219E3B"
+    "sha256": "9ED5EED55AF40EFA64618D995B26118E1340C022DD4E8080635A3FFE74DD3FE2"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/RecordedRequestRunner.kt",
+    "sha256": "CEEE3E8D8C835C30E283A9BC4E8C64A6EA5707699E424452E055E3287353B5D1"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/RecordedSceneAnalyzer.kt",
+    "sha256": "D5BBDFEA11451274E11E873E2B30A64338A463AB8DC170EA59B613B54CF60B5C"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/integration/SessionState.kt",
-    "sha256": "DBBBDA8DAFCD89D298069BCBB3D80C75D830AB871F43DE3C807F42977B781E74"
+    "sha256": "4B22FCC14321AD444C38131CE76CDEBF689B722931E5314589BB3E8429B08144"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/integration/TimedSceneCapture.kt",
@@ -265,19 +297,23 @@
   },
   {
     "file": "app/src/main/java/kr/urbanmood/integration/VisionQualityText.kt",
-    "sha256": "D17299C820DB4FA63EB716C0FD704E581BDA66924FBEBCBB2DE0EA53DC6EF642"
+    "sha256": "D2110D46C38A799C5EF69D6A98135FE8BF0ED91E2913691FA71C8E572C311976"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/MainActivity.kt",
-    "sha256": "8AED284F83F0346AE48403384AD0DDC8894B1D0B82DCEB2B5A80241ABB823C99"
+    "sha256": "9B3FD4897059185A9FC75E86486B1AAC0FBDA91F08157EC07903A68E2B59C24E"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/recommendation/MoodRecommendationEngine.kt",
-    "sha256": "BE6A04E82F61237E09C7F84AB61106197E6788CEC3E1B4569ECB8DA042B70E3F"
+    "sha256": "34388BD53E8252ADF176A8DAC3EF42677AD9BB8D41476376A60F8C293B77B75A"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/recommendation/SceneAccumulator.kt",
-    "sha256": "3A3D680B5FF9763CAE194901B996AB432C4AF2018DCAF980D46DD169CBCE83EA"
+    "sha256": "F71527519E6F9180C29FB3E462EFF5E5999739071B607EC7AFCCC7CC785BE930"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneFeatureScorer.kt",
+    "sha256": "3FEF4D78EB39E76AF7CCC3DFC83430DC2C1CF30D92785294D17A3AA65E20E25A"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/recommendation/SceneInterpreter.kt",
@@ -285,11 +321,15 @@
   },
   {
     "file": "app/src/main/java/kr/urbanmood/recommendation/SceneMoodScorer.kt",
-    "sha256": "C0F6C61CA438AB9AB59996BC284ED2BFC0701E7334DC4C2B840150C78AAE209E"
+    "sha256": "990F89778B38470AD5014618D9933D96B3F5A232E278E920E9A83180F0BA4EBD"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/vision/LightMeasurement.kt",
-    "sha256": "E6C194A2F1DC894DB196C6BB2B2A421D1953C91C8657C0ED3A2DE76C385282D0"
+    "sha256": "25B7515E42FAEC7980EC58FC5B668A1E231CA05FB8DD12DF9547281887FB5FA0"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/LightPixelStatistics.kt",
+    "sha256": "286CD3DD2162C70F0553128617051F1460E8A9910248A641357848E00107260A"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/vision/MediaPipeVehicleDetector.kt",
@@ -297,7 +337,7 @@
   },
   {
     "file": "app/src/main/java/kr/urbanmood/vision/SceneObservationBuilder.kt",
-    "sha256": "5CAAC61F27958AC989ECEC4F709702E7217F76A16EC6217311474D2E06812527"
+    "sha256": "AB5B23DE793439E262A7C63206C4E62B49672F32325103979C61C065F682990E"
   },
   {
     "file": "app/src/main/java/kr/urbanmood/vision/TemporalLightFilter.kt",
@@ -305,7 +345,7 @@
   },
   {
     "file": "app/src/main/java/kr/urbanmood/vision/UrbanLightAnalyzer.kt",
-    "sha256": "0E90F3E16582EE4B07E825DBA77DC9CF0043F180DBEF569C4B701948320F1AF1"
+    "sha256": "FA3C9B4E3BBE5B6FA8CC6BE081287B4C628E20B9F53BBA11B2D490E57B577D99"
   },
   {
     "file": "app/src/main/res/drawable/ic_urbanmood.xml",
@@ -314,6 +354,10 @@
   {
     "file": "app/src/main/res/font/pretendard_variable.ttf",
     "sha256": "3090CCDE0442BB347AA7685D9BA8B17436A60682DF6E8F92A9A670DE14056E22"
+  },
+  {
+    "file": "app/src/main/res/raw/mood_complete.wav",
+    "sha256": "BD3D25089EF557BCB8BD738A857A97BE36BBF21F2F3FF16AE061711F8DBD8C96"
   },
   {
     "file": "app/src/main/res/values/strings.xml",

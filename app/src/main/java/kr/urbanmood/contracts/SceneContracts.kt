@@ -1,7 +1,53 @@
 package kr.urbanmood.contracts
 
 /** Runtime provenance, not a claim that an offline frame ran through the Android model. */
-enum class SceneObservationRuntime { ANDROID_CAMERA, DESKTOP_SEGMENTATION, TEST_FIXTURE }
+enum class SceneObservationRuntime { ANDROID_CAMERA, ANDROID_RECORDED, DESKTOP_SEGMENTATION, TEST_FIXTURE }
+
+enum class ContributionBasis { LEGACY_HEURISTIC, OBSERVED_FEATURE_STRENGTH }
+/** RGB observations; none of these names establishes a physical emitting source. */
+enum class LightGroupKind { LOCAL_CONTRAST, EXTENDED_BRIGHT_SURFACE, LEGACY_UNCLASSIFIED_CANDIDATE }
+
+/** Actual disjoint pixels, not values reconstructed from an average hue.
+ * categoryCounts order: red/yellow/green/cyan/blue/magenta/near-neutral/all-channel-limited-unknown.
+ * upperChannelCounts order: 0/1/2/3 RGB channels > .98; both count lists sum to pixelCount.
+ * Saturation sums exclude all-channel-limited unknown pixels. Color sums additionally
+ * require chromatic s>=.20; red-yellow hue<65 or hue>330, cyan-blue 165<=hue<255.
+ * Counts use the measurementVersion's actual RGB classifier, not mood labels.
+ */
+data class LightPixelStats(
+    val pixelCount: Int,
+    val categoryCounts: List<Int>,
+    val upperChannelCounts: List<Int>,
+    val saturationSum: Float,
+    val redYellowSaturationSum: Float,
+    val cyanBlueSaturationSum: Float,
+)
+
+data class LightGroupFeature(val regionId: String, val kind: LightGroupKind, val pixels: LightPixelStats)
+
+/** Quality describes limits; never multiply observed feature strength by this value.
+ * Unknown is null, not 1. Invalid quality is distinct from malformed pixel evidence.
+ */
+data class LightFeatureQuality(
+    val heuristicQuality: Float? = null,
+    val inspectedAreaRatio: Float? = null,
+    val flags: List<String> = emptyList(),
+    val reasons: List<String> = emptyList(),
+)
+
+/** Full-frame raster, actual union after the versioned hard exclusions and deduplication.
+ * groups=null means unmeasured/incomplete groups; empty means measured zero groups.
+ * Complete groups reference unique same-frame regions and partition summary exactly.
+ * Arrays/masks/RGB are not retained. Detach all nested lists at snapshot boundaries.
+ */
+data class LightFeatureObservation(
+    val measurementVersion: String,
+    val rasterWidth: Int,
+    val rasterHeight: Int,
+    val summary: LightPixelStats,
+    val groups: List<LightGroupFeature>?,
+    val quality: LightFeatureQuality,
+)
 
 enum class RegionEvidenceKind { PERSON, VEHICLE, AMBIENT_LIGHT, SKY, BUILDING, SIGNBOARD, OTHER }
 enum class RegionEvidenceSource { OBJECT_DETECTOR, PIXEL_HEURISTIC, SEMANTIC_COMPONENT }
@@ -92,9 +138,12 @@ data class SceneObservations(
     val semantic: SemanticSceneObservation? = null,
     val notes: List<String> = emptyList(),
     val regions: List<RegionEvidence> = emptyList(),
+    val lightFeatures: LightFeatureObservation? = null,
 )
 
-/** Elapsed receipt time from one capture window, never epoch/camera presentation time. */
+/** Window-relative milliseconds: live receipt time OR recorded media PTS minus first PTS.
+ * Recorded samples use actual decoded PTS, never processing time or seek target time.
+ */
 data class SceneSample(val elapsedMs: Long, val vision: VisionResult)
 
 /** Bounded representative frames, at most one per bucket. No Bitmap/position history.
@@ -119,7 +168,8 @@ data class RegionScoreReference(
 )
 
 /** An auditable heuristic contribution, not a probability or learned coefficient.
- * delta=null means not applied/missing/unsupported; reason must explain this.
+ * delta=null means no additive contribution; reason must explain this. A feature
+ * metric with weight=0 may still carry a measured observedValue/unit without points.
  */
 data class MoodScoreContribution(
     val id: String,
@@ -132,11 +182,12 @@ data class MoodScoreContribution(
     val source: SourceInfo? = null,
     val reason: String,
     val evidence: List<RegionScoreReference> = emptyList(),
+    val basis: ContributionBasis = ContributionBasis.LEGACY_HEURISTIC,
 )
 
 data class MoodScore(
     val keyword: String,
-    val score: Float? = null, // heuristic points; null = insufficient evidence, not zero mood
+    val score: Float? = null, // points or observed strength according to contributions' basis; null = insufficient evidence
     val contributions: List<MoodScoreContribution> = emptyList(),
 )
 

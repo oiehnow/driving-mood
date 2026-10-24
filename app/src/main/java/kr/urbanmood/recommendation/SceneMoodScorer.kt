@@ -22,6 +22,36 @@ class SceneMoodScorer {
                 (evaluationTimeEpochMs==null || it.vision.sceneObservations?.runtime==SceneObservationRuntime.DESKTOP_SEGMENTATION ||
                     EnvironmentPolicy.fresh(it.vision.frameTimeEpochMs,evaluationTimeEpochMs,normalized.durationMs+VisionMeasurementPolicy.MAX_AGE_MS))
         }
+        // Presence selects the version even if the new evidence is malformed; never silently
+        // replace rejected new measurements with the legacy hue/ambient/sign path.
+        if (window.samples.any { it.vision.sceneObservations?.lightFeatures!=null }) {
+            val features=SceneFeatureScorer().score(normalized.copy(receivedFrameCount=window.receivedFrameCount.coerceAtLeast(normalized.receivedFrameCount)),
+                samples,environment,evaluationTimeEpochMs)
+            // Reuse unchanged person/sky/weather rules, but discard every legacy light/color/sign
+            // contribution. Never add area-strength units to legacy heuristic points.
+            val independent=score(window.copy(samples=window.samples.map { s -> s.copy(vision=s.vision.copy(
+                sceneObservations=s.vision.sceneObservations?.copy(lightFeatures=null))) }),environment,evaluationTimeEpochMs)
+            val personContributions=independent.scores.first { it.keyword=="활기 넘침" }.contributions.filter {
+                it.id in setOf("persons","semantic_person_area","vehicle_exclusion","semantic_context") }.map {
+                it.copy(reason=when(it.id) {
+                    "persons" -> "사람 검출 수의 구간 평균 · 측정 품질 반영"
+                    "semantic_person_area" -> "양의 검출 수가 없는 구간의 사람 마스크 면적"
+                    "vehicle_exclusion" -> "차량 제외 영역 참조"
+                    else -> "사람·건물 의미 마스크 관측"
+                })
+            }
+            val weather=independent.scores.first { it.keyword=="청량한" }.let { value -> value.copy(contributions=value.contributions.map {
+                it.copy(reason=when(it.id) {
+                    "sky_light" -> "하늘 마스크 면적×밝기 · 품질 반영"
+                    "sky_light_raw" -> "하늘 마스크 면적×밝기 · 품질 미평가 상한10점"
+                    "mild_dry_weather" -> if(environment?.weather?.availability==Availability.MANUAL) "수동 날씨 · 기온·강수 조건" else "관측 기온·강수 조건"
+                    "rain_counter" -> "관측 강수량에 따른 조정"
+                    else -> it.reason
+                })
+            }) }
+            return features.copy(scores=features.scores+listOf(mood("활기 넘침",personContributions),
+                weather),notes=features.notes+"사람·하늘·날씨 가산점과 빛의 면적 강도는 별도 표시합니다.")
+        }
         val locationUsable = environment != null && evaluationTimeEpochMs != null && EnvironmentPolicy.usableLocation(environment.location,evaluationTimeEpochMs)
         val road = environment?.road
         val roadUsable = road?.availability == Availability.MANUAL || (locationUsable && road?.availability == Availability.AVAILABLE &&
@@ -142,7 +172,10 @@ class SceneMoodScorer {
                 "박스 ID는 해당 프레임 안에서만 유효하며 추적 ID가 아닙니다."))
     }
 
-    fun keywords(summary:MoodScoreSummary):List<String> = summary.scores.filter { mood ->
+    fun keywords(summary:MoodScoreSummary):List<String> = if(summary.ruleVersion==SceneFeatureScorer.RULE_VERSION)
+        (SceneFeatureScorer.keywords(summary)+summary.scores.filter {
+            (it.keyword=="활기 넘침" && (it.score ?: -1f)>=35f) || (it.keyword=="청량한" && (it.score ?: -1f)>=20f)
+        }.map { it.keyword }).distinct() else summary.scores.filter { mood ->
         if (mood.keyword=="활기 넘침") {
             val distributed = mood.contributions.any { it.id=="distributed_light_support" && (it.observedValue ?: 0f)>=.5f }
             val lightPoints = mood.contributions.firstOrNull { it.id=="ambient_lights" }?.delta ?: 0f

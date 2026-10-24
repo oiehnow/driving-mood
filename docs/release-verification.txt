@@ -8,7 +8,7 @@ Verified for SourceStamp: false
 Number of signers: 1
 {
   "apk": "app-release.apk",
-  "sha256": "2E3A47F2CF71FFE2748D9A959C0AE8DE2591B19B7F99B06364B6E8027ED19F36",
+  "sha256": "1E7E9876021D0106D3A3B499600398E7641BE9FC0793BF7AD6458A2956D406E3",
   "signatureVerified": true,
   "zip16KBAligned": true,
   "nativeLibraries": [

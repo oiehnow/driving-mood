@@ -26,7 +26,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import kr.urbanmood.camera.CameraController
+import android.graphics.Bitmap
+import kr.urbanmood.camera.VideoCaptureController
+import kr.urbanmood.camera.FrameReceipt
 import kr.urbanmood.camera.EvidenceOverlayView
 import kr.urbanmood.contracts.*
 import kr.urbanmood.integration.AppServices
@@ -34,12 +36,14 @@ import kr.urbanmood.integration.SessionState
 import kr.urbanmood.integration.recommendationText
 import kr.urbanmood.integration.roadLabel
 import kr.urbanmood.integration.AnalysisSnapshot
-import kr.urbanmood.integration.AnalysisStep
 import kr.urbanmood.integration.CompletedAnalysis
-import kr.urbanmood.integration.OneShotAnalysisRunner
 import kr.urbanmood.integration.AppTypography
 import kr.urbanmood.integration.CapturedScene
-import kr.urbanmood.integration.TimedSceneCapture
+import kr.urbanmood.integration.RecordedSceneAnalyzer
+import kr.urbanmood.integration.RecordedRequestRunner
+import kr.urbanmood.integration.CompletionCue
+import kr.urbanmood.integration.LightingPreview
+import kotlinx.coroutines.withTimeout
 import kr.urbanmood.recommendation.SceneMoodScorer
 import kr.urbanmood.context.AndroidEnvironmentProvider
 import kotlinx.coroutines.Dispatchers
@@ -59,7 +63,14 @@ class MainActivity : ComponentActivity() {
     private val typography by lazy { AppTypography(this) }
     private lateinit var session: SessionState
     private lateinit var services: AppServices
-    private lateinit var camera: CameraController
+    private lateinit var camera: VideoCaptureController
+    private lateinit var recordedAnalyzer: RecordedSceneAnalyzer
+    private lateinit var completionCue: CompletionCue
+    private lateinit var decodedPreview: ImageView
+    private var displayedBitmap: Bitmap? = null
+    private lateinit var durationButton: Button
+    private lateinit var lightingText: TextView
+    private lateinit var lightingSwatch: View
     private lateinit var preview: PreviewView
     private lateinit var previewContainer: FrameLayout
     private lateinit var evidenceOverlay: EvidenceOverlayView
@@ -84,14 +95,10 @@ class MainActivity : ComponentActivity() {
     private val recentTracks get() = session.recentTracks
     private var analysisJob: Job? = null
     private var recommendationJob: Job? = null
-    private var liveScoreJob: Job? = null
-    private var overlayFrameVersion = 0L
     private var permissionInFlight = false
     private var permissionRequestId: Long? = null
     private var permissionContinuation: CancellableContinuation<Boolean>? = null
     private var cameraRequestId: Long? = null
-    private var cameraResultSink: ((VisionResult, kr.urbanmood.camera.FrameReceipt) -> Unit)? = null
-    private var cameraFailureSink: ((String) -> Unit)? = null
     private var foreground = false
     private val mint = Color.rgb(157, 228, 203)
     private val muted = Color.rgb(171, 190, 200)
@@ -136,14 +143,9 @@ class MainActivity : ComponentActivity() {
         session = ViewModelProvider(this)[SessionState::class.java]
         services = AppServices(applicationContext) { session.kmaKey }
         buildScreen()
-        camera = CameraController(this, this, preview, services.vision,
-            onStatus = { cameraStatus.text = it },
-            onResult = { result, receipt ->
-                if (cameraRequestId?.let(session::ownsRequest) == true) cameraResultSink?.invoke(result, receipt)
-            },
-            onFailure = { reason ->
-                if (cameraRequestId?.let(session::ownsRequest) == true) cameraFailureSink?.invoke(reason)
-            })
+        camera = VideoCaptureController(this, this, preview)
+        recordedAnalyzer = RecordedSceneAnalyzer(services.vision)
+        completionCue = CompletionCue(this)
         session.completedAnalysis?.let {
             renderCompleted(it)
             services.audio.setQueue(it.recommendation.candidates)
@@ -190,6 +192,9 @@ class MainActivity : ComponentActivity() {
         cancelAnalysis("분석을 취소했습니다.")
         recommendationJob?.cancel()
         camera.close()
+        recordedAnalyzer.close()
+        completionCue.close()
+        clearDecodedPreview()
         services.environment.close()
         services.audio.close()
         typography.close()
@@ -202,28 +207,26 @@ class MainActivity : ComponentActivity() {
         if (!foreground || permissionInFlight) return
         val id = session.beginAnalysis() ?: return
         recommendationJob?.cancel()
-        scoreText.text = "관측 중 · 수집을 마친 뒤 기여 점수를 계산합니다."
+        scoreText.text = "촬영을 마치면 주변 무드를 분석합니다."
+        clearDecodedPreview()
+        window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         updateControls()
         analysisJob = lifecycleScope.launch {
             try {
                 services.environment.setManualWeather(condition = session.manualWeather)
                 services.environment.setManualRoad(session.manualRoad)
-                val result = OneShotAnalysisRunner(services.environment).runWindow(id,
+                cameraStatus.text = "권한 확인 중"
+                val result = RecordedRequestRunner(services.environment).run(id,
                     permissions = { requestPermissionsForAnalysis(id) },
                     capture = { captureScene(id) },
                     recommend = { recommendSnapshot(it) },
-                    progress = { step ->
-                        if (session.ownsRequest(id)) cameraStatus.text = when (step) {
-                            AnalysisStep.PERMISSIONS -> "분석에 필요한 권한을 확인하고 있습니다."
-                            AnalysisStep.ENVIRONMENT -> "현재 위치와 날씨를 한 번 확인하고 있습니다."
-                            AnalysisStep.CAMERA -> "50초 동안 주변 장면을 관측합니다."
-                            AnalysisStep.RECOMMENDING -> "확인한 정보로 무드 키워드를 만들고 있습니다."
-                        }
-                    })
+                    recommending = { if (session.ownsRequest(id)) cameraStatus.text = "주변 무드와 음악 정리 중" })
                 if (session.ownsRequest(id)) {
                     session.completedAnalysis = result
+                    session.lightingPreview = LightingPreview.suggestion(result)
                     renderCompleted(result)
                     services.audio.setQueue(result.recommendation.candidates)
+                    if (foreground && session.claimCompletionSound(id)) completionCue.play()
                 }
             } catch (_: TimeoutCancellationException) {
                 if (session.ownsRequest(id)) showInterrupted("시간이 초과되어 분석을 취소했습니다. 이전 결과는 유지됩니다.")
@@ -235,6 +238,7 @@ class MainActivity : ComponentActivity() {
                 releaseCamera(id)
                 services.environment.cancelRequest(id)
                 session.endAnalysis(id)
+                window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                 session.completedAnalysis?.let {
                     if (session.activeRequestId == null) scoreText.text = kr.urbanmood.integration.scoreSummaryText(it.recommendation.scoreSummary)
                 }
@@ -264,51 +268,56 @@ class MainActivity : ComponentActivity() {
     }
 
     private suspend fun captureScene(id: Long): CapturedScene {
-        return TimedSceneCapture(elapsedNow = SystemClock::elapsedRealtime).capture(
-            start = { receive, fail ->
-                cameraRequestId = id
-                cameraResultSink = receive
-                cameraFailureSink = fail
-                previewContainer.visibility = View.VISIBLE
-                camera.start()
-            },
-            stop = { releaseCamera(id) },
-            progress = { elapsed, frames ->
-                if (session.ownsRequest(id)) frameStatus.text = "관측 ${(elapsed / 1000).coerceAtMost(50)} / 50초 · 처리한 프레임 ${frames}개"
-            },
-            observed = { value, receipt -> if (session.ownsRequest(id)) {
-                renderVision(value)
-                evidenceOverlay.show(value, receipt)
-                val frameVersion = ++overlayFrameVersion
-                // One local score calculation at a time; do not queue work behind camera frames.
-                if (liveScoreJob?.isActive != true) {
+        cameraRequestId = id
+        val duration = session.recordingDurationMs
+        previewContainer.visibility = View.VISIBLE
+        preview.visibility = View.VISIBLE
+        decodedPreview.visibility = View.GONE
+        cameraStatus.text = "카메라 연결 중"
+        val clip = camera.record(duration,
+            progress = { elapsed -> if (session.ownsRequest(id)) {
+                cameraStatus.text = "촬영 중"
+                frameStatus.text = "${elapsed / 1000} / ${duration / 1000}초"
+            } },
+            finalizing = { if (session.ownsRequest(id)) cameraStatus.text = "영상 저장 마무리 중" })
+        try {
+            if (!session.ownsRequest(id)) throw CancellationException()
+            preview.visibility = View.GONE
+            decodedPreview.visibility = View.VISIBLE
+            cameraStatus.text = "분석 중"
+            frameStatus.text = "촬영한 영상의 장면을 확인하고 있습니다."
+            return withTimeout(180_000) {
+                recordedAnalyzer.analyze(clip) { value, bitmap, elapsed, samples ->
                     val env = services.environment.requestState.value.takeIf { it.requestId == id }?.snapshot
-                    liveScoreJob = lifecycleScope.launch {
-                        fun current() = session.ownsRequest(id) && overlayFrameVersion == frameVersion &&
-                            cameraRequestId == id && SystemClock.elapsedRealtime() - receipt.receivedAtElapsedMs < 1_500
-                        try {
-                            val score = withContext(Dispatchers.Default) {
-                                SceneMoodScorer().score(SceneWindow(1_000, receivedFrameCount = 1,
-                                    samples = listOf(SceneSample(0, value))), env, value.frameTimeEpochMs)
-                            }
-                            if (current()) evidenceOverlay.show(value, receipt, score)
-                        } catch (cancelled: CancellationException) { throw cancelled }
-                        catch (_: Exception) { if (current()) evidenceOverlay.show(value, receipt, calculationFailed = true) }
+                    val score = SceneMoodScorer().score(SceneWindow(1_000, receivedFrameCount = 1,
+                        samples = listOf(SceneSample(0, value))), env, value.frameTimeEpochMs)
+                    withContext(Dispatchers.Main) {
+                        if (session.ownsRequest(id)) {
+                            val owned = bitmap.copy(Bitmap.Config.ARGB_8888, false)
+                            decodedPreview.setImageBitmap(owned)
+                            displayedBitmap?.recycle()
+                            displayedBitmap = owned
+                            frameStatus.text = "분석 ${elapsed / 1000 + 1} / ${(clip.timing.durationMs + 999) / 1000}구간 · 영상 프레임 ${samples}개"
+                            renderVision(value)
+                            evidenceOverlay.show(value, FrameReceipt(samples.toLong(), bitmap.width, bitmap.height,
+                                value.processingTimeMs ?: 0, SystemClock.elapsedRealtime()), score)
+                        }
                     }
                 }
-            } },
-        )
+            }
+        } finally { clip.close() }
+    }
+
+    private fun clearDecodedPreview() {
+        if (::decodedPreview.isInitialized) decodedPreview.setImageDrawable(null)
+        displayedBitmap?.recycle()
+        displayedBitmap = null
     }
 
     private fun releaseCamera(id: Long) {
         if (cameraRequestId != id) return
-        cameraResultSink = null
-        cameraFailureSink = null
         cameraRequestId = null
-        overlayFrameVersion++
-        liveScoreJob?.cancel()
-        liveScoreJob = null
-        camera.stop("카메라 수집을 종료했습니다.")
+        camera.cancel()
         evidenceOverlay.clear()
         previewContainer.visibility = View.GONE
     }
@@ -316,6 +325,7 @@ class MainActivity : ComponentActivity() {
     private fun cancelAnalysis(message: String) {
         val id = session.activeRequestId ?: return
         session.endAnalysis(id)
+        window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         analysisJob?.cancel()
         services.environment.cancelRequest(id)
         releaseCamera(id)
@@ -347,7 +357,7 @@ class MainActivity : ComponentActivity() {
             UserPreferences(preferenceInput.text.toString().split(',').map { it.trim() }.filter { it.isNotEmpty() }.toSet(),
                 preferredMoods = session.preferredMoods.toSet()),
             tracks.toList(), recentTracks.toList(), nowEpochMs = snapshot.analyzedAtEpochMs,
-            sceneWindow = snapshot.sceneWindow)
+            sceneWindow = snapshot.sceneWindow, observationEndEpochMs = snapshot.observationEndEpochMs)
         return withContext(Dispatchers.Default) { services.recommendation.recommend(request) }
     }
 
@@ -376,16 +386,29 @@ class MainActivity : ComponentActivity() {
         searchButton.isEnabled = !value.youtubeQuery.isNullOrBlank()
     }
 
+    private fun renderLighting() {
+        if (!::lightingText.isInitialized) return
+        val value = session.lightingPreview
+        lightingText.text = value?.let { "${it.name} · 밝기 ${(it.brightness * 100).toInt()}% · ${it.reason}" }
+            ?: "프리셋을 선택하세요."
+        val color = value?.colorArgb ?: Color.DKGRAY
+        val level = value?.brightness ?: 1f
+        lightingSwatch.setBackgroundColor(Color.rgb((Color.red(color) * level).toInt(),
+            (Color.green(color) * level).toInt(), (Color.blue(color) * level).toInt()))
+    }
+
     private fun renderCompleted(value: CompletedAnalysis) {
         latestVision = value.snapshot.vision
         environment = value.snapshot.environment
         cameraStatus.text = "분석 완료 · ${time(value.snapshot.analyzedAtEpochMs)}"
         frameStatus.text = value.snapshot.sceneWindow?.let {
-            "${it.durationMs / 1000}초 관측 · ${it.samples.size}개 시간 구간 · 수집 종료"
-        } ?: "완료한 결과입니다. 다시 누를 때만 새 정보를 수집합니다."
+            "${"%.1f".format(java.util.Locale.KOREA, it.durationMs / 1000.0)}초 영상 · ${it.samples.size}개 장면" +
+                (value.snapshot.observationEndEpochMs?.let { end -> " · 촬영 ${time(end)}" } ?: "")
+        } ?: "환경 정보 분석 완료"
         renderVision(value.snapshot.vision)
         renderEnvironment(value.snapshot.environment)
         renderRecommendation(value.recommendation)
+        renderLighting()
     }
 
     private fun buildScreen() {
@@ -410,29 +433,38 @@ class MainActivity : ComponentActivity() {
             contentDescription = "후면 카메라 실시간 미리보기"
         }
         evidenceOverlay = EvidenceOverlayView(this)
+        decodedPreview = ImageView(this).apply { scaleType = ImageView.ScaleType.FIT_CENTER; visibility = View.GONE }
         previewContainer = FrameLayout(this).apply {
             visibility = View.GONE
             addView(preview, FrameLayout.LayoutParams(-1, -1))
+            addView(decodedPreview, FrameLayout.LayoutParams(-1, -1))
             addView(evidenceOverlay, FrameLayout.LayoutParams(-1, -1))
         }
         captureCard.addView(previewContainer, LinearLayout.LayoutParams(-1, dp(260)))
-        cameraStatus = text("버튼을 누르면 위치·날씨·카메라를 한 번 확인합니다.", 14, mint)
-        frameStatus = text("위치·날씨 확인 후 50초 관측하고 결과를 유지합니다.", 12, muted)
+        cameraStatus = text("짧게 촬영하고 주변 무드를 확인하세요.", 14, mint)
+        frameStatus = text("촬영 → 분석 → 무드와 음악", 12, muted)
         captureCard.addView(cameraStatus)
         captureCard.addView(frameStatus)
-        captureCard.addView(text("박스 옆 점수는 현재 프레임의 기여이며 최종 50초 점수와 다릅니다. 이동하면 직전 분석 영역과 현재 화면의 위치가 다를 수 있습니다.", 12, muted))
+        durationButton = addButton(captureCard, "촬영 ${session.recordingDurationMs / 1000}초") {
+            AlertDialog.Builder(this).setTitle("촬영 길이")
+                .setSingleChoiceItems(arrayOf("30초", "60초"), if (session.recordingDurationMs == 30_000L) 0 else 1) { dialog, selected ->
+                    session.recordingDurationMs = if (selected == 0) 30_000 else 60_000
+                    durationButton.text = "촬영 ${session.recordingDurationMs / 1000}초"
+                    dialog.dismiss()
+                }.setNegativeButton("취소", null).showWithAppFont()
+        }
+        configurationButtons += durationButton
         val cameraButtons = row(captureCard)
         analyzeButton = addButton(cameraButtons, "무드 분석") { startAnalysis() }
         cancelButton = addButton(cameraButtons, "취소", false) { cancelAnalysis("분석을 취소했습니다. 이전 결과는 유지됩니다.") }
         addButton(captureCard, "권한 · 앱 설정") {
             openExternal(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName")))
         }
-        captureCard.addView(text("영상은 저장하거나 전송하지 않습니다. 운전 중에는 조작하지 마세요.", 12, muted))
+        captureCard.addView(text("영상은 기기에 임시 저장 후 삭제합니다. 운전 중에는 조작하지 마세요.", 12, muted))
 
         val analysisCard = card(root, "02   도시 조명 분석")
         analysisText = text("무드 분석을 누르면 주변 색감과 빛을 확인합니다.", 15, Color.WHITE)
         analysisCard.addView(analysisText)
-        analysisCard.addView(text("차량 불빛과 반사가 남아 있을 수 있습니다. 조명만으로 장소나 영업 상태를 판단하지 않습니다.", 12, muted))
         addButton(analysisCard, "분석 상세") {
             showDetails("분석 상세", latestVision?.let { value ->
                 "관측 ${time(value.frameTimeEpochMs)}\n" + value.reasons.joinToString("\n")
@@ -460,7 +492,6 @@ class MainActivity : ComponentActivity() {
         moodCard.addView(desiredMoodText)
         renderDesiredMoods()
         configurationButtons += addButton(moodCard, "원하는 분위기 선택") { showDesiredMoods() }
-        moodCard.addView(text("음악에서 원하는 분위기를 직접 선택합니다. 현재 기분을 감지한 결과가 아닙니다.", 12, muted))
         moodText = text("무드 분석을 마치면 키워드와 음악 추천을 확인할 수 있습니다.", 14, Color.WHITE)
         moodCard.addView(moodText)
         scoreText = text("관측을 마치면 분위기별 점수와 기여 항목을 확인할 수 있습니다.", 13, muted)
@@ -478,7 +509,6 @@ class MainActivity : ComponentActivity() {
                     .appendQueryParameter("search_query", query).build()))
             }
         }
-        moodCard.addView(text("YouTube 검색은 외부 앱/웹으로 분위기 검색어를 전달합니다. 앱 내부 음원 재생과 별개입니다.", 12, muted))
 
         val audioCard = card(root, "05   내 음악")
         catalogText = text("선택한 음원 ${tracks.size}곡", 13, muted)
@@ -493,7 +523,25 @@ class MainActivity : ComponentActivity() {
         }
         addButton(audioButtons, "일시정지", services.audioAvailable) { services.audio.pause() }
         addButton(audioButtons, "다음", services.audioAvailable) { services.audio.next() }
-        root.addView(text("분석 중 다른 화면으로 이동하면 요청을 취소합니다. 완료한 결과는 유지되며 음악은 일시정지됩니다.", 12, muted))
+        val lightingCard = card(root, "06   조명 미리보기")
+        lightingSwatch = View(this).apply { setBackgroundColor(Color.DKGRAY) }
+        lightingCard.addView(lightingSwatch, LinearLayout.LayoutParams(-1, dp(58)))
+        lightingText = text("프리셋을 선택하세요.", 14, Color.WHITE)
+        lightingCard.addView(lightingText)
+        val lightingButtons = row(lightingCard)
+        LightingPreview.presets.forEach { preset -> configurationButtons += addButton(lightingButtons, preset.name) {
+            session.lightingPreview = preset.copy(requestId = session.completedAnalysis?.snapshot?.requestId)
+            renderLighting()
+        } }
+        configurationButtons += addButton(lightingCard, "밝기 조절") {
+            val current = session.lightingPreview ?: return@addButton
+            val levels = arrayOf("25%", "50%", "75%", "100%")
+            AlertDialog.Builder(this).setTitle("미리보기 밝기").setItems(levels) { _, which ->
+                session.lightingPreview = current.copy(brightness = (which + 1) / 4f, reason = "직접 선택")
+                renderLighting()
+            }.showWithAppFont()
+        }
+        renderLighting()
         addButton(root, "오픈소스 라이선스") {
             val names = (assets.list("licenses")?.map { "licenses/$it" }.orEmpty() +
                 listOf("vision/Apache-2.0.txt", "vision/THIRD-PARTY-NOTICES.md")).sorted()
@@ -570,7 +618,7 @@ class MainActivity : ComponentActivity() {
             .setItems(snapshot.map { it.title }.toTypedArray()) { _, selected ->
                 val track = snapshot[selected]
                 val tags = EditText(this).apply { hint = "예: jazz, 차분한, 야간"; setText(track.tags.joinToString(", ")) }
-                AlertDialog.Builder(this).setTitle(track.title).setMessage("음악을 자동 분석한 태그가 아닙니다. 쉼표로 구분해 입력하세요.")
+                AlertDialog.Builder(this).setTitle(track.title).setMessage("곡의 분위기 태그를 쉼표로 구분해 입력하세요.")
                     .setView(tags).setPositiveButton("적용") { _, _ ->
                         val index = tracks.indexOfFirst { it.id == track.id }
                         if (index >= 0) tracks[index] = track.copy(tags = tags.text.toString().split(',').map { it.trim() }.filter { it.isNotEmpty() }.toSet())
@@ -582,14 +630,14 @@ class MainActivity : ComponentActivity() {
     private fun renderVision(value: VisionResult) {
         val status = when (value.status) {
             AnalysisStatus.OK -> "분석 완료"
-            AnalysisStatus.LOW_CONFIDENCE -> "불확실한 분석 · 사용 가능한 측정만 반영"
+            AnalysisStatus.LOW_CONFIDENCE -> "관측 근거 제한"
             AnalysisStatus.MODEL_NOT_READY -> "분석을 준비하지 못했습니다. 잠시 후 다시 시작해 주세요."
             AnalysisStatus.FAILED -> "분석하지 못했습니다. 카메라를 다시 시작해 주세요."
         }
         analysisText.text = "$status\n" + kr.urbanmood.integration.visionQualityText(value) +
             "\n밝기 ${percent(value.colors?.brightness)} · 채도 ${percent(value.colors?.saturation)} · 빛 영역 ${percent(value.colors?.luminousAreaRatio)}" +
             (value.sceneObservations?.let { "\n현재 프레임 · 사람 검출 ${it.persons?.detectionCount?.let { count -> "${count}개" } ?: "미확인"}" +
-                " · 주변 빛 후보 ${it.ambientLights?.candidateCount?.let { count -> "${count}개" } ?: "미확인"}\n검출 수는 실제 인원수나 영업 중인 상점 수가 아닙니다." } ?: "")
+                " · 주변 빛 후보 ${it.ambientLights?.candidateCount?.let { count -> "${count}개" } ?: "미확인"}" } ?: "")
     }
 
     private fun renderEnvironment(value: EnvironmentSnapshot) {

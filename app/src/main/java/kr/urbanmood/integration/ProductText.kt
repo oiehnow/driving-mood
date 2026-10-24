@@ -4,12 +4,16 @@ import kr.urbanmood.contracts.*
 import java.util.Locale
 
 private fun points(value: Float?) = value?.takeIf { it.isFinite() }?.let { String.format(Locale.KOREA, "%.1f", it) }
+private fun scoreUnit(value: MoodScore) = if (value.contributions.any {
+    it.delta != null && it.basis == ContributionBasis.OBSERVED_FEATURE_STRENGTH
+}) " 강도" else "점"
 
 internal fun scoreSummaryText(value: MoodScoreSummary?): String {
     if (value == null) return "점수 근거 미확인 · 관측을 마치면 기여 항목을 확인할 수 있습니다."
-    return "${value.sampledBucketCount}개 시간 구간의 관측 · 사람 수를 시간에 걸쳐 합산하지 않습니다.\n" +
-        value.scores.joinToString(" · ") { "${it.keyword} ${points(it.score)?.plus("점") ?: "미확인"}" } +
-        "\n규칙 기반 근거 점수이며 감정이나 정확도 확률이 아닙니다."
+    val basis = if (value.scores.any { score -> score.contributions.any { it.basis == ContributionBasis.OBSERVED_FEATURE_STRENGTH } })
+        "관측 특징" else "관측 점수"
+    return "${value.sampledBucketCount}개 장면 · $basis\n" +
+        value.scores.joinToString(" · ") { "${it.keyword} ${points(it.score)?.plus(scoreUnit(it)) ?: "미확인"}" }
 }
 
 internal fun scoreDetailsText(value: MoodScoreSummary?): String {
@@ -18,13 +22,21 @@ internal fun scoreDetailsText(value: MoodScoreSummary?): String {
         appendLine(scoreSummaryText(value))
         appendLine("관측 ${value.windowDurationMs / 1000}초 · 처리 프레임 ${value.receivedFrameCount}개 · 규칙 ${value.ruleVersion}")
         value.scores.forEach { score ->
-            appendLine("\n${score.keyword} · ${points(score.score)?.plus("점") ?: "근거 부족"}")
+            appendLine("\n${score.keyword} · ${points(score.score)?.plus(scoreUnit(score)) ?: "근거 부족"}")
             score.contributions.forEach { item ->
                 val delta = points(item.delta)?.let { if (item.delta!! > 0) "+$it" else it }
-                appendLine("${item.label}: ${delta?.plus("점") ?: "미반영"} · ${item.reason}")
-                item.observedValue?.takeIf { it.isFinite() }?.let { appendLine("관측값 ${points(it)} ${item.unit.orEmpty()}") }
+                val observedBasis = item.basis == ContributionBasis.OBSERVED_FEATURE_STRENGTH
+                val unit = if (observedBasis) " 강도" else "점"
+                val metricOnly = observedBasis && item.weight == 0f && item.delta == null && item.observedValue?.isFinite() == true
+                val observed = item.observedValue?.takeIf { it.isFinite() }?.let { String.format(Locale.KOREA, "%.4f", it) }
+                val displayed = if (metricOnly) "$observed ${item.unit.orEmpty()}" else delta?.plus(unit) ?: "미반영"
+                appendLine("${item.label}: $displayed · ${item.reason}")
+                if (observedBasis && !metricOnly) {
+                    appendLine("관측 특징 강도 · 측정 품질 ${points(item.measurementQuality) ?: "미평가"}")
+                }
+                if (!metricOnly && observed != null) appendLine("관측값 $observed ${item.unit.orEmpty()}")
                 item.source?.let { appendLine("출처: ${it.name}") }
-                if (item.evidence.isNotEmpty()) appendLine("프레임 내 영역 참조 ${item.evidence.size}개 · 그룹 기여의 분배이며 중복 가산하지 않습니다.")
+                if (item.evidence.isNotEmpty()) appendLine("영역 근거 ${item.evidence.size}개")
             }
         }
         value.notes.forEach { appendLine(it) }

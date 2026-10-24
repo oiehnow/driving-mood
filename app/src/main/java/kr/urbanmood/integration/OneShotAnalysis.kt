@@ -8,13 +8,16 @@ import kotlinx.coroutines.withTimeoutOrNull
 
 enum class AnalysisStep { PERMISSIONS, ENVIRONMENT, CAMERA, RECOMMENDING }
 data class AnalysisTimeouts(val environmentMs: Long = 35_000, val cameraMs: Long = 60_000, val totalMs: Long = 110_000)
-data class CapturedScene(val vision: VisionResult, val window: SceneWindow? = null)
+data class CapturedScene(val vision: VisionResult, val window: SceneWindow? = null,
+    val observationEndEpochMs: Long? = null, val captureStartedAtEpochMs: Long? = null)
 data class AnalysisSnapshot(
     val requestId: Long,
     val analyzedAtEpochMs: Long,
     val environment: EnvironmentSnapshot,
     val vision: VisionResult,
     val sceneWindow: SceneWindow? = null,
+    val observationEndEpochMs: Long? = null,
+    val captureStartedAtEpochMs: Long? = null,
 )
 data class CompletedAnalysis(val snapshot: AnalysisSnapshot, val recommendation: RecommendationResult)
 
@@ -63,7 +66,8 @@ class OneShotAnalysisRunner(
                         ?: CapturedScene(unavailableVision("카메라 확인 시간이 지나 영상은 반영하지 않았습니다."))
                 } catch (error: CancellationException) { throw error }
                 catch (_: Exception) { CapturedScene(unavailableVision("카메라를 사용할 수 없어 영상은 반영하지 않았습니다.")) }
-            val snapshot = AnalysisSnapshot(requestId, now(), envSnapshot, captured.vision, captured.window)
+            val snapshot = AnalysisSnapshot(requestId, now(), envSnapshot, captured.vision, captured.window,
+                captured.observationEndEpochMs, captured.captureStartedAtEpochMs)
             progress(AnalysisStep.RECOMMENDING)
             CompletedAnalysis(snapshot, recommend(snapshot))
         } finally {

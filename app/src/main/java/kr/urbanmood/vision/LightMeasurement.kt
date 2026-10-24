@@ -1,5 +1,6 @@
 package kr.urbanmood.vision
 
+import kr.urbanmood.contracts.LightPixelStats
 import kotlin.math.*
 
 /** Input coordinates are normalized in the upright, unmirrored input image. */
@@ -44,6 +45,7 @@ internal data class LightMeasurement(
     // All accepted connected light regions, independent of the capped debug list.
     val candidateRegions: List<LightRegion> = emptyList(),
     val pixelEvidence: LightPixelEvidence? = null,
+    val lightFeatures: MeasuredLightFeatures? = null,
 )
 
 /** Pixel measurements + conservative geometry heuristics, NOT a storefront classifier.
@@ -179,6 +181,8 @@ internal class LightMeasurer {
         }
         val accepted = mutableListOf<Int>()
         val candidateRegions = mutableListOf<LightRegion>()
+        val featureGroups = mutableListOf<LightPixelStats>()
+        val featureSummary = LightPixelStatistics()
         val acceptedMask = if(capturePixelEvidence) BooleanArray(n) else null
         // bright already excludes vehicles, traffic objects, reflection columns and geometry.
         // Retain small/skinny/sparse components for measured semantic intersections only.
@@ -200,6 +204,11 @@ internal class LightMeasurer {
             if (eligible) {
                 accepted.addAll(blob.pixels.toList()); candidates++
                 if(acceptedMask!=null) blob.pixels.forEach { acceptedMask[it]=true }
+                val group = LightPixelStatistics()
+                blob.pixels.forEach { group.add(frame.argb[it], hue[it], saturation[it]) }
+                val stats = group.snapshot()
+                featureGroups.add(stats)
+                featureSummary.merge(stats)
                 candidateRegions.add(LightRegion(blob.left.toFloat()/w,blob.top.toFloat()/h,
                     (blob.right+1f)/w,(blob.bottom+1f)/h,"주변 조명 후보",false))
             }
@@ -301,7 +310,8 @@ internal class LightMeasurer {
         return LightMeasurement(score,colors,vehicleRatio,confidence,reasons,regions,signature,pixelQuality,
             candidateRegions.toList(),
             if(acceptedMask!=null && semanticEligibleMask!=null)
-                LightPixelEvidence(w,h,acceptedMask,semanticEligibleMask) else null)
+                LightPixelEvidence(w,h,acceptedMask,semanticEligibleMask) else null,
+            MeasuredLightFeatures(w,h,featureSummary.snapshot(),featureGroups.toList()))
     }
 
     private fun components(mask: BooleanArray, width: Int, height: Int): List<Blob> {

@@ -15,16 +15,23 @@ data class SourceInfo(
     val detail: String? = null,
 )
 
+enum class FrameInputSource { LIVE_CAMERA, ANDROID_RECORDED }
+
 /** Valid ONLY inside analyze(); do not recycle, mutate, retain or upload.
  * Upright, unmirrored back camera, aspect preserved, longest edge <=640, ARGB_8888.
- * capturedAtEpochMs is host receipt wall time; cameraTimestampNs is monotonic camera time,
- * NOT epoch time. Calls are serial on a single background executor, at most ~4/s.
+ * LIVE_CAMERA: capturedAtEpochMs is host receipt wall time; cameraTimestampNs is camera monotonic time.
+ * ANDROID_RECORDED: capturedAtEpochMs is the saved host recording-start anchor plus
+ * normalized media PTS; cameraTimestampNs is that normalized media time in ns (NOT sensor time).
+ * mediaPresentationTimeUs preserves actual decoder PTS. Neither timestampNs is epoch time.
+ * Calls are serial; live at most ~4/s, recorded one representative per media-time second.
  */
 data class CameraFrame(
     val bitmap: Bitmap,
     val capturedAtEpochMs: Long,
     val cameraTimestampNs: Long,
     val sequence: Long,
+    val inputSource: FrameInputSource = FrameInputSource.LIVE_CAMERA,
+    val mediaPresentationTimeUs: Long? = null,
 )
 
 enum class AnalysisStatus { OK, LOW_CONFIDENCE, MODEL_NOT_READY, FAILED }
@@ -171,6 +178,9 @@ data class RecommendationRequest(
     // False for recorded inputs with unknown wall-clock capture time. nowEpochMs may
     // still be an evaluation clock, but must not generate time-of-day mood evidence.
     val timeContextAvailable: Boolean = true,
+    // Recorded inputs are evaluated against their capture end, not later decoding wall time.
+    // Supplied only with this request's known capture anchor. Null preserves legacy behavior.
+    val observationEndEpochMs: Long? = null,
 )
 data class RecommendationResult(
     val availability: Availability,

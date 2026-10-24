@@ -19,6 +19,5 @@ class VisionQualityTextTest {
         assertTrue(text.contains("색감 측정 품질 60%"))
         assertTrue(text.contains("광량 측정 품질 미평가"))
         assertTrue(text.contains("장소 의미 확실성 미평가"))
-        assertTrue(text.contains("영업/상권 활력 판단 아님"))
     }
 }

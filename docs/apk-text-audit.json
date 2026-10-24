@@ -1,9 +1,9 @@
 {
   "apk": "app-release.apk",
-  "sha256": "2e3a47f2cf71ffe2748d9a959c0ae8de2591b19b7f99b06364b6e8027ed19f36",
-  "entries": 547,
+  "sha256": "1e7e9876021d0106d3a3b499600398e7641be9fc0793bf7ad6458a2956d406e3",
+  "entries": 548,
   "dex_files": 2,
-  "dex_strings": 102455,
+  "dex_strings": 103137,
   "font_name_strings": 167,
   "findings": [],
   "upstream_metadata": [

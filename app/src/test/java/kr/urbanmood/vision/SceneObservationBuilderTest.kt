@@ -57,4 +57,25 @@ class SceneObservationBuilderTest {
         assertTrue(first.ambientLights!!.vehiclesExcluded)
         assertTrue(first.regions.map { it.id }.intersect(second.regions.map { it.id }.toSet()).isEmpty())
     }
+    @Test fun measuredFeatureGroupsReferenceActualRegionsAndKeepQualitySeparate() {
+        val measurement=measure()
+        val result=build(emptyList())
+        val feature=result.lightFeatures!!
+        assertEquals("accepted-light-rgb-v1",feature.measurementVersion)
+        assertEquals(measurement.lightFeatures!!.summary,feature.summary)
+        assertEquals(measurement.pixelQuality.lightConfidence,feature.quality.heuristicQuality!!,0f)
+        assertTrue(feature.groups!!.all { g ->
+            g.kind==LightGroupKind.LEGACY_UNCLASSIFIED_CANDIDATE && result.regions.any { it.id==g.regionId }
+        })
+        assertEquals(feature.summary.pixelCount,feature.groups!!.sumOf { it.pixels.pixelCount })
+        assertTrue(feature.quality.flags.contains("SOME_CHANNELS_NEAR_UPPER_LIMIT"))
+    }
+    @Test fun recordedProvenanceKeepsActualCaptureAnchorAndDecoderPts() {
+        val result=SceneObservationBuilder.build(emptyList(),false,measure(),123456L,"recorded",
+            FrameInputSource.ANDROID_RECORDED,9876543L)
+        assertEquals(SceneObservationRuntime.ANDROID_RECORDED,result.runtime)
+        assertEquals(123456L,result.source.observedAtEpochMs)
+        assertTrue(result.source.detail!!.contains("9876543"))
+        assertNotNull(result.lightFeatures)
+    }
 }

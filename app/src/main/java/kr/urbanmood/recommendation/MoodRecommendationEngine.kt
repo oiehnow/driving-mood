@@ -21,13 +21,15 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
         val observations = request.sceneWindow?.samples?.mapNotNull { it.vision.sceneObservations }
             ?: listOfNotNull(request.vision?.sceneObservations)
         val offline = observations.any { it.runtime == SceneObservationRuntime.DESKTOP_SEGMENTATION }
+        val recorded = observations.any { it.runtime == SceneObservationRuntime.ANDROID_RECORDED }
         val observationTime = if (!request.timeContextAvailable) null
+            else if (recorded) request.observationEndEpochMs?.takeIf { it>0 && it<=request.nowEpochMs }
             else if (offline) observations.mapNotNull { it.source.observedAtEpochMs?.takeIf { t -> t > 0 } }.maxOrNull()
             else request.nowEpochMs.takeIf { it > 0 }
         val hour = observationTime?.let { Instant.ofEpochMilli(it).atZone(zone).hour }
         if (hour != null) {
             words += if (hour < 6 || hour >= 19) "야간" else if (hour < 11) "아침" else if (hour < 17) "낮" else "저녁"
-            reasons += "${if (offline) "제공된 촬영" else "분석 당시 기기"} 시각 ${hour}시 (${zone.id})를 기준으로 골랐습니다."
+            reasons += "${if (offline || recorded) "제공된 촬영" else "분석 당시 기기"} 시각 ${hour}시 (${zone.id})를 기준으로 골랐습니다."
         } else reasons += "촬영 시각이 제공되지 않아 시간대 후보를 만들지 않았습니다. 현재 시각으로 대체하지 않습니다."
 
         val locationFresh = observationTime != null && EnvironmentPolicy.usableLocation(env.location, observationTime)
@@ -64,16 +66,21 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
                 EnvironmentPolicy.fresh(it.frameTimeEpochMs,observationTime,VisionMeasurementPolicy.MAX_AGE_MS)) }
                 ?.let { SceneSample(0,it) }))
         val scorer = SceneMoodScorer()
-        val scores = scorer.score(window,env,observationTime)
+        val scores = scorer.score(if(recorded && observationTime==null && request.timeContextAvailable) window.copy(samples=emptyList()) else window,env,observationTime)
         words += scorer.keywords(scores)
         // Retain detailed single-frame provenance for older callers; accumulated scoring uses the whole window.
-        if (request.sceneWindow==null && !offline) reasons += SceneInterpreter.interpret(request.vision,env.road,roadUsable,request.nowEpochMs,zone).reasons
+        if (request.sceneWindow==null && !offline && !recorded && scores.ruleVersion!=SceneFeatureScorer.RULE_VERSION)
+            reasons += SceneInterpreter.interpret(request.vision,env.road,roadUsable,request.nowEpochMs,zone).reasons
         reasons += scores.notes
         scores.scores.forEach { mood ->
             reasons += "${mood.keyword} 근거 점수: ${mood.score?.toString() ?: "미확인"}"
-            mood.contributions.forEach { c -> reasons += "${c.label}: ${c.delta?.let { "${if (it>=0) "+" else ""}$it" } ?: "미반영"} · ${c.reason}${c.source?.let { " · 출처: ${it.name}" } ?: ""}" }
+            mood.contributions.forEach { c ->
+                if(c.basis==ContributionBasis.OBSERVED_FEATURE_STRENGTH && c.delta==null)
+                    reasons += "${c.label}: ${c.observedValue?.let { "$it ${c.unit.orEmpty()}" } ?: "미측정"}"
+                else reasons += "${c.label}: ${c.delta?.let { "${if (it>=0) "+" else ""}$it" } ?: "미반영"} · ${c.reason}${c.source?.let { " · 출처: ${it.name}" } ?: ""}"
+            }
         }
-        confidence += scores.scores.count { it.score != null } * .025f
+        if(scores.ruleVersion!=SceneFeatureScorer.RULE_VERSION) confidence += scores.scores.count { it.score != null } * .025f
         if (manual) { words += "수동 입력"; confidence = minOf(confidence, 0.35f) }
 
         // The shared vocabulary is the only accepted selection surface. Never retain previous requests.

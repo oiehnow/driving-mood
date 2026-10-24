@@ -22,6 +22,7 @@ class UrbanLightAnalyzer internal constructor(
     private var closed=false
     private var lastSequence=-1L
     private var lastTimestamp=-1L
+    private var lastInputSource: FrameInputSource? = null
     private var nextRetryNs=0L
     // Used only to choose the next spatial sampling size, not to queue or retain frames.
     private var pixelLongEdge=320
@@ -40,10 +41,15 @@ class UrbanLightAnalyzer internal constructor(
             bitmap.config!=Bitmap.Config.ARGB_8888) {
             return failed(AnalysisStatus.FAILED,"카메라 영상을 읽을 수 없습니다. 분석을 다시 시작해 주세요.")
         }
-        val newSession=frame.sequence<=lastSequence || frame.cameraTimestampNs<=lastTimestamp ||
+        if (frame.inputSource == FrameInputSource.ANDROID_RECORDED &&
+            (frame.mediaPresentationTimeUs == null || frame.cameraTimestampNs < 0)) {
+            return failed(AnalysisStatus.FAILED,"녹화 영상의 프레임 시각을 확인하지 못했습니다.")
+        }
+        val newSession=frame.inputSource!=lastInputSource || frame.sequence<=lastSequence || frame.cameraTimestampNs<=lastTimestamp ||
             (lastTimestamp>=0 && frame.cameraTimestampNs-lastTimestamp>1_500_000_000L)
         if(newSession) { temporal.reset(); nextRetryNs=0L }
         lastSequence=frame.sequence; lastTimestamp=frame.cameraTimestampNs
+        lastInputSource=frame.inputSource
         if(detector==null) {
             if(started<nextRetryNs) return failed(AnalysisStatus.MODEL_NOT_READY,
                 "영상 분석을 준비하지 못했습니다. 잠시 후 다시 시도합니다.")
@@ -74,7 +80,7 @@ class UrbanLightAnalyzer internal constructor(
             if(slowRuns>=3 && pixelLongEdge>240) { pixelLongEdge=240; temporal.reset(); slowRuns=0 }
             val c=measurement.colors
             val observations=SceneObservationBuilder.build(detections.boxes,detections.atCapacity,measurement,
-                frame.capturedAtEpochMs,"${frame.cameraTimestampNs}:${frame.sequence}")
+                frame.capturedAtEpochMs,"${frame.cameraTimestampNs}:${frame.sequence}",frame.inputSource,frame.mediaPresentationTimeUs)
             return VisionResult(frame.capturedAtEpochMs,AnalysisStatus.LOW_CONFIDENCE,
                 urbanLightScore=measurement.score,
                 colors=ColorFeatures(c.argb,c.hue,c.saturation,c.brightness,c.luminousArea),

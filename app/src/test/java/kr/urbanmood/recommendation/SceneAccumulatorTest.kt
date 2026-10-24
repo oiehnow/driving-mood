@@ -39,7 +39,7 @@ class SceneAccumulatorTest {
         assertFalse(accumulator.add(25_640,frame(25_640)))
         assertEquals(25_640,accumulator.snapshot().durationMs)
     }
-    @Test(expected=IllegalArgumentException::class) fun tooLongWindowRejected() { SceneAccumulator(50_001) }
+    @Test(expected=IllegalArgumentException::class) fun tooLongWindowRejected() { SceneAccumulator(60_001) }
     @Test(expected=IllegalArgumentException::class) fun excessiveBucketCountRejected() { SceneAccumulator(50_000,1) }
     @Test fun repeatedOrOldFrameCannotMasqueradeAsNewBucket() {
         val accumulator = SceneAccumulator()
@@ -60,5 +60,14 @@ class SceneAccumulatorTest {
         @Suppress("UNCHECKED_CAST")
         (first as MutableList<SignLightEvidence>).clear()
         assertEquals(2,accumulator.snapshot().samples.single().vision.sceneObservations!!.semantic!!.signLightRegions!!.size)
+    }
+    @Test fun sixtySecondWindowKeepsAllSixtyBucketsAndRejectsEnd() {
+        val a=SceneAccumulator(60_000)
+        repeat(60) { assertTrue(a.add(it*1_000L,frame(it*1_000L))) }
+        assertFalse(a.add(60_000,frame(60_000)))
+        assertEquals(60,a.snapshot().samples.size)
+        val short=SceneAccumulator(30_000)
+        assertTrue(short.add(29_999,frame(29_999)))
+        assertFalse(short.add(30_000,frame(30_000)))
     }
 }

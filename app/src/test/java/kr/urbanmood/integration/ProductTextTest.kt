@@ -26,7 +26,7 @@ class ProductTextTest {
         assertTrue(text.contains("따뜻한 미확인"))
         assertTrue(text.contains("색감: 미반영"))
         assertTrue(text.contains("사람 검출: +8.0점"))
-        assertTrue(text.contains("중복 가산하지 않습니다"))
+        assertTrue(text.contains("영역 근거 2개"))
         assertFalse(text.contains("따뜻한 0"))
         assertFalse(text.contains("-8.0점"))
     }
@@ -47,5 +47,18 @@ class ProductTextTest {
         val text = recommendationText(RecommendationResult(Availability.ERROR))
         assertTrue(text.contains("준비하지 못했습니다"))
         assertFalse(text.contains("추천할 분위기"))
+    }
+
+    @Test fun measuredStatisticsAreNotLabeledAsMissingOrLegacyPoints() {
+        val basis = ContributionBasis.OBSERVED_FEATURE_STRENGTH
+        val summary = MoodScoreSummary("scene-v2.0", 30_000, 30, 30, listOf(MoodScore("따뜻한", .2f, listOf(
+            MoodScoreContribution("feature_warm", "색감 강도", weight = 70f, delta = .2f, reason = "실측", basis = basis),
+            MoodScoreContribution("feature_area", "밝은 면적", observedValue = .0012f, unit = "화면 비율", reason = "실측", basis = basis)
+        ))))
+        val text = scoreDetailsText(summary)
+        assertTrue(text.contains("따뜻한 0.2 강도"))
+        assertTrue(text.contains("밝은 면적: 0.0012 화면 비율"))
+        assertFalse(text.contains("밝은 면적: 미반영"))
+        assertFalse(text.contains("0.2점"))
     }
 }

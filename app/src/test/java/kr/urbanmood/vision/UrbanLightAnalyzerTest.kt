@@ -99,4 +99,26 @@ class UrbanLightAnalyzerTest {
         }
         analyzer.close()
     }
+    @Test fun recordedFrameUsesMediaClockAndRetainsObservedZeroFeature() {
+        val detector=FakeDetector();val analyzer=UrbanLightAnalyzer({detector},{900_000_000_000L})
+        val input=frame().copy(capturedAtEpochMs=123456L,cameraTimestampNs=0,
+            inputSource=FrameInputSource.ANDROID_RECORDED,mediaPresentationTimeUs=7654321L)
+        try {
+            val result=analyzer.analyze(input)
+            assertEquals(123456L,result.frameTimeEpochMs)
+            assertEquals(SceneObservationRuntime.ANDROID_RECORDED,result.sceneObservations!!.runtime)
+            assertEquals(0,result.sceneObservations!!.lightFeatures!!.summary.pixelCount)
+            assertTrue(result.sceneObservations!!.source.detail!!.contains("7654321"))
+            assertFalse(input.bitmap.isRecycled)
+        } finally { input.bitmap.recycle();analyzer.close() }
+    }
+    @Test fun recordedFrameWithoutActualPtsFailsBeforeInference() {
+        val detector=FakeDetector();val analyzer=UrbanLightAnalyzer({detector})
+        val input=frame().copy(inputSource=FrameInputSource.ANDROID_RECORDED,mediaPresentationTimeUs=null)
+        try {
+            val result=analyzer.analyze(input)
+            assertEquals(AnalysisStatus.FAILED,result.status);assertNull(result.sceneObservations)
+            assertEquals(0,detector.calls)
+        } finally { input.bitmap.recycle();analyzer.close() }
+    }
 }
