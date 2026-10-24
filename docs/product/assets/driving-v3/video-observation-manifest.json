@@ -1,0 +1,268 @@
+{
+  "runtime": "desktop",
+  "featureVersion": "semantic-contrast-rgb-v3",
+  "ruleVersion": "scene-v2.0",
+  "sampledFrames": 326,
+  "clips": [
+    {
+      "clipId": "clip-01",
+      "sampledFrames": 26,
+      "observationDurationMs": 25640,
+      "editedDurationSeconds": 56,
+      "sourceStartPtsMs": 0.0,
+      "sourceLastSamplePtsMs": 25000.0,
+      "inputSha256": "3d58a56b667f29d38ccccba8001286e0cfba533779d10eb1c3f0bd49fd797b7f",
+      "keywords": [],
+      "videos": [
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "a2f8c81299251df9407cb72511a7844ed38290a789c7705c87479721597abf44",
+          "durationSeconds": 56.0,
+          "bytes": 2782526
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "843914149801551175073f9f8e1e45484632666eeb88358f45f8433083635f42",
+          "durationSeconds": 56.0,
+          "bytes": 1760994
+        }
+      ],
+      "original": {
+        "file": "01-original.mp4",
+        "sha256": "a9c806340ab2edacd6f537bdf9b5a393397348c10d4b4e1aeebad6c766cfe8a2"
+      },
+      "frameSampling": "one actual frame per elapsed second"
+    },
+    {
+      "clipId": "clip-02",
+      "sampledFrames": 60,
+      "observationDurationMs": 60000,
+      "editedDurationSeconds": 90,
+      "sourceStartPtsMs": 48000.0,
+      "sourceLastSamplePtsMs": 107000.0,
+      "inputSha256": "2c8e0566a83e04d1034f1dac06d0ed7299484fef16423566daba707531bc2ce3",
+      "keywords": [],
+      "videos": [
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "bc13ec9755a6ae81578ed2f3979eb89204f2a76e3f85abbfcf69f65398d77871",
+          "durationSeconds": 90.0,
+          "bytes": 5345278
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "f8fecdd65f61ec055793ea2dd9dcacd24602cc1711882db2bc0fcadd0312f13d",
+          "durationSeconds": 90.0,
+          "bytes": 2993958
+        }
+      ],
+      "original": {
+        "file": "01-original.mp4",
+        "sha256": "dee4969881f0099fcf21eae054e04355874c64887665038fdb7d2f37e8de6e19"
+      },
+      "frameSampling": "one actual frame per elapsed second"
+    },
+    {
+      "clipId": "clip-03",
+      "sampledFrames": 60,
+      "observationDurationMs": 60000,
+      "editedDurationSeconds": 90,
+      "sourceStartPtsMs": 130029.9,
+      "sourceLastSamplePtsMs": 189022.16666666666,
+      "inputSha256": "78b23d749a4eff5ed892561b8243be4467bdb8c55b4bdd8c936cf9c9088b686e",
+      "keywords": [
+        "따뜻한",
+        "차가운",
+        "활기 넘침"
+      ],
+      "videos": [
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "e0fcd4df1003d4b932ce702988ace5ea9846049156e075dffb25b222400b83a1",
+          "durationSeconds": 90.0,
+          "bytes": 9215330
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "68fa9c2d91d50f73be5e5e247a1eb4f8b32dcb659edb12c748d6b77a3a86e9bb",
+          "durationSeconds": 90.0,
+          "bytes": 5134030
+        }
+      ],
+      "original": {
+        "file": "01-original.mp4",
+        "sha256": "1da04d5499c9e028b9c882bb4b4ff0e23b021a624d93e6636fd492e8f6004e6e"
+      },
+      "frameSampling": "one actual frame per elapsed second"
+    },
+    {
+      "clipId": "clip-04",
+      "sampledFrames": 60,
+      "observationDurationMs": 60000,
+      "editedDurationSeconds": 90,
+      "sourceStartPtsMs": 0.0,
+      "sourceLastSamplePtsMs": 59025.63333333334,
+      "inputSha256": "22b45a65e981e1c45303b1ae6f4cc089ce11223d497d072bb85795a107289b33",
+      "keywords": [
+        "활기 넘침"
+      ],
+      "videos": [
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "eef961c2f8a809ada5a70dbc21e173cec04601ca5c998fbea87918ecd00c6d28",
+          "durationSeconds": 90.0,
+          "bytes": 13214680
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "483c784cde112b88af80595dcb9f44b3135983c2817b0173a0e65ec489c90990",
+          "durationSeconds": 90.0,
+          "bytes": 9801775
+        }
+      ],
+      "original": {
+        "file": "01-original.mp4",
+        "sha256": "a07ac74fba4263cc99b2cbbbcb1700d6832f3448e92f9fe1cbf1ff86a8e2112a"
+      },
+      "frameSampling": "one actual frame per elapsed second"
+    },
+    {
+      "clipId": "clip-05",
+      "sampledFrames": 60,
+      "observationDurationMs": 60000,
+      "editedDurationSeconds": 90,
+      "sourceStartPtsMs": 0.0,
+      "sourceLastSamplePtsMs": 59025.63333333334,
+      "inputSha256": "65d0b3e9a04aaf0dfc7be98c9a010aebfdfc4eba6c4c8876dbb18b09eccf58a8",
+      "keywords": [
+        "활기 넘침"
+      ],
+      "videos": [
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "79fca3c6a1e5022a2cc5eae0a13b582feec1d1742d3e879a09e5fca0c605b008",
+          "durationSeconds": 90.0,
+          "bytes": 10376944
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "4dc981992f6d183a1775f3e3f629a4d14a16d605867b91750215d06070ae5a5f",
+          "durationSeconds": 90.0,
+          "bytes": 7688872
+        }
+      ],
+      "original": {
+        "file": "01-original.mp4",
+        "sha256": "43cc8c2e8cb6f217ce13cf51ea2797c52a1a0c9c9dd3f69243162cc694d8d1e7"
+      },
+      "frameSampling": "one actual frame per elapsed second"
+    },
+    {
+      "clipId": "clip-06",
+      "sampledFrames": 60,
+      "observationDurationMs": 60000,
+      "editedDurationSeconds": 90,
+      "sourceStartPtsMs": 70003.26666666668,
+      "sourceLastSamplePtsMs": 129028.9,
+      "inputSha256": "0cb283909527562e97d0e6fab53e0840587623f5d6a5eda8ee7cd8859b143f8b",
+      "keywords": [],
+      "videos": [
+        {
+          "file": "02-analysis.mp4",
+          "sha256": "898d9422fed1c6e175dabacf9697dec9a1687b9cced4a7a478ad112c2b55a0e1",
+          "durationSeconds": 90.0,
+          "bytes": 3816388
+        },
+        {
+          "file": "03-result.mp4",
+          "sha256": "06d2b45c15f1a617e0adc5f53e1b030b8013b5ac10686483dc11410d877d34a1",
+          "durationSeconds": 90.0,
+          "bytes": 1833042
+        }
+      ],
+      "original": {
+        "file": "01-original.mp4",
+        "sha256": "0d9f0d97cd33f5ff113c65165638ae3970386b2f3c0fbc658ba778853012bdd6"
+      },
+      "frameSampling": "one actual frame per elapsed second"
+    }
+  ],
+  "gif": {
+    "file": "clip-03-observation.gif",
+    "sha256": "97b411ae5f9464fd03f45d214e7bf435e003cd85df9154bbe9ede4401e14cfc7",
+    "frames": [
+      {
+        "clipId": "clip-03",
+        "frameId": "000400",
+        "sourcePtsMs": 130029.9,
+        "rgbSha256": "c7504165ecbf6a18c13eaba2367837261a71dce80e5737bf495323f9a2ca683e"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000450",
+        "sourcePtsMs": 135001.53333333333,
+        "rgbSha256": "c8a2933a88922dce542832fbb664572a55c1ba0336b59d789ba62ccc98fd65fb"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000500",
+        "sourcePtsMs": 140006.53333333335,
+        "rgbSha256": "c98e4d8572f592884a5d2e9429ea7bffdfd48e87dc1c1ec80dbdcf59c16580b4"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000550",
+        "sourcePtsMs": 145011.53333333335,
+        "rgbSha256": "a84bb46effc61477cfdd4c8b356a9b44105163884e4221015b8067e84c6d7e97"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000600",
+        "sourcePtsMs": 150016.53333333335,
+        "rgbSha256": "89c91af32facff8a4538bd5b2ca6ad768274bdfb9f85c73d4a41382441ed3da0"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000650",
+        "sourcePtsMs": 155021.53333333333,
+        "rgbSha256": "78fa8fac87b93a849b93e1b6cf802120226409900bef70cbe75473d18acd537b"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000700",
+        "sourcePtsMs": 160026.53333333333,
+        "rgbSha256": "1b596461c28075eab435c1141f0cfdebb3fc11451622a265f6b74cdafc2585aa"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000750",
+        "sourcePtsMs": 165031.53333333333,
+        "rgbSha256": "e5260354737130776d8ebc549ffd60bdbb1b7748ddfd288e8290360b80dfef7c"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000800",
+        "sourcePtsMs": 170003.1666666667,
+        "rgbSha256": "427be723d16cf84bcc65fb2e8c7fdae555965697a3b6cdf3c18eb0bb18fe67d4"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000850",
+        "sourcePtsMs": 175008.1666666667,
+        "rgbSha256": "dee01525a0fccd498752bc450f18a54b235a04b9f28bca5a803945037e026ec1"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000900",
+        "sourcePtsMs": 180013.1666666667,
+        "rgbSha256": "1a4f09fe1ad45b781d2ac70ec2c72c01787f73a50202834f0ed5464cedab9f94"
+      },
+      {
+        "clipId": "clip-03",
+        "frameId": "000950",
+        "sourcePtsMs": 185018.1666666667,
+        "rgbSha256": "54cfce0f60b676e00906112779c3bc34c5a48c6ce5b2b27e7700463dfaddb91f"
+      }
+    ]
+  }
+}

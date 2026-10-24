@@ -30,9 +30,9 @@
 
 실제 주행 영상 6개로 모델과 점수 규칙을 비교합니다. 데스크톱 연구에서는 작은 간판·넓은 건물 조명을 관측하고 각 영역의 기여를 계산했습니다.
 
-![실제 야간 도심의 관측 영역과 기여](docs/product/assets/driving-v3/clip-03-000400-analysis.png)
+![실제 야간 도심의 관측 영역과 기여](docs/product/assets/driving-v3/clip-03-observation.gif)
 
-[관측 개선과 구간 결과](docs/product/OBSERVATION_IMPROVEMENT.md) · [초기 주행 실험](docs/product/DRIVING_DEMO.md) · [시행착오](docs/product/TRIALS.md)
+[90초 주행 시연과 결과](docs/product/VIDEO_DEMO.md) · [관측 개선과 구간 비교](docs/product/OBSERVATION_IMPROVEMENT.md) · [시행착오](docs/product/TRIALS.md)
 
 ## 시작하기
 
