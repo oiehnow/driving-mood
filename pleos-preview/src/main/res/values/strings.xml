@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preview_brightness">밝기 %1$d%%</string>
+    <string name="preview_progress">%1$d%%</string>
+</resources>

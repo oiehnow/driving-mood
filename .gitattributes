@@ -5,3 +5,5 @@
 *.ort binary
 # Research snapshots include hashes of the original files and upstream notices.
 models/semantic/finetuning-pilot01/** -text -whitespace
+# Preserve formatting in bundled upstream license notices.
+pleos-preview/src/main/assets/licenses/** -whitespace

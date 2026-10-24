@@ -1,0 +1,17 @@
+{
+  "app": "Driving Mood Preview",
+  "version": "0.1.0",
+  "environment": "Pleos Connect Emulator 2.1.0, Android 14 API 34",
+  "capture": "Native emulator screenshot and screen recording",
+  "result": "Fixed UI example, no vehicle SDK or inference connected",
+  "dockIcon": "System recent-app area",
+  "videoExcerptStartSeconds": 33,
+  "videoExcerptDurationSeconds": 12,
+  "apkSha256": "5982c56e758aa31487083fef67dd1c875ae477754217c2af0fda43184a2aa016",
+  "files": [
+    "prototype-home.png",
+    "prototype-analyzing.png",
+    "prototype-result.png",
+    "prototype-flow.gif"
+  ]
+}

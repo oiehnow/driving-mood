@@ -5,3 +5,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "UrbanMood"
 include(":app")
+include(":pleos-preview")

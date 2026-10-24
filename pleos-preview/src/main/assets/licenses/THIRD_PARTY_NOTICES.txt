@@ -1,0 +1,12 @@
+Driving Mood Preview
+
+AndroidX Activity 1.11.0 and its AndroidX transitive dependencies
+Source: https://cs.android.com/androidx/platform/frameworks/support
+License: Apache License 2.0 (Apache-2.0.txt)
+Used for lifecycle-aware, backward-compatible system Back handling.
+
+Pretendard Variable
+License: SIL Open Font License 1.1 (Pretendard-OFL.txt)
+
+Driving Mood source and original icon assets are reused from this project.
+See DrivingMood-AGPL-3.0.txt for the project source license.
