@@ -30,4 +30,11 @@ AndroidX 저작권자는 Android Open Source Project, Kotlin 계열은 JetBrains
 
 평가용 사진 5장은 APK에 포함하지 않는다. 각각의 저작자·원본·CC 라이선스는 `docs/vision/evaluation/ATTRIBUTION.md`를 그대로 보존한다. 기상청 데이터의 출처와 공공누리 제1유형 조건은 `docs/context-audio/SOURCES.md`에 기록되어 있다.
 
-앱 자체 코드의 공개 라이선스는 지정하지 않았다. 위 고지는 외부 의존성과 재사용 도구에만 적용된다.
+앱 자체 소스·빌드 스크립트·테스트는 [AGPL-3.0-only](LICENSE)로 공개한다. 외부 코드·모델·글꼴은 각각의 원래 라이선스와 고지를 유지한다. 보고서와 주행 영상·음악·스크린샷에 이 소스 라이선스를 일괄 적용하지 않는다.
+
+| 추가 구성요소 | 출처·활용 | 라이선스 |
+|---|---|---|
+| YOLO26n-sem-ADE20K | https://github.com/ultralytics/ultralytics — 건물·창문·간판 의미분할. 320 ONNX/ORT 변환, 비실행 설명 경로만 정리 | AGPL-3.0 |
+| ONNX Runtime Android 1.31.0 | https://github.com/microsoft/onnxruntime — 기기 내 의미분할 추론 | MIT 및 포함 ThirdPartyNotices |
+
+[모델 소스와 변환](models/semantic/README.md), [앱 내 고지](app/src/main/assets/licenses/SEMANTIC-SOURCES.txt), [전체 AGPL 원문](app/src/main/assets/licenses/ultralytics-LICENSE.txt)을 보존한다.

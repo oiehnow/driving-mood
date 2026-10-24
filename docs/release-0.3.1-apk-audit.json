@@ -1,0 +1,36 @@
+{
+  "apk": "DrivingMood-0.3.1-release.apk",
+  "sha256": "e1e887a63771b1fad081de634db6ce38c33288e343abd1ea62a02336389355fa",
+  "entries": 563,
+  "dex_files": 2,
+  "dex_strings": 104373,
+  "font_name_strings": 167,
+  "findings": [],
+  "upstream_metadata": [
+    {
+      "entry": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
+      "category": "upstream_build_path",
+      "sha256": "d80dfdfc6e034b7595137d035a279eddf70b028587510e99ede4a7e634c342a0",
+      "original_binary_unchanged": true
+    },
+    {
+      "entry": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
+      "category": "upstream_build_path",
+      "sha256": "e9b78610fe2bd597202e6cc5645e3fa0fc4a704684d07dded03c40678f8023db",
+      "original_binary_unchanged": true
+    },
+    {
+      "entry": "lib/x86/libmediapipe_tasks_jni.so",
+      "category": "upstream_build_path",
+      "sha256": "680cc80ced0fe7388d4f8c857a3dfb46f46b1d01272a38ba374b1491632b7975",
+      "original_binary_unchanged": true
+    },
+    {
+      "entry": "lib/x86_64/libmediapipe_tasks_jni.so",
+      "category": "upstream_build_path",
+      "sha256": "1cea5b9b96a29c72ed92629794e93ba4aa202440090b5cd1de48952654d6128a",
+      "original_binary_unchanged": true
+    }
+  ],
+  "passed": true
+}

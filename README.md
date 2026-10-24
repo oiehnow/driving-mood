@@ -16,7 +16,7 @@
 
 ![분석 요청부터 결과까지](docs/product/assets/request-flow.gif)
 
-현재 0.3.0은 **30초·60초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 촬영한 영상에서 1초마다 대표 프레임을 분석하고, 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
+현재 0.3.1은 **30초·60초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 촬영한 영상에서 1초마다 대표 프레임을 분석하고, 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
 
 ## 무드 키워드를 만드는 과정
 
@@ -47,12 +47,14 @@ Android 8.0 이상을 지원합니다. [APK 빌드·설치 안내](docs/BUILD.md
 
 ## 개발 현황
 
-현재 APK는 **EfficientDet Lite0 사람·차량 검출과 픽셀 기반 조명·색감 측정**을 사용합니다. 의미분할 모델은 데스크톱에서 비교 중이며, 내비게이션·실차 조명·장소 추천은 후속 개발 항목입니다.
+현재 APK는 **YOLO26n-sem-ADE20K 의미분할 + EfficientDet Lite0 사람·차량 검출 + 자체 색·면적 점수 규칙**을 기기 안에서 실행합니다. 내비게이션·실차 조명·장소 추천은 후속 개발 항목입니다. [모델과 재현 자료](docs/vision/SEMANTIC_MODEL.md)
 
-0.3.0은 자동 검사 250개와 에뮬레이터 기능 검사 5개, 빌드·Lint·서명·정렬 검사를 통과했습니다. Galaxy S25+ 실기기 검증은 진행할 항목입니다. [검증 기록](docs/VALIDATION.md)
+0.3.1은 자동 검사 261개와 에뮬레이터 녹화 검사 5개·최종 APK 검사 2개, 빌드·Lint·서명·정렬 검사를 통과했습니다. Galaxy S25+ 실기기 검증은 진행할 항목입니다. [검증 기록](docs/VALIDATION.md)
 
 ## 기술 문서
 
 - [제품 구조와 개발 계획](docs/product/ARCHITECTURE.md) · [설계 보고서 PDF](docs/product/DrivingMood-Design.pdf)
 - [영상 분석](docs/vision/README.md) · [분석 데이터 계약](docs/ANALYSIS_CONTRACT_V2.md) · [무드 점수 설계](docs/product/MOOD_SCORING.md)
 - [환경·음악 출처](docs/context-audio/SOURCES.md) · [외부 라이선스](THIRD_PARTY_NOTICES.md)
+
+앱 소스는 [AGPL-3.0-only](LICENSE)로 공개합니다. 외부 모델·라이브러리·글꼴·영상은 각각의 원래 고지를 따릅니다.

@@ -37,6 +37,7 @@ class RecordedFlowDeviceTest {
     private val output by lazy { File(context.getExternalFilesDir(null), "native-check-${System.currentTimeMillis()}").apply { mkdirs() } }
 
     @Before fun permissions() {
+        assertEquals("1", android.system.Os.getenv("ORT_DISABLE_TELEMETRY"))
         listOf(Manifest.permission.CAMERA, Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_FINE_LOCATION).forEach {
             instrumentation.uiAutomation.grantRuntimePermission(context.packageName, it)
@@ -66,8 +67,10 @@ class RecordedFlowDeviceTest {
             var latestStatus = ""
             var lastStatus = ""
             val start = SystemClock.elapsedRealtime()
+            var maxPssKb = 0
             await(270_000, "record/decode/commit $duration") {
                 var finished = false
+                maxPssKb = maxOf(maxPssKb, android.os.Debug.getPss().toInt())
                 var takeFrame = false
                 scenario.onActivity { activity ->
                     latestStatus = field<TextView>(activity, "cameraStatus").text.toString()
@@ -109,11 +112,15 @@ class RecordedFlowDeviceTest {
                 assertTrue(window.durationMs in (duration - 1000)..duration)
                 assertTrue("sample count ${window.samples.size}", window.samples.size >= duration / 1000 - 2)
                 assertTrue(window.samples.all { sample -> sample.vision.sceneObservations?.runtime == SceneObservationRuntime.ANDROID_RECORDED })
+                val expectedVersion = "semantic-contrast-mobile-v1"
+                assertTrue(window.samples.all { sample -> sample.vision.sceneObservations?.lightFeatures?.measurementVersion == expectedVersion })
+                assertEquals("scene-v2.0", completed.recommendation.scoreSummary?.ruleVersion)
+                assertFalse(completed.recommendation.scoreSummary!!.notes.any { note -> note.contains("미지원 측정 버전") })
                 assertTrue(window.samples.zipWithNext().all { (a,b) -> b.elapsedMs > a.elapsedMs })
                 assertTrue(snapshot.analyzedAtEpochMs >= snapshot.observationEndEpochMs!!)
                 assertEquals(snapshot.requestId, field<Long?>(state!!, "lastNotifiedId"))
                 assertFalse(state!!.claimCompletionSound(snapshot.requestId))
-                report("SUCCESS duration=$duration samples=${window.samples.size} first=${window.samples.first().elapsedMs} last=${window.samples.last().elapsedMs} completionGate=once elapsed=${SystemClock.elapsedRealtime() - start}")
+                report("SUCCESS mode=$expectedVersion duration=$duration samples=${window.samples.size} first=${window.samples.first().elapsedMs} last=${window.samples.last().elapsedMs} completionGate=once elapsed=${SystemClock.elapsedRealtime() - start} peakSampledPssKb=$maxPssKb nativeHeapBytes=${android.os.Debug.getNativeHeapAllocatedSize()}")
             }
             await(10_000, "completed video cleanup") { recordings().isEmpty() }
         }

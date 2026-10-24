@@ -157,7 +157,7 @@ internal class SceneFeatureScorer {
     private fun unit(x:Float?):Boolean=x!=null && x.isFinite() && x in 0f..1f
     companion object {
         const val RULE_VERSION="scene-v2.0"
-        private val MEASUREMENT_VERSIONS=setOf("accepted-light-rgb-v1","semantic-contrast-rgb-v3")
+        private val MEASUREMENT_VERSIONS=setOf("accepted-light-rgb-v1","semantic-contrast-rgb-v3","semantic-contrast-mobile-v1")
         private val FLAG_LABELS=mapOf("SOURCE_TYPE_UNCONFIRMED" to "밝은 영역의 종류 미확인",
             "SEMANTIC_MASK_QUALITY_UNEVALUATED" to "의미 마스크 품질 미평가",
             "RESEARCH_SELECTION_NOT_PRODUCT" to "연구 관측 입력",

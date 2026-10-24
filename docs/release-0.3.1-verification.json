@@ -1,0 +1,27 @@
+{
+  "apk": "DrivingMood-0.3.1-release.apk",
+  "sha256": "e1e887a63771b1fad081de634db6ce38c33288e343abd1ea62a02336389355fa",
+  "bytes": 223677864,
+  "unitTests": {
+    "tests": 261,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "classes": 31
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 39,
+    "Fatal": 0
+  },
+  "sourceFiles": 149,
+  "nativeRecordingTests": 5,
+  "nativeFinalReleaseTests": 2,
+  "nativeRgbRows": 12,
+  "nativeCandidateVsProductionDifferences": [],
+  "versionName": "0.3.1",
+  "versionCode": 9,
+  "applicationId": "kr.urbanmood",
+  "runtime": "Android 15 API 35 x86_64 emulator",
+  "recordingComparedToFinal": "Only SEMANTIC-SOURCES.txt changed; DEX, model, manifest, resources and native libraries are identical."
+}

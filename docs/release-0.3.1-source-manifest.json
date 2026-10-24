@@ -1,0 +1,598 @@
+[
+  {
+    "file": "app/build.gradle.kts",
+    "sha256": "4A3D31F76245FF29E211654059417AF1F115752476946491D8AEC4F6484565FF"
+  },
+  {
+    "file": "app/src/androidTest/assets/scene-fixtures/clip-03-000400.rgb",
+    "sha256": "35F585EE2BB2CC2A7EE38D12BE281A5858433EB012EB3C83AAD5BEE48F881EB9"
+  },
+  {
+    "file": "app/src/androidTest/assets/scene-fixtures/clip-03-000899.rgb",
+    "sha256": "5190497968F0EE1F9F5D7FF220308A27A6D0071008BD52CC5060C3E64494A104"
+  },
+  {
+    "file": "app/src/androidTest/assets/scene-fixtures/clip-04-000250.rgb",
+    "sha256": "27BB15738ECEDCBA9D90DCB6D1728F064E79F974A4306DDBC4A69C40C84E891C"
+  },
+  {
+    "file": "app/src/androidTest/java/kr/urbanmood/integration/ProductionConfigurationDeviceTest.kt",
+    "sha256": "EF9935742AB3D835D81C8E156227522855013AE3F880C23A2466E6B29366FBF7"
+  },
+  {
+    "file": "app/src/androidTest/java/kr/urbanmood/integration/RecordedFlowDeviceTest.kt",
+    "sha256": "5E57139839C098E0B48F25FA9F7319860EF88F4ADA3F2E210DB41F8A8BFA787E"
+  },
+  {
+    "file": "app/src/androidTest/java/kr/urbanmood/vision/SemanticNativeDeviceTest.kt",
+    "sha256": "94BB800216C6392832FE4E2C140E16920B83C6E76E81F861E14EB207B65C2F3F"
+  },
+  {
+    "file": "app/src/main/AndroidManifest.xml",
+    "sha256": "A81DB18B75E17D5CBF7F5AF4D4DF07A23856BC2E90839E4922809E0411FE2AC3"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.activity--activity--1.11.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.activity--activity-ktx--1.11.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.annotation--annotation-jvm--1.9.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-camera2--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-camera2-pipe--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-core--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-lifecycle--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-video--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera--camera-view--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera.featurecombinationquery--featurecombinationquery--1.6.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.camera.viewfinder--viewfinder-core--1.5.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core--1.17.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core-backported-fixes--1.0.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core-ktx--1.17.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.core--core-viewtree--1.0.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.exifinterface--exifinterface--1.4.2--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-common-jvm--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-livedata--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-livedata-core--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-livedata-core-ktx--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-runtime-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-runtime-ktx-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel-ktx--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.lifecycle--lifecycle-viewmodel-savedstate-android--2.9.4--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.profileinstaller--profileinstaller--1.4.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.savedstate--savedstate-android--1.3.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.savedstate--savedstate-ktx--1.3.1--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.tracing--tracing-android--1.3.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/androidx.tracing--tracing-ktx--1.3.0--1.txt",
+    "sha256": "809FA1ED21450F59827D1E9AEC720BBC4B687434FA22283C6CB5DD82A47AB9C0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Apache-2.0.txt",
+    "sha256": "C71D239DF91726FC519C6EB72D318EC65820627232B2F796219E87DCF35D0AB4"
+  },
+  {
+    "file": "app/src/main/assets/licenses/DrivingMood-AGPL-3.0.txt",
+    "sha256": "0D96A4FF68AD6D4B6F1F30F713B18D5184912BA8DD389F86AA7710DB079ABCB0"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Gradle-LICENSE.txt",
+    "sha256": "9536D88EA948603D18E232A13F5958D67807CD80828036B082BFF171D2CF0703"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Gradle-NOTICE.txt",
+    "sha256": "C2DE5FD9ADC7CCC4E1382A0E1F38EC6E14F8CA6E28D3C20289FE80353B019AA1"
+  },
+  {
+    "file": "app/src/main/assets/licenses/jakarta.inject--jakarta.inject-api--2.0.1--1.txt",
+    "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30"
+  },
+  {
+    "file": "app/src/main/assets/licenses/jakarta.inject--jakarta.inject-api--2.0.1--2.txt",
+    "sha256": "992ED62DD3EE17D73CE6A4A5E02DD0FED9EB326BF386AA5304E6A512214DF540"
+  },
+  {
+    "file": "app/src/main/assets/licenses/JSR305-source-copyright.txt",
+    "sha256": "DF438089AD469CC38B9D868E3D292EBA8E8D07277EB5ACA6D9F07559321E25C3"
+  },
+  {
+    "file": "app/src/main/assets/licenses/onnxruntime-LICENSE.txt",
+    "sha256": "2F07C72751AED99790B8A4869CF2311DF85A860B22DED05FA22803587A48922C"
+  },
+  {
+    "file": "app/src/main/assets/licenses/onnxruntime-ThirdPartyNotices.txt",
+    "sha256": "143764B952FDB1A7C69CE653BFBA74A7744D6A8A573BFB73E235FBA356C83DE3"
+  },
+  {
+    "file": "app/src/main/assets/licenses/org.checkerframework--checker-qual--3.43.0--1.txt",
+    "sha256": "E90EAA08DEA089DF10F2BF7F9DBA63A5F6237C01562C4741E2E86773E78582D5"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Pretendard-OFL.txt",
+    "sha256": "B04538C9ABEC39A3DB75108CF0AF0FD9C77032FE8AA2CF38345B4D250E98E38E"
+  },
+  {
+    "file": "app/src/main/assets/licenses/Protobuf-LICENSE.txt",
+    "sha256": "6E5E117324AFD944DCF67F36CF329843BC1A92229A8CD9BB573D7A83130FEA7D"
+  },
+  {
+    "file": "app/src/main/assets/licenses/runtime-license-index.txt",
+    "sha256": "C62FEFA1696BCA3D918E5C171999E36AAACA30E9E483D2FE1C6A663DF34FE6BA"
+  },
+  {
+    "file": "app/src/main/assets/licenses/SEMANTIC-SOURCES.txt",
+    "sha256": "9E3B33AE11DF20970FD64CA36E0159341C71EF7DEC9F4C78C9FC6655912D52CA"
+  },
+  {
+    "file": "app/src/main/assets/licenses/THIRD_PARTY_NOTICES.txt",
+    "sha256": "5EE5AEF8B7D85F1A0C93BCA8917893B3FABF2C9A0BF820801710A483B5A93A8C"
+  },
+  {
+    "file": "app/src/main/assets/licenses/ultralytics-LICENSE.txt",
+    "sha256": "0D96A4FF68AD6D4B6F1F30F713B18D5184912BA8DD389F86AA7710DB079ABCB0"
+  },
+  {
+    "file": "app/src/main/assets/vision/Apache-2.0.txt",
+    "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30"
+  },
+  {
+    "file": "app/src/main/assets/vision/efficientdet-lite0-metadata-v1.tflite",
+    "sha256": "2E04C53BFEAC0AC2A30C057C7E2A777594CE39BAAAC35A92F74FB1E8C4FC4E0B"
+  },
+  {
+    "file": "app/src/main/assets/vision/THIRD-PARTY-NOTICES.md",
+    "sha256": "9EDAE7BBC08AE9CEDA421F95B8C3D3B4FBF14DD30912CAAD1885E47876731DA1"
+  },
+  {
+    "file": "app/src/main/assets/vision/yolo26n-sem-ade20k-320.ort",
+    "sha256": "6CE74261203E17EEEFDA81E41DD8E7E764B0DC98368DC9662501A8DE12054DFC"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/audio/LocalAudioPlayer.kt",
+    "sha256": "AE78DFAA9F3409A4B41F4DB348AEC754761CB563B4F17E7744E3C4EC6FDEE796"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/audio/PlaybackPolicies.kt",
+    "sha256": "8C0B09684787CBD41DF03EC23B6C0F8F1A9401996CAAB61FE126C345D1CE2BFA"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/CameraController.kt",
+    "sha256": "FAB001CDE709744B10EC9FF52FF77BF24DF8C7E5AA34BD119631757CE05DB967"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/CapturePolicy.kt",
+    "sha256": "EF1094C3D9795DDF3C1C07D992E0A12E48F6990E7B4B183BF96881DAD98C39EB"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/EvidenceOverlayView.kt",
+    "sha256": "897F08B062751F8F2ECFC0FD25FA15BB948281E5A62A1C3AA8BCDD21FD31EA1E"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/RecordedVideoDecoder.kt",
+    "sha256": "3B554986674225537BD9B72225164171ED30F08D8BC168308E7800AFB4070E13"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/RecordingPolicy.kt",
+    "sha256": "ACB0996CDA3F9A4E09203F129D604D63C313D0AE45A552C4F67AF1497C2E1C5E"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/RegionScoreCaptions.kt",
+    "sha256": "09F72BBCC2BE33CA80D202E1E5F3ACE8D83DBEBD74157851E4D9790029B0041D"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/camera/VideoCaptureController.kt",
+    "sha256": "8EE21F9F637661A079E95C379841C32EB5847D230D2E60B10371EA55498CFEBD"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/AndroidEnvironmentProvider.kt",
+    "sha256": "EA457A91BFC62669B2548A110325BF23DC97BA055AED18F88773684E7B5C44A4"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/AndroidOneShotLocation.kt",
+    "sha256": "B71BD759C46B247ED5F458F411EC427C90FB6B234E3EF5E3B4A4801D82AA807A"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/KmaWeather.kt",
+    "sha256": "AA0A8633B41906A5F3143C38427BCEE649BB9540A7F88FC3D7A2CB47E26FDD64"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/context/WeatherRequests.kt",
+    "sha256": "1547890C7352FF5EAC25A4299339A066C816607D0772CF4AC854FC4422EBF604"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/Contracts.kt",
+    "sha256": "7374190E003550E39C23D6DF33D7C140C3C59B7D259465609CC7127BA187F929"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/LightingContracts.kt",
+    "sha256": "477BE76682F9447AB416A18C554480CAF05A59F7656A3E9DED0670B2DC7C4A8C"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/SceneContracts.kt",
+    "sha256": "C67F928CC3E667B7181D5AD4780B25813FF54E45167D851573F94644CE1B8FDA"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/contracts/VisionMeasurementPolicy.kt",
+    "sha256": "4AC1E713FA705A20BFDD9CDA85B8F32250FC6A626FBE007BDEE69C7323FF5B65"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/DrivingMoodApplication.kt",
+    "sha256": "3CD51D48D05AA392E55BAF945EF861C60D1F7BA8A76A7775BE7384D27531FB5A"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/AppServices.kt",
+    "sha256": "D5884F0140F0D2556832F013496B485BC69684AFDF2C71E878A02E2B050DF2AA"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/AppTypography.kt",
+    "sha256": "25837808B569CCEBBB09CCE10CB121E5441F23B1F3B457A6CB64D49F84132F60"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/CompletionCue.kt",
+    "sha256": "775073B6C69877F1B39764E49A7DE48D4195A4D5D6BF2C9BB71A174F314A8AAF"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/LightingPreview.kt",
+    "sha256": "54A7C21A4EF164A96ADF4CA307BF487351F55C6642E6463A7ED5B4757B4871AE"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/OneShotAnalysis.kt",
+    "sha256": "779B26DBC758992F941C6914129CC7D4749C1F198CA5B8913FDBC1F0749674D4"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/ProductText.kt",
+    "sha256": "9ED5EED55AF40EFA64618D995B26118E1340C022DD4E8080635A3FFE74DD3FE2"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/RecordedRequestRunner.kt",
+    "sha256": "CEEE3E8D8C835C30E283A9BC4E8C64A6EA5707699E424452E055E3287353B5D1"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/RecordedSceneAnalyzer.kt",
+    "sha256": "D5BBDFEA11451274E11E873E2B30A64338A463AB8DC170EA59B613B54CF60B5C"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/SessionState.kt",
+    "sha256": "4B22FCC14321AD444C38131CE76CDEBF689B722931E5314589BB3E8429B08144"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/TimedSceneCapture.kt",
+    "sha256": "26B09BF617961F5BCDDB0A747381346BD9CB4AFDDCECA5E7D44F366D028D27C3"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/integration/VisionQualityText.kt",
+    "sha256": "D2110D46C38A799C5EF69D6A98135FE8BF0ED91E2913691FA71C8E572C311976"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/MainActivity.kt",
+    "sha256": "9B3FD4897059185A9FC75E86486B1AAC0FBDA91F08157EC07903A68E2B59C24E"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/MoodRecommendationEngine.kt",
+    "sha256": "34388BD53E8252ADF176A8DAC3EF42677AD9BB8D41476376A60F8C293B77B75A"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneAccumulator.kt",
+    "sha256": "F71527519E6F9180C29FB3E462EFF5E5999739071B607EC7AFCCC7CC785BE930"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneFeatureScorer.kt",
+    "sha256": "E76CEFB4585B7CACD11A5039F82E4EBBFB7141F31644325C0B9AB254BE51E555"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneInterpreter.kt",
+    "sha256": "6E4D0E164B25D097EF94A76AB3F48224013DFB2E3B85B1405BAAECAE09D4C0DD"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/recommendation/SceneMoodScorer.kt",
+    "sha256": "990F89778B38470AD5014618D9933D96B3F5A232E278E920E9A83180F0BA4EBD"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/LightMeasurement.kt",
+    "sha256": "25B7515E42FAEC7980EC58FC5B668A1E231CA05FB8DD12DF9547281887FB5FA0"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/LightPixelStatistics.kt",
+    "sha256": "286CD3DD2162C70F0553128617051F1460E8A9910248A641357848E00107260A"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/MediaPipeVehicleDetector.kt",
+    "sha256": "4326DA49E81ACFFCC7192E99950DD1D2ABF493A7B06C900EEA64A6A603E1F935"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/OrtSemanticFrameModel.kt",
+    "sha256": "3C918CCA92DA9F24DD0B36FC25CE1C505788F90C90CFEFEF67B3EBCCD5F40313"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/SceneObservationBuilder.kt",
+    "sha256": "AB5B23DE793439E262A7C63206C4E62B49672F32325103979C61C065F682990E"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/SemanticContrastObserver.kt",
+    "sha256": "970420CE83E0EE3A6716577AEA95B6E0F4FC6CCD6D0DDBB0B5B27CEE323275C7"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/SemanticLightAnalyzer.kt",
+    "sha256": "5F0E5CFBF702B14090C748F12F46E84469E31868C603EB78C6B4CEB094DF7B0C"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/SemanticModelInput.kt",
+    "sha256": "C058B0BFA77E89AD82D6392E6EEBDAB549C1AE4E6EF242FC2D06CE19CD2148A0"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/TemporalLightFilter.kt",
+    "sha256": "DED98824A6FE6633C823415545EC9E61A28C571B952E9F717EC0AE5D0A454DA0"
+  },
+  {
+    "file": "app/src/main/java/kr/urbanmood/vision/UrbanLightAnalyzer.kt",
+    "sha256": "FA3C9B4E3BBE5B6FA8CC6BE081287B4C628E20B9F53BBA11B2D490E57B577D99"
+  },
+  {
+    "file": "app/src/main/res/drawable/ic_urbanmood.xml",
+    "sha256": "5D2AA5A6F983112D9C4DD12A1FF67104222CE3788134067F099D623A4B533EB9"
+  },
+  {
+    "file": "app/src/main/res/font/pretendard_variable.ttf",
+    "sha256": "3090CCDE0442BB347AA7685D9BA8B17436A60682DF6E8F92A9A670DE14056E22"
+  },
+  {
+    "file": "app/src/main/res/raw/mood_complete.wav",
+    "sha256": "BD3D25089EF557BCB8BD738A857A97BE36BBF21F2F3FF16AE061711F8DBD8C96"
+  },
+  {
+    "file": "app/src/main/res/values/strings.xml",
+    "sha256": "20AD92FCB8BCD9D388F60E052E8DB20D3111794BA44762699F42673A45117B81"
+  },
+  {
+    "file": "app/src/main/res/values/styles.xml",
+    "sha256": "78071F8DEA25DE3401F03C76FD7441DDA83858D2FBE6BC96DBAD273F662AF658"
+  },
+  {
+    "file": "app/src/main/res/xml/data_extraction_rules.xml",
+    "sha256": "7A4E6DEFDCB7E21A8CDB4BB4CBDBBEF15BCD4C6BAE923372FBFA07F0642AC29A"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/audio/PlaybackPoliciesTest.kt",
+    "sha256": "16AD338866ADE041BD1D88D98A88ED956985F5016BE3F1E314AD02F3A5C8FD67"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/camera/CapturePolicyTest.kt",
+    "sha256": "AEB45C81D983C1E7F9A861C1AA5DDD89933711D7CAB4325C7909073C6352173E"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/camera/EvidenceOverlayTest.kt",
+    "sha256": "32DF7E4026FBF7066EA5F6C44F83E8D6DC3B3272351941CD5D747FFBB83ED231"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/camera/RecordingPolicyTest.kt",
+    "sha256": "C0107AE83C03CCDCEBF1229799811A3E5CB2D4C57544855B2A96728791BB7A01"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/context/KmaTransportTest.kt",
+    "sha256": "056DCC8DA4BD389B57F9DF5BB11B47099634C7FAD453B5B770543EAB904E06F2"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/context/KmaWeatherTest.kt",
+    "sha256": "BA043CAFA59AF11DC0434978AD9448C58C933DE9A826439CDA50A4BF357F10C4"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/context/OneShotEnvironmentTest.kt",
+    "sha256": "8EDFE345DF9A1C8DD0184E7B60DAC3BE43FC7D24E516E54052450E3D08960835"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/context/WeatherRequestsTest.kt",
+    "sha256": "36B6C895A20D87D4A385542A237B82E6AE3AD1AC090537998223722E9366B981"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/contracts/VisionMeasurementPolicyTest.kt",
+    "sha256": "6A209996D06ED0DEB9876329ACAD7A0EE9BD3B71ADADDA4AB5627D1DC6B01CD2"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/integration/MainActivityIntegrationTest.kt",
+    "sha256": "3CAA18C8769679254FD3303D3C6716B4D62F09D83547D2ACCC7E06B864D1FCEA"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/integration/OneShotAnalysisTest.kt",
+    "sha256": "73E98648E6C7F3766896F3762606372F39B90B2ED051F881795774237AA8F9BC"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/integration/ProductTextTest.kt",
+    "sha256": "0AE1E89767EC322606C1ADDE72E34CAC32F414532CD594D96903BCC218A9DFCD"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/integration/RecordedRequestRunnerTest.kt",
+    "sha256": "3A10012BDD92CE0EE755A8CB8ADEFF7FCE73FA0987A7F37ED2DC039811A51CCF"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/integration/TimedSceneCaptureTest.kt",
+    "sha256": "DC23F5470AD103A8DDB1ACD14C04D9B432A1EE934455643B6811206F1A6FBA1D"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/integration/VisionQualityTextTest.kt",
+    "sha256": "5CC1C8544B05C9E8A62694AFA6FA0EF52D3B52C6DD0EE7A1C3D7485128D62094"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/integration/VisionRecommendationIntegrationTest.kt",
+    "sha256": "6A9DF129A246D288C29D3C7781C56FB0F4041F3C4EE5F880CE1E8CCCE97A6400"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/recommendation/MoodRecommendationEngineTest.kt",
+    "sha256": "5137150E2BA5CFC9FB4B97D0DC12837F1807984C09D0CDC16B1A96A31783F9A7"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/recommendation/SceneAccumulatorTest.kt",
+    "sha256": "3A278E640953D876C5B540B34926086ABE0BEBD32E2C2EDB2E4C7A25448F0A88"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/recommendation/SceneFeatureScorerTest.kt",
+    "sha256": "4425D045A342A1D9F46D4F7684FE55F18B7F8868D638B7CCDDC030A99ECF1C42"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/recommendation/SceneMobileFeatureCompatibilityTest.kt",
+    "sha256": "115501A63639DC60BDA8E0066AFC950C5C3B015962BB50F962784FD21767A18A"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/recommendation/SceneMoodScorerTest.kt",
+    "sha256": "5A6F03CB790E277E75E74F5FFF188D929A386425724AE9C69E38E954AE2B353B"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/recommendation/SceneRecommendationIntegrationTest.kt",
+    "sha256": "6AD8634611E49AD98B08F1399DD559765FB8C24E2EF640DC695E6C86F3C61A0E"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/LightMeasurerTest.kt",
+    "sha256": "F870DE1BBE2093CC1BCFD817E02C586851FE5F85EF1AECB18FDB6A24AF8F7B19"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/LightPixelEvidenceTest.kt",
+    "sha256": "55E20CE71B0172AA038CD84C7085A855FDB4D7AF1A53599C8AB9181AA3EA6563"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/LightPixelStatisticsTest.kt",
+    "sha256": "54B2EC9D693DAEBBE62C5E71DD4238A73192E9DDD40DD7851A329398C45CA467"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/PixelMeasurementQualityTest.kt",
+    "sha256": "98D7647EC1F0905295B56969BAAD54F29D77EC4EF6F94260DDD0B90622128669"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/SceneObservationBuilderTest.kt",
+    "sha256": "30DB7B313BCE58373A2B7567972009E6B127392AFAE4632F1037ADEFACE112F3"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/SemanticContrastObserverTest.kt",
+    "sha256": "6C4BFAB56F81AB83D8EF1E740DB9433466525C011A13FCE75A29D892A3D4F533"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/TemporalLightFilterTest.kt",
+    "sha256": "3CFFB37CD6CB6A138F088C3F0C7ECBD2C7FAE9E2A3A667481D12067B921568CF"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/UrbanLightAnalyzerTest.kt",
+    "sha256": "FBF96CBA322B47B0CD06CAF1EE2354ECD48EB21BB9C09814F092BCBF3B1D0B0B"
+  },
+  {
+    "file": "app/src/test/java/kr/urbanmood/vision/VisionV2FixtureTest.kt",
+    "sha256": "1B93E470D979372BA8A2E1A46C30AE05F8767B4D6CCD7FAD3CF95AC2371710DF"
+  },
+  {
+    "file": "app/src/test/resources/robolectric.properties",
+    "sha256": "4CA02A7EA7915B000F819CDA310A84793320AE91CA1461E314637C66E3D1744F"
+  },
+  {
+    "file": "build.gradle.kts",
+    "sha256": "01BF64A5A698963BB7685D8B13DA26A3088E4C87D6919A6CDECD2642A1934130"
+  },
+  {
+    "file": "gradle.properties",
+    "sha256": "2C642158EE68807B5B44D817ED7B5A49C186F5B70C830A1A94CB0F0BBCBA7DA6"
+  },
+  {
+    "file": "gradle/wrapper/gradle-wrapper.jar",
+    "sha256": "81A82AAEA5ABCC8FF68B3DFCB58B3C3C429378EFD98E7433460610FECD7AE45F"
+  },
+  {
+    "file": "gradle/wrapper/gradle-wrapper.properties",
+    "sha256": "883E79C5E97DFC85282132A59C596AE9444743F17BA1C5FA88DE73353C128FC1"
+  },
+  {
+    "file": "gradlew",
+    "sha256": "C76F16038B4E70B84ED0B3B9E08E82A8ECAF66EC0EFDFDECDECE92520FA3CECB"
+  },
+  {
+    "file": "gradlew.bat",
+    "sha256": "0F3ED8F03B50934CB8C48B15A470D5C20A30A5385825E48B55BCC8EA3D8F8E18"
+  },
+  {
+    "file": "settings.gradle.kts",
+    "sha256": "C191310474F362794B72B0D9FD31DC76A88DFDBBFEA4C27FA205FE6AE40B053A"
+  }
+]

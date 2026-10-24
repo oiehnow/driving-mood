@@ -62,11 +62,11 @@ class EvidenceOverlayView(context: Context) : View(context) {
         if (width <= 0 || height <= 0 || regions.isEmpty()) return
         val pad = 3 * resources.displayMetrics.density
         val headerHeight = label.fontSpacing + 2 * pad
-        val maxLabels = ((height - headerHeight) / (label.fontSpacing * 3 + 2 * pad)).toInt().coerceIn(1, 8)
+        val maxLabels = ((height - headerHeight) / (label.fontSpacing * 4 + 2 * pad)).toInt().coerceIn(1, 4)
         val shown = regions.filter { fitEvidence(it, imageWidth, imageHeight, width, height) != null }
             .sortedWith(compareByDescending<RegionEvidence> { captions[it.id]?.isNotEmpty() == true }
                 .thenByDescending { (it.right - it.left) * (it.bottom - it.top) }).take(maxLabels)
-        val header = "현재 프레임 기여 · 표시 ${shown.size}/${regions.size} · 전체 관측으로 계산"
+        val header = "현재 프레임 · 주요 영역 ${shown.size}/${regions.size}"
         canvas.drawRect(0f, 0f, width.toFloat(), headerHeight, background)
         canvas.drawText(ellipsize(header, width - 2 * pad), pad, pad - label.ascent(), label)
         val occupied = mutableListOf<RectF>()
@@ -94,10 +94,7 @@ class EvidenceOverlayView(context: Context) : View(context) {
                 generateSequence(headerHeight) { it + lineHeight + pad }.takeWhile { it <= maxTop }.toList()
             val boxes = candidates.map { RectF(x, it, x + boxWidth, it + boxHeight) }
             val box = boxes.firstOrNull { candidate -> occupied.none { RectF.intersects(candidate, it) } }
-                ?: boxes.minBy { candidate -> occupied.sumOf { other ->
-                    (minOf(candidate.right, other.right) - maxOf(candidate.left, other.left)).coerceAtLeast(0f).toDouble() *
-                        (minOf(candidate.bottom, other.bottom) - maxOf(candidate.top, other.top)).coerceAtLeast(0f)
-                } }
+                ?: continue // Keep the evidence rectangle; never cover another label with text.
             occupied += box
             canvas.drawLine((bounds.left + bounds.right) / 2, bounds.top, box.centerX(), box.bottom, line)
             canvas.drawRect(box, background)

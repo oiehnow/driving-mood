@@ -1,0 +1,22 @@
+Driving Mood — semantic observation
+
+Application source: https://github.com/oiehnow/driving-mood
+Application license: AGPL-3.0-only. See DrivingMood-AGPL-3.0.txt.
+
+Model: Ultralytics YOLO26n-sem-ADE20K
+Upstream: https://github.com/ultralytics/ultralytics
+Original weights: https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n-sem-ade20k.pt
+Model license: AGPL-3.0. See ultralytics-LICENSE.txt.
+Original weights SHA-256: 68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000
+Packaged 320 ORT SHA-256: 6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc
+Model bytes: 6386728
+Changes: fixed 320 ONNX export, ARM Fixed ORT optimization, no quantization or fine-tuning.
+Only a local training path was removed from description metadata.
+Tensor data, author, license and documentation metadata are preserved.
+Source models and conversion scripts: models/semantic and scripts/models in the application repository.
+
+Runtime: Microsoft ONNX Runtime Android 1.31.0
+Source: https://github.com/microsoft/onnxruntime
+License: MIT. See onnxruntime-LICENSE.txt and onnxruntime-ThirdPartyNotices.txt.
+ORT_DISABLE_TELEMETRY=1 is set before native initialization.
+Other dependencies and media retain their original licenses and notices.

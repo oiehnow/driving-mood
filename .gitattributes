@@ -1,0 +1,5 @@
+# Raw pixels and model formats must retain their exact bytes on every platform.
+*.rgb binary
+*.pt binary
+*.onnx binary
+*.ort binary

@@ -16,6 +16,11 @@ internal fun regionScoreCaptions(regions: List<RegionEvidence>, summary: MoodSco
             refs.map { it.regionId }.distinct().size != refs.size ||
             abs(refs.sumOf { it.allocatedDelta!!.toDouble() } - delta) > .01) continue
         for (ref in refs) {
+            if (contribution.basis == ContributionBasis.OBSERVED_FEATURE_STRENGTH) {
+                val value = if (ref.allocatedDelta == 0f) "0.000" else String.format(Locale.KOREA, "%+.3f", ref.allocatedDelta)
+                captions.getOrPut(ref.regionId) { mutableListOf() }.add("${mood.keyword} $value 강도")
+                continue
+            }
             val unit = if (contribution.basis == ContributionBasis.OBSERVED_FEATURE_STRENGTH) " 관측강도" else "점"
             val amount = if (ref.allocatedDelta == 0f) "0.0$unit · 추가 기여 없음"
                 else "${String.format(Locale.KOREA, "%+.1f", ref.allocatedDelta)}$unit"

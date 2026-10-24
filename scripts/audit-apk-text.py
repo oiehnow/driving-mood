@@ -106,7 +106,7 @@ def audit(path):
                 # UTF-8 and UTF-16LE cover text assets, XML string pools and resources.arsc.
                 hits = {term for term in TERMS if any(term.encode(enc) in data
                         for enc in ("utf-8", "utf-16le"))}
-                if entry.filename.endswith((".so", ".tflite")):
+                if entry.filename.endswith((".so", ".tflite", ".ort")):
                     # Random machine code/weights are not text. Inspect actual printable runs.
                     for value in re.findall(rb"[\x20-\x7e]{6,}", data):
                         sensitive.update(sensitive_categories(value.decode("ascii")))
