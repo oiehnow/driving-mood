@@ -1,6 +1,7 @@
 """Read-only wording audit of the built APK, including DEX strings and binary resources.
 
 Usage: python scripts/audit-apk-text.py app/build/outputs/apk/release/app-release.apk
+Dependencies: Pillow, fontTools, onnx (ONNX assets are parsed, never treated as prose).
 Reports matching entry names and terms, never dumps arbitrary application strings.
 Copyright/license originals must be reviewed, not edited to silence a match.
 """
@@ -76,6 +77,37 @@ def image_metadata_strings(data):
                 yield value.decode("utf-8", errors="replace")
 
 
+def onnx_strings(data):
+    """Inspect protobuf text and STRING tensors, excluding numeric tensor storage.
+
+    ONNX TensorProto.raw_data contains little-endian numeric bytes, not UTF-8.
+    Missing parser support fails the audit instead of silently skipping the asset.
+    """
+    import onnx
+    from google.protobuf.descriptor import FieldDescriptor
+
+    model = onnx.load_model_from_string(data)
+
+    def walk(message):
+        if isinstance(message, onnx.TensorProto) and message.data_type == onnx.TensorProto.STRING and message.raw_data:
+            raise ValueError("Unsupported raw STRING tensor; inspect before release")
+        for field, value in message.ListFields():
+            values = value if field.is_repeated else (value,)
+            if field.type == FieldDescriptor.TYPE_MESSAGE:
+                for child in values:
+                    yield from walk(child)
+            elif field.type == FieldDescriptor.TYPE_STRING:
+                yield from values
+            elif field.name == "string_data" and isinstance(message, onnx.TensorProto):
+                for text in values:
+                    yield text.decode("utf-8", errors="strict")
+            elif isinstance(message, onnx.AttributeProto) and field.name in ("s", "strings"):
+                for text in values:
+                    yield text.decode("utf-8", errors="strict")
+
+    yield from walk(model)
+
+
 def audit(path):
     findings = []
     upstream_metadata = []
@@ -120,6 +152,11 @@ def audit(path):
             elif entry.filename.lower().endswith((".png", ".jpg", ".jpeg", ".webp", ".gif")):
                 hits = set()
                 for value in image_metadata_strings(data):
+                    hits.update(term for term in TERMS if term in value)
+                    sensitive.update(sensitive_categories(value))
+            elif entry.filename.lower().endswith(".onnx"):
+                hits = set()
+                for value in onnx_strings(data):
                     hits.update(term for term in TERMS if term in value)
                     sensitive.update(sensitive_categories(value))
             else:

@@ -1,10 +1,16 @@
-# 주행 장면 파인튜닝 파일럿
+# 주행 장면 파인튜닝
+
+0.3.9 앱 분석기는 **공식 기준 모델의 보호 영역 + n640 하늘 + C 파인튜닝 모델의 건물·창문·간판**을 결합한 F2를 사용한다. YOLO26n 객체 검출과 함께 Android 정합 검사와 실제 앱 분석기 비용 검사를 통과했다. 최종 서명 APK의 설치와 제품 경로 검사도 통과했다. [배포 검증](../VALIDATION-0.3.9.md) [전체 시행착오와 판단](MODEL_IMPROVEMENT_LOG.md), [후속 평가 증거](finetuning03/README.md), [실제 학습 코드·가중치](../../models/semantic/finetuning03/README.md)를 제공한다.
+
+CPU arena와 memory pattern을 비활성화한 최종 실행 정책에서도 [모델 입출력·합성 지도 정합](android-f2-039/native-parity-final.json)은 유지됐다. [에뮬레이터의 실제 분석기 측정](android-f2-039/product-final.json)은 첫 호출 2.117초, 재사용 호출 중앙값 1.652초, 분석 직후 PSS 표본 약 167–179MiB였다. 촬영·영상 디코딩·화면 표시를 제외한 결과이며 휴대폰·차량 성능이나 최대 메모리 측정은 아니다. 학습 정확도 개선과 실행 비용 검증은 각각 판단한다.
+
+아래는 최초 Pilot01의 실행 기록이다. 당시 학습·선택에서 분리한 시험 자료도 반복 검토 이후에는 개발 회귀 자료로 분류했다. 이후 실험을 새로운 독립 시험으로 표현하지 않는다.
 
 차량 주행 영상과 이미지 자료를 보강한 [2차 학습과 검증 결과](finetuning02/README.md)도 보존했다. 2차 후보는 개발 검증 평균 IoU를 높였지만 간판 오탐과 기존 보도·사람 성능이 악화돼 공식 기준 모델을 유지했다.
 
 2026년 10월 24일, 공식 YOLO26n-sem-ADE20K에서 실제 추가 학습을 수행했다. 도로 분류는 개선됐지만 클래스별 평균 IoU가 낮아져 0.3.1의 기본 모델은 공식 가중치로 유지했다.
 
-![학습 손실과 독립 시험 결과](../product/assets/finetune-pilot01.png)
+![Pilot01 학습 손실과 당시 분리 평가 결과](../product/assets/finetune-pilot01.png)
 
 ## 모델 선택
 
@@ -45,9 +51,18 @@ Ultralytics 8.4.184의 공식 semantic trainer로 320 입력, batch 2, AdamW 학
 
 별도 연구 APK에서도 두 모델을 비교했다. 모델별 자동 검사 261개와 네이티브 검사 7개를 통과했고, 동일 RGB·추론 텐서 14개에서 Android와 데스크톱 ORT의 클래스맵 차이는 0이었다. 30초·60초 촬영 완주와 취소 후 정리도 확인했다. [Android 비교 기록](finetune-pilot01/android-verification.json)은 Android 15 x86_64 에뮬레이터 결과이며 실제 휴대폰·차량 성능과 구분한다.
 
-기본 모델 교체에 필요한 개선 근거가 부족해 학습 후보와 기준 모델을 함께 보존했다. 다음 학습은 여러 원본 영상에서 낮·밤·비·도심·고속도로 장면을 고르게 확보하고 창문·간판·보도와 차량 경계의 주석을 보강한다. 같은 원본의 짧은 클립과 풀버전은 같은 그룹으로 묶고, 영상별 표본 수를 제한해 긴 영상에 학습량이 쏠리지 않게 한다. 이번 시험 집합은 회귀 확인용으로 보존하며, 다음 최종 평가는 미사용 원본 영상과 사람 검수 주석으로 구성한다.
+기본 모델 교체에 필요한 개선 근거가 부족해 학습 후보와 기준 모델을 함께 보존했다. 이 결과를 바탕으로 실제 차량 주행 영상과 이미지자료들을 사용해 장면 다양성을 보강한 Pilot02, 학습률·BN 통계·L2-SP 보존 규제를 분리한 A/B/C 실험을 진행했다. 같은 원본의 인접 프레임을 학습과 최종 평가에 섞지 않는 원칙을 유지한다.
+
+## 후속 실험에서 바뀐 판단
+
+A는 학습률 축소만으로 퇴행을 해결하지 못했고, B는 간판 재현율이 높아져도 오탐이 늘어 단독 교체를 채택하지 않았다. C는 초기 학습가능 가중치와의 거리 규제를 추가해 평균 지표를 개선했으나 차량 보호 기준을 넘는 하락이 있었다. 세 후보 모두 공식 초기 가중치에서 각각 시작했으며, 실패한 결과도 [실행 원장](../../models/semantic/finetuning03/evidence/)에 남겼다.
+
+이에 C 전체 지도를 사용하는 대신 F2에서 건물·창문·간판 역할만 제한적으로 사용한다. 규칙을 고정한 뒤 개발 기준과 별도 보조 평가를 통과했고 Android 입력·예측·합성 지도의 정합을 확인했다. 창문은 평가 범위에서 여전히 개선되지 않았다. 발광·반사·영업 여부와 무드 정확도는 의미분할 IoU로 검증된 항목이 아니다.
+
+C의 실제 학습은 `retention_loss.py`의 원소 평균 L2-SP와 BN 통계 고정으로 재현할 수 있다. train-only 예비 실행으로 규제 계수를 고정한 뒤 해당 가중치를 폐기하고 공식 초기 모델에서 본학습을 시작했다. [FP32 기준점·계수·체크포인트 선택·가중치 보존](../../models/semantic/finetuning03/README.md)을 문서와 코드에 함께 기록했다.
 
 ## 출처
 
 - [Ultralytics semantic trainer](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/models/yolo/semantic/train.py)와 [공식 의미분할 문서](https://docs.ultralytics.com/tasks/semantic/)를 사용했다. 모델·코드의 AGPL-3.0 고지를 보존한다.
 - [기준 모델과 모바일 변환](SEMANTIC_MODEL.md), [제품 설계](../product/ARCHITECTURE.md), [앱 검증 기록](../VALIDATION.md).
+- [L2-SP 원 논문](https://proceedings.mlr.press/v80/li18a.html)과 [저자 구현](https://github.com/holyseven/TransferLearningClassification)(MIT)을 참고했다. 규제 수식은 독립 구현했으며 Ultralytics 모델·학습 코드의 AGPL-3.0 조건을 유지한다.

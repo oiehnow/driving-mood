@@ -1,0 +1,208 @@
+{
+  "createdAtUtc": "2026-10-24T14:04:03.404269+00:00",
+  "files": [
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/compare.py",
+      "sourceSha256": "1f1ab13dbfd03381f8bef194635cca3001218f2bcdb2271632abcd1a8a5301c2",
+      "publicArtifact": "src/compare.py",
+      "publicSha256": "1f1ab13dbfd03381f8bef194635cca3001218f2bcdb2271632abcd1a8a5301c2",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/decide.py",
+      "sourceSha256": "d03b6cbb48ac9480d3a0f0afb34130b9e2613e223082fdf0b739ec1d0ba8ea98",
+      "publicArtifact": "src/decide.py",
+      "publicSha256": "d03b6cbb48ac9480d3a0f0afb34130b9e2613e223082fdf0b739ec1d0ba8ea98",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/compare_additional.py",
+      "sourceSha256": "a942311f290cdc07becb97a35ad760f5b5549a519b2877640002f6d04dfe6d67",
+      "publicArtifact": "src/compare_additional.py",
+      "publicSha256": "a942311f290cdc07becb97a35ad760f5b5549a519b2877640002f6d04dfe6d67",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/provenance/c02/evaluate.py",
+      "sourceSha256": "f7fe2e7e7a675a21a5b15cd1e713d9a70443b032e62f2d7be385b825ade1ac48",
+      "publicArtifact": "src/provenance/c02/evaluate.py",
+      "publicSha256": "f7fe2e7e7a675a21a5b15cd1e713d9a70443b032e62f2d7be385b825ade1ac48",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/provenance/c02/provenance/evaluate_heldout.py",
+      "sourceSha256": "f796d1a50074e06a2f5a1aaefaa0ed354699edc8e33a41b46fbfe97ac2aa8299",
+      "publicArtifact": "src/provenance/c02/provenance/evaluate_heldout.py",
+      "publicSha256": "f796d1a50074e06a2f5a1aaefaa0ed354699edc8e33a41b46fbfe97ac2aa8299",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/provenance/fusion-v1/fusion.py",
+      "sourceSha256": "42cb12da90e83b7663f87fd48e8257237d27b5ea0f264c6eaeef4aa1e5e8d687",
+      "publicArtifact": "src/fusion/fusion.py",
+      "publicSha256": "42cb12da90e83b7663f87fd48e8257237d27b5ea0f264c6eaeef4aa1e5e8d687",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/provenance/fusion-v1/fusion_rules.json",
+      "sourceSha256": "537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10",
+      "publicArtifact": "src/fusion/fusion_rules.json",
+      "publicSha256": "537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "UrbanMood/LICENSE",
+      "sourceSha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "publicArtifact": "LICENSE",
+      "publicSha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "transformation": "byte-identical source copy"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/protocol.json",
+      "sourceSha256": "8e96efc0164e76ad6a9314ba8bd5f116d01e4beef21db72d2a861f72f0f22964",
+      "publicArtifact": "protocols/protocol.json",
+      "publicSha256": "b02403e218a9745d765a32409cb541c2c16362d8252560121fb756727bc4a074",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/protocol-freeze.json",
+      "sourceSha256": "546d00ea4aebbd74dc935693d61e7951372d84cfabd534aebf5a3046ec5dce24",
+      "publicArtifact": "protocols/protocol-freeze.json",
+      "publicSha256": "6dffc770adf1c3958952b82fffb7a59b0f4757680784766face74212a33c0836",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/additional-request.json",
+      "sourceSha256": "e5757d3be272ca0b4b0aa44573c321e2793c78a983279ae3cbd9b914c49c27c7",
+      "publicArtifact": "protocols/additional-request.json",
+      "publicSha256": "076d4dfedc217b7e1d429cd702df32a78e08f4d1151459fac5e1444ce86bf232",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/fusion-freeze.json",
+      "sourceSha256": "668af206641927d24e324e73e00b69e5a710553fa94b50149fbb6eaea1d19088",
+      "publicArtifact": "protocols/fusion-freeze.json",
+      "publicSha256": "668af206641927d24e324e73e00b69e5a710553fa94b50149fbb6eaea1d19088",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/final-F2-auxiliary-freeze.json",
+      "sourceSha256": "10e7b50c7da1aee2f54ca03d13f23c83e9fa1a3e83570dce77bb0e9820d3877e",
+      "publicArtifact": "protocols/final-F2-auxiliary-freeze.json",
+      "publicSha256": "fb68e41bffceae6ffcc96216179906c9690b786a0bc32e69d4ee4af1a32b2b7e",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-v1/comparison.json",
+      "sourceSha256": "775451521d8e3bec6cba37bc3eae8ea3a4b27e75bdde91eca452f6ad399332a2",
+      "publicArtifact": "metrics/pilot03_ab-confusion.npz",
+      "publicSha256": "1d42ebf07c4ab27f3b08659ae3efefba532de70709e6206207299334315d7a60",
+      "transformation": "Lossless int64 confusion matrices; same values, compressed container"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-v1/comparison.json",
+      "sourceSha256": "775451521d8e3bec6cba37bc3eae8ea3a4b27e75bdde91eca452f6ad399332a2",
+      "publicArtifact": "metrics/pilot03_ab.json",
+      "publicSha256": "6eace615e4e1bc2d95d7db75446a4da490a99ac6787c784ce5b1245b9ad32e92",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-additional-v1/comparison.json",
+      "sourceSha256": "cf8b33028e3c542e7a5edb7990d7d48b6dcc512bc0daca9762cca0b18516ee4d",
+      "publicArtifact": "metrics/additional_models-confusion.npz",
+      "publicSha256": "d1ff365d3974daf53909127c39e45f26fbb298993e5fd38043e912dfa7366f7d",
+      "transformation": "Lossless int64 confusion matrices; same values, compressed container"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-additional-v1/comparison.json",
+      "sourceSha256": "cf8b33028e3c542e7a5edb7990d7d48b6dcc512bc0daca9762cca0b18516ee4d",
+      "publicArtifact": "metrics/additional_models.json",
+      "publicSha256": "2b057078f9759e4ee25399cf1f6efb36e70034b3578355b5b21629c9324579e2",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-fusion-v1/comparison.json",
+      "sourceSha256": "8f54a3c5b5d90fc041e7fcb8e8a3f2cca0405fc75db7ca359bbe52fcca7cba88",
+      "publicArtifact": "metrics/fusion_development-confusion.npz",
+      "publicSha256": "3a076e382b5c9eada78edaf73d8bcb83ce280f4106dea6571a07414d60255ac0",
+      "transformation": "Lossless int64 confusion matrices; same values, compressed container"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-fusion-v1/comparison.json",
+      "sourceSha256": "8f54a3c5b5d90fc041e7fcb8e8a3f2cca0405fc75db7ca359bbe52fcca7cba88",
+      "publicArtifact": "metrics/fusion_development.json",
+      "publicSha256": "21be0e1ac09ae0048db9cc533fe07b6b3ed558784fd54461192dc3edde1923b4",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-auxiliary-F2-once/evaluation.json",
+      "sourceSha256": "cc1c4be8105f2ea9f8865ec84045dbe668670d4a7f0e73e0922039a1162a1630",
+      "publicArtifact": "metrics/F2_auxiliary-confusion.npz",
+      "publicSha256": "5859b1c401dcf3ff3f569ca7f3c92cbfde24f0e03f5024ee4a2ca782fa7bbd1a",
+      "transformation": "Lossless int64 confusion matrices; same values, compressed container"
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-auxiliary-F2-once/evaluation.json",
+      "sourceSha256": "cc1c4be8105f2ea9f8865ec84045dbe668670d4a7f0e73e0922039a1162a1630",
+      "publicArtifact": "metrics/F2_auxiliary.json",
+      "publicSha256": "07c93210032cb6bb2503ca25070209df91505e672ccf84fefb3bbffdc2db5844",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/development-decision.json",
+      "sourceSha256": "63c75f77eca410d3a2224b59e2cf87d1920adca2bed9877bfeb7b9049a2f8f0c",
+      "publicArtifact": "decisions/pilot03-ab.json",
+      "publicSha256": "63c75f77eca410d3a2224b59e2cf87d1920adca2bed9877bfeb7b9049a2f8f0c",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-additional-v1/screening.json",
+      "sourceSha256": "0b2977a2c278bc246e78ec602f1669f3d119b30158be2e302cd150a193f1021d",
+      "publicArtifact": "decisions/additional-models.json",
+      "publicSha256": "0b2977a2c278bc246e78ec602f1669f3d119b30158be2e302cd150a193f1021d",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-fusion-v1/screening.json",
+      "sourceSha256": "3ff01a8e9d890438fa942630f1871a60834accfb98cb5c4f7205a0d2c035756b",
+      "publicArtifact": "decisions/fusion-development.json",
+      "publicSha256": "3ff01a8e9d890438fa942630f1871a60834accfb98cb5c4f7205a0d2c035756b",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/additional-source-subgroups.json",
+      "sourceSha256": "d2d9cea64fe86fe11736fc3e5c13a3d73fa4924992f45f32b1ba5882ddf2bde6",
+      "publicArtifact": "metrics/source-subgroups.json",
+      "publicSha256": "d2d9cea64fe86fe11736fc3e5c13a3d73fa4924992f45f32b1ba5882ddf2bde6",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/C-finetune03-evaluation-20261024/results-additional-v1/comparison.json",
+      "sourceSha256": "cf8b33028e3c542e7a5edb7990d7d48b6dcc512bc0daca9762cca0b18516ee4d",
+      "publicArtifact": "metrics/cpu-cost.json",
+      "publicSha256": "6ba98b3f2c41b472fc8dcba14e047d36141fc55335035e6c7156d4577116a033",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/B-finetune03-20261024/prespecified-experiments.json",
+      "sourceSha256": "315b7ba7233c14edee5b2d965f4e2c7de949877a34cc883a130541f400c849ee",
+      "publicArtifact": "training/prespecified-experiments.json",
+      "publicSha256": "493759399dbcc23178164ed533ef8ac904e662888d0bcfe0190c8125a202f5da",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/B-finetune03-20261024/final-evidence.json",
+      "sourceSha256": "6195978e0264cc8664ff7348474da66de5eaa9efc635e1436b488768a45003cc",
+      "publicArtifact": "training/final-evidence.json",
+      "publicSha256": "5431dbc0ce76c0586785c59032059f9990459998c0462e172385454b33951f2c",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    },
+    {
+      "sourceArtifact": "research/B-finetune03-20261024/experiment-summary.json",
+      "sourceSha256": "d868508653837885afd65726d7bc1de107804006036144c834de720efebf9949",
+      "publicArtifact": "training/experiment-summary.json",
+      "publicSha256": "af29efe04360fd2559016187a6759d8f5f6fbb17dc773cb88b83c0d221a22b04",
+      "transformation": "Selected evidence fields; absolute project paths replaced with relative references; official training host path redacted. Numeric metrics unchanged."
+    }
+  ]
+}

@@ -18,6 +18,9 @@ internal data class SemanticContrastResult(
  * No hard-coded inspection ROI, mood labels, quality=1, or source-type classification.
  */
 internal class SemanticContrastObserver {
+    private var gaussianWidth=0
+    private var gaussianHeight=0
+    private val gaussianPlans=mutableMapOf<Double,SemanticContrastKernels.GaussianPlan>()
     fun observe(frame: PixelFrame, classes: ByteArray, boxes: List<ObjectBox>, atCapacity: Boolean,
                 frameKey: String, captureMasks: Boolean = false): SemanticContrastResult {
         val w=frame.width; val h=frame.height; val n=w*h; val edge=max(w,h)
@@ -151,32 +154,14 @@ internal class SemanticContrastObserver {
         for(i in hist.indices) { total+=hist[i];if(!found && total>low){a=i;found=true};if(total>high){b=i;break} }
         return a+(b-a)*(index-low)
     }
-    private fun reflect(i:Int,size:Int):Int { var p=i;while(p<0 || p>=size) p=if(p<0)-p-1 else 2*size-p-1;return p }
     private fun gaussian(input:FloatArray,w:Int,h:Int,sigma:Double):FloatArray {
-        val size=Math.rint(sigma*8+1).toInt() or 1;val radius=size/2
-        val kernel=DoubleArray(size) { exp(-.5*(it-radius)*(it-radius)/(sigma*sigma)) }
-        val sum=kernel.sum();val weights=FloatArray(size) { (kernel[it]/sum).toFloat() }
-        val horizontal=FloatArray(input.size);val output=FloatArray(input.size)
-        for(y in 0 until h) for(x in 0 until w) {var v=0f;for(k in weights.indices)v+=weights[k]*input[y*w+reflect(x+k-radius,w)];horizontal[y*w+x]=v}
-        for(y in 0 until h) for(x in 0 until w) {var v=0f;for(k in weights.indices)v+=weights[k]*horizontal[reflect(y+k-radius,h)*w+x];output[y*w+x]=v}
-        return output
+        if(w!=gaussianWidth || h!=gaussianHeight) {
+            gaussianPlans.clear();gaussianWidth=w;gaussianHeight=h
+        }
+        return gaussianPlans.getOrPut(sigma) { SemanticContrastKernels.GaussianPlan(w,h,sigma) }.apply(input)
     }
     private fun morphology(input:FloatArray,w:Int,h:Int,size:Int,maximum:Boolean):FloatArray {
-        val radius=size/2
-        val rowRadius=IntArray(size) { y -> Math.rint(radius*sqrt(max(0.0,1.0-(y-radius).toDouble()*(y-radius)/(radius*radius)))).toInt() }
-        val output=FloatArray(input.size)
-        for(y in 0 until h)for(x in 0 until w) {
-            var v=if(maximum) Float.NEGATIVE_INFINITY else Float.POSITIVE_INFINITY
-            for(dy in -radius..radius) {
-                val yy=y+dy;if(yy !in 0 until h)continue
-                for(dx in -rowRadius[dy+radius]..rowRadius[dy+radius]) {
-                    val xx=x+dx;if(xx !in 0 until w)continue
-                    val p=input[yy*w+xx];v=if(maximum)max(v,p) else min(v,p)
-                }
-            }
-            output[y*w+x]=v
-        }
-        return output
+        return SemanticContrastKernels.morphology(input,w,h,size,maximum)
     }
     private fun dilate(input:BooleanArray,w:Int,h:Int,radius:Int):BooleanArray {
         val horizontal=BooleanArray(input.size);val result=BooleanArray(input.size)

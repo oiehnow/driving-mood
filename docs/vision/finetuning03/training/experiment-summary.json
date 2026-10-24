@@ -1,0 +1,223 @@
+{
+  "status": "training-and-export-complete-evaluation-pending",
+  "experiments": [
+    {
+      "name": "pilot03a-low-lr",
+      "hypothesis": "과도한 가중치 변화가 퇴행 원인일 수 있다.",
+      "onlyIntendedChange": "pilot02 대비 lr0 1e-4 → 1e-5만 변경",
+      "heldConditions": "Official base / DATA02 unchanged train24 dev8 / seed20261024 /320/batch2/AdamW/30epoch/nbs2/lrf0.1/freeze11/AMPoff/patience0/same augmentation",
+      "actualEpochs": 30,
+      "actualOptimizerSteps": 360,
+      "elapsedDriverSeconds": 56.3018699000022,
+      "selectedEpoch": 14,
+      "selection": "Development fitness only before downstream regression evaluation",
+      "baselineStagedDevMiou": 0.4306272566318512,
+      "selectedInMemoryFitness": 0.39016,
+      "savedCheckpointStagedDevMetrics": {
+        "metrics/mIoU": 0.39085838198661804,
+        "metrics/pixel_acc": 0.7875762581825256
+      },
+      "rawTrainableTensorChanges": 64,
+      "rawFrozenParameterChanges": 0,
+      "rawBnBufferChanges": 60,
+      "fp32SelectedEmaMatchesSavedBestWhenRounded": true,
+      "outcome": "Training completed; model-quality decision awaits same-grid C03 development evaluation",
+      "currentInterpretation": "이 개발검증에서는 학습률 축소만으로 개선되지 않았다. 작은 배치의 BN 통계 변화 등이 남은 설명 후보다.",
+      "appPromoted": false,
+      "exportContract": {
+        "inputShape": [
+          1,
+          3,
+          320,
+          320
+        ],
+        "inputType": "float32 RGB/255 NCHW centered114padding",
+        "outputShape": [
+          1,
+          320,
+          320
+        ],
+        "outputType": "uint8",
+        "classes": 150
+      },
+      "parityCounts": {
+        "pytorchVsOnnx": 5,
+        "onnxVsOrt": 1
+      },
+      "parityDifferencesAllInPadding": true,
+      "paths": {
+        "console": "research/B-finetune03-20261024/pilot03a-low-lr/training-console.log",
+        "audit": "research/B-finetune03-20261024/pilot03a-low-lr/pilot03a-low-lr-audit.jsonl",
+        "resultsCsv": "research/B-finetune03-20261024/pilot03a-low-lr/runs/pilot03a-low-lr/results.csv",
+        "trainingResult": "research/B-finetune03-20261024/pilot03a-low-lr/training-result.json",
+        "fp32Snapshots": "research/B-finetune03-20261024/pilot03a-low-lr/fp32-ema",
+        "exportManifest": "research/B-finetune03-20261024/pilot03a-low-lr/exports/export-manifest.json"
+      },
+      "hashes": {
+        "driver": "d94bcc134d42740345ab7ae6ebe7877944f9cf6e6c04c7872e25f2193189a675",
+        "config": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+        "dataFreeze": "a42f31c3c45b584aec0ca2aae6a1a45841453169b6f128fa25fd42793e2f522e",
+        "bestPt": "d382b61dc7c2c53b67a51aff8006142e9b6217fe0d083cb5a226b6f7861abdd1",
+        "onnx": "d3b7782db31e341449a79954a7b76afcb5a6c6d8845889d6616893e5e574ee8f"
+      }
+    },
+    {
+      "name": "pilot03b-low-lr-fixed-bn",
+      "hypothesis": "작은 도메인 배치의 neck/head BN 통계 변화가 기존 지식을 훼손할 수 있다.",
+      "onlyIntendedChange": "A 대비 전체 BN running statistics만 고정; affine trainability 유지",
+      "heldConditions": "Official base / DATA02 unchanged train24 dev8 / seed20261024 /320/batch2/AdamW/30epoch/nbs2/lrf0.1/freeze11/AMPoff/patience0/same augmentation",
+      "actualEpochs": 30,
+      "actualOptimizerSteps": 360,
+      "elapsedDriverSeconds": 43.70885989999806,
+      "selectedEpoch": 30,
+      "selection": "Development fitness only before downstream regression evaluation",
+      "baselineStagedDevMiou": 0.4306272566318512,
+      "selectedInMemoryFitness": 0.46183,
+      "savedCheckpointStagedDevMetrics": {
+        "metrics/mIoU": 0.46190857887268066,
+        "metrics/pixel_acc": 0.8749343156814575
+      },
+      "rawTrainableTensorChanges": 64,
+      "rawFrozenParameterChanges": 0,
+      "rawBnBufferChanges": 0,
+      "fp32SelectedEmaMatchesSavedBestWhenRounded": true,
+      "outcome": "Training completed; model-quality decision awaits same-grid C03 development evaluation",
+      "currentInterpretation": "A보다 개선되지만 기존 pilot02 개발점수보다 낮다. BN 정책의 영향을 보여주나 일반화 향상이나 유일한 원인으로 확정하지 않는다.",
+      "appPromoted": false,
+      "exportContract": {
+        "inputShape": [
+          1,
+          3,
+          320,
+          320
+        ],
+        "inputType": "float32 RGB/255 NCHW centered114padding",
+        "outputShape": [
+          1,
+          320,
+          320
+        ],
+        "outputType": "uint8",
+        "classes": 150
+      },
+      "parityCounts": {
+        "pytorchVsOnnx": 3,
+        "onnxVsOrt": 3
+      },
+      "parityDifferencesAllInPadding": true,
+      "paths": {
+        "console": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/training-console.log",
+        "audit": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/pilot03b-low-lr-fixed-bn-audit.jsonl",
+        "resultsCsv": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/runs/pilot03b-low-lr-fixed-bn/results.csv",
+        "trainingResult": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/training-result.json",
+        "fp32Snapshots": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/fp32-ema",
+        "exportManifest": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/exports/export-manifest.json"
+      },
+      "hashes": {
+        "driver": "7c7d4f33ac16a18185a30430c7c5e0a68bb0f589915a1eafa9e5ed8a64e7cb80",
+        "config": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+        "dataFreeze": "909542eacee5066f03abd0d01538f826ed3b59e6f58b459792eec815545c694d",
+        "bestPt": "d30bf01a3aeafad731909b5805698c690b32325afbf62889af59e502df090caa",
+        "onnx": "0bbbc1249d0b344f688c24433cdd7aff332bf93439b5ce3eb5dc5ab08799c4a8"
+      }
+    },
+    {
+      "name": "pilot03c-l2sp",
+      "hypothesis": "초기 가중치에서 멀어지는 것을 억제하면 기존 능력 퇴행이 줄 수 있다.",
+      "onlyIntendedChange": "B 대비 초기 학습가능가중치 중심 mean-square L2-SP 추가",
+      "heldConditions": "Official base / DATA02 unchanged train24 dev8 / seed20261024 /320/batch2/AdamW/30epoch/nbs2/lrf0.1/freeze11/AMPoff/patience0/same augmentation",
+      "actualEpochs": 30,
+      "actualOptimizerSteps": 360,
+      "elapsedDriverSeconds": 41.125378400000045,
+      "selectedEpoch": 1,
+      "selection": "Development fitness only before downstream regression evaluation",
+      "baselineStagedDevMiou": 0.4306272566318512,
+      "selectedInMemoryFitness": 0.44542,
+      "savedCheckpointStagedDevMetrics": {
+        "metrics/mIoU": 0.4459501802921295,
+        "metrics/pixel_acc": 0.8080062866210938
+      },
+      "rawTrainableTensorChanges": 64,
+      "rawFrozenParameterChanges": 0,
+      "rawBnBufferChanges": 0,
+      "fp32SelectedEmaMatchesSavedBestWhenRounded": true,
+      "outcome": "Training completed; model-quality decision awaits same-grid C03 development evaluation",
+      "currentInterpretation": "B보다 개발검증이 낮다. 이 계수/일정의 보존 규제가 개발검증에서 유리하지 않았으며 모든 보존 규제가 실패했다고 일반화하지 않는다.",
+      "appPromoted": false,
+      "exportContract": {
+        "inputShape": [
+          1,
+          3,
+          320,
+          320
+        ],
+        "inputType": "float32 RGB/255 NCHW centered114padding",
+        "outputShape": [
+          1,
+          320,
+          320
+        ],
+        "outputType": "uint8",
+        "classes": 150
+      },
+      "parityCounts": {
+        "pytorchVsOnnx": 5,
+        "onnxVsOrt": 4
+      },
+      "parityDifferencesAllInPadding": true,
+      "paths": {
+        "console": "research/B-finetune03-20261024/pilot03c-l2sp/training-console.log",
+        "audit": "research/B-finetune03-20261024/pilot03c-l2sp/pilot03c-l2sp-audit.jsonl",
+        "resultsCsv": "research/B-finetune03-20261024/pilot03c-l2sp/runs/pilot03c-l2sp/results.csv",
+        "trainingResult": "research/B-finetune03-20261024/pilot03c-l2sp/training-result.json",
+        "fp32Snapshots": "research/B-finetune03-20261024/pilot03c-l2sp/fp32-ema",
+        "exportManifest": "research/B-finetune03-20261024/pilot03c-l2sp/exports/export-manifest.json"
+      },
+      "hashes": {
+        "driver": "34a4d5cd25636b9d86eb3b6eab5340f77efa6f5adf061721afa057aaaa1b77ea",
+        "config": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+        "dataFreeze": "3fa9d618aea0d46aee5a183cbb41bd6dbac10f3c5eed1ec97208a80d9a658eb3",
+        "bestPt": "66e31e2ec8f63ee25dce45c588d2f394d5d68d496b5c74e8a8edef6e8f8d2468",
+        "onnx": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23"
+      }
+    }
+  ],
+  "retentionProbe": {
+    "status": "completed-deliberate-five-step-stop",
+    "optimizerSteps": 5,
+    "elapsedSeconds": 4.2890775999985635,
+    "checkpointUsedForMain": false,
+    "initialPenaltyExactlyZero": true,
+    "coefficientSha256": "ebac85487d7c09aa0e0cb044e2fa9fa2c0782bc31f34239c4d7ba84a6399fc6d"
+  },
+  "retentionCoefficient": {
+    "lambda_": 5535694.609872891,
+    "lambda": 5535694.609872891,
+    "targetGradientRatio": 0.1,
+    "supervisedGradientNormBeforeClip": 9.879085529761236,
+    "unitCoefficientRegularizerGradientNorm": 1.7846153420641963e-07,
+    "measuredBeforeOptimizerStep": 5,
+    "trainableElements": 284460,
+    "batchSize": 2,
+    "amp": false,
+    "scalerScale": 1.0,
+    "coefficientSelectionUsedOnlyTraining": true,
+    "developmentValidationUsed": false,
+    "heldoutUsed": false
+  },
+  "totalMainTrainingRuns": 3,
+  "totalMainOptimizerSteps": 1080,
+  "additionalDiscardedProbeOptimizerSteps": 5,
+  "newReservedDataUsed": false,
+  "previousRegressionStatus": "Already exposed development regression, never called independent",
+  "originalWeightsAndInputsPreserved": true,
+  "gitOrAppChanged": false,
+  "reportingRule": "Include successful execution, negative quality results, limitations and next decisions for every candidate",
+  "metadataNotes": [
+    "A/B data-freeze trainingConfigSha256 was inherited from pilot02; execution.json actual config SHA is authoritative; correction in final-evidence.json.",
+    "Final validation callback wrote epoch031 FP32 snapshot without an optimizer step; 30 trained epochs only.",
+    "C driver inherited a generic audit-only docstring; the explicit imported RetentionLoss and retention-contract describe its intentional changed loss.",
+    "Preparation had one path-remapping assertion and one unmatched-parenthesis syntax error, both before their corresponding training. Actual training runs completed without retry."
+  ],
+  "downstreamEvaluation": "See metrics and decisions in this package; original training status fields describe their capture time, not current final selection."
+}

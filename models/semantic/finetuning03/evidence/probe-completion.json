@@ -1,0 +1,8 @@
+{
+  "status": "completed-deliberate-five-step-stop",
+  "optimizerSteps": 5,
+  "elapsedSeconds": 4.2890775999985635,
+  "checkpointUsedForMain": false,
+  "initialPenaltyExactlyZero": true,
+  "coefficientSha256": "ebac85487d7c09aa0e0cb044e2fa9fa2c0782bc31f34239c4d7ba84a6399fc6d"
+}

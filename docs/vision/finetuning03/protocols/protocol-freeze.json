@@ -1,0 +1,8 @@
+{
+  "frozenAtUtc": "2026-10-24T13:41:14.8544266Z",
+  "protocolSha256": "8e96efc0164e76ad6a9314ba8bd5f116d01e4beef21db72d2a861f72f0f22964",
+  "contractSha256": "e05c0cd6656b16c63f63ba0d05fe862379696915d1f125faeafbf83bf09c6a39",
+  "candidateEvaluationOpened": false,
+  "criteriaProposedBeforeTrainerMetrics": true,
+  "disclosure": "Trainer staged-grid GPU dev fitness was received in a readiness message before this freeze. These are not C03 original-grid metrics. All proposed thresholds were written before receiving that message; only parent-requested window8 was added. No C03 predictions/evaluation or new holdout opened."
+}

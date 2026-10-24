@@ -1,0 +1,7 @@
+frame	variant	width	height	lightPixels	lightArea	regions	observerMs
+clip-04-000000	baseline320	320	180	5625	0.09765625	106	180.4442
+clip-04-000000	baselineOriginalGrid	640	360	27084	0.11755208333333333	89	482.7793
+clip-04-000000	F2OriginalGrid	640	360	26496	0.115	90	452.4583
+clip-06-000000	baseline320	320	180	0	0.0	0	64.9272
+clip-06-000000	baselineOriginalGrid	640	360	0	0.0	0	419.270701
+clip-06-000000	F2OriginalGrid	640	360	0	0.0	0	336.1569

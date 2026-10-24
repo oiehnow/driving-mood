@@ -1,0 +1,1614 @@
+{
+  "status": "verified",
+  "environment": {
+    "python": "3.14.4",
+    "torch": "2.11.0+cu128",
+    "ultralytics": "8.4.184",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5080"
+  },
+  "candidates": [
+    {
+      "name": "pilot03a-low-lr",
+      "selectedEpoch": 14,
+      "selectedFp32EmaRoundedMatchesBestAllTensors": true,
+      "tensorCount": 364,
+      "execution": {
+        "status": "completed",
+        "argv": [
+          "research/B-finetune03-20261024/pilot03a-low-lr/train_pilot.py"
+        ],
+        "initialSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+        "configSha256": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+        "dataFreezeSha256": "a42f31c3c45b584aec0ca2aae6a1a45841453169b6f128fa25fd42793e2f522e",
+        "config": {
+          "task": "semantic",
+          "epochs": 30,
+          "imgsz": 320,
+          "batch": 2,
+          "nbs": 2,
+          "device": "0",
+          "workers": 0,
+          "seed": 20261024,
+          "deterministic": true,
+          "optimizer": "AdamW",
+          "lr0": 1e-05,
+          "lrf": 0.1,
+          "weight_decay": 0.0005,
+          "warmup_epochs": 0.0,
+          "freeze": 11,
+          "amp": false,
+          "patience": 0,
+          "save_period": 5,
+          "cache": false,
+          "rect": false,
+          "multi_scale": 0.0,
+          "hsv_h": 0.0,
+          "hsv_s": 0.1,
+          "hsv_v": 0.1,
+          "degrees": 0.0,
+          "translate": 0.0,
+          "scale": 0.1,
+          "shear": 0.0,
+          "perspective": 0.0,
+          "flipud": 0.0,
+          "fliplr": 0.5,
+          "mosaic": 0.0,
+          "mixup": 0.0,
+          "cutmix": 0.0,
+          "copy_paste": 0.0,
+          "close_mosaic": 0,
+          "cls_pw": 0.0,
+          "plots": true,
+          "save": true,
+          "val": true,
+          "exist_ok": false,
+          "compile": false
+        },
+        "testUsedForTrainingOrSelection": false,
+        "exitCode": 0
+      },
+      "export": {
+        "status": "exported",
+        "trainingResultSha256": "b00399c0a925b703f58bbdbb7fe63f655875678c4c8f403796b3d9e591f960ac",
+        "trainedCheckpointSha256": "d382b61dc7c2c53b67a51aff8006142e9b6217fe0d083cb5a226b6f7861abdd1",
+        "originalPretrainedWeightSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+        "outputContract": {
+          "inputShape": [
+            1,
+            3,
+            320,
+            320
+          ],
+          "inputType": "float32 RGB/255 NCHW centered114padding",
+          "outputShape": [
+            1,
+            320,
+            320
+          ],
+          "outputType": "uint8",
+          "classes": 150
+        },
+        "artifacts": [
+          {
+            "path": "research/B-finetune03-20261024/pilot03a-low-lr/runs/pilot03a-low-lr/weights/best.pt",
+            "bytes": 3492899,
+            "sha256": "d382b61dc7c2c53b67a51aff8006142e9b6217fe0d083cb5a226b6f7861abdd1"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03a-low-lr/exports/yolo26n-sem-driving-mood-pilot03a-low-lr.pt",
+            "bytes": 3492899,
+            "sha256": "d382b61dc7c2c53b67a51aff8006142e9b6217fe0d083cb5a226b6f7861abdd1"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03a-low-lr/exports/raw-export.onnx",
+            "bytes": 6292500,
+            "sha256": "ce155b2a57d93659b2c3892223bdd856a53c477454c51e49ee4ab53a8a8d7c01"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03a-low-lr/exports/yolo26n-sem-driving-mood-pilot03a-low-lr.onnx",
+            "bytes": 6292461,
+            "sha256": "d3b7782db31e341449a79954a7b76afcb5a6c6d8845889d6616893e5e574ee8f"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03a-low-lr/exports/ort-320/yolo26n-sem-driving-mood-pilot03a-low-lr.ort",
+            "bytes": 6386760,
+            "sha256": "6e1b30d717dce3753dc6e7962d74eaf858183e25228ac825ed52539b50568f98"
+          }
+        ],
+        "conversion": {
+          "runtime": "1.31.0",
+          "target": "arm",
+          "optimization": "Fixed",
+          "quantized": false
+        },
+        "metadata": {
+          "descriptionChangedOnly": true,
+          "tensorsUnchanged": true,
+          "originalDescriptionSha256": "3e942d50c06f7c14c1a54b7b93a6ab164c75af33199941a375e46a3d76df3951",
+          "licensePreserved": true
+        },
+        "validation": {
+          "actualTrainValFrames": 32,
+          "testFramesUsed": 0,
+          "comparisons": [
+            {
+              "sampleId": "full-02-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "224d61814bb32e198f1ed74c8a0f64eabe0f435629113eb0a31bf5aa891b7e79",
+              "ortPredictionSha256": "224d61814bb32e198f1ed74c8a0f64eabe0f435629113eb0a31bf5aa891b7e79"
+            },
+            {
+              "sampleId": "full-02-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "ce34f5ffe693f2e3a0674db298ef2fd9240ca2fdda7f30939908858b8fde9e1e",
+              "ortPredictionSha256": "ce34f5ffe693f2e3a0674db298ef2fd9240ca2fdda7f30939908858b8fde9e1e"
+            },
+            {
+              "sampleId": "full-02-4",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "9a6d4c4506a26297541a0d774880da5a6a60793d89506d4a896fb9c771cf2002",
+              "ortPredictionSha256": "9a6d4c4506a26297541a0d774880da5a6a60793d89506d4a896fb9c771cf2002"
+            },
+            {
+              "sampleId": "full-03-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "f4d7a9bd0ec23aa23e69419e8ccad5654338dbb3d9a3f419afd248c39d3661d6",
+              "ortPredictionSha256": "f4d7a9bd0ec23aa23e69419e8ccad5654338dbb3d9a3f419afd248c39d3661d6"
+            },
+            {
+              "sampleId": "full-03-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "49d1bc0fed698474776bcb897adfc3be6c75fb6cd18f8c9312b4b99a903f5ce6",
+              "ortPredictionSha256": "49d1bc0fed698474776bcb897adfc3be6c75fb6cd18f8c9312b4b99a903f5ce6"
+            },
+            {
+              "sampleId": "full-03-4",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "9384602851e4530e7d97129d0e8d1bd2b814924a30b0e279c6b10e9c9848d808",
+              "ortPredictionSha256": "9384602851e4530e7d97129d0e8d1bd2b814924a30b0e279c6b10e9c9848d808"
+            },
+            {
+              "sampleId": "full-04-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "95ef0331afc9a152ba72330fbef5cc540c29d260779fb04e3070347d9d693e67",
+              "ortPredictionSha256": "95ef0331afc9a152ba72330fbef5cc540c29d260779fb04e3070347d9d693e67"
+            },
+            {
+              "sampleId": "full-04-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "5219421ed712ce3f8aec0a81ad9626550eead86d5062ba82ce74b72d31fdde1c",
+              "ortPredictionSha256": "5219421ed712ce3f8aec0a81ad9626550eead86d5062ba82ce74b72d31fdde1c"
+            },
+            {
+              "sampleId": "full-04-5",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "1de1debcc4dcc939550b66a72a6f2c44cb6ebc895f8668cc8fb7514cc9c92dbd",
+              "ortPredictionSha256": "1de1debcc4dcc939550b66a72a6f2c44cb6ebc895f8668cc8fb7514cc9c92dbd"
+            },
+            {
+              "sampleId": "full-01-1",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "c889f052561b6ede30055555458c70899351c53ee3f67f3a3ec8d1c4bb641281",
+              "ortPredictionSha256": "c889f052561b6ede30055555458c70899351c53ee3f67f3a3ec8d1c4bb641281"
+            },
+            {
+              "sampleId": "full-01-3",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "fdc99a2d0f532ac546df976937cd0380a09fd978292016c69584c74a96a145f6",
+              "ortPredictionSha256": "fdc99a2d0f532ac546df976937cd0380a09fd978292016c69584c74a96a145f6"
+            },
+            {
+              "sampleId": "full-01-5",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "e1ca42ce6071725eed5109e0b6d8f184f225f341bfa65339dd1f7793e88f7c3b",
+              "ortPredictionSha256": "e1ca42ce6071725eed5109e0b6d8f184f225f341bfa65339dd1f7793e88f7c3b"
+            },
+            {
+              "sampleId": "commons-103085841",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "ac34ae983b218ca19416347b5c80c365fcfe2fbae6b8eceaaf5377d31db182ba",
+              "ortPredictionSha256": "ac34ae983b218ca19416347b5c80c365fcfe2fbae6b8eceaaf5377d31db182ba"
+            },
+            {
+              "sampleId": "commons-71459637",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "ff71e7778298b2ab0542a389a18f049cb2dabfb196419520345cdd70e47668d2",
+              "ortPredictionSha256": "ff71e7778298b2ab0542a389a18f049cb2dabfb196419520345cdd70e47668d2"
+            },
+            {
+              "sampleId": "commons-94851551",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "eb7009642ddbcab7cd6d0c8587f9047fddbe31c31d0343f1a47051ab302aa9ea",
+              "ortPredictionSha256": "eb7009642ddbcab7cd6d0c8587f9047fddbe31c31d0343f1a47051ab302aa9ea"
+            },
+            {
+              "sampleId": "commons-62766446",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 4,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "06f0fefe07e19477006e0249007c069b415ee68d19aa92bf9e360e80c33ef6e1",
+              "ortPredictionSha256": "06f0fefe07e19477006e0249007c069b415ee68d19aa92bf9e360e80c33ef6e1"
+            },
+            {
+              "sampleId": "commons-116480633",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "bbe409d4006d6954e03ec3a441a6116e1533e10a6bc5a325425d44a041b24df9",
+              "ortPredictionSha256": "bbe409d4006d6954e03ec3a441a6116e1533e10a6bc5a325425d44a041b24df9"
+            },
+            {
+              "sampleId": "commons-51302097",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "16afb3af620bcb2f37268c3bd94d0e77b9ed9166cfaaf6a9185ed464a2777723",
+              "ortPredictionSha256": "16afb3af620bcb2f37268c3bd94d0e77b9ed9166cfaaf6a9185ed464a2777723"
+            },
+            {
+              "sampleId": "commons-139631600",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "f01c34b3ecd95c9810f2bb148e135c409c5eafa65bb4af19a0f0812b8f5d5218",
+              "ortPredictionSha256": "f01c34b3ecd95c9810f2bb148e135c409c5eafa65bb4af19a0f0812b8f5d5218"
+            },
+            {
+              "sampleId": "commons-91959554",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "d041a179681d91680f78cc1ea6d0475650e1af30ba42bc049f32b8d558ab2778",
+              "ortPredictionSha256": "d041a179681d91680f78cc1ea6d0475650e1af30ba42bc049f32b8d558ab2778"
+            },
+            {
+              "sampleId": "commons-113155467",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 1,
+              "onnxVsOrtDifferentPixels": 1,
+              "onnxPredictionSha256": "42f8dddea17639641ac25b0091a8c994ca9dc65271c04db5076139f28f24f93f",
+              "ortPredictionSha256": "92d2cd8368de3efc1552fcfa1f3df034faf46c3048bd3e2c90ac0b347d2123dd"
+            },
+            {
+              "sampleId": "commons-76813178",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "27123418a0fb575032f7d11f8ea1085eb9c52c583ccc0d0ff1f10cd015498f3f",
+              "ortPredictionSha256": "27123418a0fb575032f7d11f8ea1085eb9c52c583ccc0d0ff1f10cd015498f3f"
+            },
+            {
+              "sampleId": "commons-87118054",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "6ccc43b7aadd47d96f42f5b30c09040b09adcf93602c316a2e660b6e703ce0fe",
+              "ortPredictionSha256": "6ccc43b7aadd47d96f42f5b30c09040b09adcf93602c316a2e660b6e703ce0fe"
+            },
+            {
+              "sampleId": "commons-11044273",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "a67a90d9d090091e9d7e81e6410124490b52dc45ce627af7eafcb45c852485b1",
+              "ortPredictionSha256": "a67a90d9d090091e9d7e81e6410124490b52dc45ce627af7eafcb45c852485b1"
+            },
+            {
+              "sampleId": "commons-59715235",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "28d2b7afbef2ec5607406242fa01b6a6dcced2f42f50a2591159863d1c9d2105",
+              "ortPredictionSha256": "28d2b7afbef2ec5607406242fa01b6a6dcced2f42f50a2591159863d1c9d2105"
+            },
+            {
+              "sampleId": "commons-176811029",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "e0c987885fd1047c872312a08beac2fbe71d0886e5d5c484467c9c0e3dfd0418",
+              "ortPredictionSha256": "e0c987885fd1047c872312a08beac2fbe71d0886e5d5c484467c9c0e3dfd0418"
+            },
+            {
+              "sampleId": "commons-187047161",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "3d93efe2f904026bc90122cdfdffde29836ef419d13f98c9399df1fc3886b353",
+              "ortPredictionSha256": "3d93efe2f904026bc90122cdfdffde29836ef419d13f98c9399df1fc3886b353"
+            },
+            {
+              "sampleId": "commons-180194981",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "d406f6296fd882a18d59430dee41af054db6bc9b74584056f87c1505491618c2",
+              "ortPredictionSha256": "d406f6296fd882a18d59430dee41af054db6bc9b74584056f87c1505491618c2"
+            },
+            {
+              "sampleId": "commons-112636258",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "0fbec55053cd4361da80bff5a043d284b74e9e40fc2d5be48643276b8d7b3526",
+              "ortPredictionSha256": "0fbec55053cd4361da80bff5a043d284b74e9e40fc2d5be48643276b8d7b3526"
+            },
+            {
+              "sampleId": "commons-122762439",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "56c1fae6f61ed698d39dedcf775efc6a964757cfbf19d92763e9d7294be3f224",
+              "ortPredictionSha256": "56c1fae6f61ed698d39dedcf775efc6a964757cfbf19d92763e9d7294be3f224"
+            },
+            {
+              "sampleId": "commons-119820731",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "17f72e2c6a47bfec55f99f9d1081356954182e4243bcd235f72da4c3ad91ffab",
+              "ortPredictionSha256": "17f72e2c6a47bfec55f99f9d1081356954182e4243bcd235f72da4c3ad91ffab"
+            },
+            {
+              "sampleId": "commons-88114953",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "c63b19a10b0989fd62cf6950d5bf6ed9593f2f170a59b2b670b615ef5009cdef",
+              "ortPredictionSha256": "c63b19a10b0989fd62cf6950d5bf6ed9593f2f170a59b2b670b615ef5009cdef"
+            }
+          ],
+          "totalPyTorchOnnxDifferentPixels": 5,
+          "totalOnnxOrtDifferentPixels": 1
+        },
+        "appDefaultChanged": false,
+        "androidExecutionVerified": false,
+        "accuracyImprovementClaimed": false
+      },
+      "exportDetails": {
+        "differentPixelDetails": [
+          {
+            "sampleId": "commons-62766446",
+            "x": 166,
+            "y": 316,
+            "insideImageContent": false,
+            "pytorchClass": 46,
+            "onnxClass": 34,
+            "ortClass": 34,
+            "pytorchTop2ClassIds": [
+              46,
+              34
+            ],
+            "pytorchTop2Logits": [
+              8.229187965393066,
+              8.229178428649902
+            ],
+            "pytorchReferenceMargin": 9.5367431640625e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "commons-62766446",
+            "x": 166,
+            "y": 317,
+            "insideImageContent": false,
+            "pytorchClass": 46,
+            "onnxClass": 34,
+            "ortClass": 34,
+            "pytorchTop2ClassIds": [
+              46,
+              34
+            ],
+            "pytorchTop2Logits": [
+              8.229187965393066,
+              8.229178428649902
+            ],
+            "pytorchReferenceMargin": 9.5367431640625e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "commons-62766446",
+            "x": 166,
+            "y": 318,
+            "insideImageContent": false,
+            "pytorchClass": 46,
+            "onnxClass": 34,
+            "ortClass": 34,
+            "pytorchTop2ClassIds": [
+              46,
+              34
+            ],
+            "pytorchTop2Logits": [
+              8.229187965393066,
+              8.229178428649902
+            ],
+            "pytorchReferenceMargin": 9.5367431640625e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "commons-62766446",
+            "x": 166,
+            "y": 319,
+            "insideImageContent": false,
+            "pytorchClass": 46,
+            "onnxClass": 34,
+            "ortClass": 34,
+            "pytorchTop2ClassIds": [
+              46,
+              34
+            ],
+            "pytorchTop2Logits": [
+              8.229187965393066,
+              8.229178428649902
+            ],
+            "pytorchReferenceMargin": 9.5367431640625e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "commons-113155467",
+            "x": 126,
+            "y": 267,
+            "insideImageContent": false,
+            "pytorchClass": 9,
+            "onnxClass": 9,
+            "ortClass": 0,
+            "pytorchTop2ClassIds": [
+              9,
+              0
+            ],
+            "pytorchTop2Logits": [
+              7.581634521484375,
+              7.581632137298584
+            ],
+            "pytorchReferenceMargin": 2.384185791015625e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          }
+        ],
+        "onnxStructuredLocalPathMatches": [],
+        "ortPrintableLocalPathMatchesOutsideTensorBytes": [],
+        "incidentalAsciiPatternsInsideNumericTensorBytes": [
+          {
+            "stringSha256": "461a38195e026f19aa5d1a4cffcd0ce0cd76388175eb90a2623315ce44c2c0d0",
+            "offset": 3728096,
+            "length": 9,
+            "tensor": "model.graph.initializer[56]"
+          },
+          {
+            "stringSha256": "e2a2c8131a20f8c62cc7cbe6587b7a81ba83f7a4a6fea869c0604d4f80649906",
+            "offset": 3982088,
+            "length": 4,
+            "tensor": "model.graph.initializer[56]"
+          }
+        ],
+        "allObservedDifferencesInsideLetterboxPadding": true,
+        "note": "Small argmax disagreements preserved; no accuracy improvement inferred from runtime parity."
+      }
+    },
+    {
+      "name": "pilot03b-low-lr-fixed-bn",
+      "selectedEpoch": 30,
+      "selectedFp32EmaRoundedMatchesBestAllTensors": true,
+      "tensorCount": 364,
+      "execution": {
+        "status": "completed",
+        "argv": [
+          "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/train_pilot.py"
+        ],
+        "initialSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+        "configSha256": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+        "dataFreezeSha256": "909542eacee5066f03abd0d01538f826ed3b59e6f58b459792eec815545c694d",
+        "config": {
+          "task": "semantic",
+          "epochs": 30,
+          "imgsz": 320,
+          "batch": 2,
+          "nbs": 2,
+          "device": "0",
+          "workers": 0,
+          "seed": 20261024,
+          "deterministic": true,
+          "optimizer": "AdamW",
+          "lr0": 1e-05,
+          "lrf": 0.1,
+          "weight_decay": 0.0005,
+          "warmup_epochs": 0.0,
+          "freeze": 11,
+          "amp": false,
+          "patience": 0,
+          "save_period": 5,
+          "cache": false,
+          "rect": false,
+          "multi_scale": 0.0,
+          "hsv_h": 0.0,
+          "hsv_s": 0.1,
+          "hsv_v": 0.1,
+          "degrees": 0.0,
+          "translate": 0.0,
+          "scale": 0.1,
+          "shear": 0.0,
+          "perspective": 0.0,
+          "flipud": 0.0,
+          "fliplr": 0.5,
+          "mosaic": 0.0,
+          "mixup": 0.0,
+          "cutmix": 0.0,
+          "copy_paste": 0.0,
+          "close_mosaic": 0,
+          "cls_pw": 0.0,
+          "plots": true,
+          "save": true,
+          "val": true,
+          "exist_ok": false,
+          "compile": false
+        },
+        "testUsedForTrainingOrSelection": false,
+        "exitCode": 0
+      },
+      "export": {
+        "status": "exported",
+        "trainingResultSha256": "85188a6abf9463b64dcde00aa580cf04c2eda8f1e65af2c562f626e6a633ef10",
+        "trainedCheckpointSha256": "d30bf01a3aeafad731909b5805698c690b32325afbf62889af59e502df090caa",
+        "originalPretrainedWeightSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+        "outputContract": {
+          "inputShape": [
+            1,
+            3,
+            320,
+            320
+          ],
+          "inputType": "float32 RGB/255 NCHW centered114padding",
+          "outputShape": [
+            1,
+            320,
+            320
+          ],
+          "outputType": "uint8",
+          "classes": 150
+        },
+        "artifacts": [
+          {
+            "path": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/runs/pilot03b-low-lr-fixed-bn/weights/best.pt",
+            "bytes": 3492963,
+            "sha256": "d30bf01a3aeafad731909b5805698c690b32325afbf62889af59e502df090caa"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/exports/yolo26n-sem-driving-mood-pilot03b-low-lr-fixed-bn.pt",
+            "bytes": 3492963,
+            "sha256": "d30bf01a3aeafad731909b5805698c690b32325afbf62889af59e502df090caa"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/exports/raw-export.onnx",
+            "bytes": 6292509,
+            "sha256": "1c78b6cdf4663f2f06fcbed4a11ab2622a3a7082b554dd67ff69157b79177edc"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/exports/yolo26n-sem-driving-mood-pilot03b-low-lr-fixed-bn.onnx",
+            "bytes": 6292470,
+            "sha256": "0bbbc1249d0b344f688c24433cdd7aff332bf93439b5ce3eb5dc5ab08799c4a8"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/exports/ort-320/yolo26n-sem-driving-mood-pilot03b-low-lr-fixed-bn.ort",
+            "bytes": 6386768,
+            "sha256": "67fd5a40be2bca298ce916541f1f5a2f92dfc51fbfc292b93ae20db32e7f6e8a"
+          }
+        ],
+        "conversion": {
+          "runtime": "1.31.0",
+          "target": "arm",
+          "optimization": "Fixed",
+          "quantized": false
+        },
+        "metadata": {
+          "descriptionChangedOnly": true,
+          "tensorsUnchanged": true,
+          "originalDescriptionSha256": "6cfb254700842de11d093da3484ec3c6e4c9012f05550188b9efe492f4cc3adf",
+          "licensePreserved": true
+        },
+        "validation": {
+          "actualTrainValFrames": 32,
+          "testFramesUsed": 0,
+          "comparisons": [
+            {
+              "sampleId": "full-02-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "49f7e1b7107c98260dff6dec736977867f2c99ad2f6f2b75408400d50ae52dd5",
+              "ortPredictionSha256": "49f7e1b7107c98260dff6dec736977867f2c99ad2f6f2b75408400d50ae52dd5"
+            },
+            {
+              "sampleId": "full-02-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "378bc44753c7d2ce5de6b8cd0d22cc8eecb33e450aba0bc994fa32de992f52be",
+              "ortPredictionSha256": "378bc44753c7d2ce5de6b8cd0d22cc8eecb33e450aba0bc994fa32de992f52be"
+            },
+            {
+              "sampleId": "full-02-4",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "1fafc13121d238df48a01e26f1787eb7e3ca67c2025a3c41f5b6f621f39739ca",
+              "ortPredictionSha256": "1fafc13121d238df48a01e26f1787eb7e3ca67c2025a3c41f5b6f621f39739ca"
+            },
+            {
+              "sampleId": "full-03-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "e924c978b597bca311456ca433289707127af357b56bba53cb872bf0ff3ee3b7",
+              "ortPredictionSha256": "e924c978b597bca311456ca433289707127af357b56bba53cb872bf0ff3ee3b7"
+            },
+            {
+              "sampleId": "full-03-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "bb2421a746265f7bb75db76881977d6b161663b0189f1a00a29fbae846a6d19d",
+              "ortPredictionSha256": "bb2421a746265f7bb75db76881977d6b161663b0189f1a00a29fbae846a6d19d"
+            },
+            {
+              "sampleId": "full-03-4",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 1,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "fdd9a9465cb8391f1f3cc636f24cb2759a0d777d7b1b53d764e1caec523ae1bd",
+              "ortPredictionSha256": "fdd9a9465cb8391f1f3cc636f24cb2759a0d777d7b1b53d764e1caec523ae1bd"
+            },
+            {
+              "sampleId": "full-04-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "5ce151771dd7885af80a75149a73d6a766c2059b32dde6caadd373b0ca50dea8",
+              "ortPredictionSha256": "5ce151771dd7885af80a75149a73d6a766c2059b32dde6caadd373b0ca50dea8"
+            },
+            {
+              "sampleId": "full-04-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "fbecd633c9600bb6a8c93a19591bae6aea57066b07c4a7886f85e4f6725ffdf5",
+              "ortPredictionSha256": "fbecd633c9600bb6a8c93a19591bae6aea57066b07c4a7886f85e4f6725ffdf5"
+            },
+            {
+              "sampleId": "full-04-5",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "ab6579f32cfea717e4bd5f0d5a6efb18d1ae1c4d7938a939b1d6fe50ddef491e",
+              "ortPredictionSha256": "ab6579f32cfea717e4bd5f0d5a6efb18d1ae1c4d7938a939b1d6fe50ddef491e"
+            },
+            {
+              "sampleId": "full-01-1",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "b4c0868568b0cf27aca8df4c55b1e12b36c1f7b11e7d08c92786458130463403",
+              "ortPredictionSha256": "b4c0868568b0cf27aca8df4c55b1e12b36c1f7b11e7d08c92786458130463403"
+            },
+            {
+              "sampleId": "full-01-3",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "c18566c49f1e90fcd56d6d90a20c09b5dddcef00a69a252ce1fd851732633d68",
+              "ortPredictionSha256": "c18566c49f1e90fcd56d6d90a20c09b5dddcef00a69a252ce1fd851732633d68"
+            },
+            {
+              "sampleId": "full-01-5",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "f5c1cf51426d0ce12b40434371bbff9b61c0e701f0d974c37c5e78c47c6bec86",
+              "ortPredictionSha256": "f5c1cf51426d0ce12b40434371bbff9b61c0e701f0d974c37c5e78c47c6bec86"
+            },
+            {
+              "sampleId": "commons-103085841",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "4e7269312dbe835c7565c667c84e9498ec9ed63f8cc2d286954f9e6c2b86b59e",
+              "ortPredictionSha256": "4e7269312dbe835c7565c667c84e9498ec9ed63f8cc2d286954f9e6c2b86b59e"
+            },
+            {
+              "sampleId": "commons-71459637",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 1,
+              "onnxVsOrtDifferentPixels": 1,
+              "onnxPredictionSha256": "559471d58e8fcdddf6821283c7e771dbe595bb1d4d93d4a2c49517e90350ef26",
+              "ortPredictionSha256": "a14a30db31fb1173c37af1f48d3092ceb48d0b5e243bfc14eb253fd4132d2af4"
+            },
+            {
+              "sampleId": "commons-94851551",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "ce6f99278d101be211601820d087e79c8ce432954a7cb746e70ad7a3e021d2a6",
+              "ortPredictionSha256": "ce6f99278d101be211601820d087e79c8ce432954a7cb746e70ad7a3e021d2a6"
+            },
+            {
+              "sampleId": "commons-62766446",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 1,
+              "onnxVsOrtDifferentPixels": 1,
+              "onnxPredictionSha256": "59fb7b3057d766b16687e632640516305f9350b27277ae800ee5b8ca6713de21",
+              "ortPredictionSha256": "f1dc34a164bb280b1eddef8b4c77b0b57da5ebacb9d295f1413f4af9d83dc4c5"
+            },
+            {
+              "sampleId": "commons-116480633",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "fa31fb2b6e255f7c52dfb2cb9c7abe77801f4f215e6cc987be02a62796c11d6e",
+              "ortPredictionSha256": "fa31fb2b6e255f7c52dfb2cb9c7abe77801f4f215e6cc987be02a62796c11d6e"
+            },
+            {
+              "sampleId": "commons-51302097",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "d42f428f269d92cd6185adb5f958560268be53a4beb2309dc4511c08632ec552",
+              "ortPredictionSha256": "d42f428f269d92cd6185adb5f958560268be53a4beb2309dc4511c08632ec552"
+            },
+            {
+              "sampleId": "commons-139631600",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "69d098b335358e54a7a74ba1afeff5974c95e4bb12bb7ae799fa59ba168e03dc",
+              "ortPredictionSha256": "69d098b335358e54a7a74ba1afeff5974c95e4bb12bb7ae799fa59ba168e03dc"
+            },
+            {
+              "sampleId": "commons-91959554",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "2c2202d887bc99b9332fd3f159f52a6803aabf3bdcafa82237307bdfc279248a",
+              "ortPredictionSha256": "2c2202d887bc99b9332fd3f159f52a6803aabf3bdcafa82237307bdfc279248a"
+            },
+            {
+              "sampleId": "commons-113155467",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "667e8638f80f6330790b2b7f3ad12ec9cb351d3b957d85d0a8f78c5c571566c8",
+              "ortPredictionSha256": "667e8638f80f6330790b2b7f3ad12ec9cb351d3b957d85d0a8f78c5c571566c8"
+            },
+            {
+              "sampleId": "commons-76813178",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "1daa2fb70f33dd0996fb7bddb0a3b1f4c864c1bd9e5c7387a7120bc6a5bc3bcc",
+              "ortPredictionSha256": "1daa2fb70f33dd0996fb7bddb0a3b1f4c864c1bd9e5c7387a7120bc6a5bc3bcc"
+            },
+            {
+              "sampleId": "commons-87118054",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "00e15efb85e75444553b0a5f12cdd53f14ab79ec6b28bf8a865298343079f256",
+              "ortPredictionSha256": "00e15efb85e75444553b0a5f12cdd53f14ab79ec6b28bf8a865298343079f256"
+            },
+            {
+              "sampleId": "commons-11044273",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "b9e5edd8102ec35b1d88648ec006de639b12428e5e763a82d129b2d572becfca",
+              "ortPredictionSha256": "b9e5edd8102ec35b1d88648ec006de639b12428e5e763a82d129b2d572becfca"
+            },
+            {
+              "sampleId": "commons-59715235",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "948cb26a343d00402dce39e7699645d141be3cab99149a46902eca69f9deabee",
+              "ortPredictionSha256": "948cb26a343d00402dce39e7699645d141be3cab99149a46902eca69f9deabee"
+            },
+            {
+              "sampleId": "commons-176811029",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "319adc4b0a9d2e070e2ec475622f8d070f67b794253c4b554611eda497472fb3",
+              "ortPredictionSha256": "319adc4b0a9d2e070e2ec475622f8d070f67b794253c4b554611eda497472fb3"
+            },
+            {
+              "sampleId": "commons-187047161",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "344bcb2e86dbcf178d38e3f1ab0249e1d8723b626e639215549df32dde08c90c",
+              "ortPredictionSha256": "344bcb2e86dbcf178d38e3f1ab0249e1d8723b626e639215549df32dde08c90c"
+            },
+            {
+              "sampleId": "commons-180194981",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 1,
+              "onnxPredictionSha256": "1ed61e6f3fdbfc71fc0f66ff55eb397aff1bf5a150e9de81616bf35a989365d8",
+              "ortPredictionSha256": "a6167e0188a10b2c5b8a1b42bfe43761f6a7d5d58d0905369a217a5641826b32"
+            },
+            {
+              "sampleId": "commons-112636258",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "9463a038c65a2bcb3b059f4d2265d338e3afac4ed5c9710707010f4c7d25bbf9",
+              "ortPredictionSha256": "9463a038c65a2bcb3b059f4d2265d338e3afac4ed5c9710707010f4c7d25bbf9"
+            },
+            {
+              "sampleId": "commons-122762439",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "bb05d7c428f242ea3ee2b837f93ec6b0680acf510eb08ee40404b76dbfd1e0e8",
+              "ortPredictionSha256": "bb05d7c428f242ea3ee2b837f93ec6b0680acf510eb08ee40404b76dbfd1e0e8"
+            },
+            {
+              "sampleId": "commons-119820731",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "0ecdf7c1874a7ef6039e8f924315354c636c8b8f088e6156863557c42d2e2e3e",
+              "ortPredictionSha256": "0ecdf7c1874a7ef6039e8f924315354c636c8b8f088e6156863557c42d2e2e3e"
+            },
+            {
+              "sampleId": "commons-88114953",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "c992ef4658b410f375990e98d90da2555c0165e386680ba117bc9a4202d828cc",
+              "ortPredictionSha256": "c992ef4658b410f375990e98d90da2555c0165e386680ba117bc9a4202d828cc"
+            }
+          ],
+          "totalPyTorchOnnxDifferentPixels": 3,
+          "totalOnnxOrtDifferentPixels": 3
+        },
+        "appDefaultChanged": false,
+        "androidExecutionVerified": false,
+        "accuracyImprovementClaimed": false
+      },
+      "exportDetails": {
+        "differentPixelDetails": [
+          {
+            "sampleId": "full-03-4",
+            "x": 153,
+            "y": 302,
+            "insideImageContent": false,
+            "pytorchClass": 6,
+            "onnxClass": 20,
+            "ortClass": 20,
+            "pytorchTop2ClassIds": [
+              6,
+              20
+            ],
+            "pytorchTop2Logits": [
+              12.60968017578125,
+              12.609675407409668
+            ],
+            "pytorchReferenceMargin": 4.76837158203125e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "commons-71459637",
+            "x": 179,
+            "y": 272,
+            "insideImageContent": false,
+            "pytorchClass": 13,
+            "onnxClass": 2,
+            "ortClass": 13,
+            "pytorchTop2ClassIds": [
+              13,
+              2
+            ],
+            "pytorchTop2Logits": [
+              10.52635383605957,
+              10.526329040527344
+            ],
+            "pytorchReferenceMargin": 2.47955322265625e-05,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "commons-62766446",
+            "x": 235,
+            "y": 309,
+            "insideImageContent": false,
+            "pytorchClass": 26,
+            "onnxClass": 2,
+            "ortClass": 26,
+            "pytorchTop2ClassIds": [
+              26,
+              2
+            ],
+            "pytorchTop2Logits": [
+              8.649949073791504,
+              8.64992904663086
+            ],
+            "pytorchReferenceMargin": 2.002716064453125e-05,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "commons-180194981",
+            "x": 64,
+            "y": 288,
+            "insideImageContent": false,
+            "pytorchClass": 2,
+            "onnxClass": 2,
+            "ortClass": 0,
+            "pytorchTop2ClassIds": [
+              2,
+              0
+            ],
+            "pytorchTop2Logits": [
+              10.832929611206055,
+              10.832897186279297
+            ],
+            "pytorchReferenceMargin": 3.24249267578125e-05,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          }
+        ],
+        "onnxStructuredLocalPathMatches": [],
+        "ortPrintableLocalPathMatchesOutsideTensorBytes": [],
+        "incidentalAsciiPatternsInsideNumericTensorBytes": [
+          {
+            "stringSha256": "461a38195e026f19aa5d1a4cffcd0ce0cd76388175eb90a2623315ce44c2c0d0",
+            "offset": 3728096,
+            "length": 9,
+            "tensor": "model.graph.initializer[56]"
+          },
+          {
+            "stringSha256": "e2a2c8131a20f8c62cc7cbe6587b7a81ba83f7a4a6fea869c0604d4f80649906",
+            "offset": 3982088,
+            "length": 4,
+            "tensor": "model.graph.initializer[56]"
+          }
+        ],
+        "allObservedDifferencesInsideLetterboxPadding": true,
+        "note": "Small argmax disagreements preserved; no accuracy improvement inferred from runtime parity."
+      }
+    },
+    {
+      "name": "pilot03c-l2sp",
+      "selectedEpoch": 1,
+      "selectedFp32EmaRoundedMatchesBestAllTensors": true,
+      "tensorCount": 364,
+      "execution": {
+        "status": "completed",
+        "argv": [
+          "research/B-finetune03-20261024/pilot03c-l2sp/train_pilot.py"
+        ],
+        "initialSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+        "configSha256": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+        "dataFreezeSha256": "3fa9d618aea0d46aee5a183cbb41bd6dbac10f3c5eed1ec97208a80d9a658eb3",
+        "config": {
+          "task": "semantic",
+          "epochs": 30,
+          "imgsz": 320,
+          "batch": 2,
+          "nbs": 2,
+          "device": "0",
+          "workers": 0,
+          "seed": 20261024,
+          "deterministic": true,
+          "optimizer": "AdamW",
+          "lr0": 1e-05,
+          "lrf": 0.1,
+          "weight_decay": 0.0005,
+          "warmup_epochs": 0.0,
+          "freeze": 11,
+          "amp": false,
+          "patience": 0,
+          "save_period": 5,
+          "cache": false,
+          "rect": false,
+          "multi_scale": 0.0,
+          "hsv_h": 0.0,
+          "hsv_s": 0.1,
+          "hsv_v": 0.1,
+          "degrees": 0.0,
+          "translate": 0.0,
+          "scale": 0.1,
+          "shear": 0.0,
+          "perspective": 0.0,
+          "flipud": 0.0,
+          "fliplr": 0.5,
+          "mosaic": 0.0,
+          "mixup": 0.0,
+          "cutmix": 0.0,
+          "copy_paste": 0.0,
+          "close_mosaic": 0,
+          "cls_pw": 0.0,
+          "plots": true,
+          "save": true,
+          "val": true,
+          "exist_ok": false,
+          "compile": false
+        },
+        "testUsedForTrainingOrSelection": false,
+        "exitCode": 0
+      },
+      "export": {
+        "status": "exported",
+        "trainingResultSha256": "3f0de6dc40caa4120fb221a45bf973fb26559ea53c422e4586bec9cce56a064e",
+        "trainedCheckpointSha256": "66e31e2ec8f63ee25dce45c588d2f394d5d68d496b5c74e8a8edef6e8f8d2468",
+        "originalPretrainedWeightSha256": "68ac71bef2868c987fff7cd7c49cb656922f6d8447ad21af3893305577435000",
+        "outputContract": {
+          "inputShape": [
+            1,
+            3,
+            320,
+            320
+          ],
+          "inputType": "float32 RGB/255 NCHW centered114padding",
+          "outputShape": [
+            1,
+            320,
+            320
+          ],
+          "outputType": "uint8",
+          "classes": 150
+        },
+        "artifacts": [
+          {
+            "path": "research/B-finetune03-20261024/pilot03c-l2sp/runs/pilot03c-l2sp/weights/best.pt",
+            "bytes": 3492899,
+            "sha256": "66e31e2ec8f63ee25dce45c588d2f394d5d68d496b5c74e8a8edef6e8f8d2468"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03c-l2sp/exports/yolo26n-sem-driving-mood-pilot03c-l2sp.pt",
+            "bytes": 3492899,
+            "sha256": "66e31e2ec8f63ee25dce45c588d2f394d5d68d496b5c74e8a8edef6e8f8d2468"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03c-l2sp/exports/raw-export.onnx",
+            "bytes": 6292498,
+            "sha256": "2b7bcf714d32692bca374fac9de9d7cf491f408d68d149bbd6e6dd51b50a11e5"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03c-l2sp/exports/yolo26n-sem-driving-mood-pilot03c-l2sp.onnx",
+            "bytes": 6292459,
+            "sha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23"
+          },
+          {
+            "path": "research/B-finetune03-20261024/pilot03c-l2sp/exports/ort-320/yolo26n-sem-driving-mood-pilot03c-l2sp.ort",
+            "bytes": 6386760,
+            "sha256": "d60e14547cf042e2e1dd7491f061258ded68f5882ac9e757c4e5b5a08373da86"
+          }
+        ],
+        "conversion": {
+          "runtime": "1.31.0",
+          "target": "arm",
+          "optimization": "Fixed",
+          "quantized": false
+        },
+        "metadata": {
+          "descriptionChangedOnly": true,
+          "tensorsUnchanged": true,
+          "originalDescriptionSha256": "6c529174d62f5ed647a8c6867df8284ef1d218a9d7078ae50dfdadbc1dd3e712",
+          "licensePreserved": true
+        },
+        "validation": {
+          "actualTrainValFrames": 32,
+          "testFramesUsed": 0,
+          "comparisons": [
+            {
+              "sampleId": "full-02-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "fa06dcb7b1e585eff721d187f8589af722c31fd0c7a65ae3f6a533ea5bf65416",
+              "ortPredictionSha256": "fa06dcb7b1e585eff721d187f8589af722c31fd0c7a65ae3f6a533ea5bf65416"
+            },
+            {
+              "sampleId": "full-02-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "ef12031ee004b556c63b2bda379da1a9342e60194c8933dadead7168070ff06b",
+              "ortPredictionSha256": "ef12031ee004b556c63b2bda379da1a9342e60194c8933dadead7168070ff06b"
+            },
+            {
+              "sampleId": "full-02-4",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "2d5cb1057334d84b633105d6cf8fdbc89f59b6fe08911f45b3a06298d8242552",
+              "ortPredictionSha256": "2d5cb1057334d84b633105d6cf8fdbc89f59b6fe08911f45b3a06298d8242552"
+            },
+            {
+              "sampleId": "full-03-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "b05bf4b5f1bac3cad569607ca79e6a65225e7a226571f3b78b108323d4ebeb46",
+              "ortPredictionSha256": "b05bf4b5f1bac3cad569607ca79e6a65225e7a226571f3b78b108323d4ebeb46"
+            },
+            {
+              "sampleId": "full-03-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "68ce2e55b265043e865b8786bc1cabac54e6fe2dee64525c808650d747b258fc",
+              "ortPredictionSha256": "68ce2e55b265043e865b8786bc1cabac54e6fe2dee64525c808650d747b258fc"
+            },
+            {
+              "sampleId": "full-03-4",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 1,
+              "onnxVsOrtDifferentPixels": 2,
+              "onnxPredictionSha256": "031a56f9984177d97ed83bf9aeb2beb74093b82f82c3d0ac35a889dbc343810c",
+              "ortPredictionSha256": "b7003b70226c750b4a60918ba8cf4ca4a2e01647b6504e4e30ced899ae0402da"
+            },
+            {
+              "sampleId": "full-04-1",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 1,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "da14f19f2136b1d66cc55acdfc9ecc3a657b7c55382dd4f2cd58254727cf4638",
+              "ortPredictionSha256": "da14f19f2136b1d66cc55acdfc9ecc3a657b7c55382dd4f2cd58254727cf4638"
+            },
+            {
+              "sampleId": "full-04-2",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "3eab5c9d50fd58610c2441430958fe297820f4ffe6ff146e12a7a3693a3d90e9",
+              "ortPredictionSha256": "3eab5c9d50fd58610c2441430958fe297820f4ffe6ff146e12a7a3693a3d90e9"
+            },
+            {
+              "sampleId": "full-04-5",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 2,
+              "onnxVsOrtDifferentPixels": 1,
+              "onnxPredictionSha256": "fe576738f91de602047f02e560a210371786ea646094848a7d3e5ccbc558aea2",
+              "ortPredictionSha256": "6743b7c4e679511857e64b8a00abcb49d5689d0027e4042ec4f3c07d77ce214c"
+            },
+            {
+              "sampleId": "full-01-1",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "1a9d088bf0d6ddd018019d82404fe0d929fd94feb553d850d316fab49e4bfe7c",
+              "ortPredictionSha256": "1a9d088bf0d6ddd018019d82404fe0d929fd94feb553d850d316fab49e4bfe7c"
+            },
+            {
+              "sampleId": "full-01-3",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "fc2c3ea09de07d80646ba6919025ed3749df542d5cc9764ba5a6db8d9346ef7a",
+              "ortPredictionSha256": "fc2c3ea09de07d80646ba6919025ed3749df542d5cc9764ba5a6db8d9346ef7a"
+            },
+            {
+              "sampleId": "full-01-5",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 1,
+              "onnxVsOrtDifferentPixels": 1,
+              "onnxPredictionSha256": "3e0205e85399992e5e14eb7e229a212991ce665dfe2914cc806c72464728a127",
+              "ortPredictionSha256": "94c9b41c1c60783a384fbf4578819d9a711beacfd6330699b51324075eaa7565"
+            },
+            {
+              "sampleId": "commons-103085841",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "9b83db2b0abe89b6bb6d21f1d1b7f14f80434d0fa39f2371124ac155a3a98ce4",
+              "ortPredictionSha256": "9b83db2b0abe89b6bb6d21f1d1b7f14f80434d0fa39f2371124ac155a3a98ce4"
+            },
+            {
+              "sampleId": "commons-71459637",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "d481529964df1d0f118f8c477f7db0f6b32ff30a410438a82a2fa2ddcad80ae3",
+              "ortPredictionSha256": "d481529964df1d0f118f8c477f7db0f6b32ff30a410438a82a2fa2ddcad80ae3"
+            },
+            {
+              "sampleId": "commons-94851551",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "e5f8181c64aa011d643c771d6c3b4bfebbabc48dc955706736220da347e50b97",
+              "ortPredictionSha256": "e5f8181c64aa011d643c771d6c3b4bfebbabc48dc955706736220da347e50b97"
+            },
+            {
+              "sampleId": "commons-62766446",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "d8155421e25a6cad0cbf149956d44155442b1c943f230b9fd4222091954fb04b",
+              "ortPredictionSha256": "d8155421e25a6cad0cbf149956d44155442b1c943f230b9fd4222091954fb04b"
+            },
+            {
+              "sampleId": "commons-116480633",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "76846889bcf47309b87e85cd97ffe589f4c16766119a9bce90c3aba288bd8e2d",
+              "ortPredictionSha256": "76846889bcf47309b87e85cd97ffe589f4c16766119a9bce90c3aba288bd8e2d"
+            },
+            {
+              "sampleId": "commons-51302097",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "af5424fc3f0a24f4d86c17a6e42d2b9f932a088782e8fd0ffb783edce1e92187",
+              "ortPredictionSha256": "af5424fc3f0a24f4d86c17a6e42d2b9f932a088782e8fd0ffb783edce1e92187"
+            },
+            {
+              "sampleId": "commons-139631600",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "5adcdfffc35868c1a399596d6d23c7d612e2e4e33bd4be22932ee571cc6d4801",
+              "ortPredictionSha256": "5adcdfffc35868c1a399596d6d23c7d612e2e4e33bd4be22932ee571cc6d4801"
+            },
+            {
+              "sampleId": "commons-91959554",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "2fa0a330775dad8ada776af54b5832c965346fc52956bad224e68ef7598e7298",
+              "ortPredictionSha256": "2fa0a330775dad8ada776af54b5832c965346fc52956bad224e68ef7598e7298"
+            },
+            {
+              "sampleId": "commons-113155467",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "9fd9ee3d4587353efe9de50ef135242c4cb21d671653672a2350859d8e3b840c",
+              "ortPredictionSha256": "9fd9ee3d4587353efe9de50ef135242c4cb21d671653672a2350859d8e3b840c"
+            },
+            {
+              "sampleId": "commons-76813178",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "a909d382d56583e64140afa9344baa035fa44ae3d6c7c587594f4a4f98ec0bec",
+              "ortPredictionSha256": "a909d382d56583e64140afa9344baa035fa44ae3d6c7c587594f4a4f98ec0bec"
+            },
+            {
+              "sampleId": "commons-87118054",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "e8f784a2ee411acbd9eb2090779532dd1957f311a7791698adc85dcb96f60131",
+              "ortPredictionSha256": "e8f784a2ee411acbd9eb2090779532dd1957f311a7791698adc85dcb96f60131"
+            },
+            {
+              "sampleId": "commons-11044273",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "033a4b91f1dd2d5d930d2829b7df985eaa4664281bd810ff0c2bfdb2f2e4bc8b",
+              "ortPredictionSha256": "033a4b91f1dd2d5d930d2829b7df985eaa4664281bd810ff0c2bfdb2f2e4bc8b"
+            },
+            {
+              "sampleId": "commons-59715235",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "7873c6f5a5ea9033b8ee5e72bdf5da34d9a51550aa75a6ebb3cedffb3a04ceaf",
+              "ortPredictionSha256": "7873c6f5a5ea9033b8ee5e72bdf5da34d9a51550aa75a6ebb3cedffb3a04ceaf"
+            },
+            {
+              "sampleId": "commons-176811029",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "78ae6a12f928859b1042ca4d5ca2659ce7ed7d81f0eb5df06894f66d36a55d3c",
+              "ortPredictionSha256": "78ae6a12f928859b1042ca4d5ca2659ce7ed7d81f0eb5df06894f66d36a55d3c"
+            },
+            {
+              "sampleId": "commons-187047161",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "aab41a497f198f57bb66616ecb4c8aa83b36afad2ea32ed69db512ad46e54cd2",
+              "ortPredictionSha256": "aab41a497f198f57bb66616ecb4c8aa83b36afad2ea32ed69db512ad46e54cd2"
+            },
+            {
+              "sampleId": "commons-180194981",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "192ddd18a71c6d87fcfde9d2206611ae70ffd630b728364d3864377abd6c2918",
+              "ortPredictionSha256": "192ddd18a71c6d87fcfde9d2206611ae70ffd630b728364d3864377abd6c2918"
+            },
+            {
+              "sampleId": "commons-112636258",
+              "split": "val",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "e18e1fbce938bda4c61fa721dda06daaebcc1544a4e690825586e5c088e7d9bf",
+              "ortPredictionSha256": "e18e1fbce938bda4c61fa721dda06daaebcc1544a4e690825586e5c088e7d9bf"
+            },
+            {
+              "sampleId": "commons-122762439",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "f00b1dfc4b92fe4afaf2e5a1f415712d20eabd9d18acc45316c9dc144f9f1f31",
+              "ortPredictionSha256": "f00b1dfc4b92fe4afaf2e5a1f415712d20eabd9d18acc45316c9dc144f9f1f31"
+            },
+            {
+              "sampleId": "commons-119820731",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "d023ec6a3b69d29e94a50a246fa9d71cd74334cd1191d0cbed79bb8cd70fc75f",
+              "ortPredictionSha256": "d023ec6a3b69d29e94a50a246fa9d71cd74334cd1191d0cbed79bb8cd70fc75f"
+            },
+            {
+              "sampleId": "commons-88114953",
+              "split": "train",
+              "pixels": 102400,
+              "pytorchVsOnnxDifferentPixels": 0,
+              "onnxVsOrtDifferentPixels": 0,
+              "onnxPredictionSha256": "9e61cc5ec9587874c8153dea60bab718397c8826db762e9eba2a6fd1c6258caa",
+              "ortPredictionSha256": "9e61cc5ec9587874c8153dea60bab718397c8826db762e9eba2a6fd1c6258caa"
+            }
+          ],
+          "totalPyTorchOnnxDifferentPixels": 5,
+          "totalOnnxOrtDifferentPixels": 4
+        },
+        "appDefaultChanged": false,
+        "androidExecutionVerified": false,
+        "accuracyImprovementClaimed": false
+      },
+      "exportDetails": {
+        "differentPixelDetails": [
+          {
+            "sampleId": "full-03-4",
+            "x": 151,
+            "y": 276,
+            "insideImageContent": false,
+            "pytorchClass": 6,
+            "onnxClass": 6,
+            "ortClass": 20,
+            "pytorchTop2ClassIds": [
+              6,
+              20
+            ],
+            "pytorchTop2Logits": [
+              10.028882026672363,
+              10.028873443603516
+            ],
+            "pytorchReferenceMargin": 8.58306884765625e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "full-03-4",
+            "x": 129,
+            "y": 295,
+            "insideImageContent": false,
+            "pytorchClass": 6,
+            "onnxClass": 6,
+            "ortClass": 20,
+            "pytorchTop2ClassIds": [
+              6,
+              20
+            ],
+            "pytorchTop2Logits": [
+              9.568624496459961,
+              9.568618774414062
+            ],
+            "pytorchReferenceMargin": 5.7220458984375e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "full-04-5",
+            "x": 70,
+            "y": 277,
+            "insideImageContent": false,
+            "pytorchClass": 5,
+            "onnxClass": 2,
+            "ortClass": 5,
+            "pytorchTop2ClassIds": [
+              5,
+              2
+            ],
+            "pytorchTop2Logits": [
+              7.633985996246338,
+              7.633959770202637
+            ],
+            "pytorchReferenceMargin": 2.6226043701171875e-05,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "full-04-5",
+            "x": 134,
+            "y": 298,
+            "insideImageContent": false,
+            "pytorchClass": 4,
+            "onnxClass": 2,
+            "ortClass": 2,
+            "pytorchTop2ClassIds": [
+              4,
+              2
+            ],
+            "pytorchTop2Logits": [
+              8.214427947998047,
+              8.214420318603516
+            ],
+            "pytorchReferenceMargin": 7.62939453125e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          },
+          {
+            "sampleId": "full-01-5",
+            "x": 116,
+            "y": 308,
+            "insideImageContent": false,
+            "pytorchClass": 5,
+            "onnxClass": 2,
+            "ortClass": 5,
+            "pytorchTop2ClassIds": [
+              5,
+              2
+            ],
+            "pytorchTop2Logits": [
+              8.626023292541504,
+              8.626019477844238
+            ],
+            "pytorchReferenceMargin": 3.814697265625e-06,
+            "review": "Reference logits only; exported graphs expose class IDs, not their logits."
+          }
+        ],
+        "onnxStructuredLocalPathMatches": [],
+        "ortPrintableLocalPathMatchesOutsideTensorBytes": [],
+        "incidentalAsciiPatternsInsideNumericTensorBytes": [
+          {
+            "stringSha256": "461a38195e026f19aa5d1a4cffcd0ce0cd76388175eb90a2623315ce44c2c0d0",
+            "offset": 3728096,
+            "length": 9,
+            "tensor": "model.graph.initializer[56]"
+          },
+          {
+            "stringSha256": "e2a2c8131a20f8c62cc7cbe6587b7a81ba83f7a4a6fea869c0604d4f80649906",
+            "offset": 3982088,
+            "length": 4,
+            "tensor": "model.graph.initializer[56]"
+          }
+        ],
+        "allObservedDifferencesInsideLetterboxPadding": true,
+        "note": "Small argmax disagreements preserved; no accuracy improvement inferred from runtime parity."
+      }
+    }
+  ],
+  "dataFreezeMetadataErratum": "Each data-freeze.json trainingConfigSha256 was inherited from pilot02 and describes the prior configuration. Actual pilot03 config SHA is in execution.json, prespecified-experiments.json, and training-comparison.json. Input hashes and execution configuration are correct and immutable.",
+  "actualConfigSha256ByCandidate": {
+    "pilot03a-low-lr": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+    "pilot03b-low-lr-fixed-bn": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+    "pilot03c-l2sp": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58"
+  },
+  "note": "Epoch-031 FP32 snapshot came from final validation callback, not a 31st training epoch. Only epochs 1 through 30 entered development-best selection."
+}

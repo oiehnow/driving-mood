@@ -10,15 +10,15 @@
 
 | 구성 | 역할 |
 |---|---|
-| **YOLO26n-sem-ADE20K** | 하늘·건물·창문·간판 등 장면의 영역 분할 |
-| **EfficientDet-Lite0** | 사람·차량 검출과 차량 불빛 제외를 위한 영역 제공 |
+| **YOLO26n-sem-ADE20K 복합 구성(F2)** | 기존 320 모델의 주요 영역을 보존하고, 640 모델의 하늘과 추가 학습한 C 모델의 건물·창문·간판 판단을 결합 |
+| **YOLO26n 객체 검출** | 사람·차량 검출과 차량 불빛 제외를 위한 영역 제공 |
 | **자체 관측·무드 점수 규칙** | 분할 영역의 실제 색감·빛과 시간에 따른 변화를 계산해 무드 키워드 도출 |
 
-실제 차량 주행 영상과 이미지 자료들을 바탕으로 장면 다양성을 보강하고, **YOLO26n-sem-ADE20K의 가중치를 갱신하는 파인튜닝과 학습 전후 비교 평가를 수행했습니다.** 일부 장면의 개선과 함께 간판 오탐·보도·사람 인식의 성능 저하도 확인해, **현재 배포 앱은 공식 기준 가중치를 유지**합니다. 학습 후보와 실행 기록은 보존했습니다. [모델 선택 이유와 파인튜닝 과정](docs/vision/FINETUNING.md) · [후속 학습·평가 결과](docs/vision/finetuning02/README.md)
+실제 차량 주행 영상과 이미지 자료들을 바탕으로 장면 다양성을 보강하고, **모델 가중치를 갱신하는 파인튜닝과 학습 전후 비교를 실제 수행했습니다.** 단독 교체에서 간판 오탐과 기존 인식의 퇴행을 확인해 학습률·통계 고정·가중치 보존 규제를 비교했습니다. **0.3.9에는 검증 기준을 통과한 F2 구성으로 추가 학습한 모델을 부분 적용**했습니다. 창문 인식과 광원 종류 구분은 아직 개선 과제로 남아 있습니다. [실험·실패·채택 이유](docs/vision/MODEL_IMPROVEMENT_LOG.md) · [평가 결과](docs/vision/finetuning03/README.md) · [학습 코드와 가중치](models/semantic/finetuning03/README.md)
 
 ## 실제 앱 화면
 
-Android 프로토타입 **0.3.8**.
+Android 프로토타입 **0.3.9** · 아래 화면은 동일 UI의 0.3.8 촬영본입니다.
 
 <img src="docs/product/assets/app-ui-0.3.8/analysis-transition.gif" width="360" alt="Driving Mood 촬영·분석·결과 화면">
 
@@ -28,7 +28,7 @@ Android 프로토타입 **0.3.8**.
 |:---:|:---:|:---:|
 | <img src="docs/product/assets/app-ui-0.3.8/01-start.png" width="240" alt="Driving Mood 시작 화면"> | <img src="docs/product/assets/app-ui-0.3.8/full-01-result.png" width="240" alt="노을 주행의 무드 결과"> | <img src="docs/product/assets/app-ui-0.3.8/full-01-evidence-top.png" width="240" alt="하늘색과 주변 조명, 밝기와 사람의 분석 기록"> |
 
-[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.8)
+[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.9)
 
 ## Pleos 차량 화면
 
@@ -52,7 +52,7 @@ Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 �
 
 ![분석 요청부터 결과까지](docs/product/assets/request-flow.gif)
 
-현재 0.3.8은 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
+현재 0.3.9는 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
 
 ## 무드 키워드를 만드는 과정
 
@@ -89,7 +89,7 @@ Android 8.0 이상을 지원합니다. [APK 빌드·설치 안내](docs/BUILD.md
 
 ## 개발 현황
 
-현재 APK는 **YOLO26n-sem-ADE20K 의미분할 + EfficientDet Lite0 사람·차량 검출 + 자체 색·면적 점수 규칙**을 기기 안에서 실행합니다. 내비게이션·실차 조명·장소 추천은 후속 개발 항목입니다. [모델과 재현 자료](docs/vision/SEMANTIC_MODEL.md)
+휴대폰 APK는 **F2 복합 의미분할 + YOLO26n 사람·차량 검출 + 자체 색·면적 점수 규칙**을 기기 안에서 실행합니다. 정확도 비교는 부분 주석의 개발 평가이며, 실제 휴대폰의 처리 시간·메모리·발열은 추가 확인이 필요합니다. Pleos 0.1.1은 내비게이션과 음악을 연결한 별도 UI 시연 앱으로, 이 복합 모델을 실차 카메라에 연결한 빌드는 아닙니다. [모델과 재현 자료](docs/vision/SEMANTIC_MODEL.md)
 
 버전별 빌드·촬영·분석 검사 결과는 [검증 기록](docs/VALIDATION.md)에서 확인할 수 있습니다. Galaxy S25+ 실기기 검증은 진행할 항목입니다.
 

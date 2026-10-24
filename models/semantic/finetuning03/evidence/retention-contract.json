@@ -1,0 +1,13 @@
+{
+  "status": "fixed-before-probe",
+  "formula": "total = official_supervised_loss + lambda * mean_trainable_elements((theta-theta0)^2) * batch_size",
+  "coefficientRule": "At before-update5 of a discarded train-only supervised probe, lambda=0.1*norm(supervised_gradient)/norm(2*(theta-theta0)/N*batch_size)",
+  "probeOptimizerSteps": 5,
+  "probeValidationUsed": false,
+  "mainStartsAgainFromOfficialBase": true,
+  "targetGradientRatio": 0.1,
+  "mainConfigSha256": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+  "heldoutDataUsed": false,
+  "reference": "https://proceedings.mlr.press/v80/li18a.html",
+  "implementation": "Independent formula implementation; author repository read for reference only, no code copied"
+}

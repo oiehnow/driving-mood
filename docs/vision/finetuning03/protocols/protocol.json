@@ -1,0 +1,32 @@
+{
+  "version": "C03-development-selection-v1",
+  "scopes": [
+    "data02_development_val",
+    "pilot01_development_regression"
+  ],
+  "role": "development_selection_not_independent_test",
+  "minimumMacroIoUDeltaEachScope": 0.0,
+  "minimumMeanMacroIoUDelta": 0.01,
+  "focusClassIds": [
+    2,
+    6,
+    8,
+    11,
+    12,
+    20,
+    43
+  ],
+  "maximumFocusIoUOrRecallRegression": 0.02,
+  "maximumVehicleGroupIoUOrRecallRegression": 0.02,
+  "maximumSignPrecisionRegression": 0.02,
+  "maximumSignFPNonSignLabeledRateIncrease": 0.001,
+  "maximumVehicleEligibleSurfaceConfusionRateIncrease": 0.005,
+  "missingMetricPolicy": "N/A; never impute zero or treat as observed support",
+  "tieBreakOrder": [
+    "maximum worst-scope macro IoU delta",
+    "maximum mean supported focus-class IoU delta",
+    "A fewer changes"
+  ],
+  "baselineAndPilot02Predictions": "reuse only verified identical tensor, alignment, hashes and confusion",
+  "newHoldoutAccess": "forbidden until one final candidate is frozen"
+}

@@ -5,5 +5,10 @@
 *.ort binary
 # Research snapshots include hashes of the original files and upstream notices.
 models/semantic/finetuning-pilot01/** -text -whitespace
+models/semantic/finetuning03/** -text -whitespace
+models/detector/yolo26n-mobile/** -text -whitespace
+models/tools/** -text -whitespace
+docs/vision/finetuning03/** -text -whitespace
+docs/vision/android-f2-039/** -text -whitespace
 # Preserve formatting in bundled upstream license notices.
 pleos-preview/src/main/assets/licenses/** -whitespace

@@ -3,7 +3,7 @@ Driving Mood — semantic observation
 Application source: https://github.com/oiehnow/driving-mood
 Application license: AGPL-3.0-only. See DrivingMood-AGPL-3.0.txt.
 
-Model: Ultralytics YOLO26n-sem-ADE20K
+Baseline model: Ultralytics YOLO26n-sem-ADE20K
 Upstream: https://github.com/ultralytics/ultralytics
 Original weights: https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n-sem-ade20k.pt
 Model license: AGPL-3.0. See ultralytics-LICENSE.txt.
@@ -20,3 +20,24 @@ Source: https://github.com/microsoft/onnxruntime
 License: MIT. See onnxruntime-LICENSE.txt and onnxruntime-ThirdPartyNotices.txt.
 ORT_DISABLE_TELEMETRY=1 is set before native initialization.
 Other dependencies and media retain their original licenses and notices.
+
+F2 role composition additions (no quantization):
+- Official baseline at 640 input: vision/yolo26n-sem-ade20k-640.onnx
+  Packaged SHA-256 bda25cea98386bde18ccc1faa1eb4cb3ce5574d3cc17005d876823b45f780e46
+  Size 6292427 bytes. Same official source weights; AGPL-3.0.
+  Export SHA-256 before description path cleanup: f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7
+- Driving Mood Pilot03C fine-tuned structure model: vision/yolo26n-sem-pilot03c-320.onnx
+  SHA-256 1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23
+  Size 6292459 bytes. Actual fine-tuning with frozen BN statistics and L2-SP.
+  Source/config/logs: models/semantic/finetuning03; evaluation: docs/vision/finetuning03.
+  Derivative of the above Ultralytics model, AGPL-3.0.
+- YOLO26n object detector: vision/yolo26n-detect-640.onnx
+  Packaged SHA-256 6236c6b2a47706c21edb508ca8a66d9b2f3772fe2b1410fee3cd70896ac0277a
+  Size 9893909 bytes. Official COCO weights, fixed 640 FP32 end-to-end export.
+  Export SHA-256 before description path cleanup: b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06
+  Original weights: https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt
+  Original PT SHA-256 9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef
+  AGPL-3.0. The object detector itself is not fine-tuned in this experiment.
+
+OpenCV 5.0 nearest-exact alignment arithmetic is adapted in Kotlin without adding
+the OpenCV runtime. Original notices are preserved in OpenCV-resize-NOTICE.txt.

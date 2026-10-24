@@ -1,0 +1,48 @@
+{
+  "modelSha256": "b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06",
+  "cpuOnly": true,
+  "deviceModel": "sdk_gphone64_x86_64",
+  "abi": "x86_64, arm64-v8a",
+  "samples": [
+    {
+      "sampleId": "clip-01-000122",
+      "inputSha256": "f424043bb3882079d4b22b26bf696cd2a62b8514f89dec53b799488d71dd8d6c",
+      "detectIncludingPreparationMs": 111.8109,
+      "boxCount": 2,
+      "maxNormalizedBoxDelta": 0,
+      "borrowedBitmapPreserved": true
+    },
+    {
+      "sampleId": "clip-04-000486",
+      "inputSha256": "ac7763f063e00a2ac7282fe826144daed6dd0f7192ff6551ebb49b65643d0726",
+      "detectIncludingPreparationMs": 79.3519,
+      "boxCount": 7,
+      "maxNormalizedBoxDelta": 0,
+      "borrowedBitmapPreserved": true
+    },
+    {
+      "sampleId": "clip-06-000026",
+      "inputSha256": "03baf7905c9211ebf16ea4b1b8f3d6a178a8d7ccce9703aa47412b1dd9b9c305",
+      "detectIncludingPreparationMs": 75.866,
+      "boxCount": 2,
+      "maxNormalizedBoxDelta": 0,
+      "borrowedBitmapPreserved": true
+    },
+    {
+      "sampleId": "clip-03-000719",
+      "inputSha256": "3ae3a5564f3cf7b9ca24912e28152b6acedda51f0a47efbb964cb4a5244df78d",
+      "detectIncludingPreparationMs": 70.5758,
+      "boxCount": 10,
+      "maxNormalizedBoxDelta": 0,
+      "borrowedBitmapPreserved": true
+    },
+    {
+      "sampleId": "clip-03-000723",
+      "inputSha256": "06ef56a8d29d402a6493c927750f3e53e31bbeb7bf39bb7e68fcacc13c746a76",
+      "detectIncludingPreparationMs": 65.2136,
+      "boxCount": 8,
+      "maxNormalizedBoxDelta": 0,
+      "borrowedBitmapPreserved": true
+    }
+  ]
+}

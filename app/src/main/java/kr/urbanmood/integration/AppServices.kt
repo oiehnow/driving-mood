@@ -6,13 +6,18 @@ import kr.urbanmood.context.AndroidEnvironmentProvider
 import kr.urbanmood.contracts.*
 import kr.urbanmood.recommendation.MoodRecommendationEngine
 import kr.urbanmood.vision.SemanticLightAnalyzer
-import kr.urbanmood.vision.OrtSemanticFrameModel
+import kr.urbanmood.vision.F2SemanticFrameModel
+import kr.urbanmood.vision.OrtObjectDetector
+import kr.urbanmood.vision.DefaultSkyColorCalculator
 
 /** Connects analysis, environment, recommendations and playback with explicit input provenance. */
 class AppServices(context: Context, keyProvider: () -> String = { "" }) {
-    val vision: VisionAnalyzer = SemanticLightAnalyzer(context.applicationContext) {
-        OrtSemanticFrameModel(context.applicationContext)
-    }
+    val vision: VisionAnalyzer = SemanticLightAnalyzer(
+        detectorFactory = { OrtObjectDetector(context.applicationContext) },
+        semanticFactory = { F2SemanticFrameModel(context.applicationContext) },
+        skyColorCalculator = DefaultSkyColorCalculator,
+        objectModelDescription = "YOLO26n ORT CPU ${OrtObjectDetector.MODEL_SHA256}; cap25",
+    )
     val environment = AndroidEnvironmentProvider(context.applicationContext, apiKeyProvider = keyProvider)
     val recommendation: RecommendationEngine = MoodRecommendationEngine()
     val audio: AudioPlayer = LocalAudioPlayer(context.applicationContext)

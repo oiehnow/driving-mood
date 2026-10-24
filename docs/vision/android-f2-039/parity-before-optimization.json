@@ -1,0 +1,830 @@
+{
+  "scope": "Frozen RGB native CPU parity and pipeline integrity; not live accuracy",
+  "deviceModel": "sdk_gphone64_x86_64",
+  "abi": "x86_64, arm64-v8a",
+  "provenanceSha256": "225860553e23c3a3acd7b5cc2ec6ed04d5546ec5921fd7f69565fcc305c70231",
+  "rulesSha256": "537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10",
+  "detectorSha256": "b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06",
+  "beforeInit": {
+    "pssKb": 158525,
+    "nativeHeapAllocatedBytes": 13888944,
+    "javaHeapUsedBytes": 64154704
+  },
+  "frames": [
+    {
+      "frame": "clip-04-000000",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 183945,
+        "nativeHeapAllocatedBytes": 22673824,
+        "javaHeapUsedBytes": 79850576
+      },
+      "pipelineMs": 7589.5719,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 34.4741,
+          "rawSha256": "3196d6ebb945f242e1fd38efab32ca1ba9767d4a8c5e2786799136c099b32287",
+          "memory": {
+            "pssKb": 287203,
+            "nativeHeapAllocatedBytes": 114173232,
+            "javaHeapUsedBytes": 108190800
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "8e489eba491c6aee25e74532bf2fddf4f87ce1c1e1581bafa12b4ee27b3864aa"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 232.5951,
+          "rawSha256": "f53b1018694e195e825188ef40d8d0ec0b797f22d7ecd5d6513a9000f1a19e2e",
+          "memory": {
+            "pssKb": 883783,
+            "nativeHeapAllocatedBytes": 719419136,
+            "javaHeapUsedBytes": 148290640
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "73a765b1f6ed4ca653247d3dc4d4cb1c7c36cda67e152879ea879286a408257e"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 41.6592,
+          "rawSha256": "68f459caaca36022bd31d87a7b9ee5cecc10f976ef43cf9825fdca4d8262b0f3",
+          "memory": {
+            "pssKb": 909936,
+            "nativeHeapAllocatedBytes": 866511360,
+            "javaHeapUsedBytes": 33941936
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "186d75a10fa6387d359e63816e39880e22c9fc6999f94766f96741c392903bbf"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 938789,
+        "nativeHeapAllocatedBytes": 935795328,
+        "javaHeapUsedBytes": 35043760
+      },
+      "roleElapsedMs": {
+        "baseline320": 146,
+        "sky640": 428,
+        "structureC320": 100
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "b45ef0bf685d1ddfc920a2a0b7f7324b1086cbf7d2c7c84fb22e6161c2a77abc",
+      "expectedF2Sha256": "b45ef0bf685d1ddfc920a2a0b7f7324b1086cbf7d2c7c84fb22e6161c2a77abc",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 26496,
+      "featureGroups": 90,
+      "skyPixels": 32442,
+      "skyMaskSha256": "955d09088b7222d638734a68fcc884974ca5f6a689eea663c59e62d3a47ebba3",
+      "skyRgbSha256": "4a7897b68ebbb8e19eccb778f3e1a39816d242cc0455c6ffd551b142b26c7f80",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=146, sky640=428, structureC320=100}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=1000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-04-000000-portrait90",
+      "width": 360,
+      "height": 640,
+      "portrait": true,
+      "before": {
+        "pssKb": 941961,
+        "nativeHeapAllocatedBytes": 936724224,
+        "javaHeapUsedBytes": 37321136
+      },
+      "pipelineMs": 8543.3321,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 32.4561,
+          "rawSha256": "5ddd03e93cd9f6bd96c70fc205a940da0e18a09c47149d633d4063e0d910eaca",
+          "memory": {
+            "pssKb": 947293,
+            "nativeHeapAllocatedBytes": 936726176,
+            "javaHeapUsedBytes": 40946096
+          }
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 959.4919,
+          "rawSha256": "9f651bbb07f338d83c32067884760d251040a689de8b643288f11ebb378391e6",
+          "memory": {
+            "pssKb": 1474904,
+            "nativeHeapAllocatedBytes": 1490383888,
+            "javaHeapUsedBytes": 47712688
+          }
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 81.0352,
+          "rawSha256": "73e413b7c939c72db56ef4838fdba8780b747cd1b8c7e6843940894fdc3088e0",
+          "memory": {
+            "pssKb": 1606204,
+            "nativeHeapAllocatedBytes": 1628805616,
+            "javaHeapUsedBytes": 49625520
+          }
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1617436,
+        "nativeHeapAllocatedBytes": 1698005248,
+        "javaHeapUsedBytes": 26413488
+      },
+      "roleElapsedMs": {
+        "baseline320": 58,
+        "sky640": 1035,
+        "structureC320": 128
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 360x640; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "e0654301e22025ca9f330aeaf4ed2eaba437859d5ecfdf4a0fe1b736b2da2380",
+      "featurePixels": 9640,
+      "featureGroups": 68,
+      "skyPixels": 31147,
+      "skyMaskSha256": "df6d2666e0036a025cd29fd335823e4335d1f2e4808950962d52261783865295",
+      "skyRgbSha256": "6500292f3685606d8f3ec9aeeab3076b46974d24dac94fe7618a3fcafa112d4f",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 360x640; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=58, sky640=1035, structureC320=128}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=2000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-04-000150",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 1615760,
+        "nativeHeapAllocatedBytes": 1697081648,
+        "javaHeapUsedBytes": 29145520
+      },
+      "pipelineMs": 15402.9722,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 433.3505,
+          "rawSha256": "d607eb5d143128b7ef6b5da87b59b8cd367e476248206acc6e26b8865062c730",
+          "memory": {
+            "pssKb": 1619514,
+            "nativeHeapAllocatedBytes": 1697083904,
+            "javaHeapUsedBytes": 32786864
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "0e3881372f5b5a3b731bdda3dc29a12651fdc36ded7e1814218c8ae949fd611f"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 459.0412,
+          "rawSha256": "4eebca9c7d9d9e0d8ab22096ae5058391bd486d3d72ca18f1cf203ac86541dc1",
+          "memory": {
+            "pssKb": 1628106,
+            "nativeHeapAllocatedBytes": 1697087504,
+            "javaHeapUsedBytes": 41519536
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "0bf1865a87593d1f9dfbbe3ede9ee9ab20617b38b1c0bfce2d06ca62cc32b716"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 222.6565,
+          "rawSha256": "d6969be8f9ab8bcd8be7215f4cd13188be6150e111087146fcd5a8bbf809074a",
+          "memory": {
+            "pssKb": 1621236,
+            "nativeHeapAllocatedBytes": 1697080368,
+            "javaHeapUsedBytes": 33974704
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "f45b57a38859a2bcc74736256460a2276a845ef4e42256f1cd9127f6332b4693"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1618436,
+        "nativeHeapAllocatedBytes": 1697087568,
+        "javaHeapUsedBytes": 33753520
+      },
+      "roleElapsedMs": {
+        "baseline320": 506,
+        "sky640": 661,
+        "structureC320": 304
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "a2f0656325539a643ca1ddd23bd54659ae0b488dbd1fd287175290daca6e4e71",
+      "expectedF2Sha256": "a2f0656325539a643ca1ddd23bd54659ae0b488dbd1fd287175290daca6e4e71",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 20218,
+      "featureGroups": 133,
+      "skyPixels": 30225,
+      "skyMaskSha256": "f6f7161ebe08f1ac921d255cbaed6c85ae20731c2b3beb030227d0905a4d0379",
+      "skyRgbSha256": "cc1708ec7bb4b6362f592d5f190aa8495231128e8eb66390127112486d3095c8",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=506, sky640=661, structureC320=304}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=3000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-04-000300",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 1622534,
+        "nativeHeapAllocatedBytes": 1697091296,
+        "javaHeapUsedBytes": 36886960
+      },
+      "pipelineMs": 10169.5238,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 493.3396,
+          "rawSha256": "a65ab228d72a66b3d3b83e37a5733631791f3d855e1a2e785b5e263a57209da9",
+          "memory": {
+            "pssKb": 1631751,
+            "nativeHeapAllocatedBytes": 1697094064,
+            "javaHeapUsedBytes": 40589744
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "a3100a91118db644055731905e403b3b7b72cf163bd7360490fddf9f2d527083"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 1178.3081,
+          "rawSha256": "f23d638564806091a719650b90fd0c9044147a9daae3bf04d4912ac7f72e57c1",
+          "memory": {
+            "pssKb": 1639399,
+            "nativeHeapAllocatedBytes": 1697097664,
+            "javaHeapUsedBytes": 49322416
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "48dca6953fb3c59496560da08066db6e58bd5d5b8bdea924af3261d57539f790"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 430.0521,
+          "rawSha256": "a7b777e65195607668355d9c7c8b0118854cfdf47641f7dcf7b24a421216701a",
+          "memory": {
+            "pssKb": 1627121,
+            "nativeHeapAllocatedBytes": 1697080880,
+            "javaHeapUsedBytes": 34015664
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "444825f64ad0c2b60c0117465ead2a16d2246bfc182d9e7a7b0d181dc619f257"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1628927,
+        "nativeHeapAllocatedBytes": 1697089168,
+        "javaHeapUsedBytes": 39840176
+      },
+      "roleElapsedMs": {
+        "baseline320": 554,
+        "sky640": 1432,
+        "structureC320": 499
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "69fce16d465317379b1a38d52598377f0ac616059c43e4b929fde9391f2770a7",
+      "expectedF2Sha256": "69fce16d465317379b1a38d52598377f0ac616059c43e4b929fde9391f2770a7",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 29630,
+      "featureGroups": 89,
+      "skyPixels": 28122,
+      "skyMaskSha256": "7f831074aaef403a793ef3bf484e0668780e6e221a7f4d9537d335a957a426ec",
+      "skyRgbSha256": "5043d88014bf559d481ba1c9fba8b1278ef49a8a6a5151a0a43e8a3bceae9308",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=554, sky640=1432, structureC320=499}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=4000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-04-000450",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 1632184,
+        "nativeHeapAllocatedBytes": 1697094160,
+        "javaHeapUsedBytes": 43039200
+      },
+      "pipelineMs": 6963.2532,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 112.8505,
+          "rawSha256": "cd9eeb0328a9e23471b817125155ffa94b4f547afd7660158d328b734e7b2e1b",
+          "memory": {
+            "pssKb": 1635868,
+            "nativeHeapAllocatedBytes": 1697097664,
+            "javaHeapUsedBytes": 46787088
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "7e49e8217df99917c499d1fcf76bdd8b9c8b3b344b2b120550389d21e608fbaf"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 178.8759,
+          "rawSha256": "adb7e46a393609153a88afab9be665a42cb5557f430a701adc5cdf0903b69abb",
+          "memory": {
+            "pssKb": 1619646,
+            "nativeHeapAllocatedBytes": 1697077936,
+            "javaHeapUsedBytes": 26388912
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "10673943d29e799b3accf4bea37e820f5f8e9320dc25cc81d5c997f32db4d749"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 44.0255,
+          "rawSha256": "8b36e0b121c9df80e7471fb8f272725311cc158edd5611b90011604745f91b96",
+          "memory": {
+            "pssKb": 1627530,
+            "nativeHeapAllocatedBytes": 1697081584,
+            "javaHeapUsedBytes": 34466224
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "010ea3ca6a0c746c383b0ec8870baf079daa7ff172d74b1142a05d45c916854d"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1634922,
+        "nativeHeapAllocatedBytes": 1697091472,
+        "javaHeapUsedBytes": 45631920
+      },
+      "roleElapsedMs": {
+        "baseline320": 186,
+        "sky640": 380,
+        "structureC320": 109
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "6d2a930b40bf13d8f3630f5edf9c5dd133ae6198e4323018ec5493916ae8e6c7",
+      "expectedF2Sha256": "6d2a930b40bf13d8f3630f5edf9c5dd133ae6198e4323018ec5493916ae8e6c7",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 25167,
+      "featureGroups": 71,
+      "skyPixels": 38098,
+      "skyMaskSha256": "868c461fa1633696492e0225aeaa9eaf1d34d3af81dae8a8e3c9ac8b730d6b2e",
+      "skyRgbSha256": "27170517dc5baf084f736925a7b84c2f33592605d58b392cfed7a8c726c93318",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=186, sky640=380, structureC320=109}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=5000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-06-000000",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 1638152,
+        "nativeHeapAllocatedBytes": 1697097344,
+        "javaHeapUsedBytes": 49068560
+      },
+      "pipelineMs": 8935.3859,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 29.9753,
+          "rawSha256": "6f9ec69c0f46a6abecf6f3fd57f8f97563b5d594025f256a39e26618ecf178df",
+          "memory": {
+            "pssKb": 1641908,
+            "nativeHeapAllocatedBytes": 1697104416,
+            "javaHeapUsedBytes": 52898224
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "70ec58e4d7586febd9a06be0d35dd95d94f48c34759657ba3898fd13bca296c7"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 118.1884,
+          "rawSha256": "cf37384f05c3020f80aa56b21ec04731a5dc9d1471369c85fc8d6dffb00fafd3",
+          "memory": {
+            "pssKb": 1621580,
+            "nativeHeapAllocatedBytes": 1697080416,
+            "javaHeapUsedBytes": 28469680
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "0639593c4c62d7402aa7bc5eb2831ed464f6de6442c94e15b714879db0118d94"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 32.6386,
+          "rawSha256": "ce417182d0e1feed772b8b3c6f1211aef6b2805c2a7851783ddfb14127d48404",
+          "memory": {
+            "pssKb": 1629460,
+            "nativeHeapAllocatedBytes": 1697084016,
+            "javaHeapUsedBytes": 36546992
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "7ae1f51b30d5929adeef817306da7688813302de3ee884adafd370693265baea"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1639172,
+        "nativeHeapAllocatedBytes": 1697093088,
+        "javaHeapUsedBytes": 51161520
+      },
+      "roleElapsedMs": {
+        "baseline320": 102,
+        "sky640": 326,
+        "structureC320": 99
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "371a9164624a5f7080519ab7fd2393ac451f09a2e366ced0ec382030e1ab9928",
+      "expectedF2Sha256": "371a9164624a5f7080519ab7fd2393ac451f09a2e366ced0ec382030e1ab9928",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 0,
+      "featureGroups": 0,
+      "skyPixels": 50345,
+      "skyMaskSha256": "4da288ea318eaa241f3a39f702506be20109b8ed237e962920253cb5029a4685",
+      "skyRgbSha256": "c354cf72dd3dadd2c709d2383b8fdd7346b58f29a956872c8f48b50501a6dd1e",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=102, sky640=326, structureC320=99}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=6000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-06-000150",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 1614364,
+        "nativeHeapAllocatedBytes": 1697078128,
+        "javaHeapUsedBytes": 21109168
+      },
+      "pipelineMs": 10193.0332,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 46.6334,
+          "rawSha256": "fe825b275feeda322678ced24e0e25b64af5be230a984b357a403ca523bc6920",
+          "memory": {
+            "pssKb": 1618072,
+            "nativeHeapAllocatedBytes": 1697081888,
+            "javaHeapUsedBytes": 24951264
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "6bc160f0c1b09176e082750667504b3679e620daf55cf4b7857e8c1da5e62435"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 131.1597,
+          "rawSha256": "dd868cc892b40cffa2c21b3421fbc8915d972935a0e9f9b11a7d836eb134890e",
+          "memory": {
+            "pssKb": 1626592,
+            "nativeHeapAllocatedBytes": 1697085440,
+            "javaHeapUsedBytes": 33683936
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "363bde9200ed469f9e9c8208c885b40e172d60958b6b14d4c07180307eb34df8"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 43.8478,
+          "rawSha256": "228801c2147643055185d413ac2f8c2d6990d165da8069ffc2d739ea09319b87",
+          "memory": {
+            "pssKb": 1634492,
+            "nativeHeapAllocatedBytes": 1697091696,
+            "javaHeapUsedBytes": 41793968
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "be3aa86b7c2e3ed5cd4a63584afa15d4cb7a492998ee80f99ae04af59b1a7362"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1616334,
+        "nativeHeapAllocatedBytes": 1697078976,
+        "javaHeapUsedBytes": 24926640
+      },
+      "roleElapsedMs": {
+        "baseline320": 115,
+        "sky640": 342,
+        "structureC320": 111
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "6af2703d183d9bc0f0f56d915a792881aeb798191eacab2585b5ee7c622d9c41",
+      "expectedF2Sha256": "6af2703d183d9bc0f0f56d915a792881aeb798191eacab2585b5ee7c622d9c41",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 0,
+      "featureGroups": 0,
+      "skyPixels": 53612,
+      "skyMaskSha256": "ecf274eae3fda8ead38b971013cc80aee26c606d0be7b4bb7879b0f6c81a602a",
+      "skyRgbSha256": "2b2936e081d8e63cfeccb792682ef76a609cdf7ef00044408f62ec1280432d21",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=115, sky640=342, structureC320=111}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=7000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-06-000300",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 1619630,
+        "nativeHeapAllocatedBytes": 1697084848,
+        "javaHeapUsedBytes": 28363280
+      },
+      "pipelineMs": 8062.414,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 32.5461,
+          "rawSha256": "004f7f78d1c370f1cdd028ecf41cdc8b8c55d67bf45ed86d7d8817b9678df040",
+          "memory": {
+            "pssKb": 1623354,
+            "nativeHeapAllocatedBytes": 1697088560,
+            "javaHeapUsedBytes": 32209472
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "d4ccda334a96204f9c7d4c1fd1b2ac2bbc774c78140966993ec724228c71872e"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 111.0257,
+          "rawSha256": "afe3ddbd58ea8e5ce661195809c80d6fa822b7ba81c47e1b95cb3eb04b078e24",
+          "memory": {
+            "pssKb": 1631853,
+            "nativeHeapAllocatedBytes": 1697092208,
+            "javaHeapUsedBytes": 40942144
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "41510d68562721a46fb01c85b31c3b605bf3c59b96440b9598cae32c2e4efde0"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 30.2813,
+          "rawSha256": "5005b9b356d00b12245dc4a19ab9f1b8978de0868e26619d96d8963977970e05",
+          "memory": {
+            "pssKb": 1626779,
+            "nativeHeapAllocatedBytes": 1697081456,
+            "javaHeapUsedBytes": 34044336
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "c9727c7e1a2a872e3b13eeb84d0ef1cc2d341009091588faed4093f7c03ab943"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1621320,
+        "nativeHeapAllocatedBytes": 1697089760,
+        "javaHeapUsedBytes": 38218160
+      },
+      "roleElapsedMs": {
+        "baseline320": 98,
+        "sky640": 297,
+        "structureC320": 85
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "49b193d511a5b02f74a0ade8be41e538375a53fec8252c9f3beab7cd58f7d141",
+      "expectedF2Sha256": "49b193d511a5b02f74a0ade8be41e538375a53fec8252c9f3beab7cd58f7d141",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 2,
+      "featureGroups": 1,
+      "skyPixels": 31141,
+      "skyMaskSha256": "14fb1120f2b2700fe2255ef30fecdf319333e5a57bf6a45a8e11b59749c80b81",
+      "skyRgbSha256": "9afe68eabda32c71b80e9165468b77a8dae5387e4fd62e63fcefc33b2659da3d",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=98, sky640=297, structureC320=85}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=8000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    },
+    {
+      "frame": "clip-06-000450",
+      "width": 640,
+      "height": 360,
+      "portrait": false,
+      "before": {
+        "pssKb": 1624656,
+        "nativeHeapAllocatedBytes": 1697095632,
+        "javaHeapUsedBytes": 41675280
+      },
+      "pipelineMs": 7723.963,
+      "status": "LOW_CONFIDENCE",
+      "reasons": [
+        "촬영된 밝은 부분의 색과 면적입니다. 상점·자발광 여부는 미확인입니다."
+      ],
+      "roles": [
+        {
+          "role": "baseline320",
+          "modelSha256": "6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc",
+          "inferMs": 36.0674,
+          "rawSha256": "5726f34d94f78ef0c6325d86c395b9e7be532724556599d18f8b4e533bbbfb35",
+          "memory": {
+            "pssKb": 1628400,
+            "nativeHeapAllocatedBytes": 1697099344,
+            "javaHeapUsedBytes": 45533760
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "e4a847f9ddd0f697b0c6dd93e49325e910dc5c9efcbff4afb706928265a014c2"
+        },
+        {
+          "role": "sky640",
+          "modelSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+          "inferMs": 102.3336,
+          "rawSha256": "08a16bd1b019e6483492e414881bbe2089c16d4840edc92081614a8e9d5fa2b4",
+          "memory": {
+            "pssKb": 1614040,
+            "nativeHeapAllocatedBytes": 1697078368,
+            "javaHeapUsedBytes": 26417584
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "0f6458dd40b8431bad2734486f7ca02c239b0f6c826795dac05b03c1c5c9f8b3"
+        },
+        {
+          "role": "structureC320",
+          "modelSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+          "inferMs": 39.554,
+          "rawSha256": "8acb751fa16a6b06a0f6c3436fa7c57936fb0fe45050bda3e45019f567c73f8f",
+          "memory": {
+            "pssKb": 1622021,
+            "nativeHeapAllocatedBytes": 1697082096,
+            "javaHeapUsedBytes": 34494896
+          },
+          "inputFloatBitDifferences": 0,
+          "inputMaxAbs": 0,
+          "rawPixelDifferences": 0,
+          "alignedPixelDifferences": 0,
+          "alignedSha256": "d3eadeb06cf0a8fcad8f5d568dd415959c8aaa9584941196ee4ff2806572af06"
+        }
+      ],
+      "afterInference": {
+        "pssKb": 1626633,
+        "nativeHeapAllocatedBytes": 1697092192,
+        "javaHeapUsedBytes": 44706224
+      },
+      "roleElapsedMs": {
+        "baseline320": 90,
+        "sky640": 292,
+        "structureC320": 94
+      },
+      "sourceSha256": "cad300e2b9bd4dc30fce14a881acae6473a78d01cfd06fb053f43892a14e6218",
+      "description": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2",
+      "fallbackReason": null,
+      "actualF2Sha256": "3dc1eb3bbf125ad33af1e1faf0373fff7c6ad092f67c22446d7c77119f5705c3",
+      "expectedF2Sha256": "3dc1eb3bbf125ad33af1e1faf0373fff7c6ad092f67c22446d7c77119f5705c3",
+      "f2PixelDifferences": 0,
+      "f2PixelDifferenceRatio": 0,
+      "featurePixels": 2,
+      "featureGroups": 1,
+      "skyPixels": 49718,
+      "skyMaskSha256": "1df9f5043ed85767493167bed9ff48b8d4ca1770a7883f3c1c45956e87b93ab4",
+      "skyRgbSha256": "4cfafe7a788c525233836fff6237107dbdd16c2d0ad4d80b398cb329bb51d10f",
+      "sourceDetail": "F2|537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10|6ce74261203e17eeefda81e41dd8e7e764b0dc98368dc9662501a8de12054dfc|f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7|1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23; upright 640x360; INTER_NEAREST_EXACT; sky=merged ADE2; semantic-contrast-mobile-v1; role preparation+inference ms={baseline320=90, sky640=292, structureC320=94}; YOLO26n ORT CPU b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06; cap25; actual decoder PTS us=9000000",
+      "groupPartitionVerified": true,
+      "bitmapPreserved": true
+    }
+  ],
+  "beforeClose": {
+    "pssKb": 1627581,
+    "nativeHeapAllocatedBytes": 1696171632,
+    "javaHeapUsedBytes": 46717456
+  },
+  "afterClose": {
+    "pssKb": 129869,
+    "nativeHeapAllocatedBytes": 13940240,
+    "javaHeapUsedBytes": 46717456
+  },
+  "totalF2PixelDifferences": 0,
+  "framesOver30Seconds": [],
+  "completedRows": 9,
+  "zeroDifferenceGatePassed": true
+}

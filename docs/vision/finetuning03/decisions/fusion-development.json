@@ -1,0 +1,843 @@
+{
+  "F1": {
+    "name": "F1",
+    "passed": false,
+    "failedChecks": [
+      {
+        "scope": "data02_development_val",
+        "metric": "sign_precision",
+        "baseline": 1.0,
+        "candidate": 0.6681127982646421,
+        "deltaPercentagePoints": -33.18872017353579,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": false
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "signFalsePositiveOnNonSignLabeledRate",
+        "baseline": 0.0,
+        "candidate": 0.0017964915576638564,
+        "deltaPercentagePoints": 0.17964915576638563,
+        "minimumDelta": null,
+        "maximumDelta": 0.001,
+        "passed": false
+      }
+    ],
+    "checks": [
+      {
+        "scope": "data02_development_val",
+        "metric": "macroIoUSupportedGT",
+        "baseline": 0.4197909703268034,
+        "candidate": 0.43643205559248993,
+        "deltaPercentagePoints": 1.6641085265686528,
+        "minimumDelta": 0.0,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class2_iou",
+        "baseline": 0.9969424752421668,
+        "candidate": 0.9971583220568335,
+        "deltaPercentagePoints": 0.021584681466668698,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class2_recall",
+        "baseline": 0.9985365457058457,
+        "candidate": 0.9985365457058457,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class6_iou",
+        "baseline": 0.3925883507853403,
+        "candidate": 0.3925883507853403,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class6_recall",
+        "baseline": 0.3925883507853403,
+        "candidate": 0.3925883507853403,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class8_iou",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class8_recall",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class11_iou",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class11_recall",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class20_iou",
+        "baseline": 0.8440217391304348,
+        "candidate": 0.8440217391304348,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class20_recall",
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class43_iou",
+        "baseline": 0.6217532467532467,
+        "candidate": 0.6681127982646421,
+        "deltaPercentagePoints": 4.635955151139537,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class43_recall",
+        "baseline": 0.6217532467532467,
+        "candidate": 1.0,
+        "deltaPercentagePoints": 37.824675324675326,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "vehicle_group_iou",
+        "baseline": 0.8440217391304348,
+        "candidate": 0.8440217391304348,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "vehicle_group_recall",
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "sign_precision",
+        "baseline": 1.0,
+        "candidate": 0.6681127982646421,
+        "deltaPercentagePoints": -33.18872017353579,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": false
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "signFalsePositiveOnNonSignLabeledRate",
+        "baseline": 0.0,
+        "candidate": 0.0017964915576638564,
+        "deltaPercentagePoints": 0.17964915576638563,
+        "minimumDelta": null,
+        "maximumDelta": 0.001,
+        "passed": false
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "vehicle_eligibleSurfaceConfusionRate",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": null,
+        "maximumDelta": 0.005,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "macroIoUSupportedGT",
+        "baseline": 0.6043630726961378,
+        "candidate": 0.6614727676973668,
+        "deltaPercentagePoints": 5.710969500122909,
+        "minimumDelta": 0.0,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class2_iou",
+        "baseline": 0.9787139820500709,
+        "candidate": 0.9914943146208255,
+        "deltaPercentagePoints": 1.2780332570754616,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class2_recall",
+        "baseline": 0.9893753544035575,
+        "candidate": 0.9914943146208255,
+        "deltaPercentagePoints": 0.21189602172679844,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class6_iou",
+        "baseline": 0.704727822356576,
+        "candidate": 0.704727822356576,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class6_recall",
+        "baseline": 0.7109860291974076,
+        "candidate": 0.7109860291974076,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class8_iou",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class8_recall",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class11_iou",
+        "baseline": 0.6280107047279215,
+        "candidate": 0.6280107047279215,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class11_recall",
+        "baseline": 0.630071599045346,
+        "candidate": 0.630071599045346,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class12_iou",
+        "baseline": 0.9863438857852266,
+        "candidate": 0.9863438857852266,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class12_recall",
+        "baseline": 0.9863438857852266,
+        "candidate": 0.9863438857852266,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class20_iou",
+        "baseline": 0.9793587174348697,
+        "candidate": 0.9793587174348697,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class20_recall",
+        "baseline": 0.9980598386602675,
+        "candidate": 0.9980598386602675,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class43_iou",
+        "baseline": 0.0,
+        "candidate": 0.43556085918854415,
+        "deltaPercentagePoints": 43.556085918854414,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class43_recall",
+        "baseline": 0.0,
+        "candidate": 0.43556085918854415,
+        "deltaPercentagePoints": 43.556085918854414,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "vehicle_group_iou",
+        "baseline": 0.9793587174348697,
+        "candidate": 0.9793587174348697,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "vehicle_group_recall",
+        "baseline": 0.9980598386602675,
+        "candidate": 0.9980598386602675,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "signFalsePositiveOnNonSignLabeledRate",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": null,
+        "maximumDelta": 0.001,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "vehicle_eligibleSurfaceConfusionRate",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": null,
+        "maximumDelta": 0.005,
+        "passed": true
+      },
+      {
+        "scope": "mean_of_development_scopes",
+        "metric": "mean_macro_iou_delta",
+        "baseline": 0,
+        "candidate": 0.03687539013345781,
+        "deltaPercentagePoints": 3.6875390133457806,
+        "minimumDelta": 0.01,
+        "maximumDelta": null,
+        "passed": true
+      }
+    ],
+    "unsupportedChecks": [
+      {
+        "scope": "data02_development_val",
+        "metric": "class12_iou",
+        "baseline": null,
+        "candidate": null
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class12_recall",
+        "baseline": null,
+        "candidate": null
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "sign_precision",
+        "baseline": null,
+        "candidate": 1.0
+      }
+    ],
+    "worstScopeMacroDelta": 0.016641085265686528,
+    "meanMacroDelta": 0.03687539013345781,
+    "meanFocusIoUDelta": 0.03807050692964314
+  },
+  "F2": {
+    "name": "F2",
+    "passed": true,
+    "failedChecks": [],
+    "checks": [
+      {
+        "scope": "data02_development_val",
+        "metric": "macroIoUSupportedGT",
+        "baseline": 0.4197909703268034,
+        "candidate": 0.45270097656187913,
+        "deltaPercentagePoints": 3.291000623507573,
+        "minimumDelta": 0.0,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class2_iou",
+        "baseline": 0.9969424752421668,
+        "candidate": 0.9969424752421668,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class2_recall",
+        "baseline": 0.9985365457058457,
+        "candidate": 0.9985365457058457,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class6_iou",
+        "baseline": 0.3925883507853403,
+        "candidate": 0.3925883507853403,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class6_recall",
+        "baseline": 0.3925883507853403,
+        "candidate": 0.3925883507853403,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class8_iou",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class8_recall",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class11_iou",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class11_recall",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class20_iou",
+        "baseline": 0.8440217391304348,
+        "candidate": 0.8440217391304348,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class20_recall",
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class43_iou",
+        "baseline": 0.6217532467532467,
+        "candidate": 0.9318181818181818,
+        "deltaPercentagePoints": 31.006493506493506,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class43_recall",
+        "baseline": 0.6217532467532467,
+        "candidate": 0.9318181818181818,
+        "deltaPercentagePoints": 31.006493506493506,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "vehicle_group_iou",
+        "baseline": 0.8440217391304348,
+        "candidate": 0.8440217391304348,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "vehicle_group_recall",
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "sign_precision",
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "signFalsePositiveOnNonSignLabeledRate",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": null,
+        "maximumDelta": 0.001,
+        "passed": true
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "vehicle_eligibleSurfaceConfusionRate",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": null,
+        "maximumDelta": 0.005,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "macroIoUSupportedGT",
+        "baseline": 0.6043630726961378,
+        "candidate": 0.6057490117665094,
+        "deltaPercentagePoints": 0.13859390703716556,
+        "minimumDelta": 0.0,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class2_iou",
+        "baseline": 0.9787139820500709,
+        "candidate": 0.9808986773736419,
+        "deltaPercentagePoints": 0.21846953235710176,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class2_recall",
+        "baseline": 0.9893753544035575,
+        "candidate": 0.9915838481511327,
+        "deltaPercentagePoints": 0.22084937475751465,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class6_iou",
+        "baseline": 0.704727822356576,
+        "candidate": 0.704727822356576,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class6_recall",
+        "baseline": 0.7109860291974076,
+        "candidate": 0.7109860291974076,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class8_iou",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class8_recall",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class11_iou",
+        "baseline": 0.6280107047279215,
+        "candidate": 0.6280107047279215,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class11_recall",
+        "baseline": 0.630071599045346,
+        "candidate": 0.630071599045346,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class12_iou",
+        "baseline": 0.9863438857852266,
+        "candidate": 0.9863438857852266,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class12_recall",
+        "baseline": 0.9863438857852266,
+        "candidate": 0.9863438857852266,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class20_iou",
+        "baseline": 0.9793587174348697,
+        "candidate": 0.9793587174348697,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class20_recall",
+        "baseline": 0.9980598386602675,
+        "candidate": 0.9980598386602675,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class43_iou",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "class43_recall",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "vehicle_group_iou",
+        "baseline": 0.9793587174348697,
+        "candidate": 0.9793587174348697,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "vehicle_group_recall",
+        "baseline": 0.9980598386602675,
+        "candidate": 0.9980598386602675,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": -0.02,
+        "maximumDelta": null,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "signFalsePositiveOnNonSignLabeledRate",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": null,
+        "maximumDelta": 0.001,
+        "passed": true
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "vehicle_eligibleSurfaceConfusionRate",
+        "baseline": 0.0,
+        "candidate": 0.0,
+        "deltaPercentagePoints": 0.0,
+        "minimumDelta": null,
+        "maximumDelta": 0.005,
+        "passed": true
+      },
+      {
+        "scope": "mean_of_development_scopes",
+        "metric": "mean_macro_iou_delta",
+        "baseline": 0,
+        "candidate": 0.017147972652723692,
+        "deltaPercentagePoints": 1.7147972652723693,
+        "minimumDelta": 0.01,
+        "maximumDelta": null,
+        "passed": true
+      }
+    ],
+    "unsupportedChecks": [
+      {
+        "scope": "data02_development_val",
+        "metric": "class12_iou",
+        "baseline": null,
+        "candidate": null
+      },
+      {
+        "scope": "data02_development_val",
+        "metric": "class12_recall",
+        "baseline": null,
+        "candidate": null
+      },
+      {
+        "scope": "pilot01_development_regression",
+        "metric": "sign_precision",
+        "baseline": null,
+        "candidate": null
+      }
+    ],
+    "worstScopeMacroDelta": 0.0013859390703716556,
+    "meanMacroDelta": 0.017147972652723692,
+    "meanFocusIoUDelta": 0.02401920233757739
+  }
+}

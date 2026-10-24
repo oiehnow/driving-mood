@@ -1,0 +1,3794 @@
+{
+  "format": "ONNX metadata sanitization v1",
+  "onnxVersion": "1.23.2",
+  "onnxruntimeVersion": "1.31.0",
+  "executionProvider": "CPUExecutionProvider",
+  "numericWeightsRewritten": false,
+  "baselineOrtModified": false,
+  "models": [
+    {
+      "model": "yolo26n-detect-640.onnx",
+      "originalSha256": "b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06",
+      "packagedSha256": "6236c6b2a47706c21edb508ca8a66d9b2f3772fe2b1410fee3cd70896ac0277a",
+      "originalBytes": 9893948,
+      "packagedBytes": 9893909,
+      "changes": [
+        {
+          "field": "model.metadata_props[0].value",
+          "metadataKey": "description",
+          "originalTextSha256": "12d52552a26b8a8206a90d9b10bbf9f74c5d0be67a5c2f4cd2385386b5d3d989",
+          "sanitizedTextSha256": "4c046bfdb60402b27b0854246de27cf3f5d7c3c77213f1e8cda142c0cb04a722"
+        }
+      ],
+      "computationalProtoSha256": "e9d507bdfb133db060d87243bd1c3a9af82d08527ef5a581ba9198d5458439f5",
+      "graphSerializedBytesUnchanged": true,
+      "tensorProofs": [
+        {
+          "field": "model.graph[0].node[9].attribute[0].t[0]",
+          "serializedSha256": "6ca67cd694aca3a915e178107812ed442e8720cad5eb0e6610be27496bfb9998",
+          "rawDataSha256": "19299b98c755705823a6a898c0aea16e8ab9c37f67d3cac814715df3649b2fd8",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[28].attribute[0].t[0]",
+          "serializedSha256": "1916a0bd5027d07fd1708296042d24b401256850826ba625ef5175d1b03ed2a8",
+          "rawDataSha256": "061f4bc896b729341440e848734d33256766da8165c9b9ac144471b231626d5b",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[47].attribute[0].t[0]",
+          "serializedSha256": "8852846cf05d32faba8cd3905ead6e1a5d35c5b2fe3875f93bcd4f1b93b35398",
+          "rawDataSha256": "e82537abbbfcc0bcbb95705bc5bd014c85c94470b66f72e035cdeec832f18178",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[83].attribute[0].t[0]",
+          "serializedSha256": "5b24bc1302c627089a0a8a340c151d9b11a612647a499fdca8156363a928cc29",
+          "rawDataSha256": "fa9ad8e381ae4fc97686921369c821ca3444d5deebd56c82faf9df71bb39ba79",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[127].attribute[0].t[0]",
+          "serializedSha256": "fd7d15686519cf117ae583c6032413a60e619f6d4f795f61c3019aedf72411ee",
+          "rawDataSha256": "bf1ae0a337718679354a62f8a77a0501d9f23b59bc25382ce1eddfb935700a7e",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[129].attribute[0].t[0]",
+          "serializedSha256": "56fedcb84dde49cf9809ca714ea4cf5e7c6cd62a8f9085579d55718c018f7bf7",
+          "rawDataSha256": "661f12e6d2e789ee731a34eb9eb1dcb0da6375c12ebfced2bf9b8fcf7bab9a22",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[131].attribute[0].t[0]",
+          "serializedSha256": "3dddeb291cdecc481bc8721fd4a74059db04f9561fea783c1b0ecdb6a914522c",
+          "rawDataSha256": "69c199f6174d4ebf6b546cdfff3d4b9d319ae927a353047e91723e023a69acab",
+          "rawDataBytes": 4,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[138].attribute[0].t[0]",
+          "serializedSha256": "641aa58342edb9a763b9a2f79ebba44aeb4a0ff3b84299ef6101227eedf42354",
+          "rawDataSha256": "16d0abd8a6d3677dd0434ccb2ebc4da305937ce6025cb20b095fd360b92c2305",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[139].attribute[0].t[0]",
+          "serializedSha256": "641aa58342edb9a763b9a2f79ebba44aeb4a0ff3b84299ef6101227eedf42354",
+          "rawDataSha256": "16d0abd8a6d3677dd0434ccb2ebc4da305937ce6025cb20b095fd360b92c2305",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[155].attribute[0].t[0]",
+          "serializedSha256": "ad70551c0efa51d989919801bd415c2b35eec771f25ca3f5a96c97ed43aa1d56",
+          "rawDataSha256": "aa5b3e0ef3e85eb14fa5e9eea359ae9b4f94dec784834d64c0b29ec5a8c83844",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[190].attribute[0].t[0]",
+          "serializedSha256": "ad70551c0efa51d989919801bd415c2b35eec771f25ca3f5a96c97ed43aa1d56",
+          "rawDataSha256": "aa5b3e0ef3e85eb14fa5e9eea359ae9b4f94dec784834d64c0b29ec5a8c83844",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[277].attribute[0].t[0]",
+          "serializedSha256": "fd7d15686519cf117ae583c6032413a60e619f6d4f795f61c3019aedf72411ee",
+          "rawDataSha256": "bf1ae0a337718679354a62f8a77a0501d9f23b59bc25382ce1eddfb935700a7e",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[280].attribute[0].t[0]",
+          "serializedSha256": "3dddeb291cdecc481bc8721fd4a74059db04f9561fea783c1b0ecdb6a914522c",
+          "rawDataSha256": "69c199f6174d4ebf6b546cdfff3d4b9d319ae927a353047e91723e023a69acab",
+          "rawDataBytes": 4,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[287].attribute[0].t[0]",
+          "serializedSha256": "641aa58342edb9a763b9a2f79ebba44aeb4a0ff3b84299ef6101227eedf42354",
+          "rawDataSha256": "16d0abd8a6d3677dd0434ccb2ebc4da305937ce6025cb20b095fd360b92c2305",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[288].attribute[0].t[0]",
+          "serializedSha256": "641aa58342edb9a763b9a2f79ebba44aeb4a0ff3b84299ef6101227eedf42354",
+          "rawDataSha256": "16d0abd8a6d3677dd0434ccb2ebc4da305937ce6025cb20b095fd360b92c2305",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[311].attribute[0].t[0]",
+          "serializedSha256": "d5199f6d2bf98f4d400157977e30f61cbe3fa2a3255f57780c5c59b39f95dc69",
+          "rawDataSha256": "e88d321451be5fdefbb9155e66e69f079850f7dce27d87dd8fe2f8814c6c461f",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[312].attribute[0].t[0]",
+          "serializedSha256": "d5199f6d2bf98f4d400157977e30f61cbe3fa2a3255f57780c5c59b39f95dc69",
+          "rawDataSha256": "e88d321451be5fdefbb9155e66e69f079850f7dce27d87dd8fe2f8814c6c461f",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[313].attribute[0].t[0]",
+          "serializedSha256": "d5199f6d2bf98f4d400157977e30f61cbe3fa2a3255f57780c5c59b39f95dc69",
+          "rawDataSha256": "e88d321451be5fdefbb9155e66e69f079850f7dce27d87dd8fe2f8814c6c461f",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[345].attribute[0].t[0]",
+          "serializedSha256": "404e9fbe6e64f2e68fa87fb839942d9899c9666729de2afd0735f92b99568bbf",
+          "rawDataSha256": "746fdeafb73d677f17541c2d1ac440aa65a3e10139095a979887adfd7ad06692",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[346].attribute[0].t[0]",
+          "serializedSha256": "404e9fbe6e64f2e68fa87fb839942d9899c9666729de2afd0735f92b99568bbf",
+          "rawDataSha256": "746fdeafb73d677f17541c2d1ac440aa65a3e10139095a979887adfd7ad06692",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[347].attribute[0].t[0]",
+          "serializedSha256": "404e9fbe6e64f2e68fa87fb839942d9899c9666729de2afd0735f92b99568bbf",
+          "rawDataSha256": "746fdeafb73d677f17541c2d1ac440aa65a3e10139095a979887adfd7ad06692",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[379].attribute[0].t[0]",
+          "serializedSha256": "3a443a9128da2f59b0f1b06ea721b1a64baddc4bb27d1fa5d8b7779e4cc30c58",
+          "rawDataSha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[381].attribute[0].t[0]",
+          "serializedSha256": "1dfb58766e289f8b61c03899d71ad9cf0b794cf4654377728da2943a43f03ff4",
+          "rawDataSha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[382].attribute[0].t[0]",
+          "serializedSha256": "3a443a9128da2f59b0f1b06ea721b1a64baddc4bb27d1fa5d8b7779e4cc30c58",
+          "rawDataSha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[384].attribute[0].t[0]",
+          "serializedSha256": "fce15f3ee8b5866f13ffa03b265d98e1160ceb28a3c3c3c91807fe95682e2116",
+          "rawDataSha256": "d86e8112f3c4c4442126f8e9f44f16867da487f29052bf91b810457db34209a4",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[386].attribute[0].t[0]",
+          "serializedSha256": "3a443a9128da2f59b0f1b06ea721b1a64baddc4bb27d1fa5d8b7779e4cc30c58",
+          "rawDataSha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[389].attribute[0].t[0]",
+          "serializedSha256": "fce15f3ee8b5866f13ffa03b265d98e1160ceb28a3c3c3c91807fe95682e2116",
+          "rawDataSha256": "d86e8112f3c4c4442126f8e9f44f16867da487f29052bf91b810457db34209a4",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[392].attribute[0].t[0]",
+          "serializedSha256": "e79aff1dd1bfe20a07a53a37db32c4da8dd07bbd563b651b229622f0135d89b9",
+          "rawDataSha256": "e69fd7f31beb3c8e7690f75c4749da403440074c11f86f54fd7764633b586be8",
+          "rawDataBytes": 67200,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[394].attribute[0].t[0]",
+          "serializedSha256": "e79aff1dd1bfe20a07a53a37db32c4da8dd07bbd563b651b229622f0135d89b9",
+          "rawDataSha256": "e69fd7f31beb3c8e7690f75c4749da403440074c11f86f54fd7764633b586be8",
+          "rawDataBytes": 67200,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[397].attribute[0].t[0]",
+          "serializedSha256": "4b1b981ef18d114e7b106e10ed58c57ccfa53c83233c50c34eb662b015130bc2",
+          "rawDataSha256": "ae76db0286c343bc0bf45396d0b553180e6edc6c4d41ade11fc1700699b552e8",
+          "rawDataBytes": 33600,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[402].attribute[0].t[0]",
+          "serializedSha256": "1d152d3d4da042d0cf81922144acfcc0b577d7f9450827107b54a9df14b1bac3",
+          "rawDataSha256": "d731970c65ad4374fd01093913f5986f330ce5e5481747b4054969954a826854",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[405].attribute[0].t[0]",
+          "serializedSha256": "59c26d624fd631b22fcf25799cd2ae4bdd0667e09fea4d0e05e4eb713cc2dd09",
+          "rawDataSha256": "5fbbc50a5e0bc4e1bb5ea4bbacda5ae6709eff8e286fb002fee73a4913820fe9",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[407].attribute[0].t[0]",
+          "serializedSha256": "fce15f3ee8b5866f13ffa03b265d98e1160ceb28a3c3c3c91807fe95682e2116",
+          "rawDataSha256": "d86e8112f3c4c4442126f8e9f44f16867da487f29052bf91b810457db34209a4",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[409].attribute[0].t[0]",
+          "serializedSha256": "a31905f9da1575ead2b792576506a83773c2f527da17735543b9216c4f5ebd0e",
+          "rawDataSha256": "b0d7f18038170066807b980ab0d1a374572d86ece18376844c3b1dd6a5005b53",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[410].attribute[0].t[0]",
+          "serializedSha256": "3d2fa6614d200c2e5ab872985594e9b9535d925fe6924e9d5d6aeb9e3bc572e1",
+          "rawDataSha256": "35be322d094f9d154a8aba4733b8497f180353bd7ae7b0a15f90b586b549f28b",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[411].attribute[0].t[0]",
+          "serializedSha256": "3a443a9128da2f59b0f1b06ea721b1a64baddc4bb27d1fa5d8b7779e4cc30c58",
+          "rawDataSha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[412].attribute[0].t[0]",
+          "serializedSha256": "6613fa6780e140868dcabe46fac34e6c680a936cdeb62a302bde0736cfef7d33",
+          "rawDataSha256": "12a3ae445661ce5dee78d0650d33362dec29c4f82af05e7e57fb595bbbacf0ca",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[419].attribute[0].t[0]",
+          "serializedSha256": "59c26d624fd631b22fcf25799cd2ae4bdd0667e09fea4d0e05e4eb713cc2dd09",
+          "rawDataSha256": "5fbbc50a5e0bc4e1bb5ea4bbacda5ae6709eff8e286fb002fee73a4913820fe9",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[421].attribute[0].t[0]",
+          "serializedSha256": "fce15f3ee8b5866f13ffa03b265d98e1160ceb28a3c3c3c91807fe95682e2116",
+          "rawDataSha256": "d86e8112f3c4c4442126f8e9f44f16867da487f29052bf91b810457db34209a4",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[423].attribute[0].t[0]",
+          "serializedSha256": "2e11c42a9ee876d368dfdc9518edebc169027f313e645fbdb14a18a3649a1bbc",
+          "rawDataSha256": "3478af7d895d85fb71e1c84813ac8dce11a4fcd1be230cf3cba471ea702c8bd3",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[425].attribute[0].t[0]",
+          "serializedSha256": "fce15f3ee8b5866f13ffa03b265d98e1160ceb28a3c3c3c91807fe95682e2116",
+          "rawDataSha256": "d86e8112f3c4c4442126f8e9f44f16867da487f29052bf91b810457db34209a4",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[428].attribute[0].t[0]",
+          "serializedSha256": "2e11c42a9ee876d368dfdc9518edebc169027f313e645fbdb14a18a3649a1bbc",
+          "rawDataSha256": "3478af7d895d85fb71e1c84813ac8dce11a4fcd1be230cf3cba471ea702c8bd3",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[433].attribute[0].t[0]",
+          "serializedSha256": "fce15f3ee8b5866f13ffa03b265d98e1160ceb28a3c3c3c91807fe95682e2116",
+          "rawDataSha256": "d86e8112f3c4c4442126f8e9f44f16867da487f29052bf91b810457db34209a4",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[435].attribute[0].t[0]",
+          "serializedSha256": "b89cbc2084cbbd6b815f577c256ffeb9d303926f19d1b54933054890ec71636b",
+          "rawDataSha256": "9c079b06717716b06dfeb82e66767ca1daf04c6ff71ed9dc65dfc7c314f38f33",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[436].attribute[0].t[0]",
+          "serializedSha256": "3d2fa6614d200c2e5ab872985594e9b9535d925fe6924e9d5d6aeb9e3bc572e1",
+          "rawDataSha256": "35be322d094f9d154a8aba4733b8497f180353bd7ae7b0a15f90b586b549f28b",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[437].attribute[0].t[0]",
+          "serializedSha256": "3a443a9128da2f59b0f1b06ea721b1a64baddc4bb27d1fa5d8b7779e4cc30c58",
+          "rawDataSha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[438].attribute[0].t[0]",
+          "serializedSha256": "6613fa6780e140868dcabe46fac34e6c680a936cdeb62a302bde0736cfef7d33",
+          "rawDataSha256": "12a3ae445661ce5dee78d0650d33362dec29c4f82af05e7e57fb595bbbacf0ca",
+          "rawDataBytes": 8,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].initializer[0]",
+          "serializedSha256": "8db4bd7391a0805fe65016d92e6f4aa12c9cce5bedada5ba1283e3d2008a8fbf",
+          "rawDataSha256": "f3c83c5f47f99ef56975a8e1cd7f4ce2574041b8e43854e250ad186ca3692878",
+          "rawDataBytes": 1728,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[1]",
+          "serializedSha256": "9b2c19ff5853885df4218b7e52519d4f4cdde37d63a09aadeabc814681b64807",
+          "rawDataSha256": "7ae28d876b126ac2ad89c83b90f62ec2e816271d9741a908ddae345291cd7002",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[2]",
+          "serializedSha256": "40705f5a5f64f0b549484eea0b78414c04008bb410b8f8c48653fc6d7d5c8659",
+          "rawDataSha256": "6cd9cb1124611532372f5af38420fd3bf9f190cde5706b01e3152cbda88006ff",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[3]",
+          "serializedSha256": "c595c213652a2aff8026b748ccd15eab7b903824ae9fd285d858131544aca75c",
+          "rawDataSha256": "5f3347c83e2f50d43ff639ac8943144538230c737f1c02aed1b667b789e1d988",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[4]",
+          "serializedSha256": "227099eb222b3b7d21fae5eddc97ea20a44a3e7ac2cc9c693c17904c4f337d4f",
+          "rawDataSha256": "225028051d0d26a5b7f7e276355eb553a5a128fd3171c9ab33f968ffcbe2e4f0",
+          "rawDataBytes": 4096,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[5]",
+          "serializedSha256": "d98a5c6e768f66fd799f643fa26f4a4bfbb2600db0e0908c36346ee39e590362",
+          "rawDataSha256": "264b8b2438122092a75d0c00ce8b7e0aa2ab22e4f8d144bcb97a1d8a7beca404",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[6]",
+          "serializedSha256": "fcd6f3216a8b8e6496d415eb561a36683c3ba59c68a972e9ca6112ee59baa2c9",
+          "rawDataSha256": "ace00f0027d812b2e6ff8c200376f9583e94cb2abce5a2208642d4317d772c81",
+          "rawDataBytes": 12288,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[7]",
+          "serializedSha256": "929f45f40f391feeac2f9672efcc64520c7f9f360069166fb7078941795a43bb",
+          "rawDataSha256": "be75c59bcfe4241d1042e120a4e67f2a5d8271d7a1ec3c96d8e93183e5b0213a",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[8]",
+          "serializedSha256": "425d2083ca4ac2c1e8c730f26dbdbb75b5738f84b90c5d9ef726ac4004b369c5",
+          "rawDataSha256": "80be1018c681919f74eb75cba6e7f5eb5738fd69cc700564a5ca2170e3483192",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[9]",
+          "serializedSha256": "76730c8acd5c83eece08d5e8fa3d3ec2fa45fe33175a0da89306a4768ccfb1c7",
+          "rawDataSha256": "bd38ef2f5b86634487d350156fdf06cd9eed3405280e7b23319ef3f48dd7720c",
+          "rawDataBytes": 32,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[10]",
+          "serializedSha256": "aa4cd3c22e5c1e372f2c1975a7bc79b6f48bc92a771e7b58586eb2170d2ce535",
+          "rawDataSha256": "83e4235f8d5c782b9b11ef1a28a750620f30c5520d2be4c141919c9fd88b0653",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[11]",
+          "serializedSha256": "5469952f8f62d2811c34624d1b4c967ef0250875f69434f2ee029faad2029fbd",
+          "rawDataSha256": "5f06edf8948350b0ecd51dd16f4378e9a507cf1e91437296929be6bc60af7a4b",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[12]",
+          "serializedSha256": "1b6789c0cb39f58d3519bdd20fe6e852cab952d93570009670af86ecbc4fdba3",
+          "rawDataSha256": "ea24286a3930757dee405929e47df2b33bceaa0e891e0df9ef76acb714b9c286",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[13]",
+          "serializedSha256": "5235c68018ec4254f88e2a1861a66d712ce7fb3fddaa6e7d3fd92fb2cae8a0ed",
+          "rawDataSha256": "67c8ca0c480321324aa1a3d5f4f32007231981a77271af3647123dca94c616f2",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[14]",
+          "serializedSha256": "ec6fe140ef96e9a4a0dc3ac98ecbf7a9b842a182fdb3cd9a3c6d28cc30016fd4",
+          "rawDataSha256": "16eccb5765b76514867baa102fdbef9371eaa4f3165aff86ce4c9f1c6b4fa1c2",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[15]",
+          "serializedSha256": "e1d2b2c131ff68e6bc97df7d6ed28d42e41665a0bb1778a10fbc84842cd4d438",
+          "rawDataSha256": "9e438c4e2ccc730f5e07941d7ef288a14421d50670f5ea91cc66598aa38f5342",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[16]",
+          "serializedSha256": "e5a4b79a52421709ffa2e57a08899e56f6dfd73304eeafc436e6cac1dc3c4a25",
+          "rawDataSha256": "02f3a3fea9e1d609d75657a77dbf274782135690fb84ea7b2abe75fcbda9d923",
+          "rawDataBytes": 49152,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[17]",
+          "serializedSha256": "23ef9c3499dfc06e73472697a50606891262120b506fd631a91ee438afa35ec0",
+          "rawDataSha256": "df37cb2ce0d950c9baa4673e451e0927699f2c620708c652b23edc3208f59148",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[18]",
+          "serializedSha256": "d0f00725396822dce1cb2cac49de33a8bad018df13b6e62067564ed10c71a695",
+          "rawDataSha256": "3e20c323ffadc2bf690bb71470a5eb7cb0e7aea15401c4ba62a0bdd39e833446",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[19]",
+          "serializedSha256": "b790671e5e027574047386422478e30236689e90ba0419d36738418295d2ad2b",
+          "rawDataSha256": "0580abd618199fcaf0e64208612fc606426031a75fdf5d0fc56404f52eeae647",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[20]",
+          "serializedSha256": "93edda44141f133e316fd04d44e405e0c701731a502e6246534f128dce40a4f5",
+          "rawDataSha256": "3d5a942d9c342ffc032022be92308700b7a2ceccb22ad809ea5d4fb86fe3cd17",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[21]",
+          "serializedSha256": "0028a6e2d73ba589cdb2ede3e34a73bed637bcf6786666824645a00c9ee2e735",
+          "rawDataSha256": "071113b7b18fcbe624c7be7ddbb180c0f1b67ab927cf017e30e2e5506f57c610",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[22]",
+          "serializedSha256": "890ff3e135592a553475b0961a1187635e7b52ebb725e7d7034a1e9dae08f3b3",
+          "rawDataSha256": "48064248266a21bd5a67a0469f28fb82853babdaead9dcfd039c1886d778c3e3",
+          "rawDataBytes": 589824,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[23]",
+          "serializedSha256": "2a81abd0a7945f9763dc46c25503477d80e1f589e7e01af9b9564e809e902f2e",
+          "rawDataSha256": "3e302c5a19a7dda302b24309c8328a7593e3e2d319f78551b327ae5bdc45d933",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[24]",
+          "serializedSha256": "934b960199b5416a34adeb0eb4e9ae239a0c6e964a3f5eaf9534b621fd640b81",
+          "rawDataSha256": "84327d7c2f494db3d1260f8219bb7370ccf5bd7bb19978ae549128dc520082b5",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[25]",
+          "serializedSha256": "9e3268c9acc199ec9d46234dca285bd28460d52bac8f40ca9c3c25e56104d788",
+          "rawDataSha256": "47c1e955d3cfd9f1a1a0929f19da94ff7d168b60d90cbf32c3c086f8b6b40efa",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[26]",
+          "serializedSha256": "cdaa6e1fafb9e84b73f1bd1db2b65afdc679afc238cdf307a37b83fd217871e1",
+          "rawDataSha256": "80304b03a543d5a5a3517d2e3089554dcb45dd1db73839a9f3d50625bb70b995",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[27]",
+          "serializedSha256": "95b15ad878f9d0cc9c99337c7ffad73c16addd53584e085b3fdeb044227f823d",
+          "rawDataSha256": "eb00c5c4d7d809d864d17ada712c8efdc85965ea0f8270d246acf939ef10e08c",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[28]",
+          "serializedSha256": "2e3569784962182d378aa1d9434e49505b6211e7d4cf44a1898afe59ba63078a",
+          "rawDataSha256": "d55b172dba4d7e8671f112296746b5b931ff5ae5125c62f4eccd96be90268280",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[29]",
+          "serializedSha256": "aabfc5d87554af44df8ba4d0f19c3c6a64fb49828ae56e5183d4ad1c0483e9a0",
+          "rawDataSha256": "01df00039d8269861e734cec725a69b89254e68e05c704faeb9dfac9f80f36fd",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[30]",
+          "serializedSha256": "1cf6de78ddde348bcd275245254c008e8b9c66f3f5fe7d6ab3be539a8b4e6c97",
+          "rawDataSha256": "0bb1396a95173da43da95497761ffb2ec71f2d8f7ccc9f0927588a576994e0c5",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[31]",
+          "serializedSha256": "e15daaa57d4dfaea8c9c52ca36602265151b2be319fd18bcaea15253d67a0a6c",
+          "rawDataSha256": "3400dc59993e23467eaeece519836d17878b5d700b0212d97cf82df6cd62b84d",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[32]",
+          "serializedSha256": "9377cfc7d9d7d02f02caa367974a73e583be47e34fd850391ae062f4b4282ccb",
+          "rawDataSha256": "a3ccde5d797523386cdd6ee0d93093a442723485481913ba2505be0e9792fc90",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[33]",
+          "serializedSha256": "cc90f2ced7c8dd88df46909b40db82106e28a3c824cd2d4fc63f04b6ba1f6a04",
+          "rawDataSha256": "66ae252450d4f00d7d903ceec70101ad0d4caf91c1fe145fb51e68e4897b006e",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[34]",
+          "serializedSha256": "ff7e2ecc820f3ee6e7268cb40eda0d858737292b5452ecec986e38108bd16e75",
+          "rawDataSha256": "16feb3aa5c5c02e514556c3101a6e557b7af2674d44ba38d14e4d87217bd1160",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[35]",
+          "serializedSha256": "c01b942655aaa83413646fe6daedeb9a18e3f07e626bdab64520865eb499ed48",
+          "rawDataSha256": "275cde7d7632c35a15329c25af29b9a0a838064c03fd08ad2c134ab86dedfcb3",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[36]",
+          "serializedSha256": "fade9f87ae11e5c81b221ebd15b68e0f58bd3781a86c5441b9f12d6cb7513b50",
+          "rawDataSha256": "c50f981210ca05e65956435f75137d1c987b33e39484b30d79d0d773003b0400",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[37]",
+          "serializedSha256": "e117f1e1a4388e92dbb4343fadcf01368440da9280244efb6407c97746b0f3c3",
+          "rawDataSha256": "e87becfce7c1abac4bb368f197df2f7e610520b4ae36bfef01cd650192f32829",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[38]",
+          "serializedSha256": "de65e6a831a7a36d10719da8a3597c1efa936811db3518926f6fbe8f70cfdd1b",
+          "rawDataSha256": "261926d7a2a027eb2a2ddc50a723e5cab4c614752fde7df945366f3932040630",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[39]",
+          "serializedSha256": "18a4ce6f2cb0bd1c2e768ad94536139cd95d6337c954c0717d7dd29701c05b93",
+          "rawDataSha256": "9404aa28641e73e49b3ec828ec02d72d2e9735757522b89a2ef2e7830903262e",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[40]",
+          "serializedSha256": "f75a9c0cf757367528f9beb9a2d13b5f78b192bf022ceeb0e67f0f9b7e385b54",
+          "rawDataSha256": "58f6a5e82f5c9e80ff86feefe4ed9f3572c59ff16f62133bfa12542997292f69",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[41]",
+          "serializedSha256": "832f6d70959c7d191958b117a60b39223924427242aef1a07dfa61f1b0801304",
+          "rawDataSha256": "725f9fcf1474c2932b1dbdf9678fe3f17e58d51098d8c039b606673a1482a2eb",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[42]",
+          "serializedSha256": "e34e71f5b8f4a8d4f1b3c121ad3b6987cd8f9cd13061ece97b013b3576f7f948",
+          "rawDataSha256": "ba529d88f8fc3d72d4a17d24c9db6cd57ca3355602bf4aefe160f5145459d4da",
+          "rawDataBytes": 1179648,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[43]",
+          "serializedSha256": "063c5f7e69be5988be6d96ec063ecb3c3656eb717ec1bf1b241a86223dcbf192",
+          "rawDataSha256": "19e904627545be3aa74fea3b35a30e200a9752def101e61854c9607e66145990",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[44]",
+          "serializedSha256": "2e494715b1a149823af73cd79c2767607f7ddd9603e686380aa4d3da80271066",
+          "rawDataSha256": "26e10e61a73538f09e4cd4b0dba8e9c733a706d31c43a8f08e67bedf63714e9d",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[45]",
+          "serializedSha256": "c384c66912175a704299e18afa6e75bab5cab1b6bd75f5c03905e37b460d555a",
+          "rawDataSha256": "6069b9a12f29c1c098f732ac62d6e2b58d9c8440692c97e74319bc8ccc69c2e3",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[46]",
+          "serializedSha256": "067e5ed0afa5584fdeae487998563a7719025ede41c2c12178a35059b88d746f",
+          "rawDataSha256": "3c1480a26a39bf0b21ccbc3776962f629f3284463b0d5068b439bd006d48e413",
+          "rawDataBytes": 393216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[47]",
+          "serializedSha256": "17a157a2c8f71a475316a42c22f0b37010288966f9d72fd95c9edd70cabbc585",
+          "rawDataSha256": "4122f9e594563d94abd299ad014f8855dbca26c8e0aaaab87fa7b5b5ecb76e83",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[48]",
+          "serializedSha256": "fe333e823d4a9505f4318baf423921fc9f7048ccb59cbd5b90fd51313c6f515b",
+          "rawDataSha256": "c107409a9c1525fadc4cb1c2d8d9788458a7e64c49e23f5ea2d8a54e9777c4c2",
+          "rawDataBytes": 32768,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[49]",
+          "serializedSha256": "9e08205122c80f12a44a866460028b81a17763b2bcdf07b9ba8002a7be11fec2",
+          "rawDataSha256": "7d0043fedefedf570af3b4242767dac4b6ae558367482c6c023394b484b9bf1b",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[50]",
+          "serializedSha256": "cb8d3234dc346daa5f2ef644c2c5f782b40f632c8e4704008ce95ad165444ed1",
+          "rawDataSha256": "52d4d8bdf7269b53130cb1f67b0d60ccd1f5365c195fcffc9e58732f779a02f1",
+          "rawDataBytes": 32768,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[51]",
+          "serializedSha256": "7946b836d5ee63ff39b5f86884c3882c65657cec38682eaf4159b1c977fe14b7",
+          "rawDataSha256": "036a322f0f5d86cc6ce3f635e303061ef85887a5af0f2043f7efa472409ce866",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[52]",
+          "serializedSha256": "34f60da0a728faaa06f9975c58d80db5e45ee03d3701832fb4e3f7cb150c4559",
+          "rawDataSha256": "a0e2790796ef119c7c66fe9a00378ac323574a2431aa8ecef7c7b129bbe0620c",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[53]",
+          "serializedSha256": "4408ddb10d792473cdea0f9cb229afd47f09b8b76a6997a1aada85606773def2",
+          "rawDataSha256": "d8d271f9351354ccc923a15cde279c793579f484c7c3444ec35667b664f6f76a",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[54]",
+          "serializedSha256": "2708db3ee251bfa649a06d5ccc77d0f6ef1eee7a161c572ea9d8fa9ad38293e0",
+          "rawDataSha256": "8db9b709a892b19716ae262ef926c154d710da66f6cb0866729b471ab21ba840",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[55]",
+          "serializedSha256": "89f920bf1849142f0f1cffcdf68e2851c6c6547963652485d588cc122d4f7f0b",
+          "rawDataSha256": "b768ef6e8605ba971dc556e6687dee3cf791f35678d1657abc7667ee5df531c5",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[56]",
+          "serializedSha256": "2cd4e901a9d5f6703f5041d7b881da02545d3e418f175d8214d894c97d5cbbef",
+          "rawDataSha256": "503f45bade19a616c2a75928395042ea5ae27f7914f3c13f95e4cc708075f43f",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[57]",
+          "serializedSha256": "838608dd05050f9db6074b1d647a3bf6de2ddf49033cee0acdf45a1096ff12a8",
+          "rawDataSha256": "71ce6a5067a91dcccd4fc731f168b26fd5059735c68203a2396a33eb1c442879",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[58]",
+          "serializedSha256": "0d5d8c5897de28aaca67f1e24b0ef658a3e6915ff3697020600450f1527b1945",
+          "rawDataSha256": "504d53f2177cc4a863f39ee51a28347d800e7eccb413165a524427a9403415ba",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[59]",
+          "serializedSha256": "0a5dffb2803235aed3087dda83ee44f01d7d92e44bf3ddd44deaa198bb144f20",
+          "rawDataSha256": "98138a8485af8af6ba511e9ff715e88d02e6aa70484bdb22fde65f4da24eaadb",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[60]",
+          "serializedSha256": "999958a57974fe00eeef00c608a6f61de89eccad2271c2bbf42603483f12a415",
+          "rawDataSha256": "1e3ad1dfea539120de2b56655dfe7358848ac10628313863564e843e0648281d",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[61]",
+          "serializedSha256": "4ef615f3f8be83694825cd8b8684cd80a27b6bf0801427470977cf603e5a0a7a",
+          "rawDataSha256": "444c2d42d1d926062da7e838b8c71ccc5485a3288fe7427c17ced04c8095007f",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[62]",
+          "serializedSha256": "ea2d52f24a9cae5bb465117322402bef8428ef5c96ecab626b6cda58ac06155a",
+          "rawDataSha256": "5ad540ea0d9847c625197406fb93d94279d07cdbd64c46cdcc4cc1a1be9af064",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[63]",
+          "serializedSha256": "dc8a425228721af583c29f0c985c887e2b032a89de5e2e2307aa311a5a99ddc6",
+          "rawDataSha256": "7d1fb1a168e90ccd9996170f4c5ffcf81494013cbc7203c311440ee7267455e8",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[64]",
+          "serializedSha256": "1c4975a5ed530209aafd3771f9437ce7aea43dbda499bef820d23a080bf4119e",
+          "rawDataSha256": "1a24c8fbd0d57ace32a57a45791377a865e848a8349639515a776e4fafe7a6fa",
+          "rawDataBytes": 524288,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[65]",
+          "serializedSha256": "b703f93d1e1c65838703728565bda410900ab26410bc8ead9379a63c91d84892",
+          "rawDataSha256": "660729f93396a5a07e09e6ce17b0191496c053326d5a3d67e0c40c7fc34b4314",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[66]",
+          "serializedSha256": "146606d4bbec97f91dfe8dba1cfea6a5718de1aac097c233b4259ac387bcc915",
+          "rawDataSha256": "b239fb4caefd2d8ac10a601ec2b8df30d2890098a1623e8ebe7624e9243d6b07",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[67]",
+          "serializedSha256": "f51e9058c56ab9f86ded0ce080a4eeb1de889f656f1e3abeecd772dc1fe60907",
+          "rawDataSha256": "aee9abbee8060be802df995693d31cc656738040afb96522de19415787c9e733",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[68]",
+          "serializedSha256": "d1a6e6f5bdf0b5f5e59a864ba76fe4cd6e4f51271c9866534af57e97703a7907",
+          "rawDataSha256": "dbe75465e7b692b8c296940365031d4c40f251fa3dd777881297ebdd870da8c5",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[69]",
+          "serializedSha256": "47c4e9516ef28437bbc7e25cb652d19bb94da10e1d3cecea0bc68e9939fd8a60",
+          "rawDataSha256": "7a076578d63e77bbe184c349ef3dd7d5ffd61e13674dd817bb2cab40f906c60f",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[70]",
+          "serializedSha256": "067259438af56dcdce872d821296cd415f0ec8d197e222d277ac608afa273b82",
+          "rawDataSha256": "997d0c05ace54aa3e7096280436705fb8b0de49bef848d7955d0c612a9f05303",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[71]",
+          "serializedSha256": "711c2925afc043aeced058457f0865bd1054d5eee899adcb145dda276b998eb7",
+          "rawDataSha256": "fa82c6088cb539355940f0bdb47a6fbe70e362e6607a2e94df84d3b7be3fa9b6",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[72]",
+          "serializedSha256": "74452cef44a658a3c643152cdbf943303a21c9c475f0d28b840f0a8eb130859c",
+          "rawDataSha256": "219f142a0ec087239784429106d16d9947694f93aabdaf4240c2fe0c3a52b4fc",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[73]",
+          "serializedSha256": "501d22f289e01df95c219c95b7e6d4f81d56b0143e3fc37f8cafb434dc1dff96",
+          "rawDataSha256": "4f65ca2f512c463bed33901da6f78569bf4ceb9042652ac31d1869db173893ce",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[74]",
+          "serializedSha256": "5c63d57232ffafc06b83f1563a5a6eacfa3bc8b7ebeb85433db0168de34bbe29",
+          "rawDataSha256": "db2f8513a04945631405eaad4902beec0e9686f9c659ecbef0e05fec6ec4627c",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[75]",
+          "serializedSha256": "5e4a1772d524dd24395939f8fce80ca810334f1a3d8c3817aef9e1cf8f2a3cf1",
+          "rawDataSha256": "500af1b2da016ff8c0151102047250607d212fb198f18f762f4a84d211903be5",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[76]",
+          "serializedSha256": "05da307c17e4eff3401f4c3ff3513c6454b0b49772f6d53ee8cbb55b07024b75",
+          "rawDataSha256": "8878da14d6bc117e8375f3f1500d82a5214ac9e0171ca200a8166ac72a468058",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[77]",
+          "serializedSha256": "6a1e2c0921511e3f79a1abe4774b343c3102ae8655e361a3228b43c09bd069f2",
+          "rawDataSha256": "65a8ccd105412ea085546b557e595dc40c43a5295af1842fc295c0175d1c132e",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[78]",
+          "serializedSha256": "73cfd03574128a554540b5859eba440d2dbd02b7bfd77c0607ba63e45264989f",
+          "rawDataSha256": "5c8c761982bccf4f7a26fe1116cd608d55eb6cd71fda1c4dc15675ec2ad93714",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[79]",
+          "serializedSha256": "a70ecf40d5af3f3529d7b30d5ec97e2e5ff57ea3b284750b5f1d089d4fba3808",
+          "rawDataSha256": "7082b53b72f005cba77e3a543821b39d9ece11cf63140e30d0f129764371ab1f",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[80]",
+          "serializedSha256": "d5eb7c922ba656326cd46382a90ab2e639d01f35405c1be0307f986df0fafec7",
+          "rawDataSha256": "1dc1253283c1a8407d5cb467f377d8500736bd25c4c1da18715969a5ce11dd9c",
+          "rawDataBytes": 196608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[81]",
+          "serializedSha256": "8388f04a4bd675d34dd147890a56a35e2d8bbc998bebca32b521b6bf66b243e3",
+          "rawDataSha256": "e80c95e37f078ed0b049d10fc5e30bffb9a4d0b1f72317a470d1b26048ba3217",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[82]",
+          "serializedSha256": "e0f8fdf0ebc7980d5850a8e1325d5e97c33ac3313737f61e4c8736bdedaec913",
+          "rawDataSha256": "4e49ff22a0ae91cef974649ef2d4accf8bc776e3bbb686b17b092d0315985102",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[83]",
+          "serializedSha256": "efa477ebf85f07d9f6c79e2baaba6c9c6662c0a300cc0883e1c1b221f83bbbca",
+          "rawDataSha256": "b56a2386866f7f86830aaddc585c86ff71a7e81581ea029b9349e25813a86712",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[84]",
+          "serializedSha256": "fba8826b5819c09384861f6a7816c43bc11218727f39b05f6b716df772cc6908",
+          "rawDataSha256": "e426679bb4e8fc2d0a1a6aeae54a0e4b8db7b14f744459165b867605353a57d6",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[85]",
+          "serializedSha256": "dfdf2dbae8cafa2f6b71fe68e983ba08a78bd1bb727aafbed75b29a23366b400",
+          "rawDataSha256": "7238bf05d5786e05592f8ca43b85e5b64babea043b9dfd55199004dee7d03fb2",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[86]",
+          "serializedSha256": "b0cbd934e7d14b5da4cfc95296ad54c5c1cbe2c7e66fd044020004f89a008743",
+          "rawDataSha256": "c638194cb3bc295b0eb0265f826c3ccc00efe3e747ad2fed967f08c3233b50d9",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[87]",
+          "serializedSha256": "fcb5774371e1dda79e6e355db6887800ecf757cc61a049f3ece05af78d85d32f",
+          "rawDataSha256": "d4d4554ca370d17eacbc133fa5e572796dd455c2bfa76860843580e408aba01d",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[88]",
+          "serializedSha256": "fe58ba615365c05ec3f1c4b7de18998572f03df4d415ae5f4b18907fb1fe3a90",
+          "rawDataSha256": "188be671c1ab39dfcc6df81f9c3f45ef9b5148013b159e89adf2bf60b8ab0ca5",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[89]",
+          "serializedSha256": "0dc153709bc5448c37e9f4e453173c7e2b62f8fb62ba0a5424d1a69139a0df7e",
+          "rawDataSha256": "f5bf5e4ded30a42c7cb5a30d0bef2fbb5870939eade2d824ddc6815d4e0c8523",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[90]",
+          "serializedSha256": "f2dd8cca27f6db6223c49a465c9ce6a0d3a9d403feff28621ebc3857cc11ee83",
+          "rawDataSha256": "1e98f0327a3237e42f6d3b8db7322266a18d5d2b74e3c83120b5205af0b3dd25",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[91]",
+          "serializedSha256": "138b18cd655dbb18c41b24a1f3edcdc576f2e5cc91a1ebb64b97aa1a47419964",
+          "rawDataSha256": "cb116d927343a07eefb3163f86bfdd8cfd16a97c40a3f5e7540886620e3a5e2a",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[92]",
+          "serializedSha256": "fc5da63f507029bf16cd940f2c24287a4396e86865204f2f44e47154a812a5cd",
+          "rawDataSha256": "ca5cc656f2ec22c064eae4ddfde70958c72e98cc87da5892e1e461496b44bb03",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[93]",
+          "serializedSha256": "ae539cc901d70359fc9b4a7a0894ca1fe1870a81f3482bfbf85e07792104a208",
+          "rawDataSha256": "98e90ba599f6bcb76c478750ee9bef9cc6f406e53204beabadb145d8d797ae4b",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[94]",
+          "serializedSha256": "bc1a5bc6d6aa1d4b28a134c7461457809c7f046a53e4bcc613f6a34834b9decb",
+          "rawDataSha256": "3015981935962c1acab8418fc16dc140f9265b374f4f9952de5a3d8634acde7a",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[95]",
+          "serializedSha256": "26316e98cfefa8f4baa7d7800e552cdcb795ef63c83b17d422daa1a737338abf",
+          "rawDataSha256": "0e9e650fe1847e0ffc74fbb71b00bbbb24003aa45a7eb2c3aa2273115e4c0250",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[96]",
+          "serializedSha256": "bfcad93535fc9cc16575d0ac765b4b38437adbd6de00529ba1ae56ac29ce48f6",
+          "rawDataSha256": "d98e1705f364838752d38f5d4eb399bf61f69e6e81884d06bf400a761a3d6eef",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[97]",
+          "serializedSha256": "a7c5772633469e3b924b3b2f333a318cd92587d086f583f7f12d770ff6ee3008",
+          "rawDataSha256": "def1f9b955b7021e059b8d129ffee6168497e5216827c212205c6e198302b2d6",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[98]",
+          "serializedSha256": "e294b3edc6bfe3a8bc0d0aef96d8a570a5635efec61833bfc5d3c78361d51100",
+          "rawDataSha256": "0f6a1dfcdaa438c32182df2a4be4faa08a67b1efdedd06d40b20ada81e0a7776",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[99]",
+          "serializedSha256": "719ddd3ed955ec0fb38906d4829f5cb47b242ed1e39d4d5efb794c157e295dc6",
+          "rawDataSha256": "3ad753d7cf199f11bab8a08265d1e22735330d2436dc2551f6cf09347eddfc04",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[100]",
+          "serializedSha256": "c36fba1aaaedf399f0be0f3099079d2fa40166b0432dfb7c264ce792a3c5788c",
+          "rawDataSha256": "2e8bf63abb1c989c6f434cc356903934b1c03d64467eab564723863a7471d32f",
+          "rawDataBytes": 24576,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[101]",
+          "serializedSha256": "b540e8986862db2f4c1358a57659e25a628668bfe1139731a9fb8591c30f5174",
+          "rawDataSha256": "3389683da93283b3d2996d839871767da24f578c5f708000eb2b8151053d1ed4",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[102]",
+          "serializedSha256": "f89b57473a14b440bb434d0ebba68192c84799a5a8fcf90eb205e5e1760b4964",
+          "rawDataSha256": "f46aa24a9693c1f663c01926028607ac3ffc08aa4170be23fc142ac3487b267f",
+          "rawDataBytes": 2048,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[103]",
+          "serializedSha256": "7b80a7b56031cbc29981a652782964c0f1400cfa0c62941d063b133cd732efda",
+          "rawDataSha256": "7e277674a52f75aa2f1ae1d18bca61ffc7e653c75bf705862c30a65120adf77c",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[104]",
+          "serializedSha256": "3e7745af1f9218f21cb9d971b9f3ab7abba4ab0143c3004c7ec5c3b534ad4608",
+          "rawDataSha256": "3619da1dc7480fb8a0c71b05a924194884d9392f2bcc6de662f26a7d6c64cf62",
+          "rawDataBytes": 2048,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[105]",
+          "serializedSha256": "623a7e75a999feb1537c5e397fa6f0948b87d1e78c48b05da9648c982a2045f0",
+          "rawDataSha256": "cb0efaed46acb3d90f087ec76d6e2bd0ac11249dd962c25a02a1298f731355b5",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[106]",
+          "serializedSha256": "d3537ca4006f5743ace4487622a60a476668f1b52619b0126d52cf2b3494f75b",
+          "rawDataSha256": "40f393d007d45096d4885cccecbf03a0bcb13e0fb66747d3b97cefa88be66523",
+          "rawDataBytes": 4096,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[107]",
+          "serializedSha256": "cb30d0199e09948ee21a71dbdd4a600649af89ee1252ce8fad9d9db02533f082",
+          "rawDataSha256": "d852cd4dc8b138e0ec5a4d637e35ee572c398575e235113ee345532a09f1c8e1",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[108]",
+          "serializedSha256": "15401e3fceb598ba41ee52353739ddcd4a8665c9f909bac7cc08a8415b84aae1",
+          "rawDataSha256": "461cb28797964f49183995fa40743d94e19b04a4b0d16f96c0849f8903ca8867",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[109]",
+          "serializedSha256": "0238ad1e917f6161d797fbec35e4308a153679936d658b243e0992654a73052b",
+          "rawDataSha256": "da2ce3675fa9d3d85bf35a6c8d541f02be01a242e45f3c308f192fe269ac5d3d",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[110]",
+          "serializedSha256": "3f325b677a60565a7f5ff29371df3758f3c0e93381879d2eded7d68ce8d4e07c",
+          "rawDataSha256": "80410ecb86f07682c37349124bd45c0ea0689474fe0e4c99161b2ac87c0165d2",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[111]",
+          "serializedSha256": "70d105a7d8b570d2082b060c1f6018419c90fdae7ed241cc54d058ed565e34d9",
+          "rawDataSha256": "0aadfb1b79e9e2d44ce2ec2343dfc92b28dce1cfcc5c7c7a437c250d31f656c0",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[112]",
+          "serializedSha256": "fc6c168e3e3b6629f3acde15646e3384b6a215c323c5cfd04d6cd7dd04925758",
+          "rawDataSha256": "05656471191c991e72c2fdb00bd0b58838ddc55d9312d95e68a1200510535cca",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[113]",
+          "serializedSha256": "a6651d4d978a8fa32b90ca78443795bf604b1a8f4ea26b68a872986a11638941",
+          "rawDataSha256": "0430de00fd103365b998d3bf614f60b49d4d59eee345f1c0574c7d339bbe093c",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[114]",
+          "serializedSha256": "5b3cf9792a023c5d1701dbe3ca846f7f664e4b9cd149730d41c7b9722c4ef00a",
+          "rawDataSha256": "0fd4d425253ad710b98e18c02120f731d917e8b6c574129c59f972a4556a7098",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[115]",
+          "serializedSha256": "65d7215eeff7aaae66b6bf257b9460cb591c6fd03e763f24b1a2ad4d4053dea6",
+          "rawDataSha256": "78347898782e126d0ca93549a359d253320bdf1927dd750c6c959f5416c6ebe3",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[116]",
+          "serializedSha256": "baaffe96a3e3ee6a81eb35db94bad6d16e65baea2e771d6b97ac2b91dea5c4d5",
+          "rawDataSha256": "973f51ed803ef1b4644e91b58c982f084579202443fe692d9f78b59ebf1e422f",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[117]",
+          "serializedSha256": "b5a863103aa76e9dc7f2921c9e496e5846d5b8aaefb2898173bd30fbf04f9b50",
+          "rawDataSha256": "6a9d87ca4360a75c7c6cb6389ab063164a217b3a4fdd268ef51d4b45985c7dd1",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[118]",
+          "serializedSha256": "8f31a24d801b02241ecbb41eff60b8fc536f2f502ba9b39b157f2f96cde4ecf0",
+          "rawDataSha256": "2902434ca391511beef674898f9ff11636952513b3a03fc165a632318b2f8939",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[119]",
+          "serializedSha256": "cf452233acc7d4954e728384d4040d6da780f13bf186bb576e4fcd32a892ed35",
+          "rawDataSha256": "c553dc77f2d92b507bd7e52053f77428709065a71d0a4ba4fa8201fe2f078978",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[120]",
+          "serializedSha256": "f498d086bc4dd2470a08b41b20a65635d1576ccfdc7c1635026723403dfe241b",
+          "rawDataSha256": "8bdaf7cb2d78bebccbd88224ec899085aa67be923d91137b2f8268f9daacc352",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[121]",
+          "serializedSha256": "7941e4c13086391a674edf01f83cfd77714f4f1903656cda8e24b70117ef7420",
+          "rawDataSha256": "5fb36898d559e8a9c78ca7035c4d4f45bfb0b6287a16ec848b6efa750c70d336",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[122]",
+          "serializedSha256": "d8678b103b7369404d187f9356e4e804e70b0f04c3fb83031c12ecd763f1019f",
+          "rawDataSha256": "067afaffcd67f4e798134f664c4d284273d949c625f557c0aaa6d220c7476299",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[123]",
+          "serializedSha256": "5fe9eff6416a739319ceb5a4c9d9a4e2844574c1891056d0742826aaa1a97e68",
+          "rawDataSha256": "3a70877e0f3fd5f6db559583178e3866829c509266a1f47226c51eb5a7eede6f",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[124]",
+          "serializedSha256": "49969512275457fe0353c03052b279b711228467742cfdf519f85081542f4f4a",
+          "rawDataSha256": "853b73e2030dca0780879be4c2a9c51761a0e7857c9754b9fdbb727b8b42dfdf",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[125]",
+          "serializedSha256": "f0347ec831553fe412f51d1efa69e234bcc7738757a46ef17219dc5e906ecf90",
+          "rawDataSha256": "7605e1b07958fe0cd9cb0889fa9e930f973715bfffcce9b5f8acdc7d74dbf980",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[126]",
+          "serializedSha256": "79650ea84bb8c4d659ccfea9bcc7721c1262ccb4d28c2a6b132e206a4318b373",
+          "rawDataSha256": "9d04ff83868d339b38edf7047cfb4eba7054bbad75908c158b5baf93fe9e060d",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[127]",
+          "serializedSha256": "cffd8793e485026aae67221ad726ce78698f6cc772cf7debcbf02019bf235c6d",
+          "rawDataSha256": "8005f6b0eb050d28567f1be7b5312ec28baa8bddbc009e8e718bb7885ef20885",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[128]",
+          "serializedSha256": "e38c8465e2a95ea4c3f5cf5517f43fc293afa49792ac338456572dab32190164",
+          "rawDataSha256": "aa4a84f2cf9e9f27d776cd13d3095477035441fd140a9e2962c4f7463dfaa1a1",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[129]",
+          "serializedSha256": "e53b6668869280d8ce7b2efc9bfb85458ce09a10c594c8b1df09f37c51c38488",
+          "rawDataSha256": "b0fcb7254a52fafc7e3c0973473b89b6acfd1f6e23dc19a9210748b756ae29a2",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[130]",
+          "serializedSha256": "55b52c8b82040942977e7038d98f221d09bd6c520d47c06b269daa2d4fa352a3",
+          "rawDataSha256": "7ac891e24acf0ecdf28fdab0cb0703228ba1a2be577eab5fcbec120456d703ed",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[131]",
+          "serializedSha256": "51ac5fce98f5c3e55093cbd3b901cb5ba37172cc2ec7de8ebd9da007c62cccdf",
+          "rawDataSha256": "e69f6ef716bf6e730bdec20bdf74e282c5ab0deddd2e7fc83a557056b702bffa",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[132]",
+          "serializedSha256": "3397fe3d177c05b6aa0f2b392db49f0917d623c2f1cc5b5284149b9e6bf2dac7",
+          "rawDataSha256": "4b871ce8a57d968afd0f5c1c5d8dcf494e8c1274d48755d4cf6c9198567527b0",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[133]",
+          "serializedSha256": "1ad1cad7d167f5808656832e76fb7e1fe3d49536ac40cc44f67ed2ca56896830",
+          "rawDataSha256": "fd5c6f9862b68a6ac5c41b2bb4343b0226defe32290cc609adb140d533ebaa33",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[134]",
+          "serializedSha256": "21d6fdce72cd131553ed415c404750b3f6b5e3d7b244e23612663cdee766f3db",
+          "rawDataSha256": "1edacd9f2ea55117161ec267fbab9dc7e0ceaa7ac7897ff78c60474cb8944b02",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[135]",
+          "serializedSha256": "45676e64050bb4176920212d5b3e1fdd2a1545432d7878a766dbee9629e21f32",
+          "rawDataSha256": "3bd32da2e656ec4b320990ec32d1680a853229e514174e8f04506d15040cb170",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[136]",
+          "serializedSha256": "f602987fb5c8cbd8b7e8d9fb0005fc0b14336401cdbe65f5f83c4487c7ab9c7b",
+          "rawDataSha256": "dce85447dee634f4ac8ca4e3db143e6bd99b48cb6a88096be39b682c6ed96bab",
+          "rawDataBytes": 589824,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[137]",
+          "serializedSha256": "47a69b18e3f43d390cca6131532fad1105708ab4e51def137f4b72b22805faa2",
+          "rawDataSha256": "361884351ceaac153ba5825e579128c62213c688d7a13cf153199c3d1c320abd",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[138]",
+          "serializedSha256": "2ad44a9ae6853eddd76e36e888741e3b715c4a9354ef2b32c2402701cc8d2b3b",
+          "rawDataSha256": "7f80f976bae7eba83b628a008897ff5087b2f271b1d74d0bc2c8fa7530dc46bf",
+          "rawDataBytes": 393216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[139]",
+          "serializedSha256": "7dad7b0020225ba34527f69aff0f4b973b6fdd29edec186ab3850ce399f062a7",
+          "rawDataSha256": "4cd9bcc8db4d19227aa6806220880b034379904ddda7b179a090df75c5abaf89",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[140]",
+          "serializedSha256": "f03b1770329a3472e8e7f79d1b5b189a9a5a6d10b6f958e3ec7f3810186fa6dd",
+          "rawDataSha256": "77442f50d7e42424a19f8226e8cb5fb9ab377cc0f3e72dc97c7c9bff0d16e7d1",
+          "rawDataBytes": 393216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[141]",
+          "serializedSha256": "9822b66c303bb1986ab4ac59ce3467605b6cf448d0222bebe2ad4abf7db17bb9",
+          "rawDataSha256": "1784724d81507f0cd1e95edff4b0b1e11df6a521b3e41c4520bb4caf45b4cd25",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[142]",
+          "serializedSha256": "f26f5a8b7720e64183932b1d3ffc919627dad7c8f10e845d051752d9e11929ed",
+          "rawDataSha256": "62e0c7a8d666ce9f02fdcba86e703344022c0e185659b858b475bf2d6c8b0213",
+          "rawDataBytes": 294912,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[143]",
+          "serializedSha256": "da536d266fe2da236b49e2d20e7dbca7de01942765f206141d3bb1e49b8c24b8",
+          "rawDataSha256": "cc960c394c271e8a13f184522470906258159a09845faff6eec56cfd42f844ce",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[144]",
+          "serializedSha256": "c27118d261439c4c9f6c7ec7c8da3d6fd266e2077ff3e56113bb6b4512379534",
+          "rawDataSha256": "6708020908bf581a796ad8772e2b5b560d9b8968cff66db8f7a67a45edcb4aa6",
+          "rawDataBytes": 294912,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[145]",
+          "serializedSha256": "8e0adffd57a96385687048bc84bb801ca4954523a38b5dc627f830ff8270e479",
+          "rawDataSha256": "221e6d346d34707815eb1ebeff990c4cf695db8bac8d9b14d4b56869c7cca94e",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[146]",
+          "serializedSha256": "82f134cb4603c51814581d45901bf6a202a60b9a5ec8c313b54729832a0065dd",
+          "rawDataSha256": "9c6f042d6d6ddd799660d47d97ca6b0c06e157d3b3c0ec3298f09f5921039e4c",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[147]",
+          "serializedSha256": "d90ee31fce75030373e1e661147a3e5c920f86b651cf83cd0787739a1acd5a0b",
+          "rawDataSha256": "d3ced22daf06d7a942944d256e0849dab97bed792756e8b99d19fcd3538b2e21",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[148]",
+          "serializedSha256": "cd82e695bfa94c380c090f03d89bc9043ecdc9efef5dea3c2018bf3215cce73c",
+          "rawDataSha256": "500ef8d7ee370770a5bbb1f591974f43f05820bc85b355456fc7ec59026fad72",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[149]",
+          "serializedSha256": "68403a24e2ea786584b57675b973b7dd7b47afd9eb071375a9f9c71e122846c3",
+          "rawDataSha256": "913d6c8f1fc6887c7966e5e71801aa4f1313130a86110589763f3890fe8fae7e",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[150]",
+          "serializedSha256": "71f2796c46bd3853e70c68090684762f2137c14c3c801ca8b903cb4d23f499b5",
+          "rawDataSha256": "208ce291c6f820ddbc61f553ad68839c4390c15cdbd44eb519df8754d82b60e3",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[151]",
+          "serializedSha256": "e4d713edcfb2e18abd7ab2a92fe7cf894599841c5968523ea4beb15a35fe42c7",
+          "rawDataSha256": "2a148aa319a60dc8f0d24b7e25d3b4d908878eab95f097762fda9addb36f39bc",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[152]",
+          "serializedSha256": "6e10fb42871dc809bea334cbadd96447186a649c6c4d9fc13cfeb43d9fa24aca",
+          "rawDataSha256": "7a0390405b6ec94107ce9d2e07f5b70bdab2b43a49f1f9efa1539fe7157c14e4",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[153]",
+          "serializedSha256": "d4abd05fddcb934b2f76b1b9d60c9e17913da80d9bb2d9e561572d41d0817af0",
+          "rawDataSha256": "591a8cca7334b575a05c5eedd16c3a2ecc677e74055c49e4ca08785cfbebd026",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[154]",
+          "serializedSha256": "39e6bdef9166d31df66c390fbdb3bd3d81eba0eb3ed28783f7d2b5cfb9e57692",
+          "rawDataSha256": "21bcf4c76285079190bc81fdd181c9930a1f21e634ec58e88bd8683fe2ebc655",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[155]",
+          "serializedSha256": "248d305fb6543668ff8dceae61965487e7d9b3f2f8fe9661004f7d1f7b3a86b1",
+          "rawDataSha256": "7266c061030a8b6b5af13437ac10aefb59ccf1a7b5d5c5ad0cc07e6f818e7956",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[156]",
+          "serializedSha256": "731155ae94a8a29f145701fad605bed72f671dbac6eb3a88fe419a4473c51663",
+          "rawDataSha256": "07fd234c6d4a140ea6b443c5834290683f051df55125276e601dcdfaf543eda8",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[157]",
+          "serializedSha256": "519e707c5c07337cf5ba76676e9f2d5c49bc2f0c0974f36b8b2b3870904f37ef",
+          "rawDataSha256": "48806769a686a46f68829dadaa1958000ee20e7af8a7326f20d58b4a27d8c6b1",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[158]",
+          "serializedSha256": "b07e64d3825810b41a7ed5a9cad51bbeb0f2fded5886aad31a95d571a8cbb0ba",
+          "rawDataSha256": "a2ed366ffd6fcc0a8ff340feaa5aedbed12ed78fd5b5f540c1e8b87e53fe5fd1",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[159]",
+          "serializedSha256": "1ae74f9bb6b9b2175750eef11d33a593580f631ce516150d2613c0058b789444",
+          "rawDataSha256": "7ecaad625bc21d8afef800941b9ab2d2a5fb4ad72f2a2168117b25844745f32d",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[160]",
+          "serializedSha256": "06211db97bc49a51390aee516b7cf207360a6c729bb3ef3ffdb5f3968a7ec2db",
+          "rawDataSha256": "b66da2cf5a310ce89a5cdf1da7f371e28beca200b265ba1a9e74ea82e9d05b26",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[161]",
+          "serializedSha256": "a67061568b348a4ee852a3e356775af4302def2167499c6b9652ecbef63fc910",
+          "rawDataSha256": "087767b279ff90d57406c7c1efd85ccf9a64acdf22d103f93887f1a45f256329",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[162]",
+          "serializedSha256": "a0a155fc750dc2053369ad095e67ad9db9c9cd79792df7a85dec764ce9f923e3",
+          "rawDataSha256": "e221b0563c822e4da3ceb112dc99b4b98c0383e15e34e3ff6a966cec1a9f1d10",
+          "rawDataBytes": 73728,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[163]",
+          "serializedSha256": "3b45835084428c86667e25a6e2e516f38f205d6dd688a9c9c77b63c7525b5400",
+          "rawDataSha256": "3b7ce38f26e778aefc201c5418faee3344bf7b5aad4d34e2a4da972ce5ace89b",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[164]",
+          "serializedSha256": "59632bc1cf085425c775c7166e9c34853379a417f11c1c89e33abe8cccd19b3f",
+          "rawDataSha256": "f96e57c0c12b7a966d5bc8800c6079208c83cc521ddf5a2e961283c9b72ab097",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[165]",
+          "serializedSha256": "c918b254751ab60fcacdb8bd1a0275d9da4a68f835e2b123f30d966e122149e5",
+          "rawDataSha256": "4a24abe42d3b82c4e573bdc16cc2bf228e385d89d20eb82f301bbb2f1a42782f",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[166]",
+          "serializedSha256": "5cf75f798d1479a6ebb8494aca025cf2d2cedf41e279f966dc10fe4c33748451",
+          "rawDataSha256": "8c7c2c35da42589edf8c29416cf5af08687862d9acb7e0210ad5de5e0e1763a3",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[167]",
+          "serializedSha256": "e8a135f7e10b3de0b829432816fd5a614b8ddce38caf5b017b8f6b2d24149716",
+          "rawDataSha256": "13d09407845111d0352dc95b46d2cc98ad8faccc2b9ac71435750c56f03a4f78",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[168]",
+          "serializedSha256": "fa74713b0867149624de9006643ff4c64b81ae0b7b8989b75f0ce320f42a7f6d",
+          "rawDataSha256": "303e0281a72c33524d68d7d734c8c8e494046f14a1df3fd709ac279256c7f7c7",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[169]",
+          "serializedSha256": "b6dbde8dc03de33ac58f814af0b34bff799dc41c44f4277ba93a3387b3f8db55",
+          "rawDataSha256": "570305a83fc6d58ec415b4cdb19e3ad0f85824cbad28ce5e5eb42415616a2a29",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[170]",
+          "serializedSha256": "c14e36eca8b316a1c6d99028218a8d87444bc8cba20c8607237508e159ce2d91",
+          "rawDataSha256": "2f695b00d4060ec77cae3b8eda3468bd3587d07a5eaecbca3ac13b7bd70d5e0c",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[171]",
+          "serializedSha256": "ef90a05c30216e402051144d8bf026db7704b9b82a69e408bb72047a4b2ede5e",
+          "rawDataSha256": "c0f279435452499bde2f97d8dba910a0529e09df725760c2c5c284de78e48294",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[172]",
+          "serializedSha256": "48bb796eda401f18ac564e9be19fee3dc00a9754072507eaf974403da72f3ad0",
+          "rawDataSha256": "a7f78ed2a5d747a534cf669992ca1770531db78ba1ed5f0de137b2f43d19f4e1",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[173]",
+          "serializedSha256": "b8dc9e5a3928e2483548fa722367d83342edd72fd1b10442e67b82ed411e695a",
+          "rawDataSha256": "488f06ce0d63c7072d8f16e84f384b52a554a21b97836af4944894134f3972c9",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[174]",
+          "serializedSha256": "6d16c3de321524343eab093d14b35dcc8fefa931e3abfeacf8761257716c4731",
+          "rawDataSha256": "5333202acf235d03659d72521e7efac7769a3294a747dfc1698c2b61884950f7",
+          "rawDataBytes": 2304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[175]",
+          "serializedSha256": "c7f2a2db9328e70402efe36e7fbd25ff39acdafcdb19ce9361927cb62bf619de",
+          "rawDataSha256": "7c5fbc1d98c11a07ae9b9f757f0126d588318f9b1d505fe0c80db87a0314caff",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[176]",
+          "serializedSha256": "cb664e8b80ba85cc5364e0aeeea4bd44be8cd59cd6555affa5cc66eb98f19434",
+          "rawDataSha256": "06431190cece05af26b2d24e34da03e79ea9569054157be33db5a141e5477aa6",
+          "rawDataBytes": 20480,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[177]",
+          "serializedSha256": "e5d7345403f76c44be02a20ac30c9ea81eeba8c819114329c5360dd1eb8264cd",
+          "rawDataSha256": "ad06cade1bce0f98fbb423f2279d0df530799f3bbbb234cf7582fce5bcbf34d5",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[178]",
+          "serializedSha256": "46d33dc82da1d6941ab1c9cedeb7258e5d4f2707db6139c0b6fdaf2d415a92ae",
+          "rawDataSha256": "c3517ccd46b188f41082a82ed8cea896c7249fb5f436423ffbbb6e52c8eb3d21",
+          "rawDataBytes": 2880,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[179]",
+          "serializedSha256": "e79b50236cb5aaaae5ff49e570f85b0100095b90393b2e6c74a80a86ceace2ae",
+          "rawDataSha256": "7506b92e39a2977e6db6d30af4b6cd001635db05e0ab6a0f261d7711a75877d9",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[180]",
+          "serializedSha256": "d63c91c949004c83e44086342e5bad290ddf326858f04867e36e9e188867b245",
+          "rawDataSha256": "478989c19de55da0862ca6336245948897d622d8e7ab9c7d7d6c02dcabd30996",
+          "rawDataBytes": 25600,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[181]",
+          "serializedSha256": "29ae917ca831aef47ff47fef679fe390f13422f5f6d27ab2a70e06e4e7280aac",
+          "rawDataSha256": "e90eeece7d72baafb287c9c6a6728c8dd466d8dd18725e1a4454941925e3010f",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[182]",
+          "serializedSha256": "504245bc97257d45951ced48fa1014fd299227ad45f12aa1193bb3e433b9fb0a",
+          "rawDataSha256": "d907ba90f232b1fb7e6381f3ee3a9dd65c241dc768b7b7e707c51382c5e0f62d",
+          "rawDataBytes": 25600,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[183]",
+          "serializedSha256": "8ce0f51de4d2a86b7a8d786bf06390492d501c7227177cc2543dff6bf950ecaa",
+          "rawDataSha256": "00a6a186636b86dc78ecc10f59ef0d397c3837748c17bf9b1f2cedb8a2b2c45f",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[184]",
+          "serializedSha256": "3ea318b6517de749c72810bc6991cabc5bea8ec41262d00103fd1a0780bb2c85",
+          "rawDataSha256": "35e887d28bda2621556c39b824a9670613ef8f392543c29e0d627b2d1c67f886",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[185]",
+          "serializedSha256": "9d44e8e243ff20882593e2f4ba932afaf761383459d6d7d677d357d208537c76",
+          "rawDataSha256": "7387e79c65c6efbe64ee779902b9122b1ee2247ca0d573e8e4922a7f461d053a",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[186]",
+          "serializedSha256": "ec38ef1acab15f836461569569264b58f05ae72fc4a671c3b0732dac0eb05940",
+          "rawDataSha256": "79ddad7dd86c24192d7b4ec46b99e5dac8669e61cc695434dbc80a23bb3e5c5b",
+          "rawDataBytes": 40960,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[187]",
+          "serializedSha256": "9e41f38c1ac2578fbc238bd104a4f6fe83de7d1116d21f230ccda0686495afae",
+          "rawDataSha256": "254085d1f8f50f6a68d7427051323258d110931fe0212157b73d3a4449c89712",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[188]",
+          "serializedSha256": "f106d8d2bdbac517c355f61340f7ce773604e7fa52d87555e27d6f8d5ce2dd6d",
+          "rawDataSha256": "110ab47e6563552959c976ddb01455b548774b575fe1ec0486099d45ad4f6a6f",
+          "rawDataBytes": 2880,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[189]",
+          "serializedSha256": "e57dd01dfbb6748eee77cd3a82438057157a1d7c3ed1991b79ce4eb174fb1392",
+          "rawDataSha256": "3f9240414ad51da9d48708a20d2058f40ae297876970b82dfd887676bed8e41e",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[190]",
+          "serializedSha256": "538956d2ca3946d74ba542e53366525ebfa0de60a3aece229577fd75b2921163",
+          "rawDataSha256": "9944feacfb75d3da85d8caa4f8e1a1e339c7f70f40fa8b8cbe85055ea69e38e6",
+          "rawDataBytes": 25600,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[191]",
+          "serializedSha256": "204187d13e1f1b55c5e14fc981f7806415b1f68f738f50d2f3fee93ef88a0880",
+          "rawDataSha256": "7f8fe6c7b0aa205b7a1d0eaca6c17923a8b9af9744e06deacf8feab592a6cd9f",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[192]",
+          "serializedSha256": "28cce97ccf466767ee45adb57f5d39dddc0edbb700095f32e9492da44aa3ae4b",
+          "rawDataSha256": "fe218bedcdc405fe23434040163558db0ff952a4467ed2f5b8744ed4f2a4bed8",
+          "rawDataBytes": 25600,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[193]",
+          "serializedSha256": "21180b971038586f4a976e371a935e849df49a9d7ea30e77be5e899af4ff50bd",
+          "rawDataSha256": "db63e99aa2afdc2e340a1eac88633e18f4d68e02fd1a9786477fd4ad3aca0dcd",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[194]",
+          "serializedSha256": "e94d39257aa243fd79d629a171bcd793558099fb76c3be24a810ccc71de8e9bc",
+          "rawDataSha256": "0a3a0458ff1fd29c10f5a97b5be57a73d66866c107f50d8817b7a0d28538fe1f",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[195]",
+          "serializedSha256": "78ba9628e2c9f37d2b4aa5b00ccf4060db2dddc1508b45f8ec5999dfcd586442",
+          "rawDataSha256": "10c7bd22ca6e76537a083490869e889d7ae975917f29f4060d69c1d2c92af8fe",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[196]",
+          "serializedSha256": "735046f1ccc2716939f1aececb58d684239e613b5114d8bdc5a39b09019c341d",
+          "rawDataSha256": "b07454a36e0fe1022af4ee6cbf721a0d81e6684087cb8f08e7a299dd7893423c",
+          "rawDataBytes": 81920,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[197]",
+          "serializedSha256": "a8853f2f714233905778ddd7610da78b70ceb13a7df5338ca8a6a1c9dedbd2f1",
+          "rawDataSha256": "b8ee0ca5c148f4c408e334018ab44d829ebad15c671aae601de0f5ec58591685",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[198]",
+          "serializedSha256": "1039527d9c49f5f7fb12ca779502c672e1eb76ca45b48dd55147ee129d81ed5c",
+          "rawDataSha256": "699cdcdee7e21f01826b1c890d86e6d06de2959f116282c173aab6af38cc8060",
+          "rawDataBytes": 2880,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[199]",
+          "serializedSha256": "d1c8825998ced62d1780242128555595a54908eeb4dd2ace5fd78f35577ae2b8",
+          "rawDataSha256": "e0dba3d6cc017b083ab580ec144f03b7c26062e28ae79449ae7fa30e145de652",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[200]",
+          "serializedSha256": "6cc9e42bf7e60c2b30a0352207118c5bf4d6cda41c8d60885996fa9f4964b7d9",
+          "rawDataSha256": "f072e4cb503742058460740b87adaf229cf3583a740099a868f1724cba9ac9bc",
+          "rawDataBytes": 25600,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[201]",
+          "serializedSha256": "0aae4e851532f69877629d8f42b42a09a71d025b870ff69b4c3268fe604bf9b2",
+          "rawDataSha256": "57a106c52b1777e45b0b786c511d54b3e1c230d29cb87360d1feaaf15fb6effc",
+          "rawDataBytes": 320,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[202]",
+          "serializedSha256": "6198d427e2d2627799fa087a8c09a884a1a052898706da1cf3fce5cac56efe6d",
+          "rawDataSha256": "acd86d86a3a976e2955302b40424523bd2640a174395c1f39a4e9e38a54f03fa",
+          "rawDataBytes": 25600,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[203]",
+          "serializedSha256": "3e23fa77334baef69e41d0923ec5d1dec9422c7c1bbed00cc5159940c456a392",
+          "rawDataSha256": "4a87d1b03b1b761cdac7500dadabfceff55e91248959d5fbcb2e1c8d61817ea9",
+          "rawDataBytes": 320,
+          "dataType": 1
+        }
+      ],
+      "inputTensorSha256": "2b41bb0c46ee403132553d217e59751f5f858f7e3425a8991172b2f6e043fc7a",
+      "numericWeightTextDecodeFalsePositives": [
+        {
+          "initializerIndex": 12,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 1,
+            "utf-16le": 0
+          }
+        },
+        {
+          "initializerIndex": 42,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 1,
+            "utf-16le": 0
+          }
+        },
+        {
+          "initializerIndex": 152,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 1,
+            "utf-16le": 0
+          }
+        },
+        {
+          "initializerIndex": 168,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 2,
+            "utf-16le": 0
+          }
+        }
+      ],
+      "cpuOutputProofs": [
+        {
+          "shape": [
+            1,
+            300,
+            6
+          ],
+          "dtype": "float32",
+          "sha256": "cbbf907dc74054ccfc5585dcafa826cedde2731ba2880a3a314051be4a1bb14c",
+          "byteDifferences": 0
+        }
+      ],
+      "actualStringFieldsPathFree": true,
+      "authorLicenseUnmodified": true
+    },
+    {
+      "model": "yolo26n-sem-ade20k-640.onnx",
+      "originalSha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+      "packagedSha256": "bda25cea98386bde18ccc1faa1eb4cb3ce5574d3cc17005d876823b45f780e46",
+      "originalBytes": 6292470,
+      "packagedBytes": 6292427,
+      "changes": [
+        {
+          "field": "model.metadata_props[0].value",
+          "metadataKey": "description",
+          "originalTextSha256": "d5a4ee19ee6e58ab6b4d3abc0db978c0456d1337bd7685766b647906b1fd2b1e",
+          "sanitizedTextSha256": "8fc88f55e003e069f6f8ee6534dcb8977a75fcc7a858fe3757fa8a4da95da8da"
+        }
+      ],
+      "computationalProtoSha256": "ad949a6a8bc547468c8167adb7b5326223ba1e826c940c76113ba892b48b08ef",
+      "graphSerializedBytesUnchanged": true,
+      "tensorProofs": [
+        {
+          "field": "model.graph[0].node[9].attribute[0].t[0]",
+          "serializedSha256": "6ca67cd694aca3a915e178107812ed442e8720cad5eb0e6610be27496bfb9998",
+          "rawDataSha256": "19299b98c755705823a6a898c0aea16e8ab9c37f67d3cac814715df3649b2fd8",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[28].attribute[0].t[0]",
+          "serializedSha256": "1916a0bd5027d07fd1708296042d24b401256850826ba625ef5175d1b03ed2a8",
+          "rawDataSha256": "061f4bc896b729341440e848734d33256766da8165c9b9ac144471b231626d5b",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[47].attribute[0].t[0]",
+          "serializedSha256": "8852846cf05d32faba8cd3905ead6e1a5d35c5b2fe3875f93bcd4f1b93b35398",
+          "rawDataSha256": "e82537abbbfcc0bcbb95705bc5bd014c85c94470b66f72e035cdeec832f18178",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[83].attribute[0].t[0]",
+          "serializedSha256": "5b24bc1302c627089a0a8a340c151d9b11a612647a499fdca8156363a928cc29",
+          "rawDataSha256": "fa9ad8e381ae4fc97686921369c821ca3444d5deebd56c82faf9df71bb39ba79",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[127].attribute[0].t[0]",
+          "serializedSha256": "fd7d15686519cf117ae583c6032413a60e619f6d4f795f61c3019aedf72411ee",
+          "rawDataSha256": "bf1ae0a337718679354a62f8a77a0501d9f23b59bc25382ce1eddfb935700a7e",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[129].attribute[0].t[0]",
+          "serializedSha256": "56fedcb84dde49cf9809ca714ea4cf5e7c6cd62a8f9085579d55718c018f7bf7",
+          "rawDataSha256": "661f12e6d2e789ee731a34eb9eb1dcb0da6375c12ebfced2bf9b8fcf7bab9a22",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[131].attribute[0].t[0]",
+          "serializedSha256": "3dddeb291cdecc481bc8721fd4a74059db04f9561fea783c1b0ecdb6a914522c",
+          "rawDataSha256": "69c199f6174d4ebf6b546cdfff3d4b9d319ae927a353047e91723e023a69acab",
+          "rawDataBytes": 4,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[138].attribute[0].t[0]",
+          "serializedSha256": "641aa58342edb9a763b9a2f79ebba44aeb4a0ff3b84299ef6101227eedf42354",
+          "rawDataSha256": "16d0abd8a6d3677dd0434ccb2ebc4da305937ce6025cb20b095fd360b92c2305",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[139].attribute[0].t[0]",
+          "serializedSha256": "641aa58342edb9a763b9a2f79ebba44aeb4a0ff3b84299ef6101227eedf42354",
+          "rawDataSha256": "16d0abd8a6d3677dd0434ccb2ebc4da305937ce6025cb20b095fd360b92c2305",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[155].attribute[0].t[0]",
+          "serializedSha256": "ad70551c0efa51d989919801bd415c2b35eec771f25ca3f5a96c97ed43aa1d56",
+          "rawDataSha256": "aa5b3e0ef3e85eb14fa5e9eea359ae9b4f94dec784834d64c0b29ec5a8c83844",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[190].attribute[0].t[0]",
+          "serializedSha256": "ad70551c0efa51d989919801bd415c2b35eec771f25ca3f5a96c97ed43aa1d56",
+          "rawDataSha256": "aa5b3e0ef3e85eb14fa5e9eea359ae9b4f94dec784834d64c0b29ec5a8c83844",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[229].attribute[0].t[0]",
+          "serializedSha256": "45d42f8a342b02effa96ee24b8651ed9754a820b6b94e7919d94456919d06c48",
+          "rawDataSha256": "cf5451a623bebf3e6e119b7797a8c84e1c87e22e81f87a3ef6a293a2fce82123",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[0]",
+          "serializedSha256": "24e961794d206630e5914086e1655a4cc6aca4c0e43e3db0e6a94ca9cca31e16",
+          "rawDataSha256": "86eec7b931b180af7ed4af146946f9f1b046869145afb87b5d2b1e4af2babdfb",
+          "rawDataBytes": 1728,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[1]",
+          "serializedSha256": "21a8acc39dba229b4bd042df46fdd8209428cdf9843b8bf9bb0d0e8d3f038f8b",
+          "rawDataSha256": "c58cc6a7ce1aeae6e67034920268a810b69956cefb6d510dc259944ac564380d",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[2]",
+          "serializedSha256": "a7ecff7c0f839d9f606a11beebd261a0a7878227844581f0f2fdbca0ee2562d1",
+          "rawDataSha256": "4ab3e938b416b4adef0c73eb028503562d030d00320ef1a28be4d35628e9ca76",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[3]",
+          "serializedSha256": "3899d6d16b4b9e0a3fe71fda9d935bd8891c178dbdcf3163e9be714c6019088e",
+          "rawDataSha256": "8ff7b5dca22aef7fa2fa97f26ef4e3e12bbaa361f001818cddbba7686ce84e34",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[4]",
+          "serializedSha256": "0e9c53c3d642f0a71047902db76481399e00b21cabf015ca7a3a34c68f67bbf9",
+          "rawDataSha256": "793ac421dcbc2f4fd395a56b7ffeecb4ac2d08d2bd6b6b5c368e4ff0ee36ec99",
+          "rawDataBytes": 4096,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[5]",
+          "serializedSha256": "d52440858634483ee2d83f2760d06bc30139a64a09edbe9bd3612805360dc780",
+          "rawDataSha256": "b8c918ee3ad8af9ed5ccc565160cba1dd92e3a7d2549d4f5180e0f3a108c1c42",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[6]",
+          "serializedSha256": "45aeb21aa05766fce4be441447b95e993747bebf05defb39ed0d9bcfe67e47f5",
+          "rawDataSha256": "7f5f58479d5358761e700cdceff36db8d8891da7bdd8a41959ad8a484705ed1c",
+          "rawDataBytes": 12288,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[7]",
+          "serializedSha256": "c1adddc9a4f9109c13574e73dc3d9f7e0a28c03a74fe87a1a68263ee5c900299",
+          "rawDataSha256": "8e81671b2f84c073704bf8e980fe3e8661bed141fd53d9041b7ab7e2d3e3a144",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[8]",
+          "serializedSha256": "4c6be3a974f10d0f2a926245195593c0f95f866f093592048d159c026865a71c",
+          "rawDataSha256": "618a0e5243b7d8164444b14576f832eef2a6d9f10ca380c6d1df2f75a5656ac9",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[9]",
+          "serializedSha256": "ebaa51666a320d37c18f1f81fcbd53e257979b8d7e113629ab1e729b78a70b08",
+          "rawDataSha256": "f7f5635906f9a25a3032ad22bbb1951daced026cd460037abed5fcdbb1bf0922",
+          "rawDataBytes": 32,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[10]",
+          "serializedSha256": "1469d371a34d84166c1933fb5643b825a4b4073e7387c4b5e426694b48ceb859",
+          "rawDataSha256": "7a312bbcd642cb2cc1efef36489f49294dfb0909827a47dee75fc06ffc8f495c",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[11]",
+          "serializedSha256": "d2887ac47a22cbb8b49402a990e3990359d049efc72755f93ae39046edba21fc",
+          "rawDataSha256": "faf71e7e4d5697cbb13a57ac7edcee910a86f1695ee602f6f171cab8c75950dc",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[12]",
+          "serializedSha256": "50d2c0612375cd0f7fcd0c64bf055a056aba68456ce8d9443dbe3566adf04c82",
+          "rawDataSha256": "d6f1037798376c803246bf379a4e00b73965c81ce1b858ba1973577c314c10a1",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[13]",
+          "serializedSha256": "732041e145370b9b813ada84b4a9fd49b786b1dd989c6ebb10b0b935964e8afd",
+          "rawDataSha256": "0f5b52798f69793ebeb1301b1b5a880a521f132b9917cfe91032ae7b5f96c903",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[14]",
+          "serializedSha256": "360bc85fdc38c4090d2c827f1bd2a90baf30570c381c7a026f27656a54055f41",
+          "rawDataSha256": "567136b651bc8062deba34f4422d79b2c0e1b3db7e90e32de21bb0de3c05e022",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[15]",
+          "serializedSha256": "679de7529cc20f9c62b94f77f8c1f74855d37bf84cf4d2c7757a6f5e8645844b",
+          "rawDataSha256": "a22f30b74826ed3737f23b0cad40bc335bcac528c888698a30f1ea3f01c98d4a",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[16]",
+          "serializedSha256": "8139ab80685764d378d9c81576edaba94eb1f23b026c158b4a7e14b4dd2535c2",
+          "rawDataSha256": "a82095ceb6221f5a883f094a078bf39e34df6e4b5321dda4b73c87a5fc598db6",
+          "rawDataBytes": 49152,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[17]",
+          "serializedSha256": "6ed1d9e9db3c25082cce4433c4558bb9414d4632ebc202d3ee341f11ab35cfe0",
+          "rawDataSha256": "5fbbfc98bb14d89aff28a9c30910e57ade67339fe90da6b3baf1029dc7b839ef",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[18]",
+          "serializedSha256": "ad208099117bef4e6eb386edcf14c6162cd76a11b80e4c7efefedbc6a119de01",
+          "rawDataSha256": "177a2534cbd5833e17d3b3e456fcc4a6df3e79fa0bc1385d2314a6aa3a163120",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[19]",
+          "serializedSha256": "5230320d6d1d6d7f9c8982478c214637fd445190ff31a90f817a2cd5dc299430",
+          "rawDataSha256": "5b3e05ec9d8f9b2dc0382aa2dccb8f381e204fc1237fca37cf96540b14ef2fb4",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[20]",
+          "serializedSha256": "58c030d7a8fa978fab70047f86926ce65ef67a7dc3408a5c6057e45c344400a4",
+          "rawDataSha256": "bd23622136bb3684c50e51b595d854872df331a98df809eb85452e18b75c2a57",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[21]",
+          "serializedSha256": "06c6972519173509c0dd95415f98a192dafbee4417ad17f977e62927e7ecc770",
+          "rawDataSha256": "900ed08c3a84d6b984d6a1b866a0cbbbf42b7efbc762aa591a6303f4d19ecb78",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[22]",
+          "serializedSha256": "532c26ec7d9343d963d38bf6278ef88be9b90b87e34bdb45fb002d47f52382a5",
+          "rawDataSha256": "2e12fe4149eaeed25de87cacf3af341e7873b7e39781b6eac8979caa9e38b8cd",
+          "rawDataBytes": 589824,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[23]",
+          "serializedSha256": "0c43442364bcd3763db8a2e22078fd054f092c10ae1f8f0010b19ec03af3649c",
+          "rawDataSha256": "688b9b9258c3761fedf9fecf4ff2c6b5e114b4dfe4730f8446620482dd2344c5",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[24]",
+          "serializedSha256": "0893251e3104d53888749bcf6ee8ac8520bd0efac4fa853999ca3d88b522a3e7",
+          "rawDataSha256": "4862e2b6f2b48a6a4a716de80f527b62d70561390e4aeb4640c2fab131764bdd",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[25]",
+          "serializedSha256": "a8ca564ea847423adeb49ed668aeebf512e66e779685aaa1597750fc21303155",
+          "rawDataSha256": "32a4e9f13a47e23eea865e70e74d1ff4d85f91642f802fa172aa65746e2b1497",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[26]",
+          "serializedSha256": "761e44cf0b0e3185d2da861ac613bd6d85b38c50dedf0e856b91f3457005b360",
+          "rawDataSha256": "71b2fb6546b23b50e50b8bb51dc86dafe2ac2b19c111d4b5aec69ef46c3fc002",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[27]",
+          "serializedSha256": "e0792d259324d1e28846345dab7c8a8142976824fc51e9ec81c6ec917c89ad9e",
+          "rawDataSha256": "97534391812f7198cbd64d704c38b091f23d37f5e376c0477f3a678f2695dc4f",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[28]",
+          "serializedSha256": "02f9f812b2a45ac5d855177a9eaf4ec3c7e4bb340beefa273f20231ccb987c78",
+          "rawDataSha256": "7533934d4e48feb4397b0b378226558801de3c0341e5c5522fec6a45fdaa263d",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[29]",
+          "serializedSha256": "40a3c349c7836829a29bfc9a6bec744bcbc6c7dd4bae3f0aa48d21273efb400f",
+          "rawDataSha256": "f6f01625891e627e50e33bd5b9a53c1fde8a3f76299b27c00fc808cb3564392c",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[30]",
+          "serializedSha256": "b353209f28c1dc696add0d46d5225a8795af00644acc9f5146a0897c04634b16",
+          "rawDataSha256": "aa36f84b7b616eb049daefa150feba96109babe7514ad33336cfb24d7464c010",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[31]",
+          "serializedSha256": "e80b306e76a5ef2c486271e0072a71a8448a8d43cd032724756d7408202ca4bf",
+          "rawDataSha256": "c343d8ad58b243083f903acfcf4eb419648d5543a9bda6e9a25ec74d099e95cd",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[32]",
+          "serializedSha256": "e24d037045683196a7e1cf8bf68f4e892f023cd4c662aa462f55675e360b1443",
+          "rawDataSha256": "32a365cb99e1a991d2fb59d68ca9d8e8051b6cd75e65bb57fe94f2d968ca51c9",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[33]",
+          "serializedSha256": "04492545099c6d5d9589d9ea74c25e4529a8a9a927cb3add55763e02dc598fe1",
+          "rawDataSha256": "ff203dcde458729dc95ee31c7cfdd6bc327ef273b5aac5a1c526a4573b8d564c",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[34]",
+          "serializedSha256": "3fa2db5563300592b3d9a5ee2b8c8076bd8a2582714bcef8452f9adba8007182",
+          "rawDataSha256": "ba3ff79dfd1a24b55cfc8c1dd00ca541eba1543544c2ec29c3f8f2706ffb0aa4",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[35]",
+          "serializedSha256": "1e9e52b13566009c6a0222543dd7e567cb06b7271cf7f5c96fba4823b3c66ae0",
+          "rawDataSha256": "9c48293ea89a92fb9a950d37bbf952a1fee7e3af2b4bda9f7fe4266992ec80cb",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[36]",
+          "serializedSha256": "a880c94b64787ae1a1ba02d384b9286eb430eb673404e0be824f646b277a00da",
+          "rawDataSha256": "9e555ec19818470a490d92acf7fa8ab09aa3f3fd8b60520d0e12ba917e7888fe",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[37]",
+          "serializedSha256": "aa51ff73bfd14bbb1caa25aa24049caeb54d7d5ad6e2b17c69ec4ec8453d7c70",
+          "rawDataSha256": "a5107de378237279c7972697757605271c0797ecd9eb30e252158ee265c07c6c",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[38]",
+          "serializedSha256": "7fa4855affe877222573cb8991f423ac0761aeefb488186f2714190f5eca5548",
+          "rawDataSha256": "151055c63d146d00fa915848077b71b5204cab67bdd51bd7ba4eeff38cb1da6a",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[39]",
+          "serializedSha256": "9cfcf6b5038f94e85a7be03e9bb780e80d6262502951a6eb7a4e9dcb7ab33db0",
+          "rawDataSha256": "42328b2dae84e4a53815daaa21d537c5971189926bc5fe10750175cd964ac2e6",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[40]",
+          "serializedSha256": "ee4efad46d1e26f62ffdba6c5aa5954dd447df9110101abbc10e30a2ea790e29",
+          "rawDataSha256": "55fab1d15045ec25c9a2563e49e17c0b7deeb520d0655cc18ad1d279a65e96c8",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[41]",
+          "serializedSha256": "3ef26796ad776af0c24ab5e380b32e2f37a4794260c311bf26e1380a29da5177",
+          "rawDataSha256": "9f70c9e376806b5808028b92c90c30e012df5fb83db9e81cb7154ce0a724e168",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[42]",
+          "serializedSha256": "5042459e576ac2106f6345079ecdae23803e1bd960a4b8acf808fbdec0c6e50e",
+          "rawDataSha256": "8cbd84280c033de618bbba952d9cfcd7ab3db07722846e638dbb3c80de00e9db",
+          "rawDataBytes": 1179648,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[43]",
+          "serializedSha256": "119826be99fc889ddd7b69823e66555f520ae591b7c858f5e0d7a4d59e82afbb",
+          "rawDataSha256": "cecb6ada77486f5759b674d99953ee1a44e7d511ca3888981a7be0459517a90e",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[44]",
+          "serializedSha256": "9d6478ac1cef6475d1669cfe13924722850e60c2fecaab9f0e5b0fc77982de3e",
+          "rawDataSha256": "53c8a3b3ee8074a1656afee61e10ecd4a33c93408b37d09b7436dba442f7a808",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[45]",
+          "serializedSha256": "833918c500317bdfe34ce13ba9e7ed17ffdeb16bc6bf3e6e86d43e0051b67dae",
+          "rawDataSha256": "ba62966a5512eeb3fb4fdc5d722772bee560159499b932829becdf9bf271bb79",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[46]",
+          "serializedSha256": "9bb6fd496396a27f2c7d563b12c67908f7f2b39e40a2453e014cee2f574b1120",
+          "rawDataSha256": "0cd594168bb05d34a0eb7ec4a56de51eaf1aadbe9c8b34762cf891614523ffa2",
+          "rawDataBytes": 393216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[47]",
+          "serializedSha256": "f5c0162ab48bb4dd595241a59e1151cd627131c13f27724a1bfd93180efec536",
+          "rawDataSha256": "ab1954e7cac1657ae3045379d3f06e976a05519264f2f65384c9c7909b5efeca",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[48]",
+          "serializedSha256": "0709b7731dda088e31ec4a93a5a68a1c5ecaf2ad75fa20ebeb8afd5c048e1edd",
+          "rawDataSha256": "4bf0d685ac33061050805f48327356a3d5de841738fc4c11586ef737fb84c356",
+          "rawDataBytes": 32768,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[49]",
+          "serializedSha256": "127519e3f1f2a0b3324df12229492faf65697be741504bed2cbb293493eb0a1e",
+          "rawDataSha256": "1b8d03c49b63ebd0013d4701a762519cb2cdfc8608b8b29de18cdba3366d0090",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[50]",
+          "serializedSha256": "50fa72e446a29d56fdddba180994da11a70ee5f2c5ffe5bca8ba6c3ebc39a06a",
+          "rawDataSha256": "3a97e2d8d1a56651449bb34c289ebe7a08718d722228204fff089c6a8d74c400",
+          "rawDataBytes": 32768,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[51]",
+          "serializedSha256": "ff78be5faae855b473eabe88222b779cc7f8facef8c433c86a39ec46f68d125b",
+          "rawDataSha256": "1154f29af77b3bf30a9122041b901dee492bf89391bb196b0e5b9238e25f7a79",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[52]",
+          "serializedSha256": "9147df572b1d20b9253c941274227255713a92f3bf2df9970cd19217d27d0bdd",
+          "rawDataSha256": "602df77020449d5792aa8e823d761999b7ee6f9708300fced72ba947e8e599cc",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[53]",
+          "serializedSha256": "68771aff74e7abc6c2e5ad458c026e4d539ac58f6fb60a30559f52e67fde416b",
+          "rawDataSha256": "8b8b65dfcd603519bb0c2a87ca674c68d0cb05e75f3b1cfee7244413a5c34498",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[54]",
+          "serializedSha256": "f7804cf15a295361383c3b3646058b6a2aeb56cce977cb17521b62964c8dd82b",
+          "rawDataSha256": "3e22a7a0d05dc44155e5f441fb7e120154835f6f1f67087cb8f86178ddc75713",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[55]",
+          "serializedSha256": "d1b8b740d5a235f95517fe8f266bb53b91b8893f0667db96ebf97abfbc28ff8c",
+          "rawDataSha256": "dca6415b92d199a35ec7f860438d9a76859a14708567659a106b1750b43941ac",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[56]",
+          "serializedSha256": "4e9150b5c88ffa04d602c9673a7df6ee7e3f9ec94eacfe6c14805e6107704cfa",
+          "rawDataSha256": "0ccd488315f94d378543c54e985b4acee21201dcee965e4b2e6f1692f6bc5327",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[57]",
+          "serializedSha256": "4f2c2e6448831bd7aecb453e6c9d3235d4b0fe84418ae3300068376b657ed49d",
+          "rawDataSha256": "c0c7e38d7c402901dfe2f1062de91c6585815f64cdb578fbd4695ee2daa53cf4",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[58]",
+          "serializedSha256": "84990a4f1a6cacf00290ea4ac1334f2604051363f7d7916d4238482b6460b56d",
+          "rawDataSha256": "5e664d108ac1952addfdebd61af839ef9397bfaea5515524bfad0791aa5d6a30",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[59]",
+          "serializedSha256": "6c7d6e29127c78e1627955589f16e7b3e871a50c036caf3063d0902786a85647",
+          "rawDataSha256": "a6d7eb265e5d166272cb6b2b11ff20c1c7ad42d998eb7be6e8876b36bd8d12a2",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[60]",
+          "serializedSha256": "f6fadef7ffaafae262c78364bfd18e3f22addf09ec6a7846c796355ef0337ab9",
+          "rawDataSha256": "65285d497208e762830f5b8823ea8d1f0e5df7fbd817a06d7f8e2aa9b2c582fb",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[61]",
+          "serializedSha256": "3cf422b55c8a1aee07a9b38fc5b4f0e22440cfc8efeda45b201639e8f020e780",
+          "rawDataSha256": "d4b40c4541c9e21e0ace815addb1227212c2f19dc6c383569e31d7ae618dce56",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[62]",
+          "serializedSha256": "9cca133b0bee5eee6d566bb69fe2a183d5d7c43c6192475a1b08a80877ad0c7a",
+          "rawDataSha256": "e5f2fcd255c8b51bff9eb404cf7e527e5563791b22819e6856ee9ffa3413860d",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[63]",
+          "serializedSha256": "a1a2bfa81626b6c71c289f789f4531d890759be2d5016bc086e71f69d1063f46",
+          "rawDataSha256": "eb8e4695f76352dd018c3a887706e1f14e9558d15ad498a8580e79b15efce009",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[64]",
+          "serializedSha256": "1567779cb34d61f60df188e83bd8696c1dd342dac944d8957852d2f2a9093b78",
+          "rawDataSha256": "43b4adae96fe6b61f7d475041fdfa78f18963035dea7df1f19e35e53e14aa5ba",
+          "rawDataBytes": 524288,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[65]",
+          "serializedSha256": "ad3861efe3956b824c787e1d6cd1546cafe4264546a8912b9439724c62d7ef2b",
+          "rawDataSha256": "cfdfec2325010993c11cf456a1ed1cbfcc9e74dc9773c89f6275dba37f799828",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[66]",
+          "serializedSha256": "0204231f3232825a578f158478d3ac00a0282efa5be33cd901a4cfa04fb9adca",
+          "rawDataSha256": "7e0d3270e577c7873d8ef116afa744eea69edaec7dbaacaf5ef75685b61888ba",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[67]",
+          "serializedSha256": "91b2bf2f1c5c105803b535c0a65c9ec985808f9b13ae074fc501cc8c8e64f910",
+          "rawDataSha256": "8884ca6832436d61478e81d920514c639731b3aa00acb1a8802b9b9a22b9c790",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[68]",
+          "serializedSha256": "0692595dbfd39b1913205ab6e1ac7a9b644c15bdf633a7f464d7329356c19f3b",
+          "rawDataSha256": "479656060cefb95247fe11ede79446d7306d82c9b57402200321772666dd2a0b",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[69]",
+          "serializedSha256": "ff8d3bb9a0cea2a02e613afd03103df668612f904febc5d42d4248edbab2e572",
+          "rawDataSha256": "f51006298365690b828494e986e33ffa8a9c264d590ced86d6d09837252858b2",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[70]",
+          "serializedSha256": "73ff0aeac8c2096e2b59cc2652969f68920cdba6ad1f7971c78c2c0e01220c58",
+          "rawDataSha256": "b76a18b7c73a7f38c4634531ae39a1ef4951fddd474f27796690cc6359807484",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[71]",
+          "serializedSha256": "b1f7a91c15845a2304724be2ee38e572694302a2bd2503ba16826b472705ad21",
+          "rawDataSha256": "0c0194499e8f89d66e59766e21aed63469ef3f231a2fd32a4e918cd4bc27668d",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[72]",
+          "serializedSha256": "dcec5cbc6b74df75349b9c4af5e9e5355130d926d9a89da0ffe7968202c0c21d",
+          "rawDataSha256": "fd304db70ad319c6f3eabe661465d56c3ec7d3dc5b42c431952fe2485ef2a3b4",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[73]",
+          "serializedSha256": "dfcaf220452332ed3c0d4ec404180d235529acb1f51e2d1ec70f78b1f9fc888c",
+          "rawDataSha256": "974e42728705d42908e5baaf6cfb1b75e8085fa37448c20474bd7e1a02ec548f",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[74]",
+          "serializedSha256": "6a8dcbee694eb84d0301acebfa865f15a55d0ee57a931a50d0ccc631d598ec70",
+          "rawDataSha256": "c5cb68f7414c88afa09b740730455eb5d59944a1a28fca50ec3b324a5ea369d9",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[75]",
+          "serializedSha256": "3b9f14213bac267408491d3a50aa1bab187796a58f58219a0c4522a4c1322e48",
+          "rawDataSha256": "67cd77510637647bed4437ef9b111dd9e2a1a44e4a213d919267fbeea1a908ea",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[76]",
+          "serializedSha256": "adcfa9c64d3f048b81796d02fa37587228e9a7b348d38fd7cf6d607a0b78492e",
+          "rawDataSha256": "0aefed890b304e9cdf657cc1b1c9e60f12614919f7bd8797cc6faab5bfe9b324",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[77]",
+          "serializedSha256": "a8773f0ef6aa93f2aafc7828d1f87d97a0e407ead3876541b542b168eb6ed869",
+          "rawDataSha256": "bc2fbd03be1e60912d6416475226322a166ab19bb3fdf07fecf53e05b44eaff5",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[78]",
+          "serializedSha256": "22f9ac5c19f1be1fe67ef045e1083f8809bdc1ab82d4cff1171405bacfba3a9d",
+          "rawDataSha256": "235198d54f86129ec7753dfe38928cb9f7f6bdb4bb4b6f3c41fdd8da04b51a4e",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[79]",
+          "serializedSha256": "5896f1e51715dd3e0756220c1ea15c95772e51551550bd6c4852c86bd1bc96b2",
+          "rawDataSha256": "3ca33b71b4de07b6d6239600ef0a876d48bb9042c3b5ffe24cc3282270d2f903",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[80]",
+          "serializedSha256": "5f13abe16b62596a725c413c2c78c999b650ea25d0cf88712ab29d15498c1408",
+          "rawDataSha256": "beb20d1ac01cc5ab2ecfeee613efd7eee8d0f02fd6276d5680f0ea3a2699ef62",
+          "rawDataBytes": 196608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[81]",
+          "serializedSha256": "1824f6c3f1e7b5684db61fd6f1d8dd0650bfceec952d009ef9027b3199b3ccad",
+          "rawDataSha256": "24cb43c6092b44854e5e39867518257223e85b52f0b3b25c48f8843f04c9c095",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[82]",
+          "serializedSha256": "4f5c5a2ed5cedde8c848ec0a8ccaf2b9e752c375b3b3bcc843789e9ceb394d93",
+          "rawDataSha256": "7a67f587513b790e280a9bfb88f29f9ac7e99e3df21a80a35ec596e15666686e",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[83]",
+          "serializedSha256": "6d17ec1b4d09785773f9ba743716df3418ea9a0d9df057341ff53b384e2b92d0",
+          "rawDataSha256": "d3b909560c1e999a3147d8fbffe9b4f17e007b69922affa496d8b2317b9cd5b9",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[84]",
+          "serializedSha256": "9fb8eef718650ec491def67710f8926b63b1e7bcfa3d65ac0b5ecef061b7ff69",
+          "rawDataSha256": "d862a10874281b7a970dc2f8b87ec9718fa890365db8f01955b1a739e2bbf21f",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[85]",
+          "serializedSha256": "5714b233381c0386eff8c026ad57c6a560cdede418cb7c299e85b1af29c7cb17",
+          "rawDataSha256": "b0d95f27ad41e88bbaae94aee81b290cfb2dc4db0360981f6110b21d135546d7",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[86]",
+          "serializedSha256": "c582f2a5d46a1d638927909f9de1c5ff49b7612be89e0eb932ae9f34dbbb8277",
+          "rawDataSha256": "5af6f9fa327ba45e4ca6cbfe56bf89cfc6b1161cacc95022628aaebe41e85d47",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[87]",
+          "serializedSha256": "7fd4961a4f9961949c1d9ca507d8d66ce062b4b3910c4fe728613c9129334817",
+          "rawDataSha256": "5522cc211cc09699913c62e0beea1d64cb5dc95b9dcfc1cf33ff3fc9e92d4368",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[88]",
+          "serializedSha256": "37d220de4f7d29887776d50938a83188f0be7150dfe8c80a1cf882edc18a5d19",
+          "rawDataSha256": "3f0f6781c4560cc8829ae98861fceff2a39242db65673d467dcd8cf5373486e3",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[89]",
+          "serializedSha256": "43b83fe0c4ebebf6686e2a03efe2a8cad76a4e3a1fda2742810db4f396c7830f",
+          "rawDataSha256": "9bb1a8ee8c84e76a28e1826e6e0cd2a319198fe674242a21c946df2ad21e9eaa",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[90]",
+          "serializedSha256": "2db6328e86c57a7bcfab308a83c3367547a1c9fa520d060f400e1ee383ddf909",
+          "rawDataSha256": "48ccbe6ae85de2c85c83f3143bcfa1f8117801f81699664f0dd575aff80a4f5e",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[91]",
+          "serializedSha256": "229e3cfb41757a59ba852fe648709831aa09383de28fd042feb045f2e0e292de",
+          "rawDataSha256": "4b953bf867bc6584164ffd989acc19a83ff6ee54b9449b379fc9c5937f5c3db7",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[92]",
+          "serializedSha256": "8a9f665f5c49d3b84e0f5b8e47941d14176c396db9b676a8f886f4b4777215c4",
+          "rawDataSha256": "1bfb67dd2a9641d3853f9ac85f5f8952f6e0c153060e91100f4b1cef3f790c5f",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[93]",
+          "serializedSha256": "60afd4b87b03d5b6e656b263c6c4792806b6ed9728a699cd6af8f574128b63c6",
+          "rawDataSha256": "1cf81d056dcce2ed4a129b4264539515cc71dd34adba7062eac590b838f14c99",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[94]",
+          "serializedSha256": "8e405d0721b3a57eaa28b564ea7b8000f304fa1a5eb4a7b5bb968ec1797fe95c",
+          "rawDataSha256": "63deec79b3eb7a2cee0c443d158acbb8b2c2b055b319e58cc9fa1c12deb2a643",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[95]",
+          "serializedSha256": "d86921f997a9d47fba6c6ab2533a497c82e3f9a25c964aca375e53ad237b0b37",
+          "rawDataSha256": "be5fb8a409aaa7872b7786c5fd741ec0a6b34862703b1b99b76b419cb4353133",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[96]",
+          "serializedSha256": "65b5a5e9ecde5950adae22de59937df3a677428788ebabde0ec5b23c24d2eb21",
+          "rawDataSha256": "6676a80980a4b41ec3f5910f197a8b78fc85b0244260b79d309ea21ac3331641",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[97]",
+          "serializedSha256": "0e20f6da9839f68ab86a4b78fa705714e1ee64c7860b075a936384d1334d1e37",
+          "rawDataSha256": "418384527fbd6e802ffd4b754806b67e46bee994a9fc55ef2f57ef6dffb88002",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[98]",
+          "serializedSha256": "31f71840f12eea8a54a7a59cf5d7d10b7d10ade723c8123d85170d6c6c9dadd8",
+          "rawDataSha256": "434a081e0933629f9495ba9ddd44bacf2bcfa41f761facbf3e6e7a91ab17dd22",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[99]",
+          "serializedSha256": "b517bbbc92eb3c6ecb2f947fa0b59117c8f6fabf000fcd5b22fe8dde4b879655",
+          "rawDataSha256": "2505039e65f141954bbc44b1a39ebd77d13dbbd960fb5aa3a9773fb64a5a37be",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[100]",
+          "serializedSha256": "60b085265f4997b40549988f4311f4d6a58c9067f2c2730aa0ce66967d1a3264",
+          "rawDataSha256": "71833520c69796610aa71a35c9851f70a1155408140d7aa09549ab3289d10cb3",
+          "rawDataBytes": 24576,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[101]",
+          "serializedSha256": "bb74a80ad0e9f42ad7dc32cde3861dcfe7d5305bf540efc09edb5c149b9a5d86",
+          "rawDataSha256": "c283744ffdb6501dda32c52065ca1f5a865811bdad4a652047c23744bd92b06b",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[102]",
+          "serializedSha256": "52e0ea9ccbdaa16b13a7481cac50c2b1b573d3358c345baedf3e09e8761e945c",
+          "rawDataSha256": "81f015f9d90c33f2723e4fbeef8c0cade33873c4de6fd667a579f525c4b48c5f",
+          "rawDataBytes": 2048,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[103]",
+          "serializedSha256": "ab5a504ae57024a84b4f125effc39a1dc1e605473c2bd3ef77ec53e9fbab8ad6",
+          "rawDataSha256": "c9dc3d96638d6def6512fc51804d5c0a80c7a7561df3a8cd1915cf107d8fb483",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[104]",
+          "serializedSha256": "f9248c9c3e6cb66edf5b993667d2b6490eeb2b4681f7a8eded9ef023e02bcff1",
+          "rawDataSha256": "6c66165f134eb89d07ca390c1625287a117378f682dd809055a0a84d4648918e",
+          "rawDataBytes": 2048,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[105]",
+          "serializedSha256": "6a579e4d001e203ab1167a884bee4d759f911c6f99491cbf612e375612b82a5c",
+          "rawDataSha256": "a8d9d343c034fb2892d4e24484ec2c788f5cafcd476853c63c541f963a655f5c",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[106]",
+          "serializedSha256": "4fb248cb81759dc93be356b49b70090b1540da45aedf3c9c8d22bc476fca34e1",
+          "rawDataSha256": "624e6270a229548cbfdf110192c81d13415cf014c857e5e93df9425e498d38fa",
+          "rawDataBytes": 4096,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[107]",
+          "serializedSha256": "b7bccd0b5856169d91925ab75411fbefc4caa38fd5aa635fad1e3bd5a747b752",
+          "rawDataSha256": "37e41901422ba53933ec501babcfbe2f51f17814e26ecff9db35a7fe96960fa6",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[108]",
+          "serializedSha256": "d9e50eef7e6300ab92c81cfa8f65820545675513d1265526b38d69229447de6b",
+          "rawDataSha256": "4bb06147d9f4cefb8435681bac080a79fc633b754aa11c4c94b122446eae0c49",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[109]",
+          "serializedSha256": "e2155aa88eab395e4324f6d54b9f98314675075855743b2ef233b1989d4383b5",
+          "rawDataSha256": "6a818ca3e8e5119e4d21f4dfe972cf276a1ca589aff81ae852e7471dc098cd0a",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[110]",
+          "serializedSha256": "ea979618e18977163dc402be0a9a995b453370516b16d6124a8e2060a743722a",
+          "rawDataSha256": "7f8b9d54ec2502160a3d2268e10f14832a4023f7a9e6778ebbe54f04c2caba25",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[111]",
+          "serializedSha256": "7d82efb74fd01cab07bd86f15bece88c0ce16498c712fe6be4f45d951964952b",
+          "rawDataSha256": "151791033b15d53f4c67e9ad1650662cec16e7c2b9d956ac55187b8065e5d1b7",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[112]",
+          "serializedSha256": "4be79402989207fffa0aa0e5589145f51fd7905f1fd18dfe0c29874d39d78c7f",
+          "rawDataSha256": "9190cfd4099d4b7f106cf1ea39e7b94e8705d8e0298b13a8106518e302727749",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[113]",
+          "serializedSha256": "36bbd6e4e056b149b9131d84c48c9508888c1460347129ee6fd25605f02525b9",
+          "rawDataSha256": "eef02114c5ce8ae0b7eaff4f1dc60a242c7447d176cfad41abfbbfd74e5bbe40",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[114]",
+          "serializedSha256": "0b7da3cee9624a5809c86ba22f813283944550402906ba96ac28505072c06bfc",
+          "rawDataSha256": "e80655a8c25d6cdbeed8e607e1b6b1d794567da0689e8686ec337a532bed8c60",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[115]",
+          "serializedSha256": "6187381119796c3efbc86147ebb5f95b4c7cc546d6e18139828470990beedeab",
+          "rawDataSha256": "2a49325ca079fa02accb7c7f565df7bb800f7ff703bc80328bfb346cb7a15197",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[116]",
+          "serializedSha256": "9e2f2b68cb7155ba82fee33b2c5780c845a029bcf44336f4532529c05d94b957",
+          "rawDataSha256": "203e02982b929a001381fb5a518ffeceb857e57a251738b4594ec2ebde11cc81",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[117]",
+          "serializedSha256": "4486ba34e2a9c7882e2b1df657be6e2400afd6bb0c68ef455fbb1c44b6deff30",
+          "rawDataSha256": "018efe96a3ce2fa5508b2c500d309478c0985fc941a264c83522d676cf266ef8",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[118]",
+          "serializedSha256": "3823e973e4e2cc75c8a10c0dc63d8909cf6246c279a7be1a9c275c4b573114c1",
+          "rawDataSha256": "6407de974862dd8416a26c978ebf77c985aa059657259207a369bcfc275f6078",
+          "rawDataBytes": 38400,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[119]",
+          "serializedSha256": "ae120baa7e5d9a3fdc1901f8f0daa4f2fab4d64a0996007df578e1ac3c84e723",
+          "rawDataSha256": "32f55e88053a04d34cda30fd2490553a98b1cbc910fd8e41696d65ebdbcecddf",
+          "rawDataBytes": 600,
+          "dataType": 1
+        }
+      ],
+      "inputTensorSha256": "2b41bb0c46ee403132553d217e59751f5f858f7e3425a8991172b2f6e043fc7a",
+      "numericWeightTextDecodeFalsePositives": [
+        {
+          "initializerIndex": 22,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 1,
+            "utf-16le": 0
+          }
+        },
+        {
+          "initializerIndex": 64,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 1,
+            "utf-16le": 0
+          }
+        }
+      ],
+      "cpuOutputProofs": [
+        {
+          "shape": [
+            1,
+            640,
+            640
+          ],
+          "dtype": "uint8",
+          "sha256": "f53b1018694e195e825188ef40d8d0ec0b797f22d7ecd5d6513a9000f1a19e2e",
+          "byteDifferences": 0
+        }
+      ],
+      "actualStringFieldsPathFree": true,
+      "authorLicenseUnmodified": true
+    },
+    {
+      "model": "yolo26n-sem-pilot03c-320.onnx",
+      "originalSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+      "packagedSha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+      "originalBytes": 6292459,
+      "packagedBytes": 6292459,
+      "changes": [],
+      "computationalProtoSha256": "531da53a09a76fabdf044a66ff7f7d2ff1ef5570d1c4523187e6abe222eeac50",
+      "graphSerializedBytesUnchanged": true,
+      "tensorProofs": [
+        {
+          "field": "model.graph[0].node[9].attribute[0].t[0]",
+          "serializedSha256": "6ca67cd694aca3a915e178107812ed442e8720cad5eb0e6610be27496bfb9998",
+          "rawDataSha256": "19299b98c755705823a6a898c0aea16e8ab9c37f67d3cac814715df3649b2fd8",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[28].attribute[0].t[0]",
+          "serializedSha256": "1916a0bd5027d07fd1708296042d24b401256850826ba625ef5175d1b03ed2a8",
+          "rawDataSha256": "061f4bc896b729341440e848734d33256766da8165c9b9ac144471b231626d5b",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[47].attribute[0].t[0]",
+          "serializedSha256": "8852846cf05d32faba8cd3905ead6e1a5d35c5b2fe3875f93bcd4f1b93b35398",
+          "rawDataSha256": "e82537abbbfcc0bcbb95705bc5bd014c85c94470b66f72e035cdeec832f18178",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[83].attribute[0].t[0]",
+          "serializedSha256": "5b24bc1302c627089a0a8a340c151d9b11a612647a499fdca8156363a928cc29",
+          "rawDataSha256": "fa9ad8e381ae4fc97686921369c821ca3444d5deebd56c82faf9df71bb39ba79",
+          "rawDataBytes": 16,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[127].attribute[0].t[0]",
+          "serializedSha256": "76531e780823a55ef6a04dd472db8536d24001d2a41b6c92f29a663bda460e5f",
+          "rawDataSha256": "b6d7ed3bf664cb7a71273fca5e2b1a855549ca30b8a7400a07747712954f7c89",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[129].attribute[0].t[0]",
+          "serializedSha256": "56fedcb84dde49cf9809ca714ea4cf5e7c6cd62a8f9085579d55718c018f7bf7",
+          "rawDataSha256": "661f12e6d2e789ee731a34eb9eb1dcb0da6375c12ebfced2bf9b8fcf7bab9a22",
+          "rawDataBytes": 24,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[131].attribute[0].t[0]",
+          "serializedSha256": "3dddeb291cdecc481bc8721fd4a74059db04f9561fea783c1b0ecdb6a914522c",
+          "rawDataSha256": "69c199f6174d4ebf6b546cdfff3d4b9d319ae927a353047e91723e023a69acab",
+          "rawDataBytes": 4,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[138].attribute[0].t[0]",
+          "serializedSha256": "520a8fe6df9c2da86b20311a6f23e64eed5288beaf3fce4ed91b396b23c08a8d",
+          "rawDataSha256": "1d048ddcc54fc2a431780c7cf8ea6e1a9b0dfef7c6826f34fc72c81144050666",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[139].attribute[0].t[0]",
+          "serializedSha256": "520a8fe6df9c2da86b20311a6f23e64eed5288beaf3fce4ed91b396b23c08a8d",
+          "rawDataSha256": "1d048ddcc54fc2a431780c7cf8ea6e1a9b0dfef7c6826f34fc72c81144050666",
+          "rawDataBytes": 32,
+          "dataType": 7
+        },
+        {
+          "field": "model.graph[0].node[155].attribute[0].t[0]",
+          "serializedSha256": "ad70551c0efa51d989919801bd415c2b35eec771f25ca3f5a96c97ed43aa1d56",
+          "rawDataSha256": "aa5b3e0ef3e85eb14fa5e9eea359ae9b4f94dec784834d64c0b29ec5a8c83844",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[190].attribute[0].t[0]",
+          "serializedSha256": "ad70551c0efa51d989919801bd415c2b35eec771f25ca3f5a96c97ed43aa1d56",
+          "rawDataSha256": "aa5b3e0ef3e85eb14fa5e9eea359ae9b4f94dec784834d64c0b29ec5a8c83844",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].node[229].attribute[0].t[0]",
+          "serializedSha256": "45d42f8a342b02effa96ee24b8651ed9754a820b6b94e7919d94456919d06c48",
+          "rawDataSha256": "cf5451a623bebf3e6e119b7797a8c84e1c87e22e81f87a3ef6a293a2fce82123",
+          "rawDataBytes": 16,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[0]",
+          "serializedSha256": "24e961794d206630e5914086e1655a4cc6aca4c0e43e3db0e6a94ca9cca31e16",
+          "rawDataSha256": "86eec7b931b180af7ed4af146946f9f1b046869145afb87b5d2b1e4af2babdfb",
+          "rawDataBytes": 1728,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[1]",
+          "serializedSha256": "21a8acc39dba229b4bd042df46fdd8209428cdf9843b8bf9bb0d0e8d3f038f8b",
+          "rawDataSha256": "c58cc6a7ce1aeae6e67034920268a810b69956cefb6d510dc259944ac564380d",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[2]",
+          "serializedSha256": "a7ecff7c0f839d9f606a11beebd261a0a7878227844581f0f2fdbca0ee2562d1",
+          "rawDataSha256": "4ab3e938b416b4adef0c73eb028503562d030d00320ef1a28be4d35628e9ca76",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[3]",
+          "serializedSha256": "3899d6d16b4b9e0a3fe71fda9d935bd8891c178dbdcf3163e9be714c6019088e",
+          "rawDataSha256": "8ff7b5dca22aef7fa2fa97f26ef4e3e12bbaa361f001818cddbba7686ce84e34",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[4]",
+          "serializedSha256": "0e9c53c3d642f0a71047902db76481399e00b21cabf015ca7a3a34c68f67bbf9",
+          "rawDataSha256": "793ac421dcbc2f4fd395a56b7ffeecb4ac2d08d2bd6b6b5c368e4ff0ee36ec99",
+          "rawDataBytes": 4096,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[5]",
+          "serializedSha256": "d52440858634483ee2d83f2760d06bc30139a64a09edbe9bd3612805360dc780",
+          "rawDataSha256": "b8c918ee3ad8af9ed5ccc565160cba1dd92e3a7d2549d4f5180e0f3a108c1c42",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[6]",
+          "serializedSha256": "45aeb21aa05766fce4be441447b95e993747bebf05defb39ed0d9bcfe67e47f5",
+          "rawDataSha256": "7f5f58479d5358761e700cdceff36db8d8891da7bdd8a41959ad8a484705ed1c",
+          "rawDataBytes": 12288,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[7]",
+          "serializedSha256": "c1adddc9a4f9109c13574e73dc3d9f7e0a28c03a74fe87a1a68263ee5c900299",
+          "rawDataSha256": "8e81671b2f84c073704bf8e980fe3e8661bed141fd53d9041b7ab7e2d3e3a144",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[8]",
+          "serializedSha256": "4c6be3a974f10d0f2a926245195593c0f95f866f093592048d159c026865a71c",
+          "rawDataSha256": "618a0e5243b7d8164444b14576f832eef2a6d9f10ca380c6d1df2f75a5656ac9",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[9]",
+          "serializedSha256": "ebaa51666a320d37c18f1f81fcbd53e257979b8d7e113629ab1e729b78a70b08",
+          "rawDataSha256": "f7f5635906f9a25a3032ad22bbb1951daced026cd460037abed5fcdbb1bf0922",
+          "rawDataBytes": 32,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[10]",
+          "serializedSha256": "1469d371a34d84166c1933fb5643b825a4b4073e7387c4b5e426694b48ceb859",
+          "rawDataSha256": "7a312bbcd642cb2cc1efef36489f49294dfb0909827a47dee75fc06ffc8f495c",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[11]",
+          "serializedSha256": "d2887ac47a22cbb8b49402a990e3990359d049efc72755f93ae39046edba21fc",
+          "rawDataSha256": "faf71e7e4d5697cbb13a57ac7edcee910a86f1695ee602f6f171cab8c75950dc",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[12]",
+          "serializedSha256": "50d2c0612375cd0f7fcd0c64bf055a056aba68456ce8d9443dbe3566adf04c82",
+          "rawDataSha256": "d6f1037798376c803246bf379a4e00b73965c81ce1b858ba1973577c314c10a1",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[13]",
+          "serializedSha256": "732041e145370b9b813ada84b4a9fd49b786b1dd989c6ebb10b0b935964e8afd",
+          "rawDataSha256": "0f5b52798f69793ebeb1301b1b5a880a521f132b9917cfe91032ae7b5f96c903",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[14]",
+          "serializedSha256": "360bc85fdc38c4090d2c827f1bd2a90baf30570c381c7a026f27656a54055f41",
+          "rawDataSha256": "567136b651bc8062deba34f4422d79b2c0e1b3db7e90e32de21bb0de3c05e022",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[15]",
+          "serializedSha256": "679de7529cc20f9c62b94f77f8c1f74855d37bf84cf4d2c7757a6f5e8645844b",
+          "rawDataSha256": "a22f30b74826ed3737f23b0cad40bc335bcac528c888698a30f1ea3f01c98d4a",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[16]",
+          "serializedSha256": "8139ab80685764d378d9c81576edaba94eb1f23b026c158b4a7e14b4dd2535c2",
+          "rawDataSha256": "a82095ceb6221f5a883f094a078bf39e34df6e4b5321dda4b73c87a5fc598db6",
+          "rawDataBytes": 49152,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[17]",
+          "serializedSha256": "6ed1d9e9db3c25082cce4433c4558bb9414d4632ebc202d3ee341f11ab35cfe0",
+          "rawDataSha256": "5fbbfc98bb14d89aff28a9c30910e57ade67339fe90da6b3baf1029dc7b839ef",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[18]",
+          "serializedSha256": "ad208099117bef4e6eb386edcf14c6162cd76a11b80e4c7efefedbc6a119de01",
+          "rawDataSha256": "177a2534cbd5833e17d3b3e456fcc4a6df3e79fa0bc1385d2314a6aa3a163120",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[19]",
+          "serializedSha256": "5230320d6d1d6d7f9c8982478c214637fd445190ff31a90f817a2cd5dc299430",
+          "rawDataSha256": "5b3e05ec9d8f9b2dc0382aa2dccb8f381e204fc1237fca37cf96540b14ef2fb4",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[20]",
+          "serializedSha256": "58c030d7a8fa978fab70047f86926ce65ef67a7dc3408a5c6057e45c344400a4",
+          "rawDataSha256": "bd23622136bb3684c50e51b595d854872df331a98df809eb85452e18b75c2a57",
+          "rawDataBytes": 18432,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[21]",
+          "serializedSha256": "06c6972519173509c0dd95415f98a192dafbee4417ad17f977e62927e7ecc770",
+          "rawDataSha256": "900ed08c3a84d6b984d6a1b866a0cbbbf42b7efbc762aa591a6303f4d19ecb78",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[22]",
+          "serializedSha256": "532c26ec7d9343d963d38bf6278ef88be9b90b87e34bdb45fb002d47f52382a5",
+          "rawDataSha256": "2e12fe4149eaeed25de87cacf3af341e7873b7e39781b6eac8979caa9e38b8cd",
+          "rawDataBytes": 589824,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[23]",
+          "serializedSha256": "0c43442364bcd3763db8a2e22078fd054f092c10ae1f8f0010b19ec03af3649c",
+          "rawDataSha256": "688b9b9258c3761fedf9fecf4ff2c6b5e114b4dfe4730f8446620482dd2344c5",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[24]",
+          "serializedSha256": "0893251e3104d53888749bcf6ee8ac8520bd0efac4fa853999ca3d88b522a3e7",
+          "rawDataSha256": "4862e2b6f2b48a6a4a716de80f527b62d70561390e4aeb4640c2fab131764bdd",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[25]",
+          "serializedSha256": "a8ca564ea847423adeb49ed668aeebf512e66e779685aaa1597750fc21303155",
+          "rawDataSha256": "32a4e9f13a47e23eea865e70e74d1ff4d85f91642f802fa172aa65746e2b1497",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[26]",
+          "serializedSha256": "761e44cf0b0e3185d2da861ac613bd6d85b38c50dedf0e856b91f3457005b360",
+          "rawDataSha256": "71b2fb6546b23b50e50b8bb51dc86dafe2ac2b19c111d4b5aec69ef46c3fc002",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[27]",
+          "serializedSha256": "e0792d259324d1e28846345dab7c8a8142976824fc51e9ec81c6ec917c89ad9e",
+          "rawDataSha256": "97534391812f7198cbd64d704c38b091f23d37f5e376c0477f3a678f2695dc4f",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[28]",
+          "serializedSha256": "02f9f812b2a45ac5d855177a9eaf4ec3c7e4bb340beefa273f20231ccb987c78",
+          "rawDataSha256": "7533934d4e48feb4397b0b378226558801de3c0341e5c5522fec6a45fdaa263d",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[29]",
+          "serializedSha256": "40a3c349c7836829a29bfc9a6bec744bcbc6c7dd4bae3f0aa48d21273efb400f",
+          "rawDataSha256": "f6f01625891e627e50e33bd5b9a53c1fde8a3f76299b27c00fc808cb3564392c",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[30]",
+          "serializedSha256": "b353209f28c1dc696add0d46d5225a8795af00644acc9f5146a0897c04634b16",
+          "rawDataSha256": "aa36f84b7b616eb049daefa150feba96109babe7514ad33336cfb24d7464c010",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[31]",
+          "serializedSha256": "e80b306e76a5ef2c486271e0072a71a8448a8d43cd032724756d7408202ca4bf",
+          "rawDataSha256": "c343d8ad58b243083f903acfcf4eb419648d5543a9bda6e9a25ec74d099e95cd",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[32]",
+          "serializedSha256": "e24d037045683196a7e1cf8bf68f4e892f023cd4c662aa462f55675e360b1443",
+          "rawDataSha256": "32a365cb99e1a991d2fb59d68ca9d8e8051b6cd75e65bb57fe94f2d968ca51c9",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[33]",
+          "serializedSha256": "04492545099c6d5d9589d9ea74c25e4529a8a9a927cb3add55763e02dc598fe1",
+          "rawDataSha256": "ff203dcde458729dc95ee31c7cfdd6bc327ef273b5aac5a1c526a4573b8d564c",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[34]",
+          "serializedSha256": "3fa2db5563300592b3d9a5ee2b8c8076bd8a2582714bcef8452f9adba8007182",
+          "rawDataSha256": "ba3ff79dfd1a24b55cfc8c1dd00ca541eba1543544c2ec29c3f8f2706ffb0aa4",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[35]",
+          "serializedSha256": "1e9e52b13566009c6a0222543dd7e567cb06b7271cf7f5c96fba4823b3c66ae0",
+          "rawDataSha256": "9c48293ea89a92fb9a950d37bbf952a1fee7e3af2b4bda9f7fe4266992ec80cb",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[36]",
+          "serializedSha256": "a880c94b64787ae1a1ba02d384b9286eb430eb673404e0be824f646b277a00da",
+          "rawDataSha256": "9e555ec19818470a490d92acf7fa8ab09aa3f3fd8b60520d0e12ba917e7888fe",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[37]",
+          "serializedSha256": "aa51ff73bfd14bbb1caa25aa24049caeb54d7d5ad6e2b17c69ec4ec8453d7c70",
+          "rawDataSha256": "a5107de378237279c7972697757605271c0797ecd9eb30e252158ee265c07c6c",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[38]",
+          "serializedSha256": "7fa4855affe877222573cb8991f423ac0761aeefb488186f2714190f5eca5548",
+          "rawDataSha256": "151055c63d146d00fa915848077b71b5204cab67bdd51bd7ba4eeff38cb1da6a",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[39]",
+          "serializedSha256": "9cfcf6b5038f94e85a7be03e9bb780e80d6262502951a6eb7a4e9dcb7ab33db0",
+          "rawDataSha256": "42328b2dae84e4a53815daaa21d537c5971189926bc5fe10750175cd964ac2e6",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[40]",
+          "serializedSha256": "ee4efad46d1e26f62ffdba6c5aa5954dd447df9110101abbc10e30a2ea790e29",
+          "rawDataSha256": "55fab1d15045ec25c9a2563e49e17c0b7deeb520d0655cc18ad1d279a65e96c8",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[41]",
+          "serializedSha256": "3ef26796ad776af0c24ab5e380b32e2f37a4794260c311bf26e1380a29da5177",
+          "rawDataSha256": "9f70c9e376806b5808028b92c90c30e012df5fb83db9e81cb7154ce0a724e168",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[42]",
+          "serializedSha256": "5042459e576ac2106f6345079ecdae23803e1bd960a4b8acf808fbdec0c6e50e",
+          "rawDataSha256": "8cbd84280c033de618bbba952d9cfcd7ab3db07722846e638dbb3c80de00e9db",
+          "rawDataBytes": 1179648,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[43]",
+          "serializedSha256": "119826be99fc889ddd7b69823e66555f520ae591b7c858f5e0d7a4d59e82afbb",
+          "rawDataSha256": "cecb6ada77486f5759b674d99953ee1a44e7d511ca3888981a7be0459517a90e",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[44]",
+          "serializedSha256": "9d6478ac1cef6475d1669cfe13924722850e60c2fecaab9f0e5b0fc77982de3e",
+          "rawDataSha256": "53c8a3b3ee8074a1656afee61e10ecd4a33c93408b37d09b7436dba442f7a808",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[45]",
+          "serializedSha256": "833918c500317bdfe34ce13ba9e7ed17ffdeb16bc6bf3e6e86d43e0051b67dae",
+          "rawDataSha256": "ba62966a5512eeb3fb4fdc5d722772bee560159499b932829becdf9bf271bb79",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[46]",
+          "serializedSha256": "9bb6fd496396a27f2c7d563b12c67908f7f2b39e40a2453e014cee2f574b1120",
+          "rawDataSha256": "0cd594168bb05d34a0eb7ec4a56de51eaf1aadbe9c8b34762cf891614523ffa2",
+          "rawDataBytes": 393216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[47]",
+          "serializedSha256": "f5c0162ab48bb4dd595241a59e1151cd627131c13f27724a1bfd93180efec536",
+          "rawDataSha256": "ab1954e7cac1657ae3045379d3f06e976a05519264f2f65384c9c7909b5efeca",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[48]",
+          "serializedSha256": "0709b7731dda088e31ec4a93a5a68a1c5ecaf2ad75fa20ebeb8afd5c048e1edd",
+          "rawDataSha256": "4bf0d685ac33061050805f48327356a3d5de841738fc4c11586ef737fb84c356",
+          "rawDataBytes": 32768,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[49]",
+          "serializedSha256": "127519e3f1f2a0b3324df12229492faf65697be741504bed2cbb293493eb0a1e",
+          "rawDataSha256": "1b8d03c49b63ebd0013d4701a762519cb2cdfc8608b8b29de18cdba3366d0090",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[50]",
+          "serializedSha256": "50fa72e446a29d56fdddba180994da11a70ee5f2c5ffe5bca8ba6c3ebc39a06a",
+          "rawDataSha256": "3a97e2d8d1a56651449bb34c289ebe7a08718d722228204fff089c6a8d74c400",
+          "rawDataBytes": 32768,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[51]",
+          "serializedSha256": "ff78be5faae855b473eabe88222b779cc7f8facef8c433c86a39ec46f68d125b",
+          "rawDataSha256": "1154f29af77b3bf30a9122041b901dee492bf89391bb196b0e5b9238e25f7a79",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[52]",
+          "serializedSha256": "9147df572b1d20b9253c941274227255713a92f3bf2df9970cd19217d27d0bdd",
+          "rawDataSha256": "602df77020449d5792aa8e823d761999b7ee6f9708300fced72ba947e8e599cc",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[53]",
+          "serializedSha256": "68771aff74e7abc6c2e5ad458c026e4d539ac58f6fb60a30559f52e67fde416b",
+          "rawDataSha256": "8b8b65dfcd603519bb0c2a87ca674c68d0cb05e75f3b1cfee7244413a5c34498",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[54]",
+          "serializedSha256": "f7804cf15a295361383c3b3646058b6a2aeb56cce977cb17521b62964c8dd82b",
+          "rawDataSha256": "3e22a7a0d05dc44155e5f441fb7e120154835f6f1f67087cb8f86178ddc75713",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[55]",
+          "serializedSha256": "d1b8b740d5a235f95517fe8f266bb53b91b8893f0667db96ebf97abfbc28ff8c",
+          "rawDataSha256": "dca6415b92d199a35ec7f860438d9a76859a14708567659a106b1750b43941ac",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[56]",
+          "serializedSha256": "4e9150b5c88ffa04d602c9673a7df6ee7e3f9ec94eacfe6c14805e6107704cfa",
+          "rawDataSha256": "0ccd488315f94d378543c54e985b4acee21201dcee965e4b2e6f1692f6bc5327",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[57]",
+          "serializedSha256": "4f2c2e6448831bd7aecb453e6c9d3235d4b0fe84418ae3300068376b657ed49d",
+          "rawDataSha256": "c0c7e38d7c402901dfe2f1062de91c6585815f64cdb578fbd4695ee2daa53cf4",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[58]",
+          "serializedSha256": "84990a4f1a6cacf00290ea4ac1334f2604051363f7d7916d4238482b6460b56d",
+          "rawDataSha256": "5e664d108ac1952addfdebd61af839ef9397bfaea5515524bfad0791aa5d6a30",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[59]",
+          "serializedSha256": "6c7d6e29127c78e1627955589f16e7b3e871a50c036caf3063d0902786a85647",
+          "rawDataSha256": "a6d7eb265e5d166272cb6b2b11ff20c1c7ad42d998eb7be6e8876b36bd8d12a2",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[60]",
+          "serializedSha256": "f6fadef7ffaafae262c78364bfd18e3f22addf09ec6a7846c796355ef0337ab9",
+          "rawDataSha256": "65285d497208e762830f5b8823ea8d1f0e5df7fbd817a06d7f8e2aa9b2c582fb",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[61]",
+          "serializedSha256": "3cf422b55c8a1aee07a9b38fc5b4f0e22440cfc8efeda45b201639e8f020e780",
+          "rawDataSha256": "d4b40c4541c9e21e0ace815addb1227212c2f19dc6c383569e31d7ae618dce56",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[62]",
+          "serializedSha256": "9cca133b0bee5eee6d566bb69fe2a183d5d7c43c6192475a1b08a80877ad0c7a",
+          "rawDataSha256": "e5f2fcd255c8b51bff9eb404cf7e527e5563791b22819e6856ee9ffa3413860d",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[63]",
+          "serializedSha256": "a1a2bfa81626b6c71c289f789f4531d890759be2d5016bc086e71f69d1063f46",
+          "rawDataSha256": "eb8e4695f76352dd018c3a887706e1f14e9558d15ad498a8580e79b15efce009",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[64]",
+          "serializedSha256": "1567779cb34d61f60df188e83bd8696c1dd342dac944d8957852d2f2a9093b78",
+          "rawDataSha256": "43b4adae96fe6b61f7d475041fdfa78f18963035dea7df1f19e35e53e14aa5ba",
+          "rawDataBytes": 524288,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[65]",
+          "serializedSha256": "ad3861efe3956b824c787e1d6cd1546cafe4264546a8912b9439724c62d7ef2b",
+          "rawDataSha256": "cfdfec2325010993c11cf456a1ed1cbfcc9e74dc9773c89f6275dba37f799828",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[66]",
+          "serializedSha256": "0204231f3232825a578f158478d3ac00a0282efa5be33cd901a4cfa04fb9adca",
+          "rawDataSha256": "7e0d3270e577c7873d8ef116afa744eea69edaec7dbaacaf5ef75685b61888ba",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[67]",
+          "serializedSha256": "91b2bf2f1c5c105803b535c0a65c9ec985808f9b13ae074fc501cc8c8e64f910",
+          "rawDataSha256": "8884ca6832436d61478e81d920514c639731b3aa00acb1a8802b9b9a22b9c790",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[68]",
+          "serializedSha256": "0692595dbfd39b1913205ab6e1ac7a9b644c15bdf633a7f464d7329356c19f3b",
+          "rawDataSha256": "479656060cefb95247fe11ede79446d7306d82c9b57402200321772666dd2a0b",
+          "rawDataBytes": 262144,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[69]",
+          "serializedSha256": "ff8d3bb9a0cea2a02e613afd03103df668612f904febc5d42d4248edbab2e572",
+          "rawDataSha256": "f51006298365690b828494e986e33ffa8a9c264d590ced86d6d09837252858b2",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[70]",
+          "serializedSha256": "73ff0aeac8c2096e2b59cc2652969f68920cdba6ad1f7971c78c2c0e01220c58",
+          "rawDataSha256": "b76a18b7c73a7f38c4634531ae39a1ef4951fddd474f27796690cc6359807484",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[71]",
+          "serializedSha256": "b1f7a91c15845a2304724be2ee38e572694302a2bd2503ba16826b472705ad21",
+          "rawDataSha256": "0c0194499e8f89d66e59766e21aed63469ef3f231a2fd32a4e918cd4bc27668d",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[72]",
+          "serializedSha256": "dcec5cbc6b74df75349b9c4af5e9e5355130d926d9a89da0ffe7968202c0c21d",
+          "rawDataSha256": "fd304db70ad319c6f3eabe661465d56c3ec7d3dc5b42c431952fe2485ef2a3b4",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[73]",
+          "serializedSha256": "dfcaf220452332ed3c0d4ec404180d235529acb1f51e2d1ec70f78b1f9fc888c",
+          "rawDataSha256": "974e42728705d42908e5baaf6cfb1b75e8085fa37448c20474bd7e1a02ec548f",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[74]",
+          "serializedSha256": "6a8dcbee694eb84d0301acebfa865f15a55d0ee57a931a50d0ccc631d598ec70",
+          "rawDataSha256": "c5cb68f7414c88afa09b740730455eb5d59944a1a28fca50ec3b324a5ea369d9",
+          "rawDataBytes": 4608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[75]",
+          "serializedSha256": "3b9f14213bac267408491d3a50aa1bab187796a58f58219a0c4522a4c1322e48",
+          "rawDataSha256": "67cd77510637647bed4437ef9b111dd9e2a1a44e4a213d919267fbeea1a908ea",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[76]",
+          "serializedSha256": "adcfa9c64d3f048b81796d02fa37587228e9a7b348d38fd7cf6d607a0b78492e",
+          "rawDataSha256": "0aefed890b304e9cdf657cc1b1c9e60f12614919f7bd8797cc6faab5bfe9b324",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[77]",
+          "serializedSha256": "a8773f0ef6aa93f2aafc7828d1f87d97a0e407ead3876541b542b168eb6ed869",
+          "rawDataSha256": "bc2fbd03be1e60912d6416475226322a166ab19bb3fdf07fecf53e05b44eaff5",
+          "rawDataBytes": 1024,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[78]",
+          "serializedSha256": "22f9ac5c19f1be1fe67ef045e1083f8809bdc1ab82d4cff1171405bacfba3a9d",
+          "rawDataSha256": "235198d54f86129ec7753dfe38928cb9f7f6bdb4bb4b6f3c41fdd8da04b51a4e",
+          "rawDataBytes": 131072,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[79]",
+          "serializedSha256": "5896f1e51715dd3e0756220c1ea15c95772e51551550bd6c4852c86bd1bc96b2",
+          "rawDataSha256": "3ca33b71b4de07b6d6239600ef0a876d48bb9042c3b5ffe24cc3282270d2f903",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[80]",
+          "serializedSha256": "40b6e50976a5d493f8815c76383ffcfca77cb4fb10c50e5eb47f97c8dde48980",
+          "rawDataSha256": "4f220f44ea25a32850bb21bdc93861fe1d2c90d0f6d786d0adfa79ed61bdf4b5",
+          "rawDataBytes": 196608,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[81]",
+          "serializedSha256": "f2a8b2870adbe0b7a86d21c7ef03bf37f734ebab01ab37c60464c951d57d6028",
+          "rawDataSha256": "21a4f6b3af238065d15d1177e12330e9e5c46e75345ac87c1a76787335facb56",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[82]",
+          "serializedSha256": "f8e86ce87b764327c03c5298012b056616e2e60b12cb466078e0ec7f0fb0824b",
+          "rawDataSha256": "410dca83fa58501ec5a346bf97ff83ebe64f0dd4ad9cd21324987d11721ee32b",
+          "rawDataBytes": 98304,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[83]",
+          "serializedSha256": "8fe842cf992e57007bb83b4469041042bb601d4c4757572b8b44e802097ee6f3",
+          "rawDataSha256": "b763b354c129086f33a60ccca449e2165dfa83a331499f61f6306cb65f1d24d4",
+          "rawDataBytes": 512,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[84]",
+          "serializedSha256": "0d7194985890af1fe37884812fdcb618cfb1a3bae719b0358a1ec4c0d07fac06",
+          "rawDataSha256": "636846a053f4f38b3b816ff58c3bce6d305265e69089225f0e7d17d74371b71c",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[85]",
+          "serializedSha256": "87049e5de8bd9cea6a1fee6b848447df16bab5d529196d5aa0e3548426cd613f",
+          "rawDataSha256": "712bb7f9a008d702702a726087e1c94efa50f66d9c00091d585b161a72c9bceb",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[86]",
+          "serializedSha256": "36b3f776c196308627c24daee76cad335ec22ecb7a3e56f9b74aea87ff68808f",
+          "rawDataSha256": "776ee11dd655ac6cb81771cab69a9970050dcf56b276ae274b30d77a836532e9",
+          "rawDataBytes": 8192,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[87]",
+          "serializedSha256": "3f225390633f452f4530bf6346991441fc3052dca732b94982be06bf0ee8c88a",
+          "rawDataSha256": "7c521ac76f0795a9d3994bcf8e992def8cd91b0e4cfbdc389c6bb5080419bd69",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[88]",
+          "serializedSha256": "5889b4dfb17a6b7e172f672fea4c4e4f888089329aedcf3796b2fd9f0cd8501f",
+          "rawDataSha256": "388daaf0038073ae253bdc030820e6cc2d79b37bb19b23c6d987b8e4b56b48a3",
+          "rawDataBytes": 16384,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[89]",
+          "serializedSha256": "33b1a2fd3e40e6889a110ae058c18f69c355a6693a000ad3cb38e7c0e92ff49e",
+          "rawDataSha256": "604d60b78f49aebd5ce040d200c1f855f7b9c5ebe53903ee4dbcf603fc27073a",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[90]",
+          "serializedSha256": "49341419ce110f41f335e5a04830da07df0a8612d12795e45e90c0ba56376d9d",
+          "rawDataSha256": "a56b059975a4bcec215c16ee3eb85fcb9d69b70087a8a0000ae002dacd2fc36b",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[91]",
+          "serializedSha256": "f681cab732e6e9c2771314acd4f301124c1e6da7ca285d26c8793e9295eea772",
+          "rawDataSha256": "71de2a2c8c3d1734a5b91377449ef95b3681d12277ba68c4225c3f5e5285d4b6",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[92]",
+          "serializedSha256": "c91367b2fbae8900e0cec9a588a59da30ed4ecd1a8f4eb5414d0dac61a43d279",
+          "rawDataSha256": "4d12474907bc8e19020623578bda9c7f2df06c001e32d480712f379864c6062f",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[93]",
+          "serializedSha256": "60afd4b87b03d5b6e656b263c6c4792806b6ed9728a699cd6af8f574128b63c6",
+          "rawDataSha256": "1cf81d056dcce2ed4a129b4264539515cc71dd34adba7062eac590b838f14c99",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[94]",
+          "serializedSha256": "0349b882f366ad777488846e0c2679ca938e2247a845837d50187c4fe61e513f",
+          "rawDataSha256": "9950dec818837ee7d63fcb32663476093744e782199e2255c1ac128f41b53b73",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[95]",
+          "serializedSha256": "1e9fdbd95477a329c4bd9fd31658021277b9823d06118ffdfc91932f27201f6c",
+          "rawDataSha256": "3ef394731ffdabec1e0a314a4d77bb7ef7c8b7642e9f41081758b01aaaa8bb0c",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[96]",
+          "serializedSha256": "ee2d22a85175ae8f20e97335965e97df3f4e9676f3f888821cbd830f7050f692",
+          "rawDataSha256": "7e0b1306963000118dafb18205360098b7793b1355082aca74d57af8c3794b9f",
+          "rawDataBytes": 36864,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[97]",
+          "serializedSha256": "0e20f6da9839f68ab86a4b78fa705714e1ee64c7860b075a936384d1334d1e37",
+          "rawDataSha256": "418384527fbd6e802ffd4b754806b67e46bee994a9fc55ef2f57ef6dffb88002",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[98]",
+          "serializedSha256": "c7fc10dda1d9e633fdb1de2dc20303136d44349127abfc87a3e8d17d6257d721",
+          "rawDataSha256": "e024ebf3ae0b11217ebaea6fa1ae7b14695b593d1e08af5f0c149c889c72656a",
+          "rawDataBytes": 65536,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[99]",
+          "serializedSha256": "f2ed0cf68cd76583c67e8e84dbb717b111c7eb6df04a59a1cb383364fd3c9ae6",
+          "rawDataSha256": "aaad3d9eb81c2a6a8dfcec82860b8ad9a918970a828dfc4c157f2d6260288b18",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[100]",
+          "serializedSha256": "a261c66b812ca3f1b12870a2a717dc8414b3e0b9ec0b732510600b1d39796c0a",
+          "rawDataSha256": "05389facf9433c45c436b0240fc9c98c5d5d64bbe308927365bdc66bf2dcc0d5",
+          "rawDataBytes": 24576,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[101]",
+          "serializedSha256": "d29d9efe12a14b46cc2d6f3eaf160572cb55da1dfc7e0c3348a900dd5a400b4e",
+          "rawDataSha256": "bce19f5d66115c23c134961d52f70472fd23ea753ddfd097f055d768f053e56e",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[102]",
+          "serializedSha256": "515cb5ce149ea47f41bdc6c37676bdbb0d8ad0f970833a20eda4d33278366712",
+          "rawDataSha256": "76f72756c78f18ffc0430efaf1b4013eec2771967c81cb86d57e5dca12c2c98e",
+          "rawDataBytes": 2048,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[103]",
+          "serializedSha256": "37d6979e69302452112e79f5d865538ba3757adf8aa0fa464b2fc8856e29f1a2",
+          "rawDataSha256": "655fee479064dd6daf21a92db35e8ff1283ebcc4ecf27e7f4f3a5ea0f36de468",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[104]",
+          "serializedSha256": "5d8b23cca8cb1bb7c3948b7fbe3b1ca95ca66b0250c03979805d629acf55ab7d",
+          "rawDataSha256": "24e0499e9f34f81e020c755dc63202b4099ce01d4431fe5f9436c4310ffa29ba",
+          "rawDataBytes": 2048,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[105]",
+          "serializedSha256": "656651759f4b7dad0d35bbcee486078d6e95e188c9de3469268ac9c35e33ec7c",
+          "rawDataSha256": "194204becc040627535fd423fb8588825a0ef046dd195309637a44b78135cdd8",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[106]",
+          "serializedSha256": "0023d29e774007e4f59c5b7eb792a309adba29410b23e5d2eaa2edb4a9188f49",
+          "rawDataSha256": "8156ec9844f17694c8c1a028a92307650b95eb885c671562dae361e3d732fa36",
+          "rawDataBytes": 4096,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[107]",
+          "serializedSha256": "94275a332711ac5721b657ab1741f1b2d8274ac2b5ab6b69c5cc1def7d1539a4",
+          "rawDataSha256": "b4088f0c4893f601807232d689e19a7e5162d93226ce542b7fd357c7790771c5",
+          "rawDataBytes": 128,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[108]",
+          "serializedSha256": "c60b98485de4ad1224401a60007c5c458e425099016a04793aca586a6eae46c2",
+          "rawDataSha256": "4e41e428c3568cf66429ff73ed89bc0e1bb0bd3a1d1187056491c0fb92bfffff",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[109]",
+          "serializedSha256": "344370de0dfa8f9ee814b88eb73f5f50d5a13d08cb41db89894ad96732e60ef5",
+          "rawDataSha256": "90cea71be45073396b0b480ba79219ae4414d4c68ee5e771e5bb66e8523a5845",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[110]",
+          "serializedSha256": "1e87b6ec1dfaf803bdd28a453c886aa23fd74b17cb59b4e9228ac3a09f266e9d",
+          "rawDataSha256": "d8472469fe1ef8595802131dcd5fce176e6e64188c60c57bf0e96e8bf186a630",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[111]",
+          "serializedSha256": "91f5baf6efbe0f1151bbbcb579bd2bcd4c690bf45f5f9e898c9f68f0941d64b5",
+          "rawDataSha256": "0e1b5d7b1fb71d6530a6d0de404339876482e31aa3e4e69e7811a99ffde94f3a",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[112]",
+          "serializedSha256": "6303ff69f5f9fa6911faf82a4b1c500351f09c7bb38a9ca9389112bfc06c2cc5",
+          "rawDataSha256": "ab0c1b44ffe81d4c09907ca96b92ee1f041782a9686128ec08c67c8734f58dc2",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[113]",
+          "serializedSha256": "8b33c84573ad5085d4eea231211a248ed431a8f5fab0b177767a938c5d54ca0d",
+          "rawDataSha256": "af6be9c0f9981e27dccdad57ecfefda99a5c4c28dc93f92202e320dd1f91beb2",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[114]",
+          "serializedSha256": "34dbddaed3e842f8b72bae8188fe982dd888ff7ffae403d058cf23c94a995f2a",
+          "rawDataSha256": "65fbc6d93f27feef1ed00ac5d76746c3deedf6a568c840f70695ec680c9309b2",
+          "rawDataBytes": 9216,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[115]",
+          "serializedSha256": "6187381119796c3efbc86147ebb5f95b4c7cc546d6e18139828470990beedeab",
+          "rawDataSha256": "2a49325ca079fa02accb7c7f565df7bb800f7ff703bc80328bfb346cb7a15197",
+          "rawDataBytes": 64,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[116]",
+          "serializedSha256": "62659cdba89701216d89b9caddfdc99986aaad11261eb638969de7b62aa40fc4",
+          "rawDataSha256": "90a4e0438031f2697002fcccd40210da6c2492ac849232f8c5417858a38e3da7",
+          "rawDataBytes": 147456,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[117]",
+          "serializedSha256": "4486ba34e2a9c7882e2b1df657be6e2400afd6bb0c68ef455fbb1c44b6deff30",
+          "rawDataSha256": "018efe96a3ce2fa5508b2c500d309478c0985fc941a264c83522d676cf266ef8",
+          "rawDataBytes": 256,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[118]",
+          "serializedSha256": "82dbde3ee836cc001dffacf9001c014af3b3c61469bff794a5ea4f3b2b79fe15",
+          "rawDataSha256": "b56a9e44f59d2227c9318efb48e4a1c8b5320d9517530525f51f71e0f712a92f",
+          "rawDataBytes": 38400,
+          "dataType": 1
+        },
+        {
+          "field": "model.graph[0].initializer[119]",
+          "serializedSha256": "0e1309798978156a15ad88eff10523e4b7c6da038e04ecf806bc2942e22790bb",
+          "rawDataSha256": "528894bc3c251aede852f12933ccc84f01fa97ddc5d1281e2bd0810d5244289f",
+          "rawDataBytes": 600,
+          "dataType": 1
+        }
+      ],
+      "inputTensorSha256": "8bf00aaa4853332ea0842268fcc37ab3546f0b909742fd3c5f4b34c6232b4fb2",
+      "numericWeightTextDecodeFalsePositives": [
+        {
+          "initializerIndex": 22,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 1,
+            "utf-16le": 0
+          }
+        },
+        {
+          "initializerIndex": 64,
+          "dataType": 1,
+          "pathLikePatternCountsFromIncorrectTextDecoding": {
+            "utf-8": 1,
+            "utf-16le": 0
+          }
+        }
+      ],
+      "cpuOutputProofs": [
+        {
+          "shape": [
+            1,
+            320,
+            320
+          ],
+          "dtype": "uint8",
+          "sha256": "68f459caaca36022bd31d87a7b9ee5cecc10f976ef43cf9825fdca4d8262b0f3",
+          "byteDifferences": 0
+        }
+      ],
+      "actualStringFieldsPathFree": true,
+      "authorLicenseUnmodified": true
+    }
+  ],
+  "publicSourcePrivacyAudit": [
+    {
+      "file": "ultralytics-8.4.184.tar.gz",
+      "sha256": "e556832d07f70ba2f73aa8140dceb2a8fb3d5e9a0d9c70827f22a658d292d0ad",
+      "currentUserOrWorkspacePathOccurrences": 0,
+      "archivePayloadsInspected": 387
+    },
+    {
+      "file": "yolo26n.pt",
+      "sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+      "currentUserOrWorkspacePathOccurrences": 0,
+      "archivePayloadsInspected": 718
+    }
+  ]
+}

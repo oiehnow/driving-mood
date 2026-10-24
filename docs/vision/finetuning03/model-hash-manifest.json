@@ -1,0 +1,194 @@
+{
+  "n320": {
+    "path": "research/C-finetune02-evaluation-20261024/snapshot-data02-val/models/baseline.onnx",
+    "sha256": "3af7911808fd81e95982b3541fe4c1151016fc6e596b872d0b62f3874d575dad",
+    "bytes": 6292434,
+    "inputs": [
+      {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          320,
+          320
+        ],
+        "type": "tensor(float)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output0",
+        "shape": [
+          1,
+          320,
+          320
+        ],
+        "type": "tensor(uint8)"
+      }
+    ],
+    "metadata": {
+      "date": "2026-10-24T08:21:36.994485+09:00",
+      "description": "Ultralytics YOLO26n-sem model trained on [local training path removed]",
+      "author": "Ultralytics",
+      "version": "8.4.184",
+      "task": "semantic",
+      "license": "AGPL-3.0 License (https://ultralytics.com/license)",
+      "docs": "https://docs.ultralytics.com",
+      "stride": "32",
+      "head": "SemanticSegment",
+      "batch": "1",
+      "imgsz": "[320, 320]",
+      "names": "{0: 'wall', 1: 'building', 2: 'sky', 3: 'floor', 4: 'tree', 5: 'ceiling', 6: 'road', 7: 'bed', 8: 'windowpane', 9: 'grass', 10: 'cabinet', 11: 'sidewalk', 12: 'person', 13: 'earth', 14: 'door', 15: 'table', 16: 'mountain', 17: 'plant', 18: 'curtain', 19: 'chair', 20: 'car', 21: 'water', 22: 'painting', 23: 'sofa', 24: 'shelf', 25: 'house', 26: 'sea', 27: 'mirror', 28: 'rug', 29: 'field', 30: 'armchair', 31: 'seat', 32: 'fence', 33: 'desk', 34: 'rock', 35: 'wardrobe', 36: 'lamp', 37: 'bathtub', 38: 'railing', 39: 'cushion', 40: 'base', 41: 'box', 42: 'column', 43: 'signboard', 44: 'chest of drawers', 45: 'counter', 46: 'sand', 47: 'sink', 48: 'skyscraper', 49: 'fireplace', 50: 'refrigerator', 51: 'grandstand', 52: 'path', 53: 'stairs', 54: 'runway', 55: 'case', 56: 'pool table', 57: 'pillow', 58: 'screen door', 59: 'stairway', 60: 'river', 61: 'bridge', 62: 'bookcase', 63: 'blind', 64: 'coffee table', 65: 'toilet', 66: 'flower', 67: 'book', 68: 'hill', 69: 'bench', 70: 'countertop', 71: 'stove', 72: 'palm', 73: 'kitchen island', 74: 'computer', 75: 'swivel chair', 76: 'boat', 77: 'bar', 78: 'arcade machine', 79: 'hovel', 80: 'bus', 81: 'towel', 82: 'light', 83: 'truck', 84: 'tower', 85: 'chandelier', 86: 'awning', 87: 'streetlight', 88: 'booth', 89: 'television receiver', 90: 'airplane', 91: 'dirt track', 92: 'apparel', 93: 'pole', 94: 'land', 95: 'bannister', 96: 'escalator', 97: 'ottoman', 98: 'bottle', 99: 'buffet', 100: 'poster', 101: 'stage', 102: 'van', 103: 'ship', 104: 'fountain', 105: 'conveyor belt', 106: 'canopy', 107: 'washer', 108: 'plaything', 109: 'swimming pool', 110: 'stool', 111: 'barrel', 112: 'basket', 113: 'waterfall', 114: 'tent', 115: 'bag', 116: 'minibike', 117: 'cradle', 118: 'oven', 119: 'ball', 120: 'food', 121: 'step', 122: 'tank', 123: 'trade name', 124: 'microwave', 125: 'pot', 126: 'animal', 127: 'bicycle', 128: 'lake', 129: 'dishwasher', 130: 'screen', 131: 'blanket', 132: 'sculpture', 133: 'hood', 134: 'sconce', 135: 'vase', 136: 'traffic light', 137: 'tray', 138: 'ashcan', 139: 'fan', 140: 'pier', 141: 'crt screen', 142: 'plate', 143: 'monitor', 144: 'bulletin board', 145: 'shower', 146: 'radiator', 147: 'glass', 148: 'clock', 149: 'flag'}",
+      "args": "{'data': None, 'batch': 1, 'fraction': 1.0, 'quantize': None, 'nms': False, 'dynamic': False, 'simplify': False, 'opset': 17}",
+      "channels": "3",
+      "end2end": "False"
+    }
+  },
+  "n640": {
+    "path": "research/B-modern-models-2026-10-24/results/yolo26n-sem-ade20k-640/model.onnx",
+    "sha256": "f5b30d45110a4fd31ebdbcb61567def157e3d3b8f6a8d3387e038e3a7b2ef4f7",
+    "bytes": 6292470,
+    "inputs": [
+      {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "type": "tensor(float)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output0",
+        "shape": [
+          1,
+          640,
+          640
+        ],
+        "type": "tensor(uint8)"
+      }
+    ],
+    "metadata": {
+      "date": "2026-10-24T08:22:23.910738+09:00",
+      "description": "Ultralytics YOLO26n-sem model trained on <official-training-path>",
+      "author": "Ultralytics",
+      "version": "8.4.184",
+      "task": "semantic",
+      "license": "AGPL-3.0 License (https://ultralytics.com/license)",
+      "docs": "https://docs.ultralytics.com",
+      "stride": "32",
+      "head": "SemanticSegment",
+      "batch": "1",
+      "imgsz": "[640, 640]",
+      "names": "{0: 'wall', 1: 'building', 2: 'sky', 3: 'floor', 4: 'tree', 5: 'ceiling', 6: 'road', 7: 'bed', 8: 'windowpane', 9: 'grass', 10: 'cabinet', 11: 'sidewalk', 12: 'person', 13: 'earth', 14: 'door', 15: 'table', 16: 'mountain', 17: 'plant', 18: 'curtain', 19: 'chair', 20: 'car', 21: 'water', 22: 'painting', 23: 'sofa', 24: 'shelf', 25: 'house', 26: 'sea', 27: 'mirror', 28: 'rug', 29: 'field', 30: 'armchair', 31: 'seat', 32: 'fence', 33: 'desk', 34: 'rock', 35: 'wardrobe', 36: 'lamp', 37: 'bathtub', 38: 'railing', 39: 'cushion', 40: 'base', 41: 'box', 42: 'column', 43: 'signboard', 44: 'chest of drawers', 45: 'counter', 46: 'sand', 47: 'sink', 48: 'skyscraper', 49: 'fireplace', 50: 'refrigerator', 51: 'grandstand', 52: 'path', 53: 'stairs', 54: 'runway', 55: 'case', 56: 'pool table', 57: 'pillow', 58: 'screen door', 59: 'stairway', 60: 'river', 61: 'bridge', 62: 'bookcase', 63: 'blind', 64: 'coffee table', 65: 'toilet', 66: 'flower', 67: 'book', 68: 'hill', 69: 'bench', 70: 'countertop', 71: 'stove', 72: 'palm', 73: 'kitchen island', 74: 'computer', 75: 'swivel chair', 76: 'boat', 77: 'bar', 78: 'arcade machine', 79: 'hovel', 80: 'bus', 81: 'towel', 82: 'light', 83: 'truck', 84: 'tower', 85: 'chandelier', 86: 'awning', 87: 'streetlight', 88: 'booth', 89: 'television receiver', 90: 'airplane', 91: 'dirt track', 92: 'apparel', 93: 'pole', 94: 'land', 95: 'bannister', 96: 'escalator', 97: 'ottoman', 98: 'bottle', 99: 'buffet', 100: 'poster', 101: 'stage', 102: 'van', 103: 'ship', 104: 'fountain', 105: 'conveyor belt', 106: 'canopy', 107: 'washer', 108: 'plaything', 109: 'swimming pool', 110: 'stool', 111: 'barrel', 112: 'basket', 113: 'waterfall', 114: 'tent', 115: 'bag', 116: 'minibike', 117: 'cradle', 118: 'oven', 119: 'ball', 120: 'food', 121: 'step', 122: 'tank', 123: 'trade name', 124: 'microwave', 125: 'pot', 126: 'animal', 127: 'bicycle', 128: 'lake', 129: 'dishwasher', 130: 'screen', 131: 'blanket', 132: 'sculpture', 133: 'hood', 134: 'sconce', 135: 'vase', 136: 'traffic light', 137: 'tray', 138: 'ashcan', 139: 'fan', 140: 'pier', 141: 'crt screen', 142: 'plate', 143: 'monitor', 144: 'bulletin board', 145: 'shower', 146: 'radiator', 147: 'glass', 148: 'clock', 149: 'flag'}",
+      "args": "{'data': None, 'batch': 1, 'fraction': 1.0, 'quantize': None, 'nms': False, 'dynamic': False, 'simplify': False, 'opset': 17}",
+      "channels": "3",
+      "end2end": "False"
+    }
+  },
+  "s": {
+    "path": "research/B-nano-small-comparison-2026-10-24/weights/yolo26s-sem-ade20k.onnx",
+    "sha256": "20ac4bcf1d068b8b136d1fbd2f30e2c5c9a0c5ba447821b39d88eacc44fa765d",
+    "bytes": 24896884,
+    "inputs": [
+      {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "type": "tensor(float)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output0",
+        "shape": [
+          1,
+          640,
+          640
+        ],
+        "type": "tensor(uint8)"
+      }
+    ],
+    "metadata": {
+      "date": "2026-10-24T10:50:55.478861+09:00",
+      "description": "Ultralytics YOLO26s-sem model trained on <official-training-path>",
+      "author": "Ultralytics",
+      "version": "8.4.184",
+      "task": "semantic",
+      "license": "AGPL-3.0 License (https://ultralytics.com/license)",
+      "docs": "https://docs.ultralytics.com",
+      "stride": "32",
+      "head": "SemanticSegment",
+      "batch": "1",
+      "imgsz": "[640, 640]",
+      "names": "{0: 'wall', 1: 'building', 2: 'sky', 3: 'floor', 4: 'tree', 5: 'ceiling', 6: 'road', 7: 'bed', 8: 'windowpane', 9: 'grass', 10: 'cabinet', 11: 'sidewalk', 12: 'person', 13: 'earth', 14: 'door', 15: 'table', 16: 'mountain', 17: 'plant', 18: 'curtain', 19: 'chair', 20: 'car', 21: 'water', 22: 'painting', 23: 'sofa', 24: 'shelf', 25: 'house', 26: 'sea', 27: 'mirror', 28: 'rug', 29: 'field', 30: 'armchair', 31: 'seat', 32: 'fence', 33: 'desk', 34: 'rock', 35: 'wardrobe', 36: 'lamp', 37: 'bathtub', 38: 'railing', 39: 'cushion', 40: 'base', 41: 'box', 42: 'column', 43: 'signboard', 44: 'chest of drawers', 45: 'counter', 46: 'sand', 47: 'sink', 48: 'skyscraper', 49: 'fireplace', 50: 'refrigerator', 51: 'grandstand', 52: 'path', 53: 'stairs', 54: 'runway', 55: 'case', 56: 'pool table', 57: 'pillow', 58: 'screen door', 59: 'stairway', 60: 'river', 61: 'bridge', 62: 'bookcase', 63: 'blind', 64: 'coffee table', 65: 'toilet', 66: 'flower', 67: 'book', 68: 'hill', 69: 'bench', 70: 'countertop', 71: 'stove', 72: 'palm', 73: 'kitchen island', 74: 'computer', 75: 'swivel chair', 76: 'boat', 77: 'bar', 78: 'arcade machine', 79: 'hovel', 80: 'bus', 81: 'towel', 82: 'light', 83: 'truck', 84: 'tower', 85: 'chandelier', 86: 'awning', 87: 'streetlight', 88: 'booth', 89: 'television receiver', 90: 'airplane', 91: 'dirt track', 92: 'apparel', 93: 'pole', 94: 'land', 95: 'bannister', 96: 'escalator', 97: 'ottoman', 98: 'bottle', 99: 'buffet', 100: 'poster', 101: 'stage', 102: 'van', 103: 'ship', 104: 'fountain', 105: 'conveyor belt', 106: 'canopy', 107: 'washer', 108: 'plaything', 109: 'swimming pool', 110: 'stool', 111: 'barrel', 112: 'basket', 113: 'waterfall', 114: 'tent', 115: 'bag', 116: 'minibike', 117: 'cradle', 118: 'oven', 119: 'ball', 120: 'food', 121: 'step', 122: 'tank', 123: 'trade name', 124: 'microwave', 125: 'pot', 126: 'animal', 127: 'bicycle', 128: 'lake', 129: 'dishwasher', 130: 'screen', 131: 'blanket', 132: 'sculpture', 133: 'hood', 134: 'sconce', 135: 'vase', 136: 'traffic light', 137: 'tray', 138: 'ashcan', 139: 'fan', 140: 'pier', 141: 'crt screen', 142: 'plate', 143: 'monitor', 144: 'bulletin board', 145: 'shower', 146: 'radiator', 147: 'glass', 148: 'clock', 149: 'flag'}",
+      "args": "{'data': None, 'batch': 1, 'fraction': 1.0, 'quantize': None, 'nms': False, 'dynamic': False, 'simplify': False, 'opset': 17}",
+      "channels": "3",
+      "end2end": "False"
+    }
+  },
+  "C": {
+    "path": "research/B-finetune03-20261024/pilot03c-l2sp/exports/yolo26n-sem-driving-mood-pilot03c-l2sp.onnx",
+    "sha256": "1d4a53af570b2f61293c857de9dc455b91e1720a894b4f6bdb15d04360f2fd23",
+    "bytes": 6292459,
+    "inputs": [
+      {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          320,
+          320
+        ],
+        "type": "tensor(float)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output0",
+        "shape": [
+          1,
+          320,
+          320
+        ],
+        "type": "tensor(uint8)"
+      }
+    ],
+    "metadata": {
+      "date": "2026-10-24T22:46:35.235366+09:00",
+      "description": "Ultralytics YOLO26n semantic model; Driving Mood partial-label pilot03c-l2sp; 150 ADE20K classes",
+      "author": "Ultralytics",
+      "version": "8.4.184",
+      "task": "semantic",
+      "license": "AGPL-3.0 License (https://ultralytics.com/license)",
+      "docs": "https://docs.ultralytics.com",
+      "stride": "32",
+      "head": "SemanticSegment",
+      "batch": "1",
+      "imgsz": "[320, 320]",
+      "names": "{0: 'wall', 1: 'building', 2: 'sky', 3: 'floor', 4: 'tree', 5: 'ceiling', 6: 'road', 7: 'bed', 8: 'windowpane', 9: 'grass', 10: 'cabinet', 11: 'sidewalk', 12: 'person', 13: 'earth', 14: 'door', 15: 'table', 16: 'mountain', 17: 'plant', 18: 'curtain', 19: 'chair', 20: 'car', 21: 'water', 22: 'painting', 23: 'sofa', 24: 'shelf', 25: 'house', 26: 'sea', 27: 'mirror', 28: 'rug', 29: 'field', 30: 'armchair', 31: 'seat', 32: 'fence', 33: 'desk', 34: 'rock', 35: 'wardrobe', 36: 'lamp', 37: 'bathtub', 38: 'railing', 39: 'cushion', 40: 'base', 41: 'box', 42: 'column', 43: 'signboard', 44: 'chest of drawers', 45: 'counter', 46: 'sand', 47: 'sink', 48: 'skyscraper', 49: 'fireplace', 50: 'refrigerator', 51: 'grandstand', 52: 'path', 53: 'stairs', 54: 'runway', 55: 'case', 56: 'pool table', 57: 'pillow', 58: 'screen door', 59: 'stairway', 60: 'river', 61: 'bridge', 62: 'bookcase', 63: 'blind', 64: 'coffee table', 65: 'toilet', 66: 'flower', 67: 'book', 68: 'hill', 69: 'bench', 70: 'countertop', 71: 'stove', 72: 'palm', 73: 'kitchen island', 74: 'computer', 75: 'swivel chair', 76: 'boat', 77: 'bar', 78: 'arcade machine', 79: 'hovel', 80: 'bus', 81: 'towel', 82: 'light', 83: 'truck', 84: 'tower', 85: 'chandelier', 86: 'awning', 87: 'streetlight', 88: 'booth', 89: 'television receiver', 90: 'airplane', 91: 'dirt track', 92: 'apparel', 93: 'pole', 94: 'land', 95: 'bannister', 96: 'escalator', 97: 'ottoman', 98: 'bottle', 99: 'buffet', 100: 'poster', 101: 'stage', 102: 'van', 103: 'ship', 104: 'fountain', 105: 'conveyor belt', 106: 'canopy', 107: 'washer', 108: 'plaything', 109: 'swimming pool', 110: 'stool', 111: 'barrel', 112: 'basket', 113: 'waterfall', 114: 'tent', 115: 'bag', 116: 'minibike', 117: 'cradle', 118: 'oven', 119: 'ball', 120: 'food', 121: 'step', 122: 'tank', 123: 'trade name', 124: 'microwave', 125: 'pot', 126: 'animal', 127: 'bicycle', 128: 'lake', 129: 'dishwasher', 130: 'screen', 131: 'blanket', 132: 'sculpture', 133: 'hood', 134: 'sconce', 135: 'vase', 136: 'traffic light', 137: 'tray', 138: 'ashcan', 139: 'fan', 140: 'pier', 141: 'crt screen', 142: 'plate', 143: 'monitor', 144: 'bulletin board', 145: 'shower', 146: 'radiator', 147: 'glass', 148: 'clock', 149: 'flag'}",
+      "args": "{'data': None, 'batch': 1, 'fraction': 1.0, 'quantize': None, 'nms': None, 'dynamic': False, 'simplify': False, 'opset': 17}",
+      "channels": "3",
+      "end2end": "False"
+    }
+  },
+  "A": {
+    "path": "research/B-finetune03-20261024/pilot03a-low-lr/exports/yolo26n-sem-driving-mood-pilot03a-low-lr.onnx",
+    "sha256": "d3b7782db31e341449a79954a7b76afcb5a6c6d8845889d6616893e5e574ee8f",
+    "selectedEpoch": 14,
+    "checkpointSha256": "d382b61dc7c2c53b67a51aff8006142e9b6217fe0d083cb5a226b6f7861abdd1"
+  },
+  "B": {
+    "path": "research/B-finetune03-20261024/pilot03b-low-lr-fixed-bn/exports/yolo26n-sem-driving-mood-pilot03b-low-lr-fixed-bn.onnx",
+    "sha256": "0bbbc1249d0b344f688c24433cdd7aff332bf93439b5ce3eb5dc5ab08799c4a8",
+    "selectedEpoch": 30,
+    "checkpointSha256": "d30bf01a3aeafad731909b5805698c690b32325afbf62889af59e502df090caa"
+  }
+}

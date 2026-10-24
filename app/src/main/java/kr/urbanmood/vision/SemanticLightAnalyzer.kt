@@ -13,6 +13,7 @@ internal class SemanticLightAnalyzer(
     private val semanticFactory: () -> SemanticFrameModel,
     private val nanoTime: () -> Long = System::nanoTime,
     private val skyColorCalculator: SkyColorCalculator? = null,
+    private val objectModelDescription:String="EfficientDet-Lite0 ${MediaPipeVehicleDetector.MODEL_SHA256}",
 ) : VisionAnalyzer {
     constructor(context: Context, semanticFactory: () -> SemanticFrameModel) :
         this({ MediaPipeVehicleDetector(context.applicationContext) }, semanticFactory, skyColorCalculator = DefaultSkyColorCalculator)
@@ -44,28 +45,38 @@ internal class SemanticLightAnalyzer(
             val sourcePixels=IntArray(bitmap.width*bitmap.height)
             bitmap.getPixels(sourcePixels,0,bitmap.width,0,0,bitmap.width,bitmap.height)
             val activeModel=checkNotNull(model)
-            val prepared=SemanticModelInput.prepare(PixelFrame(bitmap.width,bitmap.height,sourcePixels),activeModel.inputSize)
-            val classes=prepared.layout.cropClassMap(activeModel.infer(prepared))
+            val source=PixelFrame(bitmap.width,bitmap.height,sourcePixels)
+            val raster=if(activeModel is SourceSemanticFrameModel)activeModel.inferSource(source) else {
+                val prepared=SemanticModelInput.prepare(source,activeModel.inputSize)
+                SemanticObservationRaster(prepared.pixels,prepared.layout.cropClassMap(activeModel.infer(prepared)),
+                    activeModel.modelSha256,"YOLO26n-sem-ADE20K ${activeModel.modelSha256}; input ${activeModel.inputSize}")
+            }
+            val pixels=raster.pixels;val classes=raster.classes
             val detections=checkNotNull(detector).detect(bitmap)
             val key="${frame.cameraTimestampNs}:${frame.sequence}"
-            val measured=observer.observe(prepared.pixels,classes,detections.boxes,detections.atCapacity,key)
+            val observeStart=nanoTime()
+            val measured=observer.observe(pixels,classes,detections.boxes,detections.atCapacity,key)
+            val observeMs=(nanoTime()-observeStart).coerceAtLeast(0)/1_000_000
             val skyFrame=SkyFrameIdentity(frame.sequence,frame.capturedAtEpochMs,frame.cameraTimestampNs,
                 frame.inputSource,frame.mediaPresentationTimeUs)
-            val sky=skyObserver.observe(PixelFrame(bitmap.width,bitmap.height,sourcePixels),skyFrame,
-                SemanticSkyMask(prepared.pixels.width,prepared.pixels.height,classes,skyFrame,activeModel.modelSha256))
+            val sky=skyObserver.observe(source,skyFrame,
+                SemanticSkyMask(pixels.width,pixels.height,classes,skyFrame,raster.sourceSha256))
             // Reuse only the established person/vehicle observation builder. Its legacy light
             // features/score/regions do not enter the semantic light contribution a second time.
-            val baseMeasurement=LightMeasurer().measure(prepared.pixels,detections.boxes,detections.atCapacity)
+            val legacyStart=nanoTime()
+            val baseMeasurement=LightMeasurer().measure(pixels,detections.boxes,detections.atCapacity)
+            val legacyMs=(nanoTime()-legacyStart).coerceAtLeast(0)/1_000_000
             val base=SceneObservationBuilder.build(detections.boxes,detections.atCapacity,baseMeasurement,
                 frame.capturedAtEpochMs,key,frame.inputSource,frame.mediaPresentationTimeUs)
-            val area=measured.features.summary.pixelCount.toFloat()/(prepared.pixels.width*prepared.pixels.height)
+            val area=measured.features.summary.pixelCount.toFloat()/(pixels.width*pixels.height)
             val scene=base.copy(source=base.source.copy(name="Android 의미분할·밝은 부분 관측",
-                detail="YOLO26n-sem-ADE20K ${activeModel.modelSha256}; input ${activeModel.inputSize}; ${SemanticContrastObserver.VERSION}; " +
-                    "EfficientDet-Lite0 ${MediaPipeVehicleDetector.MODEL_SHA256}; actual decoder PTS us=${frame.mediaPresentationTimeUs}"),
+                detail="${raster.description}; ${SemanticContrastObserver.VERSION}; role preparation+inference ms=${raster.roleElapsedMs}; lightObserverMs=$observeMs; legacyBaseMeasurementMs=$legacyMs; " +
+                    "$objectModelDescription; actual decoder PTS us=${frame.mediaPresentationTimeUs}"),
                 ambientLights=AmbientLightObservation(measured.regions.size,area,true,null),semantic=measured.semantic.copy(skyColor=sky),
                 regions=base.regions.filter { it.kind!=RegionEvidenceKind.AMBIENT_LIGHT }+measured.regions,
                 lightFeatures=measured.features,
-                notes=listOf("건물·창문·표지 영역의 밝은 픽셀을 관측합니다. 상점이나 발광 종류는 미확인입니다."))
+                notes=listOfNotNull("건물·창문·표지 영역의 밝은 픽셀을 관측합니다. 상점이나 발광 종류는 미확인입니다.",
+                    raster.fallbackReason?.let { "보조 장면 분석을 사용할 수 없어 기본 모델로 분석했습니다. ($it)" }))
             VisionResult(frame.capturedAtEpochMs,AnalysisStatus.LOW_CONFIDENCE,
                 colors=ColorFeatures(luminousAreaRatio=area),vehicleExcludedRatio=measured.vehicleAreaRatio,
                 method=AnalysisMethod.HYBRID,reasons=measured.features.quality.reasons,

@@ -1,0 +1,455 @@
+{
+  "comparison": "Raw trainer states before/after optimization; excludes checkpoint FP16 serialization rounding",
+  "changes": [
+    {
+      "name": "model.13.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 49150,
+      "maxAbs": 0.0009018220007419586
+    },
+    {
+      "name": "model.13.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 128,
+      "maxAbs": 0.0006123781204223633
+    },
+    {
+      "name": "model.13.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 128,
+      "maxAbs": 0.0006300285458564758
+    },
+    {
+      "name": "model.13.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 24575,
+      "maxAbs": 0.000981554388999939
+    },
+    {
+      "name": "model.13.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 128,
+      "maxAbs": 0.0004361867904663086
+    },
+    {
+      "name": "model.13.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 128,
+      "maxAbs": 0.0004990100860595703
+    },
+    {
+      "name": "model.13.m.0.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 2048,
+      "maxAbs": 0.0005654990673065186
+    },
+    {
+      "name": "model.13.m.0.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.0004903674125671387
+    },
+    {
+      "name": "model.13.m.0.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 31,
+      "maxAbs": 0.00032770633697509766
+    },
+    {
+      "name": "model.13.m.0.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 2048,
+      "maxAbs": 0.0005200505256652832
+    },
+    {
+      "name": "model.13.m.0.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00011670589447021484
+    },
+    {
+      "name": "model.13.m.0.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 7.171928882598877e-05
+    },
+    {
+      "name": "model.13.m.0.cv3.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 4095,
+      "maxAbs": 0.0007081432268023491
+    },
+    {
+      "name": "model.13.m.0.cv3.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.00024315714836120605
+    },
+    {
+      "name": "model.13.m.0.cv3.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.00016814470291137695
+    },
+    {
+      "name": "model.13.m.0.m.0.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 9216,
+      "maxAbs": 0.0006819199770689011
+    },
+    {
+      "name": "model.13.m.0.m.0.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00030982494354248047
+    },
+    {
+      "name": "model.13.m.0.m.0.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00014483928680419922
+    },
+    {
+      "name": "model.13.m.0.m.0.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 9216,
+      "maxAbs": 0.0004620160907506943
+    },
+    {
+      "name": "model.13.m.0.m.0.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00046622753143310547
+    },
+    {
+      "name": "model.13.m.0.m.0.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00014418363571166992
+    },
+    {
+      "name": "model.13.m.0.m.1.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 9216,
+      "maxAbs": 0.0004645697772502899
+    },
+    {
+      "name": "model.13.m.0.m.1.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00017243623733520508
+    },
+    {
+      "name": "model.13.m.0.m.1.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.0001729130744934082
+    },
+    {
+      "name": "model.13.m.0.m.1.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 9215,
+      "maxAbs": 0.0005050487816333771
+    },
+    {
+      "name": "model.13.m.0.m.1.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00015842914581298828
+    },
+    {
+      "name": "model.13.m.0.m.1.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.0001455545425415039
+    },
+    {
+      "name": "model.16.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16384,
+      "maxAbs": 0.0007728468626737595
+    },
+    {
+      "name": "model.16.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.0007519721984863281
+    },
+    {
+      "name": "model.16.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.000653386116027832
+    },
+    {
+      "name": "model.16.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 6144,
+      "maxAbs": 0.0010786280035972595
+    },
+    {
+      "name": "model.16.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.0006415247917175293
+    },
+    {
+      "name": "model.16.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.0005168318748474121
+    },
+    {
+      "name": "model.16.m.0.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 512,
+      "maxAbs": 0.0005021393299102783
+    },
+    {
+      "name": "model.16.m.0.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.0005241110920906067
+    },
+    {
+      "name": "model.16.m.0.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.00033795833587646484
+    },
+    {
+      "name": "model.16.m.0.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 512,
+      "maxAbs": 0.000977441668510437
+    },
+    {
+      "name": "model.16.m.0.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 7.140636444091797e-05
+    },
+    {
+      "name": "model.16.m.0.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.00018197298049926758
+    },
+    {
+      "name": "model.16.m.0.cv3.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 1024,
+      "maxAbs": 0.0011064410209655762
+    },
+    {
+      "name": "model.16.m.0.cv3.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.0002346038818359375
+    },
+    {
+      "name": "model.16.m.0.cv3.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 32,
+      "maxAbs": 0.00030028820037841797
+    },
+    {
+      "name": "model.16.m.0.m.0.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 2304,
+      "maxAbs": 0.000453178770840168
+    },
+    {
+      "name": "model.16.m.0.m.0.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 9.864568710327148e-05
+    },
+    {
+      "name": "model.16.m.0.m.0.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.0001270771026611328
+    },
+    {
+      "name": "model.16.m.0.m.0.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 2304,
+      "maxAbs": 0.00047278590500354767
+    },
+    {
+      "name": "model.16.m.0.m.0.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.00018420815467834473
+    },
+    {
+      "name": "model.16.m.0.m.0.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.0003376007080078125
+    },
+    {
+      "name": "model.16.m.0.m.1.cv1.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 2304,
+      "maxAbs": 0.0006430447101593018
+    },
+    {
+      "name": "model.16.m.0.m.1.cv1.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.00011724233627319336
+    },
+    {
+      "name": "model.16.m.0.m.1.cv1.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.00028693675994873047
+    },
+    {
+      "name": "model.16.m.0.m.1.cv2.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 2304,
+      "maxAbs": 0.0009450018405914307
+    },
+    {
+      "name": "model.16.m.0.m.1.cv2.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.00012600421905517578
+    },
+    {
+      "name": "model.16.m.0.m.1.cv2.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 16,
+      "maxAbs": 0.000213623046875
+    },
+    {
+      "name": "model.17.classifier.0.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 36864,
+      "maxAbs": 0.0008114278316497803
+    },
+    {
+      "name": "model.17.classifier.0.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.0003026723861694336
+    },
+    {
+      "name": "model.17.classifier.0.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.00016307830810546875
+    },
+    {
+      "name": "model.17.classifier.1.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 9586,
+      "maxAbs": 0.0008525848388671875
+    },
+    {
+      "name": "model.17.classifier.1.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 148,
+      "maxAbs": 0.0003134608268737793
+    },
+    {
+      "name": "model.17.aux_head.0.conv.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 73725,
+      "maxAbs": 0.00043496862053871155
+    },
+    {
+      "name": "model.17.aux_head.0.bn.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 0.0001919269561767578
+    },
+    {
+      "name": "model.17.aux_head.0.bn.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 64,
+      "maxAbs": 6.622076034545898e-05
+    },
+    {
+      "name": "model.17.aux_head.1.weight",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 9349,
+      "maxAbs": 0.00062599778175354
+    },
+    {
+      "name": "model.17.aux_head.1.bias",
+      "parameter": true,
+      "requiresGrad": true,
+      "changedElements": 139,
+      "maxAbs": 0.00014542043209075928
+    }
+  ],
+  "changedTensorCount": 64,
+  "changedTrainableParameterTensorCount": 64
+}

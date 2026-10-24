@@ -1,0 +1,38 @@
+INSTRUMENTATION_STATUS: class=kr.urbanmood.vision.OrtObjectDetectorDeviceTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+kr.urbanmood.vision.OrtObjectDetectorDeviceTest:
+INSTRUMENTATION_STATUS: test=pinnedModelMatchesFiveOriginalRgbFixturesAndCloses
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.urbanmood.vision.OrtObjectDetectorDeviceTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pinnedModelMatchesFiveOriginalRgbFixturesAndCloses
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.urbanmood.vision.F2NativeDeviceTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+kr.urbanmood.vision.F2NativeDeviceTest:
+INSTRUMENTATION_STATUS: test=frozenEightFramesAndPortraitRunF2AndYoloWithoutUi
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.urbanmood.vision.F2NativeDeviceTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=frozenEightFramesAndPortraitRunF2AndYoloWithoutUi
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 30.061
+
+OK (2 tests)
+
+
+INSTRUMENTATION_CODE: -1

@@ -1,0 +1,29 @@
+{
+  "onnxSha256": "b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06",
+  "onnxBytes": 9893948,
+  "publishedArtifactSha256": "b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06",
+  "byteIdentical": true,
+  "creationDateNormalized": "2026-10-24T23:05:26.298728+09:00",
+  "execution": "desktop CPU; no Android timing or new accuracy claim",
+  "samples": [],
+  "rawSourceOnnxSha256": "b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06",
+  "packagedOnnxSha256": "6236c6b2a47706c21edb508ca8a66d9b2f3772fe2b1410fee3cd70896ac0277a",
+  "packagedOnnxBytes": 9893909,
+  "packagedByteIdentical": true,
+  "sanitization": {
+    "graphSerializedBytesUnchanged": true,
+    "authorLicenseUnmodified": true,
+    "cpuOutputProofs": [
+      {
+        "shape": [
+          1,
+          300,
+          6
+        ],
+        "dtype": "float32",
+        "sha256": "f3c8edf6b4f55952205164b010244da4723e905936f4c997a4d57a8a95d255c4",
+        "byteDifferences": 0
+      }
+    ]
+  }
+}

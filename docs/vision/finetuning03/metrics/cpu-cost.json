@@ -1,0 +1,42 @@
+{
+  "n320": {
+    "inferenceMedianMs": 18.821899997419678,
+    "inferenceP95Ms": 20.03002000055858,
+    "sessionInitMs": 35.16490000038175,
+    "onnxBytes": 6292434,
+    "runs": 48,
+    "device": "Windows CPU; not Android",
+    "intraThreads": 2,
+    "interThreads": 1
+  },
+  "n640": {
+    "inferenceMedianMs": 83.42819999961648,
+    "inferenceP95Ms": 87.03855999810912,
+    "sessionInitMs": 20.715499995276332,
+    "onnxBytes": 6292470,
+    "runs": 48,
+    "device": "Windows CPU; not Android",
+    "intraThreads": 2,
+    "interThreads": 1
+  },
+  "s": {
+    "inferenceMedianMs": 110.20324999844888,
+    "inferenceP95Ms": 118.91897499808692,
+    "sessionInitMs": 36.19450000405777,
+    "onnxBytes": 24896884,
+    "runs": 48,
+    "device": "Windows CPU; not Android",
+    "intraThreads": 2,
+    "interThreads": 1
+  },
+  "C": {
+    "inferenceMedianMs": 19.10995000071125,
+    "inferenceP95Ms": 20.447399999466143,
+    "sessionInitMs": 22.11430000170367,
+    "onnxBytes": 6292459,
+    "runs": 48,
+    "device": "Windows CPU; not Android",
+    "intraThreads": 2,
+    "interThreads": 1
+  }
+}

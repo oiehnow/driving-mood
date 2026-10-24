@@ -1,0 +1,6 @@
+{
+  "originalDriverSha256": "34a4d5cd25636b9d86eb3b6eab5340f77efa6f5adf061721afa057aaaa1b77ea",
+  "originalConfigSha256": "bf3a11870e13b123fb3d9f2a309826bd64d338f32d7a33d7ca4452dda168df58",
+  "originalAuditSha256": "3718215e3da44dc010fb576588cec37fa394bda9ed24ebd5052eeae8c578a221",
+  "note": "Published path-redacted evidence has different file hashes; metrics and weights unchanged."
+}

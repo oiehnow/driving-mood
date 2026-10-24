@@ -1,0 +1,15 @@
+{
+  "lambda_": 5535694.609872891,
+  "lambda": 5535694.609872891,
+  "targetGradientRatio": 0.1,
+  "supervisedGradientNormBeforeClip": 9.879085529761236,
+  "unitCoefficientRegularizerGradientNorm": 1.7846153420641963e-07,
+  "measuredBeforeOptimizerStep": 5,
+  "trainableElements": 284460,
+  "batchSize": 2,
+  "amp": false,
+  "scalerScale": 1.0,
+  "coefficientSelectionUsedOnlyTraining": true,
+  "developmentValidationUsed": false,
+  "heldoutUsed": false
+}

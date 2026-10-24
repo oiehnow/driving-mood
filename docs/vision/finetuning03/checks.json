@@ -1,0 +1,41 @@
+{
+  "reusedC02Tests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "newEvaluatorTests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "realArtifactAssertions": [
+    "Frozen input/model hash checks",
+    "n320 raw/aligned predictions identical to previous run",
+    "320 tensor/alignment byte equality",
+    "ADE150 metadata class mapping equality",
+    "Fusion protected pixels unchanged",
+    "Downstream sky mask equals evaluated fused sky",
+    "One final-candidate auxiliary execution"
+  ],
+  "measuredRuntime": {
+    "independentTest": false,
+    "usedForCandidateSelection": true,
+    "evaluatorSha256": "1f1ab13dbfd03381f8bef194635cca3001218f2bcdb2271632abcd1a8a5301c2",
+    "c02EvaluatorSha256": "f7fe2e7e7a675a21a5b15cd1e713d9a70443b032e62f2d7be385b825ade1ac48",
+    "contractSha256": "e05c0cd6656b16c63f63ba0d05fe862379696915d1f125faeafbf83bf09c6a39",
+    "trainerContractSha256": "1a78984295e639d064aa7511496d1bfdba041c6b13b446ef337e578503229ce0",
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.4.6",
+    "opencv": "5.0.0",
+    "onnxruntime": "1.31.0"
+  },
+  "actualPhoneBenchmark": false,
+  "publicPackageTests": {
+    "passed": 5,
+    "failed": 0,
+    "log": "public-test-results.txt",
+    "logSha256": "ba84f5c26153b1abec5cb0353ecaa04c351770bad9c9cce378a8200a92ff7b13"
+  },
+  "publicReplayCliHelpPassed": true,
+  "publicReplayInferenceRerun": false,
+  "pycacheGitIgnored": true
+}

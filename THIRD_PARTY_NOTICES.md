@@ -37,6 +37,10 @@ AndroidX 저작권자는 Android Open Source Project, Kotlin 계열은 JetBrains
 | YOLO26n-sem-ADE20K | https://github.com/ultralytics/ultralytics — 건물·창문·간판 의미분할. 320 ONNX/ORT 변환, 비실행 설명 경로만 정리 | AGPL-3.0 |
 | ONNX Runtime Android 1.31.0 | https://github.com/microsoft/onnxruntime — 기기 내 의미분할 추론 | MIT 및 포함 ThirdPartyNotices |
 | Skia SkRGBToHSV | https://github.com/google/skia/blob/main/src/core/SkColor.cpp — 하늘 RGB의 HSV 변환을 Kotlin으로 옮겨 활용. Skia 런타임 의존성은 추가하지 않음 | BSD-3-Clause; Copyright 2006 The Android Open Source Project / Copyright (c) 2011 Google Inc.; 원문 `app/src/main/assets/licenses/Skia-LICENSE.txt` |
+| YOLO26n 객체 검출 | https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt — 공식 COCO 객체 검출, 고정 640 FP32 ONNX 변환 | AGPL-3.0 |
+| YOLO26n-sem Pilot03C | 공식 ADE20K 가중치의 실제 파인튜닝 파생물. `models/semantic/finetuning03`에 학습·변환 소스 보존 | AGPL-3.0 |
+| OpenCV nearest-exact 정렬 | https://github.com/opencv/opencv/blob/5.x/modules/imgproc/src/resize.cpp — 평가와 동일한 인덱스 산술을 Kotlin으로 이식. OpenCV 런타임 추가 없음 | 원본 resize.cpp의 BSD 고지 유지. `app/src/main/assets/licenses/OpenCV-resize-NOTICE.txt` |
+| L2-SP | https://proceedings.mlr.press/v80/li18a.html — 초기 가중치 보존 규제의 수식 참고, 독립 구현 | 논문 인용; 저자 예제 저장소는 MIT이며 예제 코드 직접 복사 없음 |
 
 [모델 소스와 변환](models/semantic/README.md), [앱 내 고지](app/src/main/assets/licenses/SEMANTIC-SOURCES.txt), [전체 AGPL 원문](app/src/main/assets/licenses/ultralytics-LICENSE.txt)을 보존한다.
 

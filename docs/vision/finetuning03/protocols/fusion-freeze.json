@@ -1,0 +1,60 @@
+{
+  "frozenAtUtc": "2026-10-24T13:56:38.804183+00:00",
+  "rulesSha256": "537009477068d6ffaca5c2bf6eeff18ace3903b9c98df9592e03fcbc12805a10",
+  "implementationSha256": "42cb12da90e83b7663f87fd48e8257237d27b5ea0f264c6eaeef4aa1e5e8d687",
+  "evaluationCodeSha256": "ff9b9f81acef3a93087e50c449ba2f9b863428ae332d231bd19befc04e04ebd2",
+  "inputsComparisonSha256": "cf8b33028e3c542e7a5edb7990d7d48b6dcc512bc0daca9762cca0b18516ee4d",
+  "inputCompletionSha256": "e2b60272d9a5309e5562a7e61ad8f053517f2516cb36eae91a7417940047c180",
+  "policySha256": "8e96efc0164e76ad6a9314ba8bd5f116d01e4beef21db72d2a861f72f0f22964",
+  "rules": {
+    "version": "specialist-fusion-positive-override-v1",
+    "scope": "Development hypotheses chosen after earlier development comparisons; not independently validated",
+    "protectedBaseAdeIds": [
+      6,
+      11,
+      12,
+      20,
+      80,
+      83,
+      87,
+      93,
+      102,
+      116,
+      127,
+      136
+    ],
+    "structureOverrideAdeIds": [
+      1,
+      8,
+      43
+    ],
+    "skyAdeId": 2,
+    "priorityHighToLow": [
+      "base protected pixels",
+      "n640 positive sky",
+      "structure candidate positive building/window/sign",
+      "base fallback"
+    ],
+    "candidates": {
+      "F1": {
+        "base": "n320",
+        "sky": "n640",
+        "structure": "n640"
+      },
+      "F2": {
+        "base": "n320",
+        "sky": "n640",
+        "structure": "C"
+      }
+    },
+    "semanticOutput": "uint8 HxW ADE150 at the exact same upright source grid, no resize inside merger",
+    "skyObservationMask": "semantic output == 2; identical to evaluated fused map. Positive n640 override plus retained base sky can increase sky false positives.",
+    "standaloneN640Sky": "comparison output only, not used as separate downstream mask",
+    "groundTruthInputAllowed": false,
+    "personCount": "object detector observations only; semantic person area is not added to box count",
+    "actualVehicleControl": false,
+    "accuracyImprovementClaimed": false
+  },
+  "role": "New development hypotheses chosen after prior development results; not independent validation",
+  "selection": "Apply unchanged original screening to each F1/F2; no automatic deployment or retuning"
+}

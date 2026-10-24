@@ -1,0 +1,80 @@
+{
+  "package": "YOLO26n mobile detector source and export reproduction",
+  "date": "2026-10-24",
+  "sourceUrls": {
+    "weights": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt",
+    "implementation": "https://github.com/ultralytics/ultralytics/tree/v8.4.184",
+    "sdist": "https://files.pythonhosted.org/packages/db/15/907181d03defbace7d2c710dc568c5a2b70875bf5d3c833a4bcdd7a179b2/ultralytics-8.4.184.tar.gz",
+    "sdistRegistry": "https://pypi.org/pypi/ultralytics/8.4.184/json"
+  },
+  "licenses": {
+    "weightsAndImplementation": "AGPL-3.0",
+    "onnxRuntime": "MIT"
+  },
+  "testedEnvironment": {
+    "python": "3.14.4",
+    "platform": "Windows x86-64",
+    "ultralytics": "8.4.184",
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.0"
+  },
+  "rawSourceOnnx": {
+    "sha256": "b7bdfacd8bedbf2f679fc1959a2315dcc0e6e1c3b01ea26012be3f0b5c0eab06",
+    "bytes": 9893948
+  },
+  "appAsset": {
+    "path": "app/src/main/assets/vision/yolo26n-detect-640.onnx",
+    "sha256": "6236c6b2a47706c21edb508ca8a66d9b2f3772fe2b1410fee3cd70896ac0277a",
+    "bytes": 9893909
+  },
+  "excluded": [
+    "user images",
+    "videos",
+    "audio",
+    "local authentication",
+    "local absolute file paths in documentation"
+  ],
+  "files": {
+    "evidence/android-detector-verification.json": {
+      "sha256": "e31d9cfe0936e0057a0bdf47740ad7ca4d824d44d8d74ccdca2261036c02462b",
+      "bytes": 1635
+    },
+    "evidence/export-verification.json": {
+      "sha256": "dc6fd128e73747ccaca26ddf5633d5939344c66a22cc04ef6b29467fcc6e378d",
+      "bytes": 11439
+    },
+    "evidence/reproduction-packaged.json": {
+      "sha256": "b836d0e79d27cce62371214f75214c26417c88a10887e4dad3f6e7fbf1da1533",
+      "bytes": 1029
+    },
+    "evidence/reproduction.json": {
+      "sha256": "3dd983ec185d6fa2884b4180e73e3fcc969dbfd6980b120178786821ce249b9c",
+      "bytes": 1714
+    },
+    "export_and_verify.py": {
+      "sha256": "e4221d703ee5893e62af09c2973d874933c267561e0a8f53020b570b7e776441",
+      "bytes": 6242
+    },
+    "licenses/ultralytics-LICENSE.txt": {
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "bytes": 34523
+    },
+    "README.md": {
+      "sha256": "78fccb393195e6a82f083728434f3b5ef64fa73c5b32cc75bd3a394c07451f75",
+      "bytes": 5735
+    },
+    "requirements.txt": {
+      "sha256": "ec948c0d77d5dd004ac68483c5ebc2236ec4681ecb045982526ad0566cc70834",
+      "bytes": 254
+    },
+    "source/ultralytics-8.4.184.tar.gz": {
+      "sha256": "e556832d07f70ba2f73aa8140dceb2a8fb3d5e9a0d9c70827f22a658d292d0ad",
+      "bytes": 1289038
+    },
+    "source/yolo26n.pt": {
+      "sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+      "bytes": 5544453
+    }
+  }
+}
