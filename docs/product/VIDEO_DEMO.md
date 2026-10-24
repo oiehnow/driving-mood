@@ -1,5 +1,7 @@
 # 주행 장면에서 무드 결과까지
 
+[실제 Android 앱 화면](APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.2)
+
 새 주행 영상 4개에서 각각 60초를 관측했다. 실제 프레임 240개의 조명·사람·하늘 근거를 공용 점수기로 계산하고, 같은 시간 구간에 들어온 표본은 하나만 사용해 236개 대표 구간을 누적했다.
 
 ![밤 도심의 관측 영역과 실제 기여 점수](assets/driving-v4/full-03-observation.gif)

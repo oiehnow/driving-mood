@@ -2,9 +2,19 @@
 
 주변 환경과 운전자 맥락에서 **무드 키워드를 추출해 음악·조명·장소 추천으로 연결하는 앱**입니다. 카메라가 관측한 빛과 사람, 도로·날씨 정보에 사용자의 취향과 원하는 분위기를 결합합니다.
 
-![무드 키워드와 활용 방향](docs/product/assets/mood-overview.png)
+## 실제 앱 화면
+
+Android 프로토타입 **0.3.2**의 실행 화면입니다. 촬영·분석부터 분위기 선택, 음악 재생과 조명 미리보기까지 한 화면에서 이어집니다.
+
+| 촬영·무드 분석 | 환경·분위기 설정 | 음악·조명 미리보기 |
+|:---:|:---:|:---:|
+| [<img src="docs/product/assets/app-ui-0.3.2/analysis-start.png" width="250" alt="Driving Mood 앱의 촬영 시간 선택과 무드 분석 시작 화면">](docs/product/assets/app-ui-0.3.2/analysis-start.png) | [<img src="docs/product/assets/app-ui-0.3.2/mood-preferences.png" width="250" alt="위치·날씨 설정과 원하는 분위기·음악 취향 선택 화면">](docs/product/assets/app-ui-0.3.2/mood-preferences.png) | [<img src="docs/product/assets/app-ui-0.3.2/music-lighting.png" width="250" alt="로컬 음악 재생과 앰버·아이스 블루·소프트 민트·라일락 조명 미리보기 화면">](docs/product/assets/app-ui-0.3.2/music-lighting.png) |
+
+[앱 화면 크게 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.2)
 
 ## 원하는 분위기
+
+![무드 키워드와 활용 방향](docs/product/assets/mood-overview.png)
 
 **차가운 / 우울 / 활기 넘침**을 비롯해 따뜻한·몽환적인·차분한·잔잔한·편안한·포근한·청량한 분위기를 선택할 수 있습니다. 선택한 목표는 음악 추천에 우선 반영합니다.
 
