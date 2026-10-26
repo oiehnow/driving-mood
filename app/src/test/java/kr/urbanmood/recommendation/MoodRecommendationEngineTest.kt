@@ -22,7 +22,16 @@ class MoodRecommendationEngineTest {
         val rain = WeatherSnapshot(Availability.AVAILABLE,condition="비",source=source)
         assertTrue(recommend(env.copy(weather=rain)).moodKeywords.contains("비"))
         assertFalse(recommend(env.copy(weather=rain.copy(source=source.copy(observedAtEpochMs=now-10_000_000)))).moodKeywords.contains("비"))
-        assertFalse(recommend(env.copy(location=LocationSnapshot(),weather=rain)).moodKeywords.contains("비"))
+        assertTrue(recommend(env.copy(location=LocationSnapshot(),weather=rain)).moodKeywords.contains("비"))
+    }
+    @Test fun receivedRainContributesPointsEvenAfterLocationExpires() {
+        val rain = WeatherSnapshot(Availability.AVAILABLE, 18.0, 2.0, "비", source)
+        val result = recommend(env.copy(location = env.location.copy(
+            source = source.copy(observedAtEpochMs = now - 150_000)), weather = rain))
+        val contribution = result.scoreSummary!!.scores.flatMap { it.contributions }
+            .single { it.id == "weather_rain" }
+        assertEquals(30f, contribution.delta!!, .001f)
+        assertTrue("차분한" in result.commonMoodKeywords)
     }
     @Test fun manualWeatherIsAlwaysIdentified() {
         val r = recommend(env.copy(weather=WeatherSnapshot(Availability.MANUAL,condition="비")))

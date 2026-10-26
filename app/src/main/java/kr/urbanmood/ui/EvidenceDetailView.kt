@@ -56,6 +56,17 @@ internal class EvidenceDetailView(context: Context) : LinearLayout(context) {
                 label(this, model.exclusion, 12, muted)
             }
 
+            if (model.weatherSources.isNotEmpty()) {
+                section("날씨의 음악 추천 기여", "고정 음악 규칙입니다. 운전자 감정이나 정확도 확률을 측정한 값이 아닙니다.")
+                model.weatherSources.forEach { source ->
+                    val group = column(this, top = 8, bottom = 12)
+                    label(group, source.title, 16, ink, true)
+                    label(group, source.subtitle, 12, muted)
+                    source.metrics.forEach { metric(group, it) }
+                    source.notes.forEach { label(group, it, 12, muted) }
+                }
+            }
+
             section("촬영 정보")
             model.context.forEach { fact(it.label, it.value, it.note) }
         }

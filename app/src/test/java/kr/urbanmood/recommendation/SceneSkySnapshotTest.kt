@@ -156,7 +156,8 @@ class SceneSkySnapshotTest {
                 weather = WeatherSnapshot(Availability.MANUAL, temperatureC = 18.0,
                     precipitationMm = 0.0, condition = "강수 없음")))) {
                 val expected = scorer.score(base, environment)
-                assertEquals(if (features) "scene-v2.0" else "scene-v1.2", expected.ruleVersion)
+                assertEquals((if (features) "scene-v2.0" else "scene-v1.2") +
+                    if (environment.weather.availability==Availability.MANUAL) WeatherMoodScorer.VERSION_SUFFIX else "", expected.ruleVersion)
                 val request = RecommendationRequest(null, environment, nowEpochMs = 1_030_000,
                     observationEndEpochMs = 1_030_000, sceneWindow = base)
                 val recommendation = MoodRecommendationEngine(Random(17)).recommend(request)

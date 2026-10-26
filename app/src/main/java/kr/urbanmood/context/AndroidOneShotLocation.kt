@@ -8,13 +8,15 @@ import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
+import android.os.Handler
 import android.os.Looper
 import androidx.core.content.ContextCompat
 import kr.urbanmood.contracts.*
 import kotlinx.coroutines.suspendCancellableCoroutine
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.coroutines.resume
 
-/** A bounded foreground fix. The caller supplies the 20s deadline; cancellation removes all listeners. */
+/** Main-thread foreground acquisition. Fine permission allows an 18s accurate-fix wait inside the caller's 20s guard. */
 internal class AndroidOneShotLocation(private val context: Context) : OneShotLocation {
     private val manager = context.getSystemService(LocationManager::class.java)
     private fun permitted(permission: String) = ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
@@ -25,27 +27,51 @@ internal class AndroidOneShotLocation(private val context: Context) : OneShotLoc
         if (!fine && !permitted(Manifest.permission.ACCESS_COARSE_LOCATION)) return missing(Availability.PERMISSION_DENIED, "위치 권한이 없습니다.")
         val manager = manager ?: return missing(Availability.UNAVAILABLE, "위치 서비스를 사용할 수 없습니다.")
         return suspendCancellableCoroutine { continuation ->
-            var finished = false
+            val finished = AtomicBoolean(false)
+            val handler = Handler(Looper.getMainLooper())
+            var deadline: Runnable? = null
+            // Keep one latest accepted fallback per provider, so an older better fix cannot hide a newer usable one.
+            val fallbacks = mutableMapOf<String, LocationSnapshot>()
             lateinit var callback: LocationListener
-            fun detach() { runCatching { manager.removeUpdates(callback) } }
+            fun detach() {
+                deadline?.let { handler.removeCallbacks(it) }
+                runCatching { manager.removeUpdates(callback) }
+            }
             fun finish(result: LocationSnapshot) {
-                if (finished) return
-                finished = true
+                if (!finished.compareAndSet(false, true)) return
                 detach()
                 if (continuation.isActive) continuation.resume(result)
             }
+            fun remember(result: LocationSnapshot) {
+                val previous = fallbacks[result.source.name]
+                if (previous == null || result.source.observedAtEpochMs!! >= previous.source.observedAtEpochMs!!) {
+                    fallbacks[result.source.name] = result
+                }
+            }
+            fun fallback(): LocationSnapshot? = fallbacks.values.filter {
+                val actual = if (it.availability == Availability.MANUAL) it.copy(availability = Availability.AVAILABLE) else it
+                // The 30s acquisition gate was already checked on arrival. Keep valid weather data through this wait.
+                EnvironmentPolicy.usableLocation(actual, DeviceEnvironmentClock.wallTime())
+            }.minWithOrNull(compareBy<LocationSnapshot> { it.accuracyMeters }.thenByDescending { it.source.observedAtEpochMs })
             callback = object : LocationListener {
                 override fun onLocationChanged(location: Location) {
-                    snapshot(location, false)?.takeIf { LocationFixPolicy.acceptLive(it, DeviceEnvironmentClock.wallTime()) }?.let { finish(it) }
+                    if (finished.get()) return
+                    snapshot(location, false)?.takeIf { LocationFixPolicy.acceptLive(it, DeviceEnvironmentClock.wallTime()) }?.let {
+                        if (!fine || RoadMatcher.eligible(it, DeviceEnvironmentClock.wallTime())) finish(it)
+                        else remember(it)
+                    }
                 }
                 override fun onProviderDisabled(provider: String) {
                     if (runCatching { manager.getProviders(true).none { it == LocationManager.GPS_PROVIDER || it == LocationManager.NETWORK_PROVIDER } }.getOrDefault(true)) {
-                        finish(missing(Availability.UNAVAILABLE, "휴대폰 위치 설정을 확인하세요."))
+                        finish(fallback() ?: missing(Availability.UNAVAILABLE, "휴대폰 위치 설정을 확인하세요."))
                     }
                 }
                 @Deprecated("Legacy callback") override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) = Unit
             }
-            continuation.invokeOnCancellation { detach() }
+            deadline = Runnable {
+                finish(fallback() ?: missing(Availability.UNAVAILABLE, "정밀 위치를 확인하지 못했습니다. 실외에서 다시 분석해 주세요."))
+            }
+            continuation.invokeOnCancellation { if (finished.compareAndSet(false, true)) detach() }
             try {
                 val providers = listOfNotNull(if (fine) LocationManager.GPS_PROVIDER else null, LocationManager.NETWORK_PROVIDER)
                     .filter { manager.allProviders.contains(it) && manager.isProviderEnabled(it) }
@@ -55,10 +81,16 @@ internal class AndroidOneShotLocation(private val context: Context) : OneShotLoc
                     val cached = providers.mapNotNull { manager.getLastKnownLocation(it) }
                         .sortedByDescending { it.elapsedRealtimeNanos }
                         .mapNotNull { snapshot(it, true) }
-                        .firstOrNull { EnvironmentPolicy.usableLocation(it, DeviceEnvironmentClock.wallTime()) }
-                    if (cached != null) finish(cached)
-                    else providers.forEach {
-                        if (!finished && continuation.isActive) manager.requestLocationUpdates(it, 0L, 0f, callback, Looper.getMainLooper())
+                        .filter { it.availability == Availability.AVAILABLE &&
+                            LocationFixPolicy.acceptLive(it, DeviceEnvironmentClock.wallTime()) }
+                    val preferred = cached.firstOrNull { !fine || RoadMatcher.eligible(it, DeviceEnvironmentClock.wallTime()) }
+                    if (preferred != null) finish(preferred)
+                    else {
+                        cached.forEach { remember(it) }
+                        if (fine && !finished.get()) deadline?.let { handler.postDelayed(it, 18_000) }
+                        providers.forEach {
+                            if (!finished.get() && continuation.isActive) manager.requestLocationUpdates(it, 0L, 0f, callback, Looper.getMainLooper())
+                        }
                     }
                 }
             } catch (_: SecurityException) {
@@ -92,7 +124,11 @@ internal class AndroidOneShotLocation(private val context: Context) : OneShotLoc
 }
 
 internal object LocationFixPolicy {
+    // Acquisition precedes a recording of up to 60s (plus a 30s camera bound).
+    // A fix near the 120s evaluation limit would expire before the capture ends.
+    private const val ACQUISITION_MAX_AGE_MS = 30_000L
     fun acceptLive(snapshot: LocationSnapshot, now: Long): Boolean =
-        EnvironmentPolicy.usableLocation(snapshot, now) ||
-            (snapshot.availability == Availability.MANUAL && EnvironmentPolicy.usableLocation(snapshot.copy(availability = Availability.AVAILABLE), now))
+        EnvironmentPolicy.fresh(snapshot.source.observedAtEpochMs, now, ACQUISITION_MAX_AGE_MS) &&
+            (EnvironmentPolicy.usableLocation(snapshot, now) ||
+                (snapshot.availability == Availability.MANUAL && EnvironmentPolicy.usableLocation(snapshot.copy(availability = Availability.AVAILABLE), now)))
 }

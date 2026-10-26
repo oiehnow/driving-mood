@@ -1,4 +1,7 @@
-param([string]$SigningDirectory = (Join-Path $env:LOCALAPPDATA 'UrbanMood\signing'))
+param(
+    [string]$SigningDirectory = (Join-Path $env:LOCALAPPDATA 'UrbanMood\signing'),
+    [ValidateSet('app', 'pleos-preview', 'all')][string]$Module = 'app'
+)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
 $storeFile = Join-Path $SigningDirectory 'urbanmood-release.p12'
@@ -26,10 +29,13 @@ try {
     $env:URBANMOOD_STORE_FILE = $storeFile
     Push-Location $projectRoot
     try {
-        & .\gradlew.bat :app:assembleRelease --console=plain
+        [string[]]$releaseTasks = if ($Module -eq 'all') { @(':app:assembleRelease', ':pleos-preview:assembleRelease') }
+            else { @((":{0}:assembleRelease" -f $Module)) }
+        & .\gradlew.bat @releaseTasks --console=plain
         if ($LASTEXITCODE -ne 0) { throw 'Release build failed.' }
     } finally { Pop-Location }
-    Write-Output 'Signed release: app/build/outputs/apk/release/app-release.apk'
+    if ($Module -in @('app', 'all')) { Write-Output 'Signed release: app/build/outputs/apk/release/app-release.apk' }
+    if ($Module -in @('pleos-preview', 'all')) { Write-Output 'Signed release: pleos-preview/build/outputs/apk/release/pleos-preview-release.apk' }
     Write-Output 'Signing files are stored outside the repository.'
 } finally {
     Remove-Item Env:URBANMOOD_STORE_PASSWORD,Env:URBANMOOD_STORE_FILE -ErrorAction SilentlyContinue

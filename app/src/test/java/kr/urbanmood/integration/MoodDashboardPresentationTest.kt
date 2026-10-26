@@ -33,4 +33,15 @@ class MoodDashboardPresentationTest {
         assertEquals("1.7", metric.value)
         assertEquals("관측 강도", metric.unit)
     }
+
+    @Test fun weatherRowIsVisibleEvenWhenAnEarlierVisualRowHasNoMeasurement() {
+        val summary = MoodScoreSummary("test", 30_000, 0, 0, listOf(
+            MoodScore("청량한", null, emptyList()),
+            MoodScore("청량한", 18f, listOf(MoodScoreContribution("weather_dry", "강수 없음",
+                delta = 18f, reason = "날씨 선택 규칙", basis = ContributionBasis.WEATHER_RULE)))
+        ))
+        val metric = dashboardMetrics(summary, listOf("청량한")).first()
+        assertEquals("18.0", metric.value)
+        assertEquals("날씨 점수", metric.unit)
+    }
 }

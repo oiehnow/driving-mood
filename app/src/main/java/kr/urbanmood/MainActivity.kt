@@ -637,13 +637,14 @@ class MainActivity : ComponentActivity() {
         val environmentCard = card(settingsPage, "위치 · 도로 · 날씨")
         environmentText = text("위치 미연결\n도로 알 수 없음 · 날씨 미연결", 14, ink)
         environmentCard.addView(environmentText)
+        environmentCard.addView(text("분석 시 위치로 날씨와 주변 지도 도로를 조회합니다. 도로 확인에는 정확한 위치가 필요합니다.", 12, muted))
         configurationButtons += addButton(environmentCard, "기상청 인증키") { showKeySettings() }
         configurationButtons += addButton(environmentCard, "수동 설정") { showManualSettings() }
         addButton(settingsPage, "앱 권한 설정") {
             openExternal(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName")))
         }
         addButton(settingsPage, "데이터 사용 안내") {
-            showDetails("데이터 사용 안내", AndroidEnvironmentProvider.PRIVACY + "\n영상은 기기에 임시 저장 후 삭제합니다.\n날씨를 연결하려면 인증키가 필요합니다. 도로는 직접 설정할 수 있습니다.")
+            showDetails("데이터 사용 안내", AndroidEnvironmentProvider.PRIVACY + "\n영상은 기기에 임시 저장 후 삭제합니다.\n날씨를 연결하려면 인증키가 필요합니다. 도로는 자동 조회하며, 위치 오차·평행도로·지도 누락으로 확인이 어려우면 직접 설정할 수 있습니다.")
         }
         settingsPage.addView(text("영상은 기기에 임시 저장 후 삭제합니다.", 12, muted))
         val about = card(settingsPage, "Driving Mood")
@@ -867,7 +868,7 @@ class MainActivity : ComponentActivity() {
 
     private fun renderEnvironment(value: EnvironmentSnapshot) {
         environmentText.text = "위치 ${availabilityLabel(value.location.availability)} · 정확도 ${value.location.accuracyMeters?.let { "${it.toInt()}m" } ?: "—"}\n" +
-            source(value.location.source) + "\n도로 ${roadLabel(value.road.type)} · ${availabilityLabel(value.road.availability)}\n" +
+            source(value.location.source) + "\n도로 ${value.road.placeName?.let { "$it · " }.orEmpty()}${roadLabel(value.road.type)} · ${availabilityLabel(value.road.availability)}\n" +
             source(value.road.source) + "\n날씨 ${availabilityLabel(value.weather.availability)} · ${value.weather.condition ?: "상태 없음"} · ${value.weather.temperatureC?.let { "$it°C" } ?: "—"}" +
             " · 강수 ${value.weather.precipitationMm?.let { "${it}mm" } ?: "—"}\n" +
             source(value.weather.source) + "\n" + value.notices

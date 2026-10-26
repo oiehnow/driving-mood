@@ -106,4 +106,21 @@ class OneShotEnvironmentTest {
         assertFalse(EnvironmentPolicy.usableLocation(mock,now))
         f.provider.close()
     }
+
+    @Test fun acquisitionRejectsOldFixThatWouldExpireDuringRecording() {
+        val f = Fixture()
+        val now = f.clock.wallTime()
+        val old = f.fix.copy(source = f.fix.source.copy(observedAtEpochMs = now - 90_000))
+        // Previously accepted immediately, including from last-known-location cache.
+        assertTrue(EnvironmentPolicy.usableLocation(old, now))
+        assertFalse(EnvironmentPolicy.usableLocation(old, now + 60_000))
+        assertFalse(LocationFixPolicy.acceptLive(old, now))
+        val recent = f.fix.copy(source = f.fix.source.copy(observedAtEpochMs = now - 30_000))
+        assertTrue(LocationFixPolicy.acceptLive(recent, now))
+        // Leave room for the camera's 60s recording plus 30s preparation/finalization bound.
+        assertTrue(EnvironmentPolicy.usableLocation(recent, now + 90_000))
+        assertFalse(LocationFixPolicy.acceptLive(recent, now + 1))
+        assertFalse(LocationFixPolicy.acceptLive(f.fix, now - 1))
+        f.provider.close()
+    }
 }

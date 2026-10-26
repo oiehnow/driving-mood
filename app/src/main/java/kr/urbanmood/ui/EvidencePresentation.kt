@@ -25,7 +25,7 @@ internal data class EvidencePresentation(val sources: List<EvidenceSource>, val 
     val frameFacts: List<EvidenceFact>, val moods: List<String>, val musicMoods: List<String>,
     val desiredMoods: List<String>, val trackTitle: String?, val trackTags: List<String>,
     val inputScope: String, val exclusion: String, val desiredKnown: Boolean = true,
-    val preferenceNotice: String? = null)
+    val preferenceNotice: String? = null, val weatherSources: List<EvidenceSource> = emptyList())
 
 internal object EvidencePresenter {
     private const val WARM = 0xffce6848.toInt()
@@ -101,35 +101,56 @@ internal object EvidencePresenter {
         val roadUsable = env?.road?.availability == Availability.MANUAL || (locationUsable &&
             env?.road?.availability == Availability.AVAILABLE && EnvironmentPolicy.fresh(env.road.source.observedAtEpochMs,
                 observedAt!!, EnvironmentPolicy.LOCATION_MAX_AGE_MS))
-        val weatherUsable = env?.weather?.availability == Availability.MANUAL || (locationUsable &&
-            env?.weather?.availability == Availability.AVAILABLE && EnvironmentPolicy.fresh(env.weather.source.observedAtEpochMs,
-                observedAt!!, EnvironmentPolicy.WEATHER_MAX_AGE_MS))
+        val assessedWeather = EnvironmentPolicy.assessWeather(env?.weather, observedAt, snapshot?.analyzedAtEpochMs)
+        val weatherUsable = assessedWeather.usable
         fun excluded(a: Availability?, reason: String) = if (a == Availability.AVAILABLE) "미반영 · $reason"
             else if (a == Availability.STALE) "오래된 정보 · 미반영" else state(a)
         fun provenance(source: SourceInfo?) = source?.let { s -> listOfNotNull(s.name.takeIf { it.isNotBlank() },
             timestamp(s.observedAtEpochMs, "MM/dd HH:mm")?.let { "관측 $it" },
+            timestamp(s.fetchedAtEpochMs, "MM/dd HH:mm")?.let { "조회 $it" },
             if (s.cached) "이전 조회" else null).joinToString(" · ").ifBlank { null } }
         val road = if (roadUsable) when (env?.road?.type) {
             RoadType.HIGHWAY -> "고속도로"; RoadType.URBAN -> "도심"; RoadType.RESIDENTIAL -> "주거지역"
             RoadType.OTHER -> "기타 도로"; else -> "종류 미확인"
         } else excluded(env?.road?.availability, if (!locationUsable) "위치 확인 필요" else "관측 시각 확인 필요")
-        val weather = if (weatherUsable) listOfNotNull(env?.weather?.condition,
-            env?.weather?.temperatureC?.takeIf { it.isFinite() }?.let { String.format(Locale.KOREA, "%.1f°C", it) })
+        val weather = if (weatherUsable) listOfNotNull(assessedWeather.condition,
+            assessedWeather.temperatureC?.let { String.format(Locale.KOREA, "%.1f°C", it) },
+            assessedWeather.precipitationMm?.let { String.format(Locale.KOREA, "지난1시간 %.1fmm", it) })
             .joinToString(" · ").ifBlank { "상태 미확인" }
-            else excluded(env?.weather?.availability, if (!locationUsable) "위치 확인 필요" else "관측 시각 확인 필요")
+            else assessedWeather.exclusion ?: "미연결"
+        val weatherLimits = mapOf("weather_rain" to 50f, "weather_snow" to 30f, "weather_precipitation" to 25f,
+            "weather_dry" to 10f, "weather_mild" to 25f, "weather_cold" to 30f, "weather_hot" to 30f)
+        val weatherSources = result?.scoreSummary?.scores.orEmpty().filter { row -> row.contributions.isNotEmpty() &&
+            row.contributions.all { it.basis == ContributionBasis.WEATHER_RULE } }.map { row ->
+            val entries = row.contributions.distinctBy { it.id }.filter { it.id in weatherLimits }
+            EvidenceSource(row.keyword, "날씨 음악 규칙점수 · 하늘·조명과 별도", entries.map { c ->
+                metric(c.id, c.label, ContributionBasis.WEATHER_RULE, weatherLimits.getValue(c.id), "규칙점", TEAL, delta = true)
+            }, entries.map { it.reason })
+        }
+        val weatherNotes = listOfNotNull(
+            provenance(env?.weather?.source),
+            if (weatherUsable && env?.weather?.availability == Availability.MANUAL) "수동 날씨 입력입니다. 실제 관측값이 아닙니다."
+            else if (weatherUsable) "요청 당시 주변 5km 격자의 대표 관측입니다. 강수 없음은 맑은 하늘·낮은 습도를 뜻하지 않습니다." else null,
+            if (weatherUsable && listOf(assessedWeather.condition, assessedWeather.temperatureC, assessedWeather.precipitationMm).any { it == null })
+                "일부 관측 항목 미확인 · 확인된 항목만 반영" else null).joinToString(" · ").ifBlank { null }
+        val roadNotes = env?.road?.let { roadContext -> listOfNotNull(
+            roadContext.placeName?.takeIf { roadUsable }, provenance(roadContext.source), roadContext.source.detail)
+            .filter { it.isNotBlank() }.joinToString(" · ").ifBlank { null } }
         val observation = snapshot?.vision?.sceneObservations
         val facts = listOf(EvidenceFact("사람 검출", observation?.persons?.detectionCount?.takeIf { it >= 0 }?.let { "${it}개" } ?: "미관측"),
             EvidenceFact("주변 빛 후보", observation?.ambientLights?.candidateCount?.takeIf { it >= 0 }?.let { "${it}개" } ?: "미관측"))
         val track = result?.candidates?.firstOrNull()
         return EvidencePresentation(sources, listOf(EvidenceFact("촬영 시작", time ?: "미확인"),
             EvidenceFact("위치", if (locationUsable) "연결됨" else excluded(env?.location?.availability, "위치 확인 필요")), EvidenceFact("도로", road +
-                if (env?.road?.availability == Availability.MANUAL) " · 직접 설정" else ""),
+                if (env?.road?.availability == Availability.MANUAL) " · 직접 설정" else
+                    if (roadUsable && env?.road?.availability == Availability.AVAILABLE) " · 주변 지도 도로 추정" else "", roadNotes),
             EvidenceFact("날씨", weather + if (env?.weather?.availability == Availability.MANUAL) " · 직접 설정" else "",
-                if (env?.weather?.availability in setOf(Availability.AVAILABLE, Availability.STALE)) provenance(env?.weather?.source) else null)),
+                weatherNotes)),
             facts, result?.commonMoodKeywords.orEmpty(), result?.moodKeywords.orEmpty(), desired.toList(),
             track?.title, track?.tags.orEmpty().sorted(),
             result?.scoreSummary?.windowDurationMs?.takeIf { it > 0 }?.let { "${it / 1000}초 촬영 결과" } ?: "분석 결과",
-            if (snapshot?.vision?.vehicleMaskApplied == true) "마지막 장면 · 차량광 제외 처리 적용" else "마지막 장면 · 차량광 제외 여부 미확인")
+            if (snapshot?.vision?.vehicleMaskApplied == true) "마지막 장면 · 차량광 제외 처리 적용" else "마지막 장면 · 차량광 제외 여부 미확인",
+            weatherSources = weatherSources)
     }
 
     private fun observationTime(snapshot: AnalysisSnapshot?): Long? {

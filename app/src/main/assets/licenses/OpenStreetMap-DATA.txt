@@ -1,0 +1,9 @@
+Map data: © OpenStreetMap contributors
+Open Data Commons Open Database License (ODbL) 1.0
+https://www.openstreetmap.org/copyright
+https://opendatacommons.org/licenses/odbl/1-0/
+
+Driving Mood requests nearby road geometry from the public Overpass API only when
+the user starts an analysis. Precise coordinates are sent for this lookup.
+This is a nearby mapped road estimate, not confirmed navigation map matching.
+The app displays attribution and missing/ambiguous/timeout states.

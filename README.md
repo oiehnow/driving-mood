@@ -6,6 +6,23 @@
 
 주변 풍경과 주행 상황을 분석해 **무드 키워드를 만들고, 사용자의 취향에 맞는 음악을 추천하는 앱**입니다. 카메라에 담긴 빛과 사람, 도로·날씨 정보로 주변 분위기를 파악하고, 사용자가 원하는 분위기를 음악 선택에 반영합니다. 같은 결과를 차량 조명과 주변 장소 추천에도 활용하는 것이 목표입니다.
 
+## APK 다운로드
+
+두 앱의 서명된 release APK는 [같은 Release 페이지](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)에서 받을 수 있습니다. 대용량 모바일 APK는 Git의 `apk/` 폴더 대신 GitHub Releases에 제공합니다. **[정확한 한글 파일명으로 두 APK 받기 — ZIP](https://github.com/oiehnow/driving-mood/releases/download/v0.3.10/DrivingMood-release.zip)**: 압축을 풀면 아래 두 파일명이 그대로 보존됩니다. GitHub는 개별 자산 업로드의 한글·괄호를 자동 치환하므로 개별 링크의 다운로드 이름은 다를 수 있습니다.
+
+| 앱 | 파일 | 실행 환경 |
+|---|---|---|
+| Mobile 0.3.10 | [이태현_DrivingMood(Mobile)_release.apk](https://github.com/oiehnow/driving-mood/releases/download/v0.3.10/_DrivingMood.Mobile._release.apk) | Android 8.0/API 26 이상, 카메라·위치·인터넷 |
+| Pleos 0.1.1 | [이태현_DrivingMood(Pleos)_release.apk](https://github.com/oiehnow/driving-mood/releases/download/v0.3.10/_DrivingMood.Pleos._release.apk) | Android API 28 이상, 내비 연동에는 Pleos 환경 필요 |
+
+**Mobile 실행:** APK 설치 → 설정의 **기상청 인증키**에 공공데이터포털 초단기실황의 일반/디코딩 키 입력 → 카메라·위치 권한 허용 → 로고를 눌러 촬영·분석합니다. 도로 조회에는 정확한 위치(오차 50m 이하)가 필요하며 별도 지도 키는 필요하지 않습니다. 음악은 사용자가 로컬 파일을 선택합니다. 인증키·음악 목록은 앱 프로세스가 종료되면 다시 설정해야 합니다.
+
+**Pleos 실행:** APK 설치 후 **Driving Mood Preview**를 열고 로고를 눌러 수동 무드 시연을 시작합니다. 로컬 음악 파일을 선택해 재생할 수 있으며 내비 기능은 Pleos NaviService가 있는 환경에서 사용합니다. 조명은 화면 미리보기입니다. 실제 차량 카메라 분석과 차량 조명 제어는 포함하지 않습니다. 과거 debug 서명 APK와 release 서명이 다르면 덮어쓰기 설치가 거부되므로, 기존 앱 데이터가 필요한 경우 백업 후 별도 테스트 기기에 설치하세요.
+
+**날씨·도로:** 유효하게 수신한 기상청 관측은 촬영 중 위치가 만료되어도 날씨 점수에 반영합니다. 비·눈·강수 없음·기온의 음악 선택 규칙 점수를 상세 화면에서 확인할 수 있습니다. 위치는 기상청에 5km 격자로, 자동 도로 조회에는 정밀 좌표로 OpenStreetMap Overpass에 전달하며 영상·이동 이력은 전송하지 않습니다. 지도 결과는 주변 도로 추정이며 실제 주행 도로 확정이 아닙니다. 지도 누락·평행도로·위치 오차·서비스 시간 초과는 이유와 함께 표시합니다. 지도 출처: [© OpenStreetMap contributors / ODbL](https://www.openstreetmap.org/copyright).
+
+테스트 환경과 APK 해시는 [0.3.10 검증 기록](docs/VALIDATION-0.3.10.md), 빌드 및 설치 명령은 [실행 안내](docs/BUILD.md)를 참고하세요.
+
 ## 개인정보 보호와 기기 안에서의 분석
 
 개인정보를 보호하기 위해 **촬영 영상을 외부 서버로 보내지 않고 기기 안에서 분석하는 것**을 기본 방향으로 삼았습니다. 단순히 모델이 실행되는 데 그치지 않고, 주변 풍경을 제대로 읽어 쓸모 있는 결과를 내는 것이 목표입니다.
@@ -35,7 +52,7 @@
 
 **결과 연결:** 사람·차량 위치는 별도로 관측하고, 세 의미 분할 결과는 **F2 규칙**으로 합칩니다. 합쳐진 영역의 색·빛과 시간에 따른 변화를 **자체 점수 계산**에 전달해 무드 키워드를 만듭니다. F2와 점수 계산은 모델이 아닌 처리 규칙입니다.
 
-휴대폰 분석 앱 0.3.9는 사람·차량을 찾는 **객체 검출 모델**과 픽셀별로 하늘·건물 등을 나누는 **세 가지 의미 분할 실행 구성**을 사용합니다. 각 구성의 결과에서 실제 색감과 빛을 측정하고, 자체 점수 규칙으로 무드 키워드를 만듭니다.
+휴대폰 분석 앱 0.3.10은 사람·차량을 찾는 **객체 검출 모델**과 픽셀별로 하늘·건물 등을 나누는 **세 가지 의미 분할 실행 구성**을 사용합니다. 각 구성의 결과에서 실제 색감과 빛을 측정하고, 자체 점수 규칙으로 무드 키워드를 만듭니다.
 
 | 사용 모델 | 역할 |
 |---|---|
@@ -84,7 +101,7 @@ C 모델은 단독 교체 시 차량 분류의 허용 하락 폭을 넘었으므
 
 ## 실제 앱 화면
 
-Android 프로토타입 **0.3.9** · 아래 화면은 동일 UI의 0.3.8 촬영본입니다.
+Android 프로토타입 **0.3.10** · 아래 화면은 0.3.8 촬영본이며 최신 날씨 근거·도로 조회 표시는 [검증 기록](docs/VALIDATION-0.3.10.md)을 참고하세요.
 
 <img src="docs/product/assets/app-ui-0.3.8/analysis-transition.gif" width="360" alt="Driving Mood 촬영·분석·결과 화면">
 
@@ -94,7 +111,7 @@ Android 프로토타입 **0.3.9** · 아래 화면은 동일 UI의 0.3.8 촬영�
 |:---:|:---:|:---:|
 | <img src="docs/product/assets/app-ui-0.3.8/01-start.png" width="240" alt="Driving Mood 시작 화면"> | <img src="docs/product/assets/app-ui-0.3.8/full-01-result.png" width="240" alt="노을 주행의 무드 결과"> | <img src="docs/product/assets/app-ui-0.3.8/full-01-evidence-top.png" width="240" alt="하늘색과 주변 조명, 밝기와 사람의 분석 기록"> |
 
-[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.9)
+[음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)
 
 ## Pleos 차량 화면
 
@@ -109,7 +126,7 @@ Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 �
 
 <sub>실제 Pleos 앱 환경 UI 테스트 화면</sub>
 
-[차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md) · [Pleos APK](https://github.com/oiehnow/driving-mood/releases/tag/pleos-preview-v0.1.1)
+[차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md) · [Pleos release APK](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)
 
 ## 원하는 분위기
 
@@ -125,7 +142,7 @@ Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 �
 
 ![분석 요청부터 결과까지](docs/product/assets/request-flow.gif)
 
-현재 0.3.9는 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨는 촬영과 함께 확인하며 지역별 날씨 캐시를 재사용합니다.
+현재 0.3.10은 **로고 터치 → 30초 영상 촬영 → 분석 → 완료음 → 무드 결과 → 음악·조명 미리보기**로 동작합니다. 휴대폰 후면 카메라로 전방을 담고, 촬영한 영상에서 1초마다 대표 프레임을 분석해 요소별 기여와 환경 키워드를 계산합니다. 위치·날씨·주변 지도 도로는 촬영과 함께 확인하며 유효한 조회 캐시를 재사용합니다.
 
 ## 무드 키워드를 만드는 과정
 

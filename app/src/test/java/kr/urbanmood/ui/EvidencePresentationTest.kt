@@ -93,7 +93,7 @@ class EvidencePresentationTest {
             location = LocationSnapshot(Availability.AVAILABLE, 37.5, 127.0, 20f,
                 source = SourceInfo("GPS", locationTime)),
             weather = WeatherSnapshot(Availability.AVAILABLE, 18.0, condition = "비",
-                source = SourceInfo("기상청", weatherTime, cached = true)))
+                source = SourceInfo("기상청", weatherTime, captureEnd, cached = true)))
         val vision = VisionResult(captureEnd, AnalysisStatus.OK, sceneObservations = SceneObservations(
             SceneObservationRuntime.ANDROID_RECORDED, SourceInfo("녹화", captureEnd)))
         return AnalysisSnapshot(1, captureEnd + 600_000, environment, vision,
@@ -114,13 +114,13 @@ class EvidencePresentationTest {
         assertTrue(weather.note.contains("이전 조회"))
     }
 
-    @Test fun availableWeatherWithExpiredLocationIsAlsoExcluded() {
+    @Test fun receivedWeatherSurvivesLocationExpiryDuringRecording() {
         val snapshot = recordedSnapshot(locationTime = captureEnd - EnvironmentPolicy.LOCATION_MAX_AGE_MS - 1)
         val recommendation = engineResult(snapshot)
-        assertFalse("비" in recommendation.moodKeywords)
+        assertTrue("비" in recommendation.moodKeywords)
         val model = EvidencePresenter.present(recommendation, snapshot)
         assertEquals("미반영 · 위치 확인 필요", model.context.single { it.label == "위치" }.value)
-        assertEquals("미반영 · 위치 확인 필요", model.context.single { it.label == "날씨" }.value)
+        assertEquals("비 · 18.0°C", model.context.single { it.label == "날씨" }.value)
     }
 
     @Test fun recordedEvaluationUsesCaptureEndNotLaterProcessingTime() {
@@ -133,6 +133,35 @@ class EvidencePresentationTest {
         assertNotEquals("미확인", model.context.single { it.label == "촬영 시작" }.value)
     }
 
+    @Test fun weatherScoresUseTheirOwnUnitsAndShowObservationAndReceipt() {
+        val snapshot = recordedSnapshot(locationTime = captureEnd - 150_000).let { s ->
+            s.copy(environment = s.environment.copy(weather = s.environment.weather.copy(precipitationMm = 2.0,
+                source = s.environment.weather.source.copy(fetchedAtEpochMs = captureEnd + 5_000))))
+        }
+        val result = engineResult(snapshot)
+        val model = EvidencePresenter.present(result, snapshot)
+        val rain = model.weatherSources.flatMap { it.metrics }.single { it.id == "weather_rain" }
+        assertEquals(30f, rain.value!!, .001f)
+        assertEquals("규칙점", rain.unit)
+        assertTrue(model.context.single { it.label == "날씨" }.value.contains("지난1시간 2.0mm"))
+        assertTrue(model.context.single { it.label == "날씨" }.note!!.contains("조회"))
+        assertTrue(model.context.single { it.label == "날씨" }.note!!.contains("관측"))
+        assertTrue(model.weatherSources.flatMap { it.notes }.any { it.contains("감정") })
+    }
+
+    @Test fun unavailableWeatherHasActionableSafeReasons() {
+        val cases = listOf(
+            WeatherSnapshot(source = SourceInfo("날씨 미연결", detail = "기상청 인증키가 설정되지 않았습니다.")) to "기상청 키 미설정",
+            WeatherSnapshot(Availability.PERMISSION_DENIED) to "위치 권한 없음 · 날씨 미조회",
+            WeatherSnapshot(Availability.ERROR, source = SourceInfo("기상청 조회 실패", detail = "기상청 통신 시간 초과")) to "날씨 조회 시간 초과")
+        cases.forEach { (weather, expected) ->
+            val snapshot = recordedSnapshot().let { it.copy(environment = it.environment.copy(weather = weather)) }
+            val model = EvidencePresenter.present(engineResult(snapshot), snapshot)
+            assertEquals(expected, model.context.single { it.label == "날씨" }.value)
+            assertTrue(model.weatherSources.isEmpty())
+        }
+    }
+
     @Test fun unknownRecordedEndDoesNotInventTimeAndManualWeatherStaysExplicit() {
         val snapshot = recordedSnapshot(end = null)
         assertFalse("비" in engineResult(snapshot).moodKeywords)
@@ -140,6 +169,7 @@ class EvidencePresentationTest {
         val manual = snapshot.copy(environment = snapshot.environment.copy(weather = WeatherSnapshot(Availability.MANUAL, condition = "비")))
         assertTrue("비" in engineResult(manual).moodKeywords)
         assertEquals("비 · 직접 설정", EvidencePresenter.present(result(), manual).context.single { it.label == "날씨" }.value)
+        assertTrue(EvidencePresenter.present(result(), manual).context.single { it.label == "날씨" }.note!!.contains("실제 관측값이 아닙니다"))
     }
 
     @Test fun supportNotesUseOnlyValidProvidedRatiosNotStrengthOrSelectedWords() {

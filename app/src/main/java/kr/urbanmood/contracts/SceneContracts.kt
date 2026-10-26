@@ -3,7 +3,11 @@ package kr.urbanmood.contracts
 /** Runtime provenance, not a claim that an offline frame ran through the Android model. */
 enum class SceneObservationRuntime { ANDROID_CAMERA, ANDROID_RECORDED, DESKTOP_SEGMENTATION, TEST_FIXTURE }
 
-enum class ContributionBasis { LEGACY_HEURISTIC, OBSERVED_FEATURE_STRENGTH, SKY_COLOR_RULE }
+enum class ContributionBasis {
+    LEGACY_HEURISTIC, OBSERVED_FEATURE_STRENGTH, SKY_COLOR_RULE,
+    // Independent music-selection heuristic points; never sum with light strength or sky-color units.
+    WEATHER_RULE,
+}
 /** RGB observations; none of these names establishes a physical emitting source. */
 enum class LightGroupKind { LOCAL_CONTRAST, EXTENDED_BRIGHT_SURFACE, LEGACY_UNCLASSIFIED_CANDIDATE }
 

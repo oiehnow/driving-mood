@@ -46,27 +46,25 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
         } else reasons += "도로 종류 미확인 — 도로 정보는 추천에 반영하지 않았습니다."
 
         val weather = env.weather
-        val weatherUsable = weather.availability == Availability.MANUAL || (locationFresh &&
-            weather.availability == Availability.AVAILABLE && EnvironmentPolicy.fresh(weather.source.observedAtEpochMs,
-                observationTime!!, EnvironmentPolicy.WEATHER_MAX_AGE_MS))
+        val assessedWeather = EnvironmentPolicy.assessWeather(weather, observationTime, request.nowEpochMs)
+        val weatherUsable = assessedWeather.usable
         if (weatherUsable) {
             if (weather.availability == Availability.MANUAL) { manual = true; reasons += "날씨는 수동 입력값입니다. 실제 관측값이 아닙니다." }
             else { confidence += 0.15f; reasons += "${weather.source.name}${if (weather.source.cached) " (이전 조회 정보)" else ""} · 관측 ${Instant.ofEpochMilli(weather.source.observedAtEpochMs!!).atZone(zone)}" }
-            when (weather.condition) {
+            when (assessedWeather.condition) {
                 "비", "비/눈", "소나기", "빗방울", "빗방울눈날림" -> { words += "비"; words += "차분한" }
                 "눈", "눈날림" -> { words += "눈"; words += "잔잔한" }
                 "강수 없음" -> reasons += "관측된 비나 눈이 없습니다. 하늘이 맑다는 뜻은 아닙니다."
                 else -> reasons += "비·눈 정보를 확인하지 못해 추천에 반영하지 않았습니다."
             }
-            weather.temperatureC?.takeIf { it.isFinite() }?.let { if (it < 5) words += "포근한" else if (it > 28) words += "청량한" }
-        } else reasons += "최근 날씨를 확인하지 못해 날씨 정보는 추천에 반영하지 않았습니다."
+        } else reasons += "${assessedWeather.exclusion} · 날씨 정보는 추천에 반영하지 않았습니다."
 
         val window = request.sceneWindow ?: SceneWindow(1_000,receivedFrameCount=if (request.vision==null) 0 else 1,
             samples=listOfNotNull(request.vision?.takeIf { offline || (observationTime != null &&
                 EnvironmentPolicy.fresh(it.frameTimeEpochMs,observationTime,VisionMeasurementPolicy.MAX_AGE_MS)) }
                 ?.let { SceneSample(0,it) }))
         val scorer = SceneMoodScorer()
-        val scores = scorer.score(if(recorded && observationTime==null && request.timeContextAvailable) window.copy(samples=emptyList()) else window,env,observationTime)
+        val scores = scorer.score(if(recorded && observationTime==null && request.timeContextAvailable) window.copy(samples=emptyList()) else window,env,observationTime,request.nowEpochMs)
         val common = scorer.keywords(scores).toList()
         words += common
         // Retain detailed single-frame provenance for older callers; accumulated scoring uses the whole window.
@@ -74,7 +72,13 @@ class MoodRecommendationEngine(private val random: Random = Random.Default) : Re
             reasons += SceneInterpreter.interpret(request.vision,env.road,roadUsable,request.nowEpochMs,zone).reasons
         reasons += scores.notes
         scores.scores.forEach { mood ->
-            reasons += "${mood.keyword} ${if (mood.contributions.all { it.basis==ContributionBasis.SKY_COLOR_RULE }) "하늘색 규칙점수" else "기존 근거 점수"}: ${mood.score?.toString() ?: "미확인"}"
+            val basisLabel = when {
+                mood.contributions.all { it.basis==ContributionBasis.WEATHER_RULE } -> "날씨 규칙점수"
+                mood.contributions.all { it.basis==ContributionBasis.SKY_COLOR_RULE } -> "하늘색 규칙점수"
+                mood.contributions.all { it.basis==ContributionBasis.OBSERVED_FEATURE_STRENGTH } -> "관측 색감 강도"
+                else -> "기존 근거 점수"
+            }
+            reasons += "${mood.keyword} $basisLabel: ${mood.score?.toString() ?: "미확인"}"
             mood.contributions.forEach { c ->
                 if(c.basis==ContributionBasis.SKY_COLOR_RULE)
                     reasons += "${c.label}: ${c.observedValue?.let { "$it ${c.unit.orEmpty()}" } ?: "미측정"} · ${c.reason}"

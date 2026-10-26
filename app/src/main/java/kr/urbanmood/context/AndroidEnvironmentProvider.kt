@@ -22,10 +22,12 @@ class AndroidEnvironmentProvider internal constructor(
     mainDispatcher: CoroutineDispatcher,
     private val ioDispatcher: CoroutineDispatcher,
     private val locationTimeoutMs: Long = 20_000L,
+    private val roadRequests: RoadRequests? = null,
 ) : EnvironmentProvider {
     constructor(context: Context, apiKeyProvider: () -> String = { "" }) : this(
         apiKeyProvider, DeviceEnvironmentClock, AndroidOneShotLocation(context.applicationContext),
         WeatherRequests(DeviceEnvironmentClock) { KmaWeatherCall() }, Dispatchers.Main.immediate, Dispatchers.IO,
+        roadRequests = RoadRequests(DeviceEnvironmentClock) { OverpassRoadCall() },
     )
     private val scope = CoroutineScope(SupervisorJob() + mainDispatcher)
     private val mutableState = MutableStateFlow(EnvironmentSnapshot(notices = listOf(PRIVACY)))
@@ -51,6 +53,7 @@ class AndroidEnvironmentProvider internal constructor(
         val road = manualRoad
         val configuredWeather = manualWeather
         val weatherVersion = weatherRequests.version()
+        val roadVersion = roadRequests?.version()
         val key = runCatching { apiKeyProvider().trim() }.getOrDefault("")
         running = true
         mutableRequest.value = EnvironmentRequestState(requestId, EnvironmentRequestPhase.LOCATING,
@@ -63,11 +66,18 @@ class AndroidEnvironmentProvider internal constructor(
                 if (session != generation) return@launch
                 mutableRequest.value = mutableRequest.value.copy(phase = EnvironmentRequestPhase.FETCHING_WEATHER,
                     snapshot = mutableRequest.value.snapshot?.copy(location = location))
-                val weather = configuredWeather ?: withContext(ioDispatcher) { weatherRequests.fetch(key, location, weatherVersion) }
+                val (weather, resolvedRoad) = coroutineScope {
+                    val weatherTask = async(ioDispatcher) { configuredWeather ?: weatherRequests.fetch(key, location, weatherVersion) }
+                    val roadTask = async(ioDispatcher) {
+                        if (road.availability == Availability.MANUAL) road
+                        else roadRequests?.fetch(location, roadVersion!!) ?: road
+                    }
+                    weatherTask.await() to roadTask.await()
+                }
                 ensureActive()
                 if (session != generation) return@launch
-                val snapshot = EnvironmentSnapshot(generatedAtEpochMs = clock.wallTime(), location = location, road = road,
-                    weather = weather, notices = listOf(PRIVACY, "도로 정보가 없으면 종류를 추정하지 않습니다. 직접 입력한 값은 '수동 입력'으로 표시합니다."))
+                val snapshot = EnvironmentSnapshot(generatedAtEpochMs = clock.wallTime(), location = location, road = resolvedRoad,
+                    weather = weather, notices = listOf(PRIVACY, "자동 도로는 주변 지도 도로 추정이며 실제 주행 도로를 확정하지 않습니다. 평행도로·교차로 등 모호한 곳은 미확인으로 표시합니다. 직접 입력한 값은 '수동 입력'입니다."))
                 mutableState.value = snapshot
                 mutableRequest.value = EnvironmentRequestState(requestId, EnvironmentRequestPhase.COMPLETED, snapshot, started, clock.wallTime())
             } catch (error: CancellationException) {
@@ -91,6 +101,7 @@ class AndroidEnvironmentProvider internal constructor(
         generation++
         running = false
         weatherRequests.cancel()
+        roadRequests?.cancel()
         job?.cancel(); job = null
         mutableRequest.value = mutableRequest.value.copy(phase = EnvironmentRequestPhase.CANCELLED,
             completedAtEpochMs = clock.wallTime(), message = "위치·날씨 확인을 취소했습니다.")
@@ -109,5 +120,5 @@ class AndroidEnvironmentProvider internal constructor(
         manualRoad = if (type == null || type == RoadType.UNKNOWN) RoadContext() else RoadContext(
             Availability.MANUAL, type, source = SourceInfo("수동 입력 도로", fetchedAtEpochMs = clock.wallTime(), detail = "자동으로 확인한 도로 정보가 아닙니다."))
     }
-    companion object { const val PRIVACY = "날씨 조회 시 현재 위치를 5km 격자로 변환해 조회 시각과 함께 기상청에 전달합니다. 영상·이동 이력은 전송하지 않습니다." }
+    companion object { const val PRIVACY = "날씨 조회 시 현재 위치를 5km 격자로 변환해 조회 시각과 함께 기상청에 전달합니다. 자동 도로 조회 시 정밀 위도·경도를 OpenStreetMap Overpass에 전달합니다. 지도 출처: © OpenStreetMap contributors (ODbL, https://www.openstreetmap.org/copyright). 영상·이동 이력은 전송하지 않습니다." }
 }

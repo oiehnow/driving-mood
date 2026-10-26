@@ -29,6 +29,8 @@ internal class WeatherRequests(
     fun fetch(key: String, location: LocationSnapshot, version: Long = version()): WeatherSnapshot {
         val now = clock.wallTime()
         if (key.isBlank()) return unavailable("기상청 인증키가 설정되지 않았습니다.")
+        if (location.availability == Availability.PERMISSION_DENIED) return WeatherSnapshot(
+            Availability.PERMISSION_DENIED, source = SourceInfo("날씨 미조회", detail = "위치 권한이 없어 날씨를 조회하지 않았습니다."))
         if (!EnvironmentPolicy.usableLocation(location, now)) return unavailable("최근 실제 위치가 없거나 위치 오차가 5km보다 큽니다. 이전 지역의 날씨는 사용하지 않습니다.")
         val grid = KmaGridConverter.from(location.latitude!!, location.longitude!!)
             ?: return unavailable("기상청 날씨 제공 지역 밖입니다.")

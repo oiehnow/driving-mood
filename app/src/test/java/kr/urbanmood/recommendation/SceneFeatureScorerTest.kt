@@ -187,9 +187,12 @@ class SceneFeatureScorerTest {
         val env=EnvironmentSnapshot(weather=WeatherSnapshot(Availability.MANUAL,temperatureC=18.0,precipitationMm=0.0,condition="강수 없음"))
         val summary=scorer.score(window(f),env)
         val fresh=mood(summary,"청량한")
-        assertEquals(43f,fresh.score!!,.00001f)
+        assertEquals(8f,fresh.score!!,.00001f)
         assertTrue(fresh.contributions.any { it.id=="sky_light_raw" && it.delta==8f })
-        assertTrue(fresh.contributions.any { it.id=="mild_dry_weather" && it.delta==35f })
+        assertTrue(fresh.contributions.none { it.basis==ContributionBasis.WEATHER_RULE })
+        val weather = summary.scores.single { row -> row.keyword=="청량한" && row.contributions.all { it.basis==ContributionBasis.WEATHER_RULE } }
+        assertEquals(35f,weather.score!!,.00001f)
+        assertTrue(weather.contributions.any { it.id=="weather_mild" && it.delta==25f })
         assertTrue(scorer.keywords(summary).containsAll(listOf("청량한","따뜻한")))
     }
     @Test fun semanticPersonPixelCannotBecomeDetectedPeopleLightSupport() {

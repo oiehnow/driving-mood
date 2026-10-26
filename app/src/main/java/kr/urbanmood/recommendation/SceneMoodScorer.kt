@@ -11,15 +11,22 @@ class SceneMoodScorer {
         val regions:List<RegionEvidence> = emptyList(), val completeRegions:Boolean = false,
         val regionWeights:List<Float>? = null)
 
-    fun score(window:SceneWindow, environment:EnvironmentSnapshot?=null, evaluationTimeEpochMs:Long?=null):MoodScoreSummary {
-        val base = scoreBase(window, environment, evaluationTimeEpochMs)
+    fun score(window:SceneWindow, environment:EnvironmentSnapshot?=null, evaluationTimeEpochMs:Long?=null,
+        receivedByEpochMs:Long?=evaluationTimeEpochMs):MoodScoreSummary {
+        val visual = scoreBase(window, environment, evaluationTimeEpochMs)
+        val weather = WeatherMoodScorer.score(environment?.weather, evaluationTimeEpochMs, receivedByEpochMs)
+        val base = if (weather.isEmpty()) visual else visual.copy(
+            ruleVersion = visual.ruleVersion + WeatherMoodScorer.VERSION_SUFFIX,
+            scores = visual.scores + weather,
+            notes = visual.notes + "날씨 규칙점수는 같은 이름의 하늘·조명 점수와 별도입니다. 수신 당시 지역의 관측을 사용하며 이후 위치 만료만으로 취소하지 않습니다. 개인 감정을 측정한 값이 아닙니다.")
         val normalized = normalize(window)
         val sky = SkyColorMoodScorer().score(normalized, usableSamples(normalized, evaluationTimeEpochMs))
         if (sky.isEmpty()) return base
         val merged = base.scores.map { old ->
             val extra = sky.firstOrNull { it.keyword == old.keyword }
             // Preserve the old numeric score: sky rule points are a separately displayed basis.
-            if (extra == null) old else old.copy(contributions = old.contributions + extra.contributions)
+            if (extra == null || old.contributions.any { it.basis == ContributionBasis.WEATHER_RULE }) old
+            else old.copy(contributions = old.contributions + extra.contributions)
         } + sky.filter { added -> base.scores.none { it.keyword == added.keyword } }
         return base.copy(ruleVersion = base.ruleVersion + SkyColorMoodScorer.VERSION_SUFFIX, scores = merged,
             notes = base.notes + "하늘색 원시 강도와 지속 조건을 별도로 표시합니다. 2%/0.10/0.05 및 50% 지속은 고정 프로토타입 정책이며 감정·정확도 확률이 아닙니다.")
@@ -45,7 +52,7 @@ class SceneMoodScorer {
         if (window.samples.any { it.vision.sceneObservations?.lightFeatures!=null }) {
             val features=SceneFeatureScorer().score(normalized.copy(receivedFrameCount=window.receivedFrameCount.coerceAtLeast(normalized.receivedFrameCount)),
                 samples,environment,evaluationTimeEpochMs)
-            // Reuse unchanged person/sky/weather rules, but discard every legacy light/color/sign
+            // Reuse person/sky rules, but discard every legacy light/color/sign
             // contribution. Never add area-strength units to legacy heuristic points.
             val independent=scoreBase(window.copy(samples=window.samples.map { s -> s.copy(vision=s.vision.copy(
                 sceneObservations=s.vision.sceneObservations?.copy(lightFeatures=null))) }),environment,evaluationTimeEpochMs)
@@ -62,13 +69,11 @@ class SceneMoodScorer {
                 it.copy(reason=when(it.id) {
                     "sky_light" -> "하늘 마스크 면적×밝기 · 품질 반영"
                     "sky_light_raw" -> "하늘 마스크 면적×밝기 · 품질 미평가 상한10점"
-                    "mild_dry_weather" -> if(environment?.weather?.availability==Availability.MANUAL) "수동 날씨 · 기온·강수 조건" else "관측 기온·강수 조건"
-                    "rain_counter" -> "관측 강수량에 따른 조정"
                     else -> it.reason
                 })
             }) }
             return features.copy(scores=features.scores+listOf(mood("활기 넘침",personContributions),
-                weather),notes=features.notes+"사람·하늘·날씨 가산점과 빛의 면적 강도는 별도 표시합니다.")
+                weather),notes=features.notes+"사람·하늘 가산점과 빛의 면적 강도는 별도 표시합니다.")
         }
         val locationUsable = environment != null && evaluationTimeEpochMs != null && EnvironmentPolicy.usableLocation(environment.location,evaluationTimeEpochMs)
         val road = environment?.road
@@ -168,22 +173,9 @@ class SceneMoodScorer {
         }
         val skyContribution = contribution("sky_light","하늘 마스크 밝기",25f,allSky.filter { it.quality!=null },"정규화 명도","실제 sky mask의 면적과 밝기만 사용; 맑음/날씨/현재 시각 추정 아님",allSky.size)
         val rawSkyContribution = contribution("sky_light_raw","품질 미평가 하늘 마스크 밝기",10f,allSky.filter { it.quality==null },"정규화 명도","실제 desktop sky 면적×밝기를 별도 최대10점으로 제한. 품질 null 유지; 맑음/날씨/현재 시각 추정 아님",allSky.size)
-        val weather = environment?.weather
-        val weatherUsable = weather?.availability == Availability.MANUAL || (locationUsable && weather?.availability == Availability.AVAILABLE &&
-            EnvironmentPolicy.fresh(weather.source.observedAtEpochMs,evaluationTimeEpochMs!!,EnvironmentPolicy.WEATHER_MAX_AGE_MS))
-        val temperature = weather?.temperatureC?.takeIf { it.isFinite() && it in -80.0..60.0 }
-        val weatherDelta = if (weatherUsable && temperature != null && weather?.condition=="강수 없음")
-            (1f-abs(temperature.toFloat()-18f)/12f).coerceIn(0f,1f)*35f else null
-        val weatherContribution = MoodScoreContribution("mild_dry_weather","기온·강수 맥락",temperature?.toFloat(),"°C",35f,weatherDelta,
-            source=weather?.source,reason=if (weather?.availability==Availability.MANUAL) "수동 날씨 입력; 18°C 중심 ±12°C의 음악 규칙이며 실제 관측/쾌적성 확률 아님" else "유효 기온과 강수 없음에 한해 적용; 강수 없음은 맑음이 아니며 18°C 중심 ±12°C는 초기 음악 규칙")
-        val rain = weather?.precipitationMm?.takeIf { weatherUsable && it.isFinite() && it in 0.0..1000.0 }
-        val freshPositive = (skyContribution.delta ?: 0f)+(rawSkyContribution.delta ?: 0f)+(weatherDelta ?: 0f)
-        val rainDelta = rain?.let { -min(freshPositive,(it/10).coerceAtMost(1.0).toFloat()*15f) }
-        val rainContribution = MoodScoreContribution("rain_counter","강수 반대 근거",rain?.toFloat(),"mm/지난1시간",-15f,rainDelta,
-            source=weather?.source,reason="알려진 강수량만 청량 축의 양의 기여 내에서 상쇄; 비로 우울/두려움/천둥을 생성하지 않음")
         return MoodScoreSummary(RULE_VERSION,normalized.durationMs,window.receivedFrameCount.coerceAtLeast(normalized.receivedFrameCount),normalized.samples.size,
             listOf(mood("활기 넘침",vigor),mood("따뜻한",listOf(warm,counter("cool_counter",cool,warm))),
-                mood("차가운",listOf(cool,counter("warm_counter",warm,cool))),mood("청량한",listOf(skyContribution,rawSkyContribution,weatherContribution,rainContribution))),
+                mood("차가운",listOf(cool,counter("warm_counter",warm,cool))),mood("청량한",listOf(skyContribution,rawSkyContribution))),
             listOf("초기 규칙 점수(0~100)이며 검증된 확률·운전자 감정·영업 상태가 아닙니다.",
                 "${normalized.samples.size}개 시간 구간 대표를 사용합니다. 누락 구간을 0명으로 채우지 않으며 고유 인원수를 합산하지 않습니다.",
                 "사람 검출 0은 부재 확정이 아니고, 근거 부족은 우울/차분함으로 바꾸지 않습니다.",
@@ -191,13 +183,14 @@ class SceneMoodScorer {
     }
 
     fun keywords(summary:MoodScoreSummary):List<String> {
-        val base = summary.copy(ruleVersion=summary.ruleVersion.removeSuffix(SkyColorMoodScorer.VERSION_SUFFIX),
+        val base = summary.copy(ruleVersion=summary.ruleVersion.removeSuffix(SkyColorMoodScorer.VERSION_SUFFIX).removeSuffix(WeatherMoodScorer.VERSION_SUFFIX),
             scores=summary.scores.mapNotNull { mood ->
+                if (mood.contributions.any { it.basis==ContributionBasis.WEATHER_RULE }) return@mapNotNull null
                 val original=mood.contributions.filter { it.basis!=ContributionBasis.SKY_COLOR_RULE }
                 if (original.isEmpty() && mood.contributions.any { it.basis==ContributionBasis.SKY_COLOR_RULE }) null
                 else mood.copy(contributions=original)
             })
-        return (baseKeywords(base)+SkyColorMoodScorer.keywords(summary)).distinct()
+        return (baseKeywords(base)+SkyColorMoodScorer.keywords(summary)+WeatherMoodScorer.keywords(summary)).distinct()
     }
 
     private fun baseKeywords(summary:MoodScoreSummary):List<String> = if(usesLightFeatures(summary))
@@ -286,7 +279,7 @@ class SceneMoodScorer {
     private fun positiveQuality(value:Float?):Boolean = unit(value) && value!!>0f
     companion object {
         internal fun usesLightFeatures(summary:MoodScoreSummary):Boolean =
-            summary.ruleVersion.removeSuffix(SkyColorMoodScorer.VERSION_SUFFIX)==SceneFeatureScorer.RULE_VERSION
+            summary.ruleVersion.removeSuffix(SkyColorMoodScorer.VERSION_SUFFIX).removeSuffix(WeatherMoodScorer.VERSION_SUFFIX)==SceneFeatureScorer.RULE_VERSION
         const val RULE_VERSION = "scene-v1.2"
         private const val SIGN_TOLERANCE = 1e-6f
     }

@@ -43,6 +43,15 @@ class WeatherRequestsTest {
         f.fetch(""); f.fetch(loc = LocationSnapshot()); f.fetch(loc = f.location().copy(availability = Availability.MANUAL))
         assertEquals(0, f.calls)
     }
+    @Test fun missingKeyAndDeniedLocationRemainDistinctWithoutNetwork() {
+        val f = Fixture()
+        val noKey = f.fetch("")
+        val denied = f.fetch(loc = f.location().copy(availability = Availability.PERMISSION_DENIED))
+        assertEquals(Availability.UNAVAILABLE, noKey.availability)
+        assertTrue(noKey.source.detail!!.contains("인증키"))
+        assertEquals(Availability.PERMISSION_DENIED, denied.availability)
+        assertEquals(0, f.calls)
+    }
     @Test fun repeatedTapsReuseCacheWithoutChangingObservationOrFetchTimes() {
         val f = Fixture()
         val first = f.fetch()

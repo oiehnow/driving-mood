@@ -14,6 +14,10 @@ import kotlin.math.*
 
 data class KmaGrid(val x: Int, val y: Int)
 
+/** Sanitized weather for one saved request. Null measurements remain unknown. */
+data class WeatherAssessment(val usable: Boolean, val temperatureC: Double? = null,
+    val precipitationMm: Double? = null, val condition: String? = null, val exclusion: String? = null)
+
 /** KMA 2026-10-19 guide, Lambert projection; API grid is one based.
  * See docs/context-audio/SOURCES.md. Formula independently expressed in Kotlin.
  */
@@ -56,6 +60,55 @@ object EnvironmentPolicy {
             location.longitude?.let { it.isFinite() && it in -180.0..180.0 } == true &&
             location.accuracyMeters?.let { it.isFinite() && it in 0f..5000f } == true &&
             fresh(location.source.observedAtEpochMs, now, LOCATION_MAX_AGE_MS)
+
+    /** A fetched grid observation keeps its provenance when the request's GPS later expires.
+     * Observation freshness uses capture time; receipt can finish later, up to saved analysis time.
+     * Acquisition itself still requires a real usable location in WeatherRequests.fetch.
+     */
+    fun assessWeather(weather: WeatherSnapshot?, observationTime: Long?, receivedBy: Long? = observationTime): WeatherAssessment {
+        if (weather == null) return WeatherAssessment(false, exclusion = "미연결")
+        val manual = weather.availability == Availability.MANUAL
+        if (!manual && weather.availability != Availability.AVAILABLE)
+            return WeatherAssessment(false, exclusion = weatherFailureLabel(weather))
+        if (!manual) {
+            val observed = weather.source.observedAtEpochMs
+            val fetched = weather.source.fetchedAtEpochMs
+            if (observationTime == null || observationTime <= 0 || observed == null || observed <= 0 ||
+                !fresh(observed, observationTime, WEATHER_MAX_AGE_MS))
+                return WeatherAssessment(false, exclusion = "미반영 · 관측 시각 확인 필요")
+            if (weather.source.name.isBlank() || fetched == null || receivedBy == null ||
+                receivedBy < observationTime || fetched < observed || fetched > receivedBy)
+                return WeatherAssessment(false, exclusion = "미반영 · 조회 출처·시각 확인 필요")
+        }
+        val temperature = weather.temperatureC?.takeIf { it.isFinite() && it in -80.0..60.0 }
+        val rain = weather.precipitationMm?.takeIf { it.isFinite() && it in 0.0..1000.0 }
+        val condition = weather.condition?.takeIf { it in WEATHER_CONDITIONS }
+        if (temperature == null && rain == null && condition == null)
+            return WeatherAssessment(false, exclusion = "미반영 · 유효 관측 항목 없음")
+        return WeatherAssessment(true, temperature, rain, condition)
+    }
+
+    /** Only fixed safe messages are displayed; provider details may contain untrusted values. */
+    private fun weatherFailureLabel(weather: WeatherSnapshot): String {
+        val detail = weather.source.detail.orEmpty()
+        return when {
+            weather.availability == Availability.STALE -> "오래된 정보 · 미반영"
+            weather.availability == Availability.PERMISSION_DENIED -> "위치 권한 없음 · 날씨 미조회"
+            detail.contains("인증키가 설정되지") -> "기상청 키 미설정"
+            detail.contains("시간 초과") || detail.contains("제한시간") -> "날씨 조회 시간 초과"
+            detail.contains("인증") || detail.contains("접근") -> "기상청 인증·접근 확인 필요"
+            detail.contains("한도") -> "기상청 요청 한도 초과"
+            detail.contains("실제 위치") -> "최근 실제 위치 미확인 · 날씨 미조회"
+            detail.contains("제공 지역 밖") -> "기상청 제공 지역 밖"
+            detail.contains("취소") -> "날씨 조회 취소"
+            detail.contains("진행 중") -> "날씨 조회 중"
+            detail.contains("연속 조회") -> "날씨 재조회 대기"
+            weather.availability == Availability.ERROR -> "날씨 연결·응답 오류"
+            else -> "미연결"
+        }
+    }
+
+    private val WEATHER_CONDITIONS = setOf("강수 없음", "비", "비/눈", "눈", "소나기", "빗방울", "빗방울눈날림", "눈날림")
 
     fun cached(weather: WeatherSnapshot, now: Long, failure: String? = null): WeatherSnapshot {
         val fresh = fresh(weather.source.observedAtEpochMs, now, WEATHER_MAX_AGE_MS)

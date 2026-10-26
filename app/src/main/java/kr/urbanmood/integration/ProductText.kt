@@ -4,7 +4,7 @@ import kr.urbanmood.contracts.*
 import java.util.Locale
 
 private fun points(value: Float?) = value?.takeIf { it.isFinite() }?.let { String.format(Locale.KOREA, "%.1f", it) }
-private fun scoreUnit(value: MoodScore) = if (value.contributions.any {
+private fun scoreUnit(value: MoodScore) = if (value.contributions.any { it.basis == ContributionBasis.WEATHER_RULE }) " 날씨점" else if (value.contributions.any {
     it.delta != null && it.basis == ContributionBasis.OBSERVED_FEATURE_STRENGTH
 }) " 강도" else "점"
 
@@ -16,6 +16,7 @@ private fun displayedScore(value: MoodScore): String {
         ContributionBasis.OBSERVED_FEATURE_STRENGTH to "조명 관측강도",
         ContributionBasis.LEGACY_HEURISTIC to "기존 규칙점수",
         ContributionBasis.SKY_COLOR_RULE to "하늘색 규칙점수",
+        ContributionBasis.WEATHER_RULE to "날씨 규칙점수",
     ).mapNotNull { (basis, label) ->
         val contributions = value.contributions.filter { it.basis == basis }
         if (contributions.isEmpty()) return@mapNotNull null
@@ -43,7 +44,7 @@ internal fun scoreDetailsText(value: MoodScoreSummary?): String {
                 val delta = points(item.delta)?.let { if (item.delta!! > 0) "+$it" else it }
                 val observedBasis = item.basis == ContributionBasis.OBSERVED_FEATURE_STRENGTH
                 val skyBasis = item.basis == ContributionBasis.SKY_COLOR_RULE
-                val unit = if (observedBasis) " 강도" else if (skyBasis) " 규칙점" else "점"
+                val unit = if (observedBasis) " 강도" else if (skyBasis) " 규칙점" else if (item.basis == ContributionBasis.WEATHER_RULE) " 날씨점" else "점"
                 val metricOnly = (observedBasis || skyBasis) && item.weight == 0f && item.delta == null && item.observedValue?.isFinite() == true
                 val observed = item.observedValue?.takeIf { it.isFinite() }?.let { String.format(Locale.KOREA, "%.4f", it) }
                 val displayed = if (metricOnly) "$observed ${item.unit.orEmpty()}" else delta?.plus(unit) ?: "미반영"

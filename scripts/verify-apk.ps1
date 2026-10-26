@@ -1,11 +1,24 @@
 param(
     [string]$Apk = (Join-Path (Split-Path $PSScriptRoot -Parent) 'app\build\outputs\apk\release\app-release.apk'),
-    [string]$Sdk = (Join-Path $env:LOCALAPPDATA 'Android\Sdk')
+    [string]$Sdk = (Join-Path $env:LOCALAPPDATA 'Android\Sdk'),
+    [string]$ExpectedPackage,
+    [string]$ExpectedCertificateSha256
 )
 $ErrorActionPreference = 'Stop'
 $buildTools = Join-Path $Sdk 'build-tools\36.0.0'
-& (Join-Path $buildTools 'apksigner.bat') verify --verbose $Apk
+$signature = & (Join-Path $buildTools 'apksigner.bat') verify --verbose --print-certs $Apk
 if ($LASTEXITCODE -ne 0) { throw 'APK signature verification failed.' }
+$certificateLine = $signature | Where-Object { $_ -match '^Signer #1 certificate SHA-256 digest: ([0-9a-fA-F]{64})$' } | Select-Object -First 1
+if (-not $certificateLine) { throw 'Missing signing certificate digest.' }
+$certificate = ($certificateLine -split ': ', 2)[1].ToLowerInvariant()
+if ($ExpectedCertificateSha256 -and $certificate -ne $ExpectedCertificateSha256.ToLowerInvariant()) { throw 'Unexpected APK signing certificate.' }
+$badging = & (Join-Path $buildTools 'aapt.exe') dump badging $Apk
+if ($LASTEXITCODE -ne 0) { throw 'APK manifest inspection failed.' }
+if ($badging -match '^application-debuggable') { throw 'Release APK must not be debuggable.' }
+$packageLine = $badging | Where-Object { $_ -match '^package:' } | Select-Object -First 1
+if ($packageLine -notmatch "name='([^']+)' versionCode='([^']+)' versionName='([^']+)'") { throw 'Missing APK package/version metadata.' }
+$packageName = $Matches[1]; $versionCode = $Matches[2]; $versionName = $Matches[3]
+if ($ExpectedPackage -and $packageName -ne $ExpectedPackage) { throw 'Unexpected APK package.' }
 & (Join-Path $buildTools 'zipalign.exe') -c -P 16 4 $Apk
 if ($LASTEXITCODE -ne 0) { throw 'APK 16KB ZIP alignment verification failed.' }
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -34,4 +47,4 @@ try {
     }
 } finally { $archive.Dispose() }
 $hash = (Get-FileHash -LiteralPath $Apk -Algorithm SHA256).Hash
-[pscustomobject]@{ apk = (Split-Path -Leaf $Apk); sha256 = $hash; signatureVerified = $true; zip16KBAligned = $true; nativeLibraries = $alignments } | ConvertTo-Json -Depth 4
+[pscustomobject]@{ apk = (Split-Path -Leaf $Apk); package = $packageName; versionCode = $versionCode; versionName = $versionName; debuggable = $false; certificateSha256 = $certificate; sha256 = $hash; signatureVerified = $true; zip16KBAligned = $true; nativeLibraries = $alignments } | ConvertTo-Json -Depth 4
