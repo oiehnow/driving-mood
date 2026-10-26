@@ -121,7 +121,7 @@ Android 프로토타입 **0.3.10** · 아래 화면은 0.3.8 촬영본이며 최
 
 <a href="https://www.youtube.com/shorts/8B-paUqTz0w"><img src="docs/product/assets/mobile-s25-20261026/youtube-mood-search.png" width="260" alt="Galaxy S25에서 낮 차가운 청량한 음악으로 검색한 YouTube 결과"></a>
 
-[▶ Galaxy S25 최신 모바일 테스트 영상](https://www.youtube.com/shorts/8B-paUqTz0w)
+[▶ Galaxy S25 모바일 테스트 영상](https://www.youtube.com/shorts/8B-paUqTz0w)
 
 ## Pleos 차량 화면
 
