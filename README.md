@@ -107,7 +107,7 @@ Android 프로토타입 **0.3.10** · 아래 화면은 0.3.8 촬영본이며 최
 
 0.3.8 실제 앱 화면 · 저장된 주행 분석 결과 재생.
 
-**[개발보고서 PDF 보기 · DrivingMood_이태현_개발보고서.pdf](docs/product/DrivingMood_이태현_개발보고서.pdf)**
+**[DrivingMood 개발보고서](docs/product/DrivingMood_이태현_개발보고서.pdf)**
 
 | 로고를 눌러 시작 | 무드 결과 | 분석 상세 |
 |:---:|:---:|:---:|
