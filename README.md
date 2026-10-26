@@ -8,7 +8,11 @@
 
 ## APK 다운로드
 
-두 앱의 서명된 release APK는 [같은 Release 페이지](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)에서 받을 수 있습니다. 대용량 모바일 APK는 Git의 `apk/` 폴더 대신 GitHub Releases에 제공합니다. **[정확한 한글 파일명으로 두 APK 받기 — ZIP](https://github.com/oiehnow/driving-mood/releases/download/v0.3.10/DrivingMood-release.zip)**: 압축을 풀면 아래 두 파일명이 그대로 보존됩니다. GitHub는 개별 자산 업로드의 한글·괄호를 자동 치환하므로 개별 링크의 다운로드 이름은 다를 수 있습니다.
+두 앱의 서명된 release APK는 [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)에서 받을 수 있습니다. 용량이 큰 모바일 APK는 GitHub Releases에 올렸습니다.
+
+**[Mobile·Pleos APK 받기 (ZIP)](https://github.com/oiehnow/driving-mood/releases/download/v0.3.10/DrivingMood-release.zip)**
+
+압축을 풀면 아래 파일명이 그대로 유지됩니다. 개별 APK는 GitHub에서 파일명의 한글과 괄호를 바꿀 수 있습니다.
 
 | 앱 | 파일 | 실행 환경 |
 |---|---|---|
@@ -52,17 +56,6 @@
 
 **결과 연결:** 사람·차량 위치는 별도로 관측하고, 세 의미 분할 결과는 **F2 규칙**으로 합칩니다. 합쳐진 영역의 색·빛과 시간에 따른 변화를 **자체 점수 계산**에 전달해 무드 키워드를 만듭니다. F2와 점수 계산은 모델이 아닌 처리 규칙입니다.
 
-휴대폰 분석 앱 0.3.10은 사람·차량을 찾는 **객체 검출 모델**과 픽셀별로 하늘·건물 등을 나누는 **세 가지 의미 분할 실행 구성**을 사용합니다. 각 구성의 결과에서 실제 색감과 빛을 측정하고, 자체 점수 규칙으로 무드 키워드를 만듭니다.
-
-| 사용 모델 | 역할 |
-|---|---|
-| **YOLO26n 객체 검출** | 사람·차량의 위치를 찾고, 사람 관측과 차량광 제외에 활용 |
-| **YOLO26n-sem-ADE20K · n320** | 도로·보도·사람·차량 등 기본 장면 분할 |
-| **YOLO26n-sem-ADE20K · n640** | 더 큰 입력으로 하늘 영역의 누락 보완 |
-| **YOLO26n-sem-ADE20K 기반 C320** | 건물·창문·간판 영역의 보조 판단 |
-
-위 의미 분할 결과는 **F2 결합 규칙**으로 합치며, 실제 색감·빛과 시간에 따른 관측은 **자체 무드 점수 규칙**으로 계산합니다.
-
 **실제 차량 주행 영상과 이미지 자료를 활용해 파인튜닝을 수행하고, 검증 결과를 복합 모델 구성에 반영했습니다.** 학습률·정규화 통계·초기 가중치 보존 규제를 비교하고, 간판을 잘못 찾는 경우와 기존 인식 성능의 하락을 함께 확인해 적용 범위를 정했습니다. [파인튜닝 코드·설정·가중치](models/semantic/finetuning03/README.md) · [실험·실패·채택 이유](docs/vision/MODEL_IMPROVEMENT_LOG.md)
 
 ## 현재 적용한 모델
@@ -73,7 +66,7 @@
 
 Ultralytics **YOLO26n** 객체 검출 모델(`yolo26n.pt`)을 640 입력의 Android용 ONNX로 변환했습니다. 사람의 위치·수·면적을 관측하고, 차량 불빛과 교통시설을 조명 계산에서 제외할 영역을 제공합니다. 기존 EfficientDet-Lite0와 같은 장면을 비교했을 때, 검토한 범위에서는 사람의 위치를 더 잘 찾고 사람이 아닌 곳을 잘못 잡는 경우가 줄었습니다. Android 실행도 확인해 nano 모델을 적용했습니다.
 
-작거나 가려진 사람의 누락과 차량 중복 박스가 남아 있습니다. 최신 시각 검토에서 표시된 보행자 후보의 신뢰도 0.316은 앱 사람 관측 기준 0.5에 미달했습니다. 화면에 박스가 보인다는 사실만으로 앱 관측 성공을 뜻하지 않으며, 개발 사례 비교를 전체 인원 재현율이나 정확도로 확대하지 않습니다. [공식 원본·변환·검증 자료](models/detector/yolo26n-mobile/README.md)
+작거나 가려진 사람의 누락과 차량 중복 박스가 남아 있습니다. 장면별 검토에서 표시된 보행자 후보의 신뢰도 0.316은 앱 사람 관측 기준 0.5에 미달했습니다. 화면에 박스가 보인다는 사실만으로 앱 관측 성공을 뜻하지 않으며, 개발 사례 비교를 전체 인원 재현율이나 정확도로 확대하지 않습니다. [공식 원본·변환·검증 자료](models/detector/yolo26n-mobile/README.md)
 
 ### YOLO26n-sem-ADE20K · n320 — 기본 의미 분할
 
@@ -85,23 +78,23 @@ Ultralytics **YOLO26n** 객체 검출 모델(`yolo26n.pt`)을 640 입력의 Andr
 
 **YOLO26n-sem-ADE20K**를 640 입력으로 실행하는 보조 구성입니다. 입력을 더 세밀하게 살펴 기본 모델의 보호 영역 밖에서 하늘로 분류한 픽셀만 반영합니다. 단독 교체에서는 사람·보도의 성능 하락이 나타나 하늘 보완 역할로 제한했습니다.
 
-최신 AI 시각 검토에서는 가지 사이 하늘, 어두운 밤하늘, 흐린 하늘의 누락 감소를 확인했습니다. 요금소의 노을 하늘과 세밀한 가지 경계는 여전히 어렵습니다. n640이 사람·차량으로 분류한 픽셀은 현재 결합 규칙에서 채택하지 않으므로, 그 보조 출력만으로 최종 사람·차량 누락이 복구되지는 않습니다. [해상도 후보 비교와 고정 결합 규칙](docs/vision/finetuning03/README.md)
+AI로 장면을 비교했을 때 가지 사이 하늘, 어두운 밤하늘, 흐린 하늘의 누락이 줄어든 사례를 확인했습니다. 요금소의 노을 하늘과 세밀한 가지 경계는 여전히 어렵습니다. n640이 사람·차량으로 분류한 픽셀은 현재 결합 규칙에서 채택하지 않으므로, 그 보조 출력만으로 최종 사람·차량 누락이 복구되지는 않습니다. [해상도 후보 비교와 고정 결합 규칙](docs/vision/finetuning03/README.md)
 
 ### YOLO26n-sem-ADE20K 기반 C320 — 건물·창문·간판 보완
 
 **C320은 YOLO26n-sem-ADE20K를 기반으로 한 건물·창문·간판 보조 모델**이며, 프로젝트의 C 실험에서 선택한 체크포인트를 뜻합니다. 앱에서는 320 입력으로 실행해 보호 영역과 하늘을 제외한 구조 판단에 사용합니다.
 
-C 모델은 단독 교체 시 차량 분류의 허용 하락 폭을 넘었으므로 전체 분할을 맡기지 않았습니다. 역할을 제한한 F2 구성이 사전 개발 기준과 후속 보조 평가를 통과해 적용됐지만, 창문 개선은 확인되지 않았고 최신 검토에서도 외벽·창·트럭을 간판으로 넓게 분류하는 오류가 남았습니다. 주석은 사람이 모든 픽셀을 확인한 정답이 아닙니다. [실제 학습 코드·설정·가중치](models/semantic/finetuning03/README.md) · [체크포인트 출처와 텐서 동일성](models/semantic/finetuning03/weights/provenance.json) · [후보별 성공·실패 기록](docs/vision/MODEL_IMPROVEMENT_LOG.md)
+C 모델은 단독 교체 시 차량 분류의 허용 하락 폭을 넘었으므로 전체 분할을 맡기지 않았습니다. 역할을 제한한 F2 구성이 사전 개발 기준과 후속 보조 평가를 통과해 적용됐지만, 창문 개선은 확인되지 않았고 장면별 검토에서도 외벽·창·트럭을 간판으로 넓게 분류하는 오류가 남았습니다. 주석은 사람이 모든 픽셀을 확인한 정답이 아닙니다. [학습 코드·설정·가중치](models/semantic/finetuning03/README.md) · [가중치 출처와 동일성 확인](models/semantic/finetuning03/weights/provenance.json) · [실험 결과와 채택 이유](docs/vision/MODEL_IMPROVEMENT_LOG.md)
 
 ### F2 결합과 자체 무드 계산
 
 **F2는 위 의미 분할 결과를 합치는 고정 규칙의 이름입니다.** 모든 프레임에 **n320 보호 영역 → n640 하늘 → C320 구조 → n320 기본값** 순서로 적용합니다. YOLO26n 객체 검출은 이 분할 결합과 별도로 실행합니다. 빛과 색은 합쳐진 영역의 실제 RGB에서 측정하며, 시간에 따른 관측을 누적해 자체 무드 점수 규칙에 전달합니다.
 
-최신 검토는 원본을 먼저 관찰하고 모델 이름을 가린 A/B를 비교한 **AI의 원본·예측 결과 비교**입니다. 하늘의 일부 영역의 개선과 간판 영역을 지나치게 넓게 잡는 오류를 함께 확인했으며 검토 의견이 달랐던 부분도 기록했습니다. 기존 개발 영상을 다시 사용했으므로 독립 시험이나 전체 정확도·개선율로 해석하지 않습니다. 새로운 영상과 실제 앱의 누적 관측 검증이 필요합니다. [장면별 시각 검토](docs/vision/VISUAL_REVIEW_20261025.md) · [현재 앱의 모델 연결과 한계](docs/vision/SEMANTIC_MODEL.md)
+검토 과정에서는 원본을 먼저 살핀 뒤 모델 이름을 가린 A/B 결과를 AI로 비교했습니다. 하늘 누락이 줄어든 사례와 간판 영역을 지나치게 넓게 잡는 오류를 함께 확인했고, 검토 의견이 달랐던 부분도 기록했습니다. 기존 개발 영상을 다시 사용한 비교이므로 독립 시험이나 전체 정확도·개선율을 뜻하지 않습니다. 새로운 영상과 실제 앱의 누적 관측 검증이 필요합니다. [장면별 검토](docs/vision/VISUAL_REVIEW_20261025.md) · [모델 구성과 한계](docs/vision/SEMANTIC_MODEL.md)
 
 ## 실제 앱 화면
 
-Android 프로토타입 **0.3.10** · 아래 화면은 0.3.8 촬영본이며 최신 날씨 근거·도로 조회 표시는 [검증 기록](docs/VALIDATION-0.3.10.md)을 참고하세요.
+Mobile **0.3.10** · 아래 화면은 0.3.8에서 촬영했습니다. 0.3.10의 날씨·도로 정보 표시는 [실행 기록](docs/VALIDATION-0.3.10.md)에서 확인할 수 있습니다.
 
 <img src="docs/product/assets/app-ui-0.3.8/analysis-transition.gif" width="360" alt="Driving Mood 촬영·분석·결과 화면">
 
@@ -132,11 +125,11 @@ Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 �
 | 큰 화면 | 3분할 화면 |
 |:---:|:---:|
 | [![Pleos 큰 화면 녹화 재생](https://i.ytimg.com/vi/xvGNWKhK-sA/hqdefault.jpg)](https://www.youtube.com/watch?v=xvGNWKhK-sA) | [![Pleos 3분할 화면 녹화 재생](https://i.ytimg.com/vi/PEK9LYrkSss/hqdefault.jpg)](https://www.youtube.com/watch?v=PEK9LYrkSss) |
-| [▶ 영상 재생](https://www.youtube.com/watch?v=xvGNWKhK-sA) | [▶ 영상 재생](https://www.youtube.com/watch?v=PEK9LYrkSss) |
+| [▶ 큰 화면 영상](https://www.youtube.com/watch?v=xvGNWKhK-sA) | [▶ 3분할 영상](https://www.youtube.com/watch?v=PEK9LYrkSss) |
 
-<sub>실제 Pleos 앱 환경 UI 테스트 화면</sub>
+<sub>Pleos 에뮬레이터 실행 화면</sub>
 
-[차량 화면과 연결 설계](docs/product/PLEOS_EXPERIENCE.md) · [Pleos release APK](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)
+[차량 화면과 연동 계획](docs/product/PLEOS_EXPERIENCE.md) · [Pleos APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)
 
 ## 원하는 분위기
 
@@ -148,7 +141,7 @@ Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 �
 
 ![환경 무드와 원하는 분위기](docs/product/assets/mood-keywords.png)
 
-## 프로토타입의 분석 매커니즘
+## 분석 흐름
 
 ![분석 요청부터 결과까지](docs/product/assets/request-flow.gif)
 
@@ -166,7 +159,7 @@ Pleos **0.1.1** · 무드 수동 시연, 로컬 음악 재생, 내비게이션 �
 
 ![관측 영역과 기여 점수, 시간 구간 누적](docs/product/assets/driving-v2/scoring-pipeline.png)
 
-[무드 점수 설계](docs/product/MOOD_SCORING.md) · [제품 구조와 Pleos 연동 계획](docs/product/ARCHITECTURE.md) · [설계 보고서 PDF](docs/product/DrivingMood_이태현_개발보고서.pdf)
+[무드 점수 설계](docs/product/MOOD_SCORING.md) · [제품 구조와 Pleos 연동 계획](docs/product/ARCHITECTURE.md) · [DrivingMood 개발보고서](docs/product/DrivingMood_이태현_개발보고서.pdf)
 
 ## 실제 주행 영상 분석
 
@@ -195,11 +188,11 @@ Android 8.0 이상을 지원합니다. [APK 빌드·설치 안내](docs/BUILD.md
 
 휴대폰 APK는 **F2 복합 의미분할 + YOLO26n 사람·차량 검출 + 자체 색·면적 점수 규칙**을 기기 안에서 실행합니다. 정확도 비교는 부분 주석의 개발 평가이며, 실제 휴대폰의 처리 시간·메모리·발열은 추가 확인이 필요합니다. Pleos 0.1.1은 내비게이션과 음악을 연결한 별도 UI 시연 앱으로, 이 복합 모델을 실차 카메라에 연결한 빌드는 아닙니다. [모델과 재현 자료](docs/vision/SEMANTIC_MODEL.md)
 
-버전별 빌드·촬영·분석 검사 결과는 [검증 기록](docs/VALIDATION.md)에서 확인할 수 있습니다. Galaxy S25+ 실기기 검증은 진행할 항목입니다.
+버전별 빌드·촬영·분석 검사 결과는 [검증 기록](docs/VALIDATION.md)에서 확인할 수 있습니다. Galaxy S25의 촬영·분석과 위치·날씨 반영은 [모바일 테스트 영상](https://www.youtube.com/shorts/8B-paUqTz0w)에 담았습니다. 처리 시간·메모리·발열 측정과 Pleos 차량 연결은 추가 검증이 필요합니다.
 
 ## 현재의 문제점과 개선 방향
 
-SegFormer B0를 추가 학습해 비교했지만, **기존 모델을 교체할 만큼의 개선은 확인하지 못했습니다.** 창문 인식 문제도 남아 있어 앱 적용 작업은 중단했습니다. 학습 결과와 작업 중인 코드는 보관했으며, 현재 배포 중인 휴대폰·Pleos 앱은 그대로입니다. [보고서의 개선 계획](docs/product/ARCHITECTURE.md#10-현재의-문제점과-개선-방향)
+SegFormer B0를 추가 학습해 비교했지만, **기존 모델을 교체할 만큼의 개선은 확인하지 못했습니다.** 창문 인식 문제도 남아 있어 앱 적용 작업은 중단했습니다. 학습 결과와 작업 중인 코드는 보관했으며, 현재 배포 중인 휴대폰·Pleos 앱은 그대로입니다. [개선계획](docs/product/ARCHITECTURE.md#10-현재의-문제점과-개선-방향)
 
 앞으로 개발을 다시 진행할 때는 다음 항목부터 확인할 계획입니다. 아직 완료한 기능은 아닙니다.
 
@@ -210,7 +203,7 @@ SegFormer B0를 추가 학습해 비교했지만, **기존 모델을 교체할 �
 
 ## 기술 문서
 
-- [제품 구조와 개발 계획](docs/product/ARCHITECTURE.md) · [설계 보고서 PDF](docs/product/DrivingMood_이태현_개발보고서.pdf)
+- [제품 구조와 개발 계획](docs/product/ARCHITECTURE.md) · [DrivingMood 개발보고서](docs/product/DrivingMood_이태현_개발보고서.pdf)
 - [영상 분석](docs/vision/README.md) · [분석 데이터 계약](docs/ANALYSIS_CONTRACT_V2.md) · [무드 점수 설계](docs/product/MOOD_SCORING.md)
 - [실제 파인튜닝 과정과 전후 평가](docs/vision/FINETUNING.md) · [학습 코드와 재현 기록](models/semantic/finetuning-pilot01/README.md)
 - [환경·음악 출처](docs/context-audio/SOURCES.md) · [외부 라이선스](THIRD_PARTY_NOTICES.md)

@@ -1,12 +1,12 @@
-# Driving Mood · Pleos UI prototype
+# Driving Mood Pleos 앱
 
 Pleos Connect에서 무드 시연과 조명 미리보기, 로컬 음악 재생, 기본 내비게이션 연결을 제공하는 독립 Android 앱입니다. 제작자 **oieh**.
 
-**0.1.1 / versionCode 2** · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/pleos-preview-v0.1.1) · [검증 기록](../docs/VALIDATION-PLEOS-0.1.1.md)
+**0.1.1 / versionCode 2** · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10) · [검증 기록](../docs/VALIDATION-PLEOS-0.1.1.md)
 
-## 실행
+## 개발 환경에서 실행
 
-Android Studio에서 프로젝트를 열고 `pleos-preview` 모듈과 Pleos AVD를 선택합니다.
+Android Studio에서 프로젝트를 열고 `pleos-preview` 모듈과 Pleos AVD를 선택합니다. 아래 명령은 개발용 debug APK를 빌드합니다.
 
 ```powershell
 .\gradlew.bat :pleos-preview:assembleDebug

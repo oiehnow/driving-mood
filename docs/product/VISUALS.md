@@ -10,7 +10,7 @@ README의 도식은 제품 구조와 현재 알고리즘을 설명합니다. [�
 
 ![차가운·우울·활기 넘침 키워드의 사용 방식](assets/mood-keywords.png)
 
-## 프로토타입의 분석 매커니즘
+## 분석 흐름
 
 ![요청형 분석 처리 순서](assets/request-flow.gif)
 

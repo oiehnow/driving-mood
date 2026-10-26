@@ -10,7 +10,7 @@
 
 캡처의 하단 로고는 실행 후 표시된 최근 앱 영역이다.
 
-[에뮬레이터 설치 APK](https://github.com/oiehnow/driving-mood/releases/tag/pleos-preview-v0.1.1) · [빌드와 실행](../../pleos-preview/README.md)
+[Pleos APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10) · [빌드와 실행](../../pleos-preview/README.md)
 
 [전체화면 영상 · 소리 포함](https://github.com/oiehnow/driving-mood/releases/download/pleos-preview-v0.1.1/DrivingMood-Pleos-0.1.1-wide.mp4) · [3분할·세부 메뉴 영상 · 소리 포함](https://github.com/oiehnow/driving-mood/releases/download/pleos-preview-v0.1.1/DrivingMood-Pleos-0.1.1-split.mp4)
 
@@ -18,7 +18,7 @@
 |---|---|
 | ![시작](assets/pleos-0.1.1/start.png) | ![분석](assets/pleos-0.1.1/analyzing.png) |
 
-| 음악 재생·조명 연동 | 앨범 이미지 |
+| 음악 재생·조명 미리보기 | 앨범 이미지 |
 |---|---|
 | ![재생](assets/pleos-0.1.1/playing.png) | ![앨범](assets/pleos-0.1.1/album-detail.png) |
 

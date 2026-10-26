@@ -24,7 +24,7 @@ python scripts/audit-apk-text.py app/build/outputs/apk/release/app-release.apk
 
 결과 APK는 `app/build/outputs/apk/release/app-release.apk`입니다. 앱 ID는 `kr.urbanmood`, 최소 API는 26, target/compile API는 36입니다. 빌드·라이브러리 버전은 Gradle 설정과 [런타임 의존성 목록](runtime-dependencies.txt)에서 확인할 수 있습니다.
 
-표시 이름은 Driving Mood입니다. 기존 설치의 업데이트를 위해 앱 ID·패키지·서명키를 유지합니다. 모바일 소스 버전은 0.3.10 / versionCode 18, Pleos는 0.1.1 / versionCode 2입니다. 두 모듈은 `-Module all`로 함께 서명 빌드할 수 있습니다. [최신 검증 기록](VALIDATION-0.3.10.md)을 확인하세요.
+표시 이름은 Driving Mood입니다. 기존 설치의 업데이트를 위해 앱 ID·패키지·서명키를 유지합니다. 모바일 소스 버전은 0.3.10 / versionCode 18, Pleos는 0.1.1 / versionCode 2입니다. 두 모듈은 `-Module all`로 함께 서명 빌드할 수 있습니다. [0.3.10 검증 기록](VALIDATION-0.3.10.md)을 확인하세요.
 
 APK 문구 검사는 Python 3.11에서 검증했습니다. 고정된 ONNX 의존성의 Windows wheel을 사용하려면 Python 3.11을 권장합니다. DEX 문자열·자산·리소스와 네이티브 바이너리의 인쇄 가능한 문자열을 검사하며, 글꼴은 fontTools로 이름·저작권 문자열을 정식 인코딩으로 읽습니다. 글자 윤곽 좌표는 UI 문장으로 취급하지 않습니다. 일치한 인증정보나 개인 경로 자체는 출력하지 않습니다. 제작사 원본과 동일한 네이티브 파일의 빌드 경로는 [원본 대조 기록](upstream-native-metadata.json)에 따라 별도 표시합니다. 현재 사용자의 홈/작업 경로와 토큰 패턴은 여전히 오류로 처리합니다.
 
