@@ -30,6 +30,14 @@ Driving Mood **0.3.8**.
 |---|---|---|
 | <img src="assets/app-ui-0.3.8/06-music-page.png" width="240" alt="음악 추천과 내 음악"> | <img src="assets/app-ui-0.3.8/07-recommendation-connection.png" width="240" alt="음악 추천 이유"> | <img src="assets/app-ui-0.3.8/08-settings-page.png" width="240" alt="설정과 제작자 oieh"> |
 
+## Galaxy S25에서 음악 검색으로 연결
+
+아래는 사용자가 제공한 최신 모바일 테스트 화면입니다. 분석한 **낮·차가운·청량한** 분위기로 YouTube 음악 검색을 엽니다. 외부 검색 결과이며 앱 안에서 YouTube 음원을 재생하는 기능은 아닙니다.
+
+<a href="https://www.youtube.com/shorts/8B-paUqTz0w"><img src="assets/mobile-s25-20261026/youtube-mood-search.png" width="280" alt="Galaxy S25의 낮 차가운 청량한 음악 검색 결과"></a>
+
+[Galaxy S25 최신 테스트 영상](https://www.youtube.com/shorts/8B-paUqTz0w)
+
 ## 아이콘
 
 <p align="center"><img src="assets/brand/driving-mood-icon-round.png" width="180" alt="Driving Mood 대표 아이콘"></p>

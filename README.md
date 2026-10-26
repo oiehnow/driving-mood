@@ -113,6 +113,14 @@ Android 프로토타입 **0.3.10** · 아래 화면은 0.3.8 촬영본이며 최
 
 [음악·조명과 설정 화면 보기](docs/product/APP_UI.md) · [APK 다운로드](https://github.com/oiehnow/driving-mood/releases/tag/v0.3.10)
 
+### Galaxy S25 모바일 테스트
+
+분석 결과가 **낮·차가운·청량한** 분위기로 나왔을 때 YouTube에서 해당 키워드로 음악을 찾는 화면입니다. YouTube 검색은 외부 앱에서 열리며, 사용자가 등록한 로컬 음악의 앱 내 재생과는 별개입니다.
+
+<a href="https://www.youtube.com/shorts/8B-paUqTz0w"><img src="docs/product/assets/mobile-s25-20261026/youtube-mood-search.png" width="260" alt="Galaxy S25에서 낮 차가운 청량한 음악으로 검색한 YouTube 결과"></a>
+
+[▶ Galaxy S25 최신 모바일 테스트 영상](https://www.youtube.com/shorts/8B-paUqTz0w)
+
 ## Pleos 차량 화면
 
 ![Pleos에서 실행한 Driving Mood](docs/product/assets/pleos-0.1.1/final-split-result.png)
